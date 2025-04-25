@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pengenalan OOP</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+	<!-- 00:02 -->
+
+	<h1>Pengenalan OOP</h1>
+	<p>OOP / object oriented programming merupakan sudut pandang bahasa programan yang berkonsep object</p>
+	<p>Ada banyak sudut pandang OOP, namun OOP yang saat ini paling populer</p>
+	<p>Ada beberapa istilah yang perlu dimengerti dalam OOP yaitu Object dan Class</p>
+
+	<h2>Apa itu object</h2>
+	<p>Merupakan data yang berisi field / properties / attribute dan method / fungsi / behavior</p>
+	
+	<h2>Apa itu class</h2>
+	<p>merupakan bluprint, prototype atau cetakan untuk membuat object</p>
+	<p>Class berisikan deklarasi semua properties dan functions yang dimiliki oleh object</p>
+	<p>Setiap object selalu dibuat dari class</p>
+	<p>Dan sebuah class bisa membuat object tanpa batas</p>
+
+	<h2>OOP di JS</h2>
+	<p>Js sendiri sebenarnay sejak awal dibuat sebagai bahasa prosedural, bukan bahasa programan berorientas object</p>
+	<p>Oleh karena itu, implementasi OOP di JS memang tidak sedetail bahasa programan lain yang memang dari awal merupakan bahasa programan OOP seperti java atau C++</p>
+
+	<h1>Dari chatgpt</h1>
+
+	<h2>🧠 Apa Itu OOP?</h2>
+
+	<p>Object-Oriented Programming adalah cara berpikir dan menulis kode berbasis objek. Di dalam OOP, kita menganggap semuanya adalah objek yang punya:</p>
+
+	<p><i>Property → data atau ciri-ciri</i></p>
+	<p><i>Method → fungsi atau kemampuan</i></p>
+	
+	<h2>📦 Analogi Gampang: "Mobil"</h2>
+	<p>Bayangin kamu bikin aplikasi showroom mobil.</p>
+<pre><code>
+const mobil = {
+	merek: "Toyota",
+	warna: "Hitam",
+	nyalakan: function () {
+		console.log("Mobil dinyalakan 🚗");
+	}
+};
+	
+mobil.nyalakan();
+
+</code></pre>
+
+	<p><b>Objek mobil di atas punya:</b></p>
+	<p><i>Properti → merek, warna</i></p>
+	<p><i>Method → nyalakan()</i></p>
+
+	<h1>🎯 Tujuan OOP</h1>
+	<p><i>Modularitas → Bagian-bagian kode dipisah rapi jadi objek.</i></p>
+	<p><i>Reusabilitas → Sekali buat objek/class, bisa dipakai berulang.</i></p>
+	<p><i>Efisiensi → Gampang dikelola, apalagi proyek besar.</i></p>
+	<p><i>Encapsulation → Lindungi data agar gak sembarangan diubah.</i></p>
+	<p><i>Inheritance → Bisa "menurunkan" kemampuan ke objek lain.</i></p>
+	<p><i>Polymorphism → Objek bisa punya bentuk/metode berbeda.</i></p>
+
+	<h2>🛠 Konsep Dasar OOP</h2>
+
+	<table>
+		<tr>
+			<th>Konsep</th>
+			<th>Arti Singkat</th>
+		</tr>
+		<tr>
+			<td>Class</td>
+			<td>cetakan / tempalte untuk bikin object</td>
+		</tr>
+		<tr>
+			<td>Object</td>
+			<td>Hasil nyata dari class</td>
+		</tr>
+		<tr>
+			<td>Constructor</td>
+			<td>Fungsi yang otomatsi jalan saat object dibuat</td>
+		</tr>
+		<tr>
+			<td>Method</td>
+			<td>Fungsi yang ada didalam class / obejct</td>
+		</tr>
+		<tr>
+			<td>Inheritance</td>
+			<td>Pewarisan dari class ke class lain</td>
+		</tr>
+		<tr>
+			<td>Encapsulation</td>
+			<td>Menyembunyikan data dari akses langsung</td>
+		</tr>
+		<tr>
+			<td>Polymorphism</td>
+			<td>Kemampuan object berperilaku beda</td>
+		</tr>
+	</table>
+
+	<h2>✅ JavaScript Dukung OOP?</h2>
+	<p>Iya banget! JavaScript adalah object-based language, dan sejak ES6 (ECMAScript 2015), kita bisa bikin class pakai keyword class seperti di bahasa pemrograman lain.</p>
+
+	<h3>📌 Contoh Ringan Class di JavaScript</h3>
+
+	<script>
+		{
+			class orang {
+				constructor(nama, umur) {
+					this.nama = nama;
+					this.umur = umur;
+				}
+
+				sapa() {
+					console.log(`Hello, saya ${this.nama}, umurku ${this.umur}`)
+				}
+			}
+
+			const orang1 = new orang("Budi", 22);
+			orang1.sapa();
+		}
+	</script>
+		
+</body>
+</html>

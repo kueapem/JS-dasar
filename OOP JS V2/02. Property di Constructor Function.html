@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Property di constructor fungsi</title>
+</head>
+<body>
+
+	<!-- 00:18 -->
+
+	<h1>Property di constructor fungsi</h1>
+	<p>Sebenarnya setelah kita membuat object, kita bisa dengan mudah menambahkan property ke dalam object tersebut hanya dengan menggunakan nama variable nya, diikuti tanda titik dan nama property nya</p>
+	<p>Namun jika seperti itu, alhasil, constructor fungsi yang sudah kita buat tidak terlalu berguna, karean property nya hanya ada didalam object yang kita tambahkan property</p>
+	<p>Untuk menambahkan property didalam semua object yang dibuat dari constructor function, kita bisa menggunakan kata kunci this, lalu diikuti dengan nama property nya.</p>
+	
+	<script>
+		{
+			function Person() {
+				this.nama = ""
+				this.umur = ""
+			}
+
+			const kenny = new Person();
+			kenny.nama = "Kenny";
+			const lima = new Person();
+
+			console.log(kenny);
+			console.log(lima);
+		}
+	</script>
+</body>
+</html>
