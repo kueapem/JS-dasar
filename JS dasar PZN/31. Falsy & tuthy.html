@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>31. Falsydan truty</title>
+	</head>
+	<body>
+		<!-- 03:49:00 -->
+
+		<h1>Falsy dan truthy</h1>
+
+		<h2>a. falsy</h2>
+		<p>adalah nilai ketika konteksnya dalam boolean berupa false</p>
+		<p>Ini fitur unik js yang berguna namun membingiungkan.</p>
+		<p>Jadi di js itu, kondisi itu tidak hanya terjadi di boolean, namun diluar boolean pun bisa, namun kita perlu tahu data / nilai yang dianggap falsy / false</p>
+
+		<p><b>Data dianggap falsy dintaranya:</b></p>
+		<p>false -> boolean false</p>
+		<p>0, -0 -> nol dan negative nol</p>
+		<p>"", '' -> string kosong</p>
+		<p>undefined</p>
+		<p>null</p>
+		<p>NaN</p>
+
+		<p>jadi intinya nanti kita bisa bermain boolean tanpa terikat dengan data / nilai true dan false doang, namun dengan data diatas juga sebagai aturannya</p>
+		<p>Data diatas dianggap false semua</p>
+
+		<h2>b.truthy</h2>
+		<p>Data yang bernilai true</p>
+		<p>Data yang dianggap true adalah data selain yang bernilai falsy / false (kebalian falsy)</p>
+
+		<p><b>Contoh</b></p>
+
+		<script>
+			{
+				let data = "false"; // string kosong
+				if (data) {
+					document.writeln(`<p>True</p>`);
+				} else {
+					document.writeln(`<p>False</p>`);
+				}
+			}
+		</script>
+	</body>
+</html>

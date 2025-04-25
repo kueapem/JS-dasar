@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>45. Default paramter</title>
+</head>
+<body>
+
+	<!-- 05:20:11 -->
+
+	<h1>Default Paramter</h1>
+
+	<p>Kita bisa berikan nilai default ke paramter, artinya jika kita tidak mengirimkan data ke paramter atau kita kirim data undefined, maka secara otomatis akan diisi oleh default value</p>
+
+	<script>
+		{
+			function hello(first, last = "Ken") {
+				document.writeln(`<p>Hello ${first}</p>`);
+				document.writeln(`<p>Hello ${last}</p>`);
+			}
+			hello();
+		}
+
+		{
+			let defaultParam = "Ini default";
+			function hello(first, last = defaultParam) {
+				document.writeln(`<p>Hello ${first}</p>`);
+				document.writeln(`<p>Hello ${last}</p>`);
+			}
+
+			hello();
+		}
+	</script>
+	
+</body>
+</html>

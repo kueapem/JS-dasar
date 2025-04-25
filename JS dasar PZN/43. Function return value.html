@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>43. Function return value</title>
+</head>
+<body>
+
+	<!-- 05:01:26 -->
+
+	<h1>Function return value</h1>
+
+	<p>Secara dedault fungsi itu tidak menghasilkan value apapun, namun jika kita ingin, kita bisa membuat fungsi mengembalikan value</p>
+	<p>Agar function menghasilkan value, kita bisa menggunakan kata kunci return didala functionya</p>
+	<p>Dan dialam block function, untuk menghasilkan nilai tersebut, kita harus menggunakan kata kunci return, lalu di ikuti dengan data yang ingin dihasilkan</p>
+	<p>Function hanya bisa mengembalikan satu data, jika kita ingin mengembalikan beberapa data sekaligus, kita bisa menggunakan array sebagai return valuenya.</p>
+	
+	<p><b>Contoh Analoginya</b></p>
+	<p><i>function pesanMakanan(menu) {</i></p>
+	<p><i>	return "Ini pesanan Anda: " + menu;</i></p>
+	<p><i>}</i></p>
+	<p><i>let makanan = pesanMakanan("Nasi Goreng");</i></p>
+	<p><i>console.log(makanan); // Output: Ini pesanan Anda: Nasi Goreng</i></p>
+
+	<p><b>Analogi lainnya</b></p>
+
+	<p><i>function tarikUang(saldo, jumlahTarik) {</i></p>
+	<p><i>if (jumlahTarik > saldo) {</i></p>
+	<p><i>	return "Saldo tidak cukup!";</i></p>
+	<p><i>}</i></p>
+	<p><i> saldo - jumlahTarik; // ATM mengembalikan saldo baru</i></p>
+	<p><i>}</i></p>
+	<p><i></i></p>
+	<p><i>let sisaSaldo = tarikUang(500000, 200000);</i></p>
+	<p><i>console.log(sisaSaldo); // Output: 300000</i></p>
+
+	<script>
+		{
+			function toiletUmum (bayar) {
+				return `<p>Kamu harus bayar ${bayar} untuk menggunakan toilet</p>`
+			}
+			let uang = toiletUmum(2000);
+			document.writeln(uang);
+			
+			// jika digunakan lagi
+			let duaOrang = uang * 2;
+			document.writeln(duaOrang);
+			
+		}
+	</script>
+
+	<p><b>Function juga bisa return value dari array</b></p>
+
+	<script>
+		{
+			function getUser() {
+				return ["Kenny", 26, "Banten"];
+			}
+			let user = getUser();
+			document.writeln(`<p>${user[0]}</p>`);
+			document.writeln(`<p>${user[1]}</p>`);
+			document.writeln(`<p>${user[2]}</p>`);
+		}
+	</script>
+
+	<p><b>Function dengan parameter dan return value</b></p>
+	<script>
+		{
+			function sayHello (firstName, lastName) {
+				return `Hello ${firstName} ${lastName}`;
+			}
+
+			const result = sayHello("Kenny", "ken");
+			document.writeln(`<p>${result}</p>`);
+		}
+	</script>
+
+	<p><b>Return value lebih dari satu</b></p>
+
+	<script>
+		{
+			function getFinalScore(value) {
+				if (value > 75) {
+					return "A";
+				} else if (value > 70 ) {
+					return "B";
+				} else if (value > 65) {
+					return "C";
+				} else {
+					return "D";
+				}
+			}
+
+			let score = getFinalScore(88);
+			document.writeln(`<p>${score}</p>`);
+		}
+	</script>
+
+	<h2>Hentikan eksekusi program denagn return</h2>
+	<p>Saat mengggunakan kata kunnci return, maka kode setelah return tidak akan di eksekusi lagi</p>
+	<p>Kita bisa menggunakan return untuk hentikan eksekusi sebuah function</p>
+
+	<script>
+		{
+			function pergiKeToko(cuaca) {
+				if (cuaca === "hujan") {
+					document.writeln(`Hujan, gak jadi ketoko`);
+					return;
+				}
+				document.writeln(`Tidak hujan, jadi ketoko`);
+			}
+
+			pergiKeToko("hujan");
+			pergiKeToko("cerah");
+
+
+		}
+	</script>
+
+	<p><b>Parameter dan return</b></p>
+
+	<script>
+		{
+			function persegi(sisi) {
+				return sisi * sisi;
+			}
+
+			let luasSisi = persegi(2);
+			document.writeln(`<p>${luasSisi}</p>`);
+		}
+	</script>
+
+	<p><b>Contoh penggunaan hentikan fungsi dengan return di array (mencari data di array)</b></p>
+
+	<script>
+		{
+			let data = [1,2,3,4,5,6,7,8];
+			function cariData(data, search) {
+				for (const element of data) {
+					if (element === search) {
+						return true;
+					}
+				}
+				return false;
+			}
+
+			let Found = cariData(data, 8);
+			document.writeln(`<p>${Found}</p>`);
+		}
+	</script>
+	
+</body>
+</html>

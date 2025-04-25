@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Kata kunci this</title>
+</head>
+<body>
+
+	<!-- 6:52 -->
+
+	<h1>Kata kunci this</h1>
+	<p>Kata kunci this adalah referensi ke object milik siapa</p>
+	<p>Tiap lokasi kata this, bisa berbeda beda referensi pemiliknya</p>
+	<p>Dalam object method, this merupakan referensi ke object pemiliki functionya</p>
+	<p>Di global scope, this referensinya ke global object (di browser biasanya window)</p>
+	<p>Di function, this merupakan referensinya ke ghlobal object (dibrowser biasanay window)</p>
+	<p>Di fungsi dengan strict mode (akan dibahas nanti), this adalah undefined</p>
+	<p>Dalam event, this merupakan referensi ke element yang menerima event (dibahas di materi document oibject method)</p>
+
+	<h2>Analogi</h2>
+
+	<p>📦 Analogi Simpel: KTP dan Pemilik</p>
+	<p>Bayangin kamu bikin KTP (function) dan di dalamnya tertulis "Saya tinggal di Kota A".</p>
+	<p>Tapi kamu kasih KTP itu ke 3 orang berbeda. Maka:</p>
+	<ul>
+		<li>Orang 1: "Saya tinggal di Kota A"</li>	
+		<li>Orang 2: "Saya tinggal di Kota B"</li>	
+		<li>Orang 3: "Saya tinggal di Kota C"</li>	
+	</ul>
+	<p>Padahal isi KTP-nya sama, tapi this itu otomatis menyesuaikan siapa pemiliknya saat dipanggil.</p>
+
+	<h2>Kode this di global scope</h2>
+	<script>
+		{
+			console.info(this);
+		}
+
+		{
+			function say(){
+				console.info(this); // masih window masuknya ke global scope
+			}
+
+			say();
+		}
+
+		{
+			function out() {
+				function inner() {
+					console.info(this); // masih window juga meskipun nested fungsi
+				}
+				inner()
+			}
+			out();
+		}
+	</script>
+
+	<h2>Kode this di object method</h2>
+	<script>
+		{
+			const person = {
+				nama: "kenny",
+				sapa: function (nilai) {
+					console.info(this);
+					console.info(`Hi ${nilai}, namaku ${this.nama}`);
+				}
+			}
+
+			person.sapa("kenny")
+		}
+	</script>
+
+	<h2>Contoh perbandingan</h2>
+	<script>
+
+		// pakai this
+		{
+			let person = {
+				nama: "rui",
+				sapa: function () {
+					console.log("Halo, saya " + this.nama);
+				}
+			}
+
+			person.sapa();
+			// misal kita ubah proerty nama
+			let person2 = person;
+			person2.nama = "kenny";
+			person2.sapa(); // halo, saya kenny
+		}
+
+	</script>
+</body>
+</html>

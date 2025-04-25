@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>30. Optional chaining</title>
+</head>
+<body>
+
+	<!-- 03:41:00 -->
+
+	<h2>Optional chaining</h2>
+
+	<p>operator chining (?) adalah op yang diugunakan untuk mengamankan ketika kita ingin mengakses propertu sebuah object dari data nullihs</p> 
+	<p>jika kita akses property dari sebuah object dari data nullish tanpa op chaining, maka akan error</p>
+
+	<p>conoth error</p>
+
+	<script>
+		{
+			// let person = {}; // error karena data gak ada apapun
+			// document.writeln(`${person.address.country}`);
+		}
+	</script>
+
+	<p>contoh penanganan dengan if</p>
+	<script>
+		{
+			let person = {};
+			let say;
+			if(person.address !== undefined && person.address !== null) {
+				say = person.address.country;
+			}
+
+			document.writeln(`<p>${say}</p>`);
+		}
+	</script>
+
+	<p><b>Contoh dengan optional chaining</b></p>
+
+	<script>
+		{
+			let person = {
+				nama: "kkeny",
+				address : {
+					country : "id"
+				}
+			};
+			document.writeln(`<p>${person?.address?.country}</p>`);
+		}
+
+		{
+			let x = {
+				nama : "Kenny"
+			}
+
+			document.writeln(`<p>${x?.xx}</p>`);
+			document.writeln(`<p>${x?.nama}</p>`);
+		}
+	</script>
+
+	<h2>Jika nama propertinya memiliki spasi</h2>
+
+	<script>
+		{
+			let namaMahasiswa = {
+				"Kelas 1" : {
+					"nama 1" : "Asuna",
+					"nama 2" : "Kenny"
+				},
+				"Kelas 2" : {
+					"nama 1" : "Kirito"
+				}
+			}
+
+			let cekNamaMahasiswa = namaMahasiswa?.["Kelas 1"]?.["nama 1"];
+			document.writeln(`<p>${cekNamaMahasiswa}</p>`);
+		}
+	</script>
+	
+</body>
+</html>

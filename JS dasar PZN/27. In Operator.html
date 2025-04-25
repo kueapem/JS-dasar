@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>2 In Operator</title>
+</head>
+<body>
+	<!-- 03:25:00 -->
+	 <h1>In operator</h1>
+
+	 <p>in operator adal sebuah kata kunci untuk cek apakah property ada dalam obj atau tidak</p>
+	 <p>jika ada akan true, jika tidak akan false</p>
+	 <p>tidak hanya di object tapi juga di array</p>
+
+	 <p><b>Di obj</b></p>
+	 <script>
+		{
+			let i = {
+				nama : "ken"
+			}
+			if ("alamat" in i) {
+				document.writeln(`<p>Ada</p>`);
+			} else{
+				document.writeln(`<p>Gak ada</p>`);
+			}
+			
+			
+
+			if ("nama" in i) {
+				document.writeln(`<p>Ada</p>`);
+			} else{
+				document.writeln(`<p>Gak ada</p>`);
+			}
+
+			// bisa juga gini
+
+			let data = {
+				nama : "rui",
+				alamat : "banten"
+			}
+
+			let inHasil = "nama" in data;
+			document.writeln(`<p>${inHasil}</p>`);
+		}
+	 </script>
+
+	 <p><b>Di array</b></p>
+
+	 <script>
+		{
+			let i = ["ken", "sudo"]
+			if (1 in i) {
+				document.writeln(`<p>Ada</p>`);
+			} else {
+				document.writeln(`<p>Gak ada</p>`);
+			}
+
+			// bisa gini juga
+			const o = 1 in i;
+			document.writeln(`<p>${o}</p>`);
+		}
+	 </script>
+
+	 <p><b>Contoh lain</b></p>
+
+	 <script>
+		{
+			let i = {
+				nama : "kek",
+				alamat : "serang"
+			}
+			if ("a" in i) {
+				document.writeln(`<p>${i.a}</p>`);
+			} else {
+				document.writeln(`<p>${i.a}</p>`);
+			}
+
+			let t = [1,2,3,4];
+			if (2 in t) {
+				document.writeln(`<p>${t[2]}</p>`);
+			} else {
+				document.writeln(`<p>${t[2]}</p>`);
+			}
+		}
+	 </script>
+
+	 <p><b>Perlu diingat</b></p>
+	 <p>in operator hanya mengecek data nya ada tau tidak ada</p>
+	 <p>meskipun datanya undefined atau pun null, maka dianggap add</p>
+
+	 <script>
+		{
+			// let k = {
+			// 	nama : undefined
+			// }
+			// if ("nama" in k) {
+			// 	alert("ada");
+			// } else {
+			// 	alert("gak ada");
+			// }
+
+			// let y = [null, 1, 2, 3];
+			// if (0 in y) {
+			// 	alert("ada")
+			// } else {
+			// 	alert("tidak ada")
+			// }
+		}
+	 </script>
+
+	 <p>untuk atasinya tambhakn != undefined / null</p>
+
+	 <script>
+		{
+			let m = {
+				nama : undefined
+			}
+			if ("nama" in m && m.nama != undefined) {
+				alert("ada")
+			} else {
+				alert("gak ada")
+			}
+		}
+	 </script>
+</body>
+</html>

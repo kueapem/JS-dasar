@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>21. If else dan else if expression</title>
+</head>
+<body>
+
+	<!-- 02:44:12 -->
+	 <h1>IF exxpression</h1>
+
+	 <p>if expression adalah salah satu percabanagn di js</p>
+	 <p>percabangan artinya, kita bisa eksekusi kode program tertentu ketika kondisi tertentu terpenuhi (boolean)</p>
+	 <p>Hampir semua bahasa programmer ada if expressionnya</p>
+
+	 <script>
+		{
+			let nilai = 90;
+			if (nilai > 75){
+				document.writeln(`<p>Lulus</p>`);
+			}
+		}
+	 </script>
+
+	 <h2>Else expression</h2>
+	 <p>blok if akan di eksekusi ketika nilainya terpenuhi / true</p>
+	 <p>Jika nilanya false, maka kita butuh block baru bernama else.</p>
+	 <p>else merupakan kode program yang akan di eksekusi apabila kondisi if tidak terpenuhi / false</p>
+
+	 <script>
+		{
+			let nilai = 67;
+			if (nilai > 75) {
+				document.writeln("<p>Lulus</p>");
+			} else {
+				document.writeln("<p>Gagal</p>");
+			}
+		}
+	 </script>
+
+	 <h1>else if expression</h1>
+	 <p>Kadang dalam if, kita butuh beberapa kondisi</p>
+	 <p>misal kasus kelulusan dengan nilai baik, cukup baik, buruk</p>
+	 <p>disana ada 3 kondisi nih</p>
+	 <p>kita bisa menggunakan else if</p>
+
+	 <script>
+		{
+			let nilai = "B";
+			if (nilai === "A") {
+				document.writeln("<p>Lulus sempurna</p>");
+			} else if (nilai === "B") {
+				document.writeln("<p>Lulus dengan cukup</p>");
+			} else {
+				document.writeln("<p>Gagal</p>");
+			}
+		}
+	 </script>
+	
+</body>
+</html>

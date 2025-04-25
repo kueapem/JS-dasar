@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>18. Tipe Data Array</title>
+</head>
+<body>
+
+	<!-- 02:13:33 -->
+	 <h1>Tipe Data array</h1>
+	 <p>Array adalah tipe data yang berisikan kumpulan data</p>
+	 <p>Arrauy bersifat dinamis dalam js, artinya bisa bertambha sendiri datanya saat kita memasukkan data kedalam array.</p>
+	 <p>Contoh array</p>
+	 <p>let nama = []; // ini array kosong</p>
+	 <p>let nama = ["Kenny", "Rui", "Tachibana", 23, 2023, 2232, true] // array dengan isinya</p>
+
+	 <p>Sangat jarang menuliskan array dengan datanya langsung, Biasanya kode array ini digunakan untuk menambah, mengubah dan menghapus data array.</p>
+
+	 <p>Sebelum itu, kikta pahami cara kerja array.</p>
+	 <p>Array akan menyimpan data dalam berurutan, dimana urutan pertama dimulai dari 0</p>
+	 <p>Setiap memasukkan data baru, akan mengisi urutan terakhir</p>
+	 <p>Urutan di array disebut index</p>
+
+	 <h2>Operasi di array</h2>
+	 <p>Berikut ini daftar operasi yang bisa dilakukan dengan array</p>
+
+	 <p>array.push(value) -> Menambahkan data baru ke array</p>
+	 <p>array.length -> mendapatkan panjnag array</p>
+	 <p>array[index] -> mengambil data index array</p>
+	 <p>array[index] = value -> mengubah data index array</p>
+	 <p>delete array[index] -> hapus data index array</p>
+
+	 <h2>Menambahkan data array</h2>
+	 <p>Kita bisa tambahkan data array dengan cara namaVarableeArray.push("Data yang ditambahkan");</p>
+
+	 <script>
+		{
+			let i = [];
+			i.push("KKenny");
+			console.table(i);
+			
+			i.push("rui", "yuki"); // bisa tambahkan  data lebih dari 1 sekaligus
+			console.table(i);
+
+			i.push(2023, "kenny", "your head");
+			console.table(i);
+		}
+	 </script>
+
+	 <h2>Dapatkan panjang array</h2>
+	 <script>
+		{
+			let i = [];
+			console.log(i.length); // 0 karena dara index kosong
+
+			i.push("kenny", "rui", 20202, 2,3,5,6,64, 5, 7, 65, 67, 7, 8,88, 8);
+			console.log(i.length);
+		}
+	 </script>
+
+	 <h2>Mengambil data index</h2>
+
+	 <script>
+		{
+			let i = [];
+			i.push(11,2,4,45,466,"me");
+			console.log(i[2]); // 4
+			/*
+			0 = 11
+			1 = 2
+			2 = 4
+			*/
+
+			let u = [];
+			u.push("kenny", "rui", "kenco", "lala", "lili", "lulu");
+			console.log(u[4]);
+		}
+	 </script>
+
+	 <h2>Ubah data index</h2>
+
+	 <script>
+		{
+			let i = [];
+			i.push("kenny", "rui", "kenco", "lala", "lili", "lulu");
+			console.table(i);
+			i[0] = "Arthur";
+			console.table(i);
+
+		}
+	 </script>
+
+	 <h2>Hapus data index array</h2>
+
+	 <script>
+		{
+			let i = ["keny", "rui", "popo", "pipi", "papa"];
+			console.table(i);
+			delete i[2];
+			console.table(i);
+		}
+	 </script>
+	
+</body>
+</html>

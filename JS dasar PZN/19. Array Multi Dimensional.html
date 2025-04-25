@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>19. Array Multi dimensional</title>
+</head>
+<body>
+	<!-- gaka da di divide, namun disinggung diakhir bab array -->
+	<h1>Array multidimesional</h1>
+
+	<p>Merupakan sebuah array didalamnnya ada array lagi, didalamnnya ada array lagi.</p>
+	<p>Contoh</p>
+
+	<h2>Array 1 dimensi</h2>
+
+	<!-- <script>
+		{
+			let data = ["kenny", "rui", 2023, 2024];
+			console.table(data);
+			
+			// mainkan array
+			data.push("Yuki")
+			console.table(data);
+			console.log(data.length);
+			
+			data[2] = "Joro";
+			console.table(data);
+			console.log(data[2]);
+			
+			delete data[2];
+			console.table(data);
+		}
+	</script> -->
+
+	<h2>Array 2 dimensi</h2>
+
+	<p>Agak pusing soalnya nested juga nih, namun intinya</p>
+	
+	<h3>push</h3>
+	<p>array[baris]("nilai); -> baris disini mengambil baris / jumlah array didalam arraynya</p>
+	<p>misal</p>
+	<p>let data = [["array1"], ["array2"], ["array3"]];</p>
+	<p>Artinya nilai <code>"array3.1"</code> akan masuk ke dalam array yang sebelumnya hanya berisi <code>"array3"</code>.</p>
+	<p>Hasil akhirnya:</p>
+	<pre>
+	let data = [
+	    ["array1"], 
+	    ["array2"], 
+	    ["array3", "array3.1"]
+	]
+	</pre>
+
+	<script>
+		{
+			let data = [["kenny1", "rui1"], ["kenny2", "rui2"]];
+			console.table(data);
+
+			// mainkan
+
+			data[0].push("Tachibana1");
+			data[1].push("Tachibana2");
+			console.table(data);
+
+			// data[0] menunjukkan  baris 0 atau awal.
+
+		}
+	</script>
+
+	<h3>length</h3>
+	<script>
+		{
+			let data = [["kenny1", "rui1", 2, 3], ["kenny2", "rui2"]];
+
+			console.log(data.length); // ini menunjukkan length array utama
+			console.log(data[0].length); // tunjukan length array>array1
+			console.log(data[1].length); // array>array2
+		}
+	</script>
+
+	<h3>Ubah nilai</h3>
+	<script>
+		{
+			let data = [["kenny1", "rui1", 2, 3], ["kenny2", "rui2"]];
+			data[0][0] = "Yukino";
+			console.table(data);
+			data[0][3] = "Yumina";
+			console.table(data);
+		}
+	</script>
+
+	<h3>Hapus array index</h3>
+	<script>
+		{
+			let data = [["kenny1", "rui1", 2, 3], ["kenny2", "rui2", 5,6]];
+			console.table(data);
+			
+			delete data[0][2];
+			console.table(data);
+		}
+
+		{
+			let moon = [
+				["kenny", "rui", "asuna", "yuki", ["minato", "yukina", "hina"], "Asuma"], 
+				[["asmi", "ismi", "lili"], "lala", "lulu"], "yuni", "yuli"];
+			console.table(moon);
+
+			delete moon[1][0][2];
+			console.table(moon);
+		}
+	</script>
+	
+	
+</body>
+</html>

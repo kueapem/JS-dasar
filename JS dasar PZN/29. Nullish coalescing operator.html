@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>29. Nullish coalescing operator</title>
+</head>
+<body>
+
+	<!-- 03:36:19 -->
+	 <h1>Nullish coalescing operator</h1>
+
+	 <p>Nullish value adalah null dan undefined</p>
+	 <p>op ini adlaha op yang mirip dengan op ternary.</p>
+	 <p>Bedanya pada kondisinya, jika bernilai null atau undefined maka nilai defaultnya yang diambil.</p>
+	 <p>menggunakna (??) 2 tanya</p>
+
+	 <p>conoth tanpa nullish coalescing</p>
+	 <script>
+		{
+			let parameter; // kondisi disini undefine / null maka nilai default yang menggantikannya
+			let data = parameter;
+			if (data === undefined || data === null) {
+				data = "Nilai default";
+			}
+
+			document.writeln(`<p>${data}</p>`);
+		}
+	 </script>
+
+	<p><b>Dengan nullsih</b></p>
+
+	<script>
+		{
+			let parameter = null;
+			let data = parameter ?? "nilai default";
+			document.writeln(`<p>${data}</p>`);
+		}
+	</script>
+	
+</body>
+</html>

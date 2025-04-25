@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>26. Operator typeof</title>
+</head>
+<body>
+	<!-- 03:20:55 -->
+
+	<h1>Operator typeof</h1>
+	<p>merupakan operator yang bisa kita gunakan untuk melihat tipe data sebuah value atau variable</p>
+	<p>karena js dynamic language, jadi kita perlu cek tipew datanya</p>
+	<p>hasil dari op ini adlaha string tipe datanya</p>
+
+	<table>
+		<thead>
+			<tr>
+				<th><strong>Tipe Data</strong></th>
+				<th><strong>Contoh</strong></th>
+				<th><strong>Hasil dari <code>typeof</code></strong></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Number</strong></td>
+				<td><code>42</code>, <code>3.14</code></td>
+				<td><code>&quot;number&quot;</code></td>
+			</tr>
+			<tr>
+				<td><strong>String</strong></td>
+				<td><code>&quot;Hello&quot;</code></td>
+				<td><code>&quot;string&quot;</code></td>
+			</tr>
+			<tr>
+				<td><strong>Boolean</strong></td>
+				<td><code>true</code>, <code>false</code></td>
+				<td><code>&quot;boolean&quot;</code></td>
+			</tr>
+			<tr>
+				<td><strong>Undefined</strong></td>
+				<td><code>let x;</code></td>
+				<td><code>&quot;undefined&quot;</code></td>
+			</tr>
+			<tr>
+				<td><strong>Object</strong></td>
+				<td><code>{name: &quot;John&quot;}</code>, <code>null</code></td>
+				<td><code>&quot;object&quot;</code></td>
+			</tr>
+			<tr>
+				<td><strong>Function</strong></td>
+				<td><code>function() {}</code></td>
+				<td><code>&quot;function&quot;</code></td>
+			</tr>
+			<tr>
+				<td><strong>Symbol</strong></td>
+				<td><code>Symbol(&quot;id&quot;)</code></td>
+				<td><code>&quot;symbol&quot;</code></td>
+			</tr>
+			<tr>
+				<td><strong>BigInt</strong></td>
+				<td><code>123n</code></td>
+				<td><code>&quot;bigint&quot;</code></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<script>
+		{
+			// latihan 1
+			console.log(typeof 100); // number
+			console.log(typeof "JavaScript"); // string
+			console.log(typeof false);         // boolean
+			console.log(typeof undefined);     // undefined
+			console.log(typeof null);          // object
+			console.log(typeof {});            // object
+			console.log(typeof []);            // obejct
+			console.log(typeof function() {}); // function
+			console.log(typeof Symbol("test")); // simbol
+			console.log(typeof 999n); // bigint
+
+		}
+
+		{
+			let a = 42;
+			let b = "Hello";
+			let c = true;
+			let d;
+			let e = null;
+			let f = { name: "John" };
+			let g = [1, 2, 3];
+			let h = function() { return "Hi"; };
+			let i = Symbol("id");
+			let j = 123n;
+
+			console.log(typeof a); // number
+			console.log(typeof b); // string
+			console.log(typeof c); // boolean
+			console.log(typeof d); // undefined
+			console.log(typeof e); // object
+			console.log(typeof f); // object
+			console.log(typeof g); // obejct
+			console.log(typeof h); // funsgi
+			console.log(typeof i); // simbol
+			console.log(typeof j); // bigint
+
+		}
+
+		{
+			function jumlah(a, b) {
+			if (typeof a == "number" && typeof b == "number") {
+				return a + b;
+			} else {
+				return "Error: Input harus angka!";
+			}
+			}
+
+			console.log(jumlah(10, 20));    // OK
+			console.log(jumlah(10, 20));  // Perbaiki biar tetap bisa menjumlahkan
+
+		}
+
+	</script>
+
+	<p><b>Contoh</b></p>
+
+	<script>
+		{
+			let data = {};
+			if (typeof data === "undefined") {
+				alert(`Data undefined`);
+			} else if (typeof data === "number") {
+				alert(`Data number`);
+			} else if (typeof data === "string") {
+				alert("Data string");
+			} else if (typeof data === "object") {
+				alert("Data object");
+			} else{
+				alert(data)
+			}
+		}
+	</script>
+</body>
+</html>

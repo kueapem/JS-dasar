@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Arrow fungsi di object</title>
+</head>
+<body>
+
+	<!-- 06:59 -->
+
+	<h1>Arrow fungsi di object</h1>
+
+	<p>Arrow fungsi juga bisa kita gunakan di obeject method</p>
+	<p>Nmaun perlu dikethau, arrow fungsi tidak bisa digunkana untuk mengakses argument obejct, fungsi generator, kata kunci this, dan kata kunci super (yang dibahas di js oop)</p>
+	<p>Jadi pastikan gunakan arrow fungsi hanya memang ketika kita tidak butuh fitur fitur diatas</p>
+
+	<p>Arrow function bisa digunakan sebagai method di object, tetapi tidak disarankan jika kita membutuhkan akses ke fitur seperti this, arguments, super, atau ingin membuat function generator. Karena arrow function tidak memiliki this sendiri, maka method yang butuh akses ke object-nya sendiri sebaiknya tetap menggunakan function biasa.</p>
+
+	<h2>🧠 Analogi: Arrow Function vs Function Biasa</h2>
+	<p>Bayangkan kamu sedang di sebuah rumah yang punya beberapa anggota keluarga.</p>
+	<p>Setiap anggota bisa memanggil nama mereka sendiri lewat this.</p>
+
+	<h3>🔧 Function Biasa (Orang yang kenal dirinya)</h3>
+	<pre><code>
+const orang = {
+	nama: "Dina",
+	sapa: function () {
+		console.log(`Halo, saya ${this.nama}`);
+	}
+	};
+	
+orang.sapa(); // Halo, saya Dina
+		    
+	</code></pre>
+
+	<p><b>📝 Analogi:</b></p>
+	<p>Function biasa itu kayak Dina sendiri yang bilang, “Halo, saya Dina.”</p>
+	<p>Dia tahu siapa dirinya (this.nama), karena dia bagian dari rumah itu (object orang).</p>
+
+	<h3>🏹 Arrow Function (Orang yang hanya meniru dari luar)</h3>
+<pre><code>
+const orang = {
+	nama: "Dina",
+	sapa: () => {
+		console.log(`Halo, saya ${this.nama}`);
+	}
+	};
+	
+orang.sapa(); // Halo, saya undefined		    
+</code></pre>
+
+	<p><b>📝 Analogi:</b></p>
+	<p>Arrow function itu kayak tetangga Dina yang datang ke rumah dan disuruh bilang, “Halo, saya ...”</p>
+	<p>Tapi si tetangga nggak tahu dia lagi di rumah siapa. Jadi dia cuma meniru dari tempat asal dia (lingkungan luar), dan akhirnya malah bilang “Halo, saya undefined”, karena dia nggak punya this.nama.</p>
+
+	<p><b>📌 Kesimpulan Analogi:</b></p>
+	<p>Function biasa = orang asli di dalam rumah → tahu siapa dirinya → bisa akses this.</p>
+
+	<p>Arrow function = orang luar (cuma numpang ngomong) → nggak tahu rumah siapa → this jadi kacau.</p>
+
+	<p><b>Contoh arrow fungsi pzn</b></p>
+	<script>
+		{
+			let person = {
+				nama: "Kenny",
+				sapa: (i) => {
+					console.info(`Hello ${this.nama}`)
+				}
+			}
+
+			person.sapa("rui"); // tidak bisa akses person.nama
+		}
+
+		{
+			// dengan fungsi biasa
+
+			let person = {
+				nama: "kenny",
+				sapa: function (i) {
+					console.info("Hello " + this.nama);
+				}
+			}
+
+			person.sapa("rui"); // dia bisa akses person.nama
+		}
+	</script>
+
+
+</body>
+</html>

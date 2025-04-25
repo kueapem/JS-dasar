@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>22. Popup</title>
+</head>
+<body>
+
+	<!-- 02:55;44 -->
+
+	<h1>Popup</h1>
+	<p>JS mempunyai fitur bawaan popup berupa alert, confirm, prompt</p>
+	<p>Alert digunakna untuk memebrikan peringatan kepada useer</p>
+	<p>prompt digunakna untuk meminta input dari user browser dalam bentuk input text</p>
+	<p>confirm digunakan untuk meminta input boolean dari user dalam bentuk input pilihan</p>
+
+	<h2>alert</h2>
+
+	<script>
+		{
+			// alert("Hello");
+		}
+	</script>
+	
+	<h2>prompt</h2>
+	<script>
+		{
+			// let nama = prompt("masukkan namamu?");
+			// alert(`hallo ${nama}`);
+		}
+	</script>
+
+	<h2>confirm</h2>
+	<script>
+		{
+			let nama = prompt("Siapa namamu?");
+
+			if (nama) {
+				confirm("Benarkah namamu " + nama + "?");
+				alert("Selamat datang " + nama);
+			} else{
+				alert("Kamu siapa?");
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>7. Let dan const</title>
+</head>
+<body>
+
+	<!-- 01:05:00 -->
+
+	<h1>Variable Let dan const</h1>
+
+	<p>Sejak tahun 2015, kata kunci var dianggap tidak lagi direkomendasikan digunakan lagi.</p>
+	<p>Sebagai gantinya kita bisa menggunkana let atau const.</p>
+
+	<h2>Let</h2>
+
+	<p>Let digunakan untuk menggantikan var yang memiliki beberap error.</p>
+
+	<script>
+		let data = "Keduanya salah."
+
+		document.writeln(data);
+	</script>
+
+	<p>Jika ingin deklarasikan lagi variablenya</p>
+
+	<script>
+		let fullName = "Kenny ken</br>";
+		document.writeln(fullName);
+
+		// kita bisa deklarasi lagi fullNamenya dan ganti nilainya
+
+		fullName = "Rui tachibana";
+		document.writeln(fullName);
+	</script>
+
+	<h2>Const</h2>
+
+	<p>const artinya konstanta / tetap</p>
+	<p>kata kunci ini lebih spesifikasi, dan tidak bisa di deklarasikan ulang.</p>
+	
+	<script>
+		const nilai = 23;
+		document.writeln(nilai);
+
+		// jika mau diubah / deklarasi lagi
+		// nilai = 90;
+		// document.writeln(nilai);
+
+		// ini error kalina cek consolenya
+
+	</script>
+
+	
+</body>
+</html>

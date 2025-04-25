@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>40. With Statement</title>
+</head>
+<body>
+
+	<!-- 04:42:47 -->
+
+	<h1>With Statement</h1>
+
+	<p>digunkana untuk menurunkan sebuah scope data</p>
+	<p>Denagn with Statement kita bisa mengakses property data dalam sebuah data tanpa harus ebutkan datanya</p>
+
+	<script>
+		{
+			let name = {
+				name1: "kenny",
+				name2: "rui",
+				name3: "tachibana"
+			}
+
+			with (name) {
+				document.writeln(name1);
+				document.writeln(name2);
+				document.writeln(name3);
+			}
+		}
+	</script>
+
+	<p><b>Tidak di rekomendasikan digunakan</b></p>
+	
+</body>
+</html>

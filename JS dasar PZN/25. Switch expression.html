@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>25. Switch expression</title>
+</head>
+<body>
+	
+	<!-- 03:15:00 -->
+
+	<h1>Switch statement</h1>
+	<p>kadang kita hanya butuh kondisi sederhana di if statement, sepertti perbandingan ==</p>
+	<p>swtch merupakan sebuah statement percabangan yang sama dengan if, nmaun lebih sederhana dalma pembuatannya</p>
+	<p>kondisi Switch direkomendasikan hanya untuk perbandingan ==</p>
+
+	<script>
+		{
+			let nilai = "C"
+			switch(nilai) {
+				case "A" : document.writeln(`<p>Kamu lulus sempurna dengan nilai ${nilai}</p>`);
+				break;
+				case "B" : document.writeln(`<p>Kamu cukup lulus dengan nilai ${nilai}</p>`);
+				break;
+				case "C" :
+				case "D" : document.writeln(`<p>Kamu lumayan lulus dengan nilai ${nilai}</p>`);
+				break;
+				default : document.writeln(`<p>Kamu gagal dengan nilai ${nilai}</p>`);
+			}
+		}
+	</script>
+
+</body>
+</html>

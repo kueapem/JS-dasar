@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>11. Perbandingan</title>
+</head>
+<body>
+
+	<!-- 01:26:00 -->
+
+	<h1>Perbandingan</h1>
+
+	<p>op ini membandingka 2 data</p>
+	<p>hasil akhir akan jadi boolean</p>
+	<p>jika benar jadi true, jika salah jadi false</p>
+
+	<p>> -> lebih dari</p>
+	<p>< -> kurang dari</p>
+	<p>>= -> lebih dari sama dengan</p>
+	<p>>= -> kurang dari sama dengan</p>
+	<p>== -> sama dengan</p>
+	<p>=== -> sama dengan sama tipe</p>
+	<p>!= -> tidak sama dengan</p>
+	<p>!== -> tidak sama dengan atau tidak sama tipe</p>
+
+	<h2>></h2>
+	<script>
+
+		{
+			// >
+			let i = 5 > 4;
+			let u = 6 > 7;
+
+			document.writeln("<p>5 > 4 = " + i + "</p>");
+			document.writeln("<p>6 > 7 = " + u + "</p>");
+		}
+
+	</script>
+
+	<h2><</h2>
+	<script>
+
+		{
+			let i = 5 < 4;
+			let u = 6 < 7;
+
+			document.writeln("<p>5 < 4 = " + i + "</p>");
+			document.writeln("<p>6 < 7 = " + u + "</p>");
+		}
+
+	</script>
+
+	<h2>>=</h2>
+	<script>
+
+		{
+			let i = 5 >= 4;
+			let u = 6 >= 7;
+			let o = 6 >= 6;
+
+			document.writeln("<p>5 >= 4 = " + i + "</p>");
+			document.writeln("<p>6 >= 7 = " + u + "</p>");
+			document.writeln("<p>6 >= 6 = " + o + "</p>");
+		}
+
+	</script>
+
+	<h2><=</h2>
+	<script>
+
+		{
+			let i = 5 <= 4;
+			let u = 6 <= 7;
+			let o = 6 <= 6;
+
+			document.writeln("<p>5 <= 4 = " + i + "</p>");
+			document.writeln("<p>6 <= 7 = " + u + "</p>");
+			document.writeln("<p>6 <= 6 = " + o + "</p>");
+		}
+
+	</script>
+
+	<h2>==</h2>
+	<script>
+
+		{
+			let i = 5 == 4;
+			let u = 6 == 7;
+			let o = 6 == 6;
+			let p = 6 == "6";
+
+			document.writeln("<p>5 == 4 = " + i + "</p>");
+			document.writeln("<p>6 == 7 = " + u + "</p>");
+			document.writeln("<p>6 == 6 = " + o + "</p>");
+			document.writeln("<p>6 == '6' = " + p + "</p>");
+		}
+
+	</script>
+
+	<h2>===</h2>
+	<script>
+
+		{
+			let i = 5 === 4;
+			let u = 6 === 7;
+			let o = 6 === 6;
+			let p = 6 === "6";
+
+			document.writeln("<p>5 === 4 = " + i + "</p>");
+			document.writeln("<p>6 === 7 = " + u + "</p>");
+			document.writeln("<p>6 === 6 = " + o + "</p>");
+			document.writeln("<p>6 === '6' = " + p + "</p>");
+		}
+
+	</script>
+
+
+	<h2>!=</h2>
+	<script>
+
+		{
+			let i = 5 != 4;
+			let u = 6 != 7;
+			let o = 6 != 6;
+			let p = 6 != "6";
+
+			document.writeln("<p>5 != 4 = " + i + "</p>");
+			document.writeln("<p>6 != 7 = " + u + "</p>");
+			document.writeln("<p>6 != 6 = " + o + "</p>");
+			document.writeln("<p>6 != '6' = " + p + "</p>");
+		}
+
+	</script>
+
+	
+
+
+	<h2>!==</h2>
+	<script>
+
+		{
+			let i = 5 !== 4;
+			let u = 6 !== 7;
+			let o = 6 !== 6;
+			let p = 6 !== "6";
+
+			document.writeln("<p>5 !== 4 = " + i + "</p>");
+			document.writeln("<p>6 !== 7 = " + u + "</p>");
+			document.writeln("<p>6 !== 6 = " + o + "</p>");
+			document.writeln("<p>6 !== '6' = " + p + "</p>");
+		}
+
+	</script>
+
+	
+</body>
+</html>

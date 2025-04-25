@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>20. Tipe Data Object</title>
+</head>
+<body>
+
+	<!-- 02:32:02 -->
+
+	<h1>Tipe data Object</h1>
+
+	<p>Object mirip dengan array, tetapi key (index)-nya bisa berupa string yang kita tentukan sendiri, sedangkan array menggunakan index angka secara otomatis..</p>
+	<p>berbeda dengan array, indexnya sudah defautl, namundi object kita bebas memasukkan datany indndenya.</p>
+	<p>Di obejct index itu disebut sebagai property.</p>
+	<p>penulisannya</p>
+	<p>let variableObjectName = {}</p>
+
+	<h2>Operasi di object</h2>
+	<p>obj.property = nilai / obj[property] = nilai -> untuk menambahkan property baru atau mengubah nilai property yang ada</p>
+	<p>delete obj.property / delete obj[property] -> hapus property</p>
+	<p>obj.property -> memanggil nilai property</p>
+
+	<h2>Menambahkan dan ubah object</h2>
+
+	<script>
+		{
+			// menambahkan
+			let nama = {};
+
+			nama.fullName = "Kenny Ken Ken";
+			nama.fName = "Kenny";
+			nama.mName = "Ken";
+			nama.lName = "Ken";
+
+			// console.table(nama);
+			
+			//dengan barcket
+			nama["tempatLahir"] = "Serang";
+			nama["tanggalLahir"] = 23;
+			nama["bulanLahir"] = 2;
+			nama["tahunLahir"] = 1999;
+			
+			console.table(nama);
+			
+			// mengubah nilai proeprty yang ada
+			// dengan dot
+			nama.fullName = "Rui Tachibana";
+			nama.fName = "Rui";
+			nama.lName = "Tachibana";
+			console.table(nama);
+			
+			// dengan bracket
+			nama["tanggalLahir"] = 25;
+			nama["bulanLahir"] = 12;
+			nama["tempatLahir"] = "Jakarta";
+			console.table(nama);
+		}
+	</script>
+
+	<h2>Hapus propety yang ada</h2>
+
+	<script>
+		{
+			let dataNama = {
+				fName : "Rui",
+				lName : "Tachibana",
+				lahir : "Jakarta",
+			}
+			delete dataNama.fName;
+			console.table(dataNama);
+			delete dataNama["lahir"];
+			console.table(dataNama);
+		}
+	</script>
+
+	<h2>Panggil property</h2>
+
+	<script>
+		{
+			let dataNama = {
+				fName : "Rui",
+				lName : "Tachibana",
+				lahir : "Jakarta"
+			}
+
+			console.log(dataNama.fName);
+			console.log(dataNama["lName"]);
+
+			// bisa juga pakai variable
+			let x = "fName";
+			console.log(dataNama[x]);
+
+			// namun di dot gak bisa pakai variable, karena dianggap kita cari property 
+			// let x = "fName";
+			// console.log(dataNama.x); // salah
+
+		}
+	</script>
+
+	<p>Tambahan</p>
+	<p>nama property obj bisa dengan atau tidak sama sekali ditulisakan dengan tanda petik.</p>
+	<p>let i = {nama : "kenny"} / {namaLengkap} : "ken ken</p>
+	<p>dengan tanda petik jika penulsian khusus</p>
+	<p>let i = {"nama lengkap" : "kenny ken ken"}</p>
+	
+</body>
+</html>

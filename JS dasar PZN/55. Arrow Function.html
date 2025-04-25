@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Arrow Function</title>
+</head>
+<body>
+
+	<!-- 06:28 -->
+
+	<h1>Arrow Function</h1>
+
+	<p>Merupakan alternative fungsi yang lebih sederhana dari fungsi biasanya</p>
+	<p>Namun terdapat limitasi dan juga tidak bisa digunkana di semua situasi</p>
+	<p>dinamakan arrow fungsi karena menggunakan => (seeprti panah)</p>
+	<p>Berikut beberapa kekurangan arrow fungsi</p>
+	<ul>
+		<li>tidak memiliki fitur argument obejct (memnag sudah tidak direkomendasikan lagi, sekaarng pakai rest paarmeter)</li>
+		<li>tidak bisa menggunakan fungsi generator</li>
+		<li>tidak bisa mengakses this (yang nanti dibahas di fungsi object)</li>
+		<li>tidak bisa mengakses super (yang nanti dibahas di javascript OOP)</li>
+	</ul>
+
+	<script>
+		{
+			let sayHello = (name) => {
+				let say = `Hello ${name}`;
+				document.writeln("<p>" + say + "</p>");
+			}
+
+			sayHello("kenny");
+		}
+
+		// mirip dengan anonimus fungsi, jadi fungsinya itu disimpan di dalam variable gitu
+	</script>
+
+	<h2>Arrow function tanpa block</h2>
+	<p>Jika arrow fungsinya sederhana hanya 1 baris</p>
+	<p>kita bisa membuat arrow fungsi tanpa harus menggunakan block {}</p>
+
+	<script>
+		{
+			let sayHello = (name) => document.writeln("<p>Hello " + name + "</p>");
+			sayHello("rui")
+		}
+	</script>
+
+	<h2>Arrow fungsi return value</h2>
+	<p>Arrow function juga bisa mengembalikan value, sama seperti fungsi biasnya</p>
+	<p>Jika menggunakan block, maka kita perlu kata kunci return</p>
+	<p>jika tidak ada block kita tidak perlu menggunakan kata kunci return</p>
+
+	<script>
+
+		// dengan fungsi biasa
+
+		{
+			function sum(first, second) {
+				return first + second
+			}
+
+			document.writeln(`<p>${sum(4,5)}</p>`)
+		}
+
+		// dengana arrow fungsi
+		{
+			let sum = (first, second) => first + second;
+
+			document.writeln(sum(2,3));
+		}
+	</script>
+
+	<h2>Arrow fungsi tanpa kurung parameter</h2>
+	<p>Jika parameter fi arrow fungsi hanya satu, kita bisa tidak menggunakan kurung pada parameternya</p>
+
+	<script>
+		{
+			let sayHello = name => document.writeln(`<p>${name}</p>`);
+
+			sayHello("kenny");
+		}
+	</script>
+
+	<h2>Kode: Arrow fungsi sebagai parameter</h2>
+	<p>Karena arrow fungsi mirip dengan anonimous fungsi</p>
+	<p>Kita juga bisa menggunakan arrow fungsi sebagai paramter fungsi lainnya</p>
+
+	<script>
+		{
+			function giveName(callBack) {
+				callBack("Ruby");
+			}
+
+			giveName((name) => document.writeln(`<p>Hello ${name}</p>`));
+		}
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Strict mode</title>
+</head>
+<body>
+
+	<!-- 07:39 -->
+
+	<h1>Strict mode</h1>
+
+	<p><b>Dari chatgpt</b></p>
+	<p>Strict mode merupakan ditur js  dimana kode berjalan lebih ketak. Ini membantu untuk menghindari kesalahan umum, menangkanp bug lebih awal, meningkatkan perporma di beberapa engine js</p>
+
+	<p>Cara aktipkannya cukup pakai</p>
+	<pre><code>
+"use strict";
+	</code></pre>
+	<p>di paling atas dari file atau fungsi. penulisan harus berupa string pakai tanda kutip dan diletakkan di paling atas</p>
+
+	<p>Berikut beberapa perbedaan saat pakai strict mode:</p>
+
+	<p><b>1. Gak bisa pakai varibale tanpa let/const/atau var</b></p>
+	<script>
+		// "use strict";
+		// nama = "kenny";
+		// console.log(nama)
+	</script>
+
+	<p><b>2. Gak bisa duplikat parameter</b></p>
+
+	<script>
+		// "use strict";
+		// function mode(nama, nama) {
+		// 	console/log(nama);
+		// }
+		// mode("kenny")
+	</script>
+
+	<p><b>3. Gak bisa ubah property read-only atua object non-writable</b></p>
+	<script>
+		// "use strict";
+		// const obj = {};
+		// Object,defineProperty(obj, "x", {val : 33, writable: false});
+		// obj.x = 9;
+	</script>
+
+	<p><b>4. This di fungsi biasa jadi undefined (bukan window)</b></p>
+	<script>
+		{
+			// "use strict";
+			// function halo() {
+			// 	console.log(this);
+			// }
+			// halo();
+		}
+	</script>
+
+	<h3>Kapan sebaiknya pakai strict mode</h3>
+	<p>Saat belajar js, nulis function atau module, saat bikin project besar</p>
+
+	<p><b>Bisa fungsi juga</b></p>
+	<script>
+		// function contoh () {
+		// 	"use strict";
+		// }
+
+		// console.log(contoh())
+	</script>
+
+	<h1>PZN</h1>
+	<p>Saat kita jalankan kode js, secara default kode berjalan dalam mode sloppy mode bukan strict mode</p>
+
+	<script>
+		// function useStrictMode() {
+		// 	'use strict';
+		// 	const person = {
+		// 		name: "kenny"
+		// 	};
+
+		// 	with (person) {
+		// 		console.info(name);
+		// 	}
+		// };
+
+		// useStrictMode()
+
+
+	</script>
+	
+</body>
+</html>

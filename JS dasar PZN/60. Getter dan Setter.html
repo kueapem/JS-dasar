@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>60. Getter dan setter</title>
+</head>
+<body>
+
+	<!-- 07:04 -->
+
+	<h1>Getter dan setter</h1>
+	<p>merupakan kemampuan membuat fungsi yang berbeda untuk mengambil data (getter) dan mengubah data (setter) pada property object</p>
+	<p>Dengan menggunakan getter dan setter, kita bisa melakukan hal apapun dalam fungsi sebelum sebuah properti diakses atau diubah, misal menambah validasi dan lain-lain.</p>
+
+	<h2>🔑 Apa Itu Getter & Setter?</h2>
+	<p>Bayangin kamu punya lemari khusus di rumah:</p>
+
+	<p>Getter = cara mengambil barang dari lemari.</p>
+	<p>Setter = cara menaruh atau mengganti barang ke dalam lemari.</p>
+
+	<h2>🧠 Kenapa Butuh Getter dan Setter?</h2>
+
+	<p>Kadang kamu nggak mau langsung akses datanya, tapi ingin melakukan sesuatu dulu, misalnya:</p>
+	<p>Validasi (cek data valid atau tidak)</p>
+	<p>Format ulang</p>
+	<p>Menjaga data agar tidak sembarangan diubah</p>
+
+	<p><i>Contoh di console</i></p>
+
+	<script>
+		{
+		let user = {
+			namaDepan: "Budi",
+			namaBelakang: "Santoso",
+			namaLengkap: "Budi Santoso"
+		};
+
+		console.log(user.namaLengkap); // langsung akses
+		user.namaDepan = "kenny";
+		console.log(user.namaLengkap); // masih Budi santoso, yang diinginkan kenny santoso
+
+		}
+	</script>
+	<p>📌 Tapi kalau kamu ubah namaDepan, namaLengkap tetap lama (nggak ikut update)</p>
+
+	<h3>Pakai getter</h3>
+
+	<script>
+		{
+			let user = {
+				namaDepan: "Budi",
+				namaBelakang: "Santoso",
+				get namaLengkap () {
+					return `${this.namaDepan} ${this.namaBelakang}`;
+				}
+			};
+
+			console.log(user.namaLengkap); // langsung akses
+			user.namaDepan = "kenny";
+			console.log(user.namaLengkap); // masih Budi santoso, yang diinginkan kenny santoso
+		}
+	</script>
+
+	<p>⚠️ Walau terlihat seperti properti biasa, namaLengkap sebenarnya function, tapi dipanggil seperti properti</p>
+	<p><i>Kalau kamu nggak butuh parameter dan nilainya hanya dibaca, biasanya lebih enak pakai getter karena cara aksesnya lebih alami:</i></p>
+
+	<pre><code>
+user.namaLengkap // tanpa ()
+	</code></pre>
+
+	<h2>Setter</h2>
+	<p><b>🧠 Apa Itu Setter?</b></p>
+	<p>Kalau getter dipakai untuk mendapatkan nilai,</p>
+	<p>maka setter dipakai untuk mengubah nilai secara otomatis lewat cara yang terkontrol.</p>
+
+	<h3>🎯 Analogi:</h3>
+	<p>Bayangin kamu punya lemari baju.</p>
+	
+	<p>Kalau getter: kamu cuma lihat baju di dalam lemari.</p>
+	
+	<p>Kalau setter: kamu taruh baju ke lemari, tapi ada aturan: misalnya baju harus dilipat dulu sebelum disimpan.</p>
+	
+	<p>Jadi dengan setter, kamu bisa atur logika dulu sebelum datanya disimpan.</p>
+
+	<p><i>Contoh getter dan setter untuk validasi</i></p>
+	<pre><code>
+let user = {
+	_umur: 0, // Properti "private" (biasanya menggunakan underscore _ untuk konvensi)
+
+	// Getter untuk umur
+	get umur() {
+	return this._umur;
+	},
+
+	// Setter untuk umur dengan validasi
+	set umur(value) {
+	if (value < 0) {
+	console.log("Umur tidak bisa negatif!");
+	} else if (value > 100) {
+	console.log("Umur tidak bisa lebih dari 100!");
+	} else {
+	this._umur = value;
+	console.log("Umur berhasil diubah!");
+	}
+	}
+};
+
+user.umur = 25;  // ✅ Umur berhasil diubah!
+console.log(user.umur);  // ✅ 25
+
+user.umur = -5;  // ❌ Umur tidak bisa negatif!
+console.log(user.umur);  // ✅ 25 (tetap tidak berubah)
+
+user.umur = 120; // ❌ Umur tidak bisa lebih dari 100!
+console.log(user.umur);  // ✅ 25 (tetap tidak berubah)
+		    
+		    
+	</code></pre>
+
+	<p>Getter: Mengambil nilai this._umur dan menampilkannya saat dipanggil.</p>
+
+	<p>Setter: Memeriksa apakah nilai umur yang diberikan valid atau tidak. Kalau valid (0 <= umur <= 100), nilai disimpan, kalau tidak, tampilkan pesan error dan nilai tidak berubah.</p>
+	
+	<p>💡 Kenapa ini berguna?</p>
+	<p>Dengan setter, kamu bisa mengontrol data sebelum menyimpannya.</p>
+	
+	<p> bisa menambahkan logika validasi sebelum data benar-benar diproses atau disimpan ke dalam object.</p>
+
+	<script>
+		{
+			let user = {
+				_umur: 0,
+				get umur() {
+					return this._umur;
+				},
+
+				set umur(value) {
+					if (value < 0) {
+						console.info("Umur tidak bisa negatif");
+					} else if (value > 100) {
+						console.info("Umur tidak bisa lebih dari 100");
+					} else {
+						this._umur = value;
+						console.info("Umur berhasil diubah!");
+					}
+				}
+			}
+
+			user.umur= 23;
+			console.log(user.umur);
+
+			user.umur = -5;  // ❌ Umur tidak bisa negatif!
+			console.log(user.umur);  // ✅ 25 (tetap tidak berubah)
+
+			user.umur = 120; // ❌ Umur tidak bisa lebih dari 100!
+			console.log(user.umur);  // ✅ 25 (tetap tidak berubah)
+		}
+	</script>
+
+	<script>
+		{
+			let akunBank = {
+				_saldo: 0,
+
+				get saldo() {
+					return `Rp ${this._saldo.toLocaleString("id-ID")}`;
+				},
+
+				set saldo(nilai) {
+					if (typeof nilai !== "number" || isNaN(nilai)) {
+						console.log("Saldo harus berupa angka");
+					} else if (nilai < 0) {
+						console.log("Saldo tidak boleh negatif");
+					} else {
+						this._saldo = nilai;
+						console.log("Saldo berhasil ditambahkan");
+					}
+				},
+
+				deposit(uang) {
+					if (uang <= 0)  {
+						console.log("Jumlah setor harus lebih dari 0!");
+						return;
+					} 
+					this._saldo += uang;
+					console.log(`Berhasil setor uang Rp ${uang.toLocaleString("id-ID")}`);
+				},
+
+				tarik(uang) {
+					if (uang <= 0) {
+						console.log("Jumlah tarik harus lebih dari 0!");
+					} else if (uang > this._saldo) {
+						console.log("Saldo tidak cukup");
+					} else {
+						this._saldo -= uang;
+						console.log(`Berhasil tarik uang Rp ${uang.toLocaleString("id-ID")}`);
+					}
+				},
+
+				sisaSaldo() {
+					console.log(`Sisa saldo anda ${this.saldo}`);
+				}
+			};
+
+			akunBank.saldo = 1000000;
+			// console.log(akunBank.saldo);
+			akunBank.sisaSaldo()
+
+			akunBank.deposit(2000000);
+			// console.log(akunBank.saldo);
+			akunBank.sisaSaldo()
+			
+			akunBank.tarik(50000);
+			// console.log(akunBank.saldo);
+			akunBank.sisaSaldo()
+		}
+	</script>
+
+	<h2>Contoh dari PZN</h2>
+
+	<script>
+		{
+			let userName = {
+				namaDepan: "Kenny",
+				namaBelakang: "Ken",
+				get namaLengkap() {
+					return `${this.namaDepan} ${this.namaBelakang}`;
+				},
+				set namaLengkap(val) {
+					const array = val.split(" ");
+					this.namaDepan = array[0];
+					this.namaBelakang = array[1];
+				}
+			};
+
+			console.table(userName);
+
+			userName.namaLengkap = "Rui tachibana";
+			console.table(userName);
+
+		}
+	</script>
+
+	<p>Fitur ini tidak terlalu populer, masih sering pakai property biasa dibanding getter dan setter</p>
+	
+</body>
+</html>

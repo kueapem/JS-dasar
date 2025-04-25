@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>32. Operator Logika di Non booelan</title>
+</head>
+<body>
+	<!-- 03:57:00 -->
+
+	<h1>OPerator Logika di non boolean</h1>
+	<p>Sebelumnya kita yahu bawha operator logikan && dan || digunakan untuk 2 buah booelan</p>
+	<p>Namun di JS kita bisa menggunakan op logika && dan || di tipe data non boolean</p>
+	<p>Non boolean itu artinya nilai falsy dan truthy</p>
+
+	<h2>Operator || di non boolean</h2>
+
+	<p>Op logika || membaca dari kiri ke kanan</p>
+	<p>Op ini akna mengambil nilai pertama yang truthy</p>
+	<p>Jika tidak ada satupun nilai truthy, maka nilai terakhir yang diambil</p>
+
+	<p>true1 || true2 = true1</p>
+	<p>true1 || false1 = true1</p>
+	<p>false1 || true1 = true1</p>
+	<p>false1 || false2 = false2</p>
+
+	<script>
+		{
+			// ingat tipe data yang diambil adalah yang pertama kali truthy dari kiri ke kanan, jika keduanya falsy, maka di ambil yang terakhir
+
+			document.writeln(`<p>${"" || "string"}</p>`);
+			document.writeln(`<p>${"" || 0}</p>`);
+			document.writeln(`<p>${"string" || 0}</p>`);
+			document.writeln(`<p>${"string" || 2}</p>`);
+			document.writeln(`<p>${"string" || undefined}</p>`);
+			document.writeln(`<p>${true || false}</p>`);
+			document.writeln(`<p>${0 || false}</p>`);
+			document.writeln(`<p>${0 || 2}</p>`);
+			document.writeln(`<p>${undefined || "UNDEFINED"}</p>`);
+			document.writeln(`<p>${null || "NULL"}</p>`);
+		}
+	</script>
+
+	<h2>Op logika && di non boolean</h2>
+	<p>Datanya di baca dari kiri ke kanan</p>
+	<p>op ini akan mengambil data nilai pertama yang falsy</p>
+	<p>jika keduanya truthy, nilai terakhir yang diambil</p>
+
+	<p>true1 && true2 = true2</p>
+	<p>true1 && false1 = false1</p>
+	<p>false1 && true1 = false1</p>
+	<p>false1 && false2 = false1</p>
+
+	<script>
+		{
+			document.writeln(`<p>${2 && 4}</p>`);
+			document.writeln(`<p>${0 && null}</p>`);
+			document.writeln(`<p>${undefined && null}</p>`);
+			document.writeln(`<p>${undefined && 3}</p>`);
+
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>25.5 Latihan 0-25</title>
+	<style>
+		body{background-color: #000;color: #fef;}
+		h1{background-color: #a81b1b;color: #fefefe;text-align: center;}
+		h2{background-color: #90b8cd;}
+		h3{background-color: purple;}
+	</style>
+</head>
+<body>
+
+	<h1>Latihan bab 0 - 25</h1>
+	<p>Latihan dimulai dair bab 0 - 25</p>
+	<h2>0. index</h2>
+
+	<h2>1. hello world</h2>
+
+	<script>
+		{
+			document.writeln("Hello world");
+		}
+	</script>
+
+	<h2>2. Komentar</h2>
+
+	<script>
+		// komentar 1 line
+		/*
+		komentar
+		multi
+		line
+		*/
+	</script>
+
+	<h2>3. Tipe data number</h2>
+	<p>di js ada tipe data number. Tipe data yang menunjukkan angka. Penulisannya langsung.</p>
+	<script>
+		{
+			document.writeln(1);
+			document.writeln(2);
+			document.writeln(3,4,5,6,8);
+		}
+	</script>
+
+	<p>js juga mendukung binary, hexadesimal, dan octal</p>
+	<p>binary diawalai dengan 0b</p>
+	<p>hexadesimal diawalai dengan 0x</p>
+	<p>octal diawalai dengan 0o</p>
+
+	<script>
+		{
+			// binary
+			document.writeln(0b100101);
+			document.writeln("<br>");
+			// hexadesimal
+			document.writeln(0xFF);
+			document.writeln("<br>");
+			// octal
+			document.writeln(0o10);
+		}
+	</script>
+
+	<h2>4. Tipe data boolean</h2>
+
+	<p>boolean memiliki 2 nilai, true dan false.</p>
+	<p>saat ini cukup tau aja, nanti di percabngan akan lebih jelas</p>
+
+	<script>
+		{
+			document.writeln(true);
+			document.writeln(false);
+		}
+	</script>
+
+	<h2>5. Tipe data string</h2>
+	<p>String merupakan tipe data teks.</p>
+	<p>penggunaan string dituliskan didalam petik 1 atau 2 atau backtik ''/""/``</p>
+
+	<script>
+		{
+			document.writeln("tesk string");
+			document.writeln("<br>");
+		}
+	</script>
+	<h3>escape sequance</h3>
+	<p>di string juga bisa menggunkana escape sequance</p>
+	<p>\n -> enter</p>
+	<p>\t -> tab</p>
+	<p>\' -> petik 1</p>
+	<p>\" -> petik 2</p>
+	<p>\\ -> \</p>
+
+	<script>
+		{
+			document.writeln("<textarea rows='10' cols='55'>");
+			document.writeln("hello, \nnamaku kenny, \n\taku kenal js \n\\dari youtube. \'Ak\'u juga belajar design grafis, \n\"semunya menyenagkan\".")
+			document.writeln("</textarea>");
+		}
+	</script>
+
+	<h2>5. variable</h2>
+	<p>varibale merupakan sebuah kata kunci yang digunakna untuk menyimpan data / nilai. Dan avribale bisa digunakan berkali kali dnegan memanggil nama variablenya saja.</p>
+
+	<script>
+		{
+			var nama = "Kenny</br>";
+			document.writeln(nama);
+			document.writeln(nama);
+			document.writeln(nama);
+			document.writeln(nama);
+			document.writeln(nama);
+		}
+	</script>
+
+	<h3>Penggabungan string dengan +</h3>
+	<p>initnya kita bisa menggabungkan 2 buah string menjadi kalimat utuh dengan op +</p>
+
+	<script>
+		{
+			// tanpa var
+			document.writeln("hello " + "nama kamu siapa?</br>");
+			// dengan var
+			var i = "hello";
+			var u = " ";
+			var r = "nama kamu siapa?</br>";
+			document.writeln(i + u + r);
+
+		}
+	</script>
+
+	<p>namun untuk zaman modern sekaarng, var tiudak di rekomendasikan lagi, gantinya ada let dan const</p>
+
+	<h2>7. Let dan Const</h2>
+
+	<p>penggantivar adalah let dan const.</p>
+
+	<h3>a. let</h3>
+	<p>let merupakan k=pengganti var yang baik.</p>
+	<p>Meskipun mirip denan var, namun agak beda, akan dibahas di bab lain.</p>
+
+	<script>
+		{
+			let i = "Nama ";
+			let u = "kamu siapa?</br>";
+			document.writeln(i + u);
+		}
+	</script>
+	<p><b>Mengganti nilai let</b></p>
+	<p>Di let kita bisa ganti niali nya, namuna da cara tersendiri berbeda dengan var.</p>
+	<script>
+		{
+			let i = "Saya kenny";
+			document.writeln(i + "</br>");
+
+			// jika ingin ganti nilai let i, maka penulsiannya langsung tulsiakna namanya saja tanpa let
+
+			i = "Saya rui</br>";
+			document.writeln(i);
+
+			// tidak bisa dituliskan ulang let i ya, karena dlama 1 scope itu hanya boleh di deklarasikan let 1x, keculai berbeda scope
+
+			let p = "rei</br>";
+			{
+				let p = "kaze</br>";
+				document.writeln(p);
+			}
+			document.writeln(p);
+
+			// ini boleh
+		}
+	</script>
+
+	<h3>b. const</h3>
+
+	<p>const atau konstantan atau nilai tetap.</p>
+	<p>const ini merupakan varibale yang nilainya tidak bisa ubah. Tidak seperti let, const sangat ketak</p>
+	<p>const bisa di dekalrasi ulang namun wajib beda scope. sama seprti let.</p>
+
+	<script>
+		{
+			const i = "Umurku 20 tahun</br>";
+			document.writeln(i);
+
+			// kita ubah nilainya
+			// i = "Umur kenny 19 tahun"; 
+			// gak bisa ya mlaah error 
+			// keculai beda scope
+
+			{
+				const i = "Umur kenny 19 tahun</br>";
+				document.writeln(i);
+			}
+			document.writeln(i);
+		}
+	</script>
+
+	<h3>Apakah bisa?</h3>
+	<p>let dan const di akses di luar scope?</p>
+	<p>tidak. keduanya hanya bisa di akses langsung dari dlama scopenya</p>
+	<p>let dan const diubah nilainya dari dalam scope?</p>
+	<p>untuk let bisa, namun const tidak bisa.</p>
+	<script>
+		{
+			let i = 5;
+			{
+				i = 7;
+			}
+			document.writeln(i);
+		}
+	</script>
+
+	<p>lalu bagaimana jika ingin akse let i yang pertama?</p>
+	<p>cukup deklarasikan ulang let i yang di dalam scope</p>
+
+	<script>
+		{
+			let i = 5;
+			{
+				let i = 7;
+			}
+			document.writeln(i);
+		}
+	</script>
+	
+	<h2>Operasi Matematika aritmatika</h2>
+	<p>di js mendukung operasi matimatikan, ada aritmatika, augmanted assignments, unary</p>
+
+	<p>di arit matika ada</p>
+	<p>+,-,*,/,%,**</p>
+	<p>untuk contohnya lnasgun aja ya</p>
+	<script>
+		{
+			let i = 5 + 6;
+			let u = 5;
+			let o = 10;
+			document.writeln(i);
+			document.writeln(i + u);
+			document.writeln(i + u + o);
+
+			// bisa juga untuk stirng kan udah dijelakan
+		}
+
+		{
+			let sum = 5 + 6;
+			document.writeln("<p>5 + 6 = " + sum + "</p>");
+
+			let sumSuper = sum;
+
+			sum = sumSuper - 1;
+			document.writeln("<p>" + sumSuper + " - 1 = " + sum + "</p>");
+
+			sumSuper = sum;
+			sum = sumSuper * 5;
+			document.writeln("<p>" + sumSuper + " * 5 = " + sum + "</p>");
+
+			sumSuper = sum;
+			sum = sumSuper / 4;
+			document.writeln("<p>" + sumSuper + " / 4 = " + sum + "</p>");
+
+			sumSuper = sum;
+			sum = sumSuper % 6;
+			document.writeln("<p>" + sumSuper + " % 6= " + sum + "</p>");
+
+			sumSuper = sum;
+			sum = sumSuper ** 9;
+			document.writeln("<p>" + sumSuper + " ** 9 = " + sum + "</p>");
+
+		}
+	</script>
+
+	<h2>9. Opertor augmanted assignments</h2>
+
+	<p>merupakan car penyederhana apabila deklarasi </p>
+
+	<script>
+		{
+			let sum = 5 + 6;
+			document.writeln("<p>5 + 6 = " + sum + "</p>");
+
+			let sumSuper = sum;
+
+			sum -= 1;
+			document.writeln("<p>" + sumSuper + " - 1 = " + sum + "</p>");
+
+			sumSuper = sum;
+			sum *= 5;
+			document.writeln("<p>" + sumSuper + " * 5 = " + sum + "</p>");
+
+			sumSuper = sum;
+			sum /= 4;
+			document.writeln("<p>" + sumSuper + " / 4 = " + sum + "</p>");
+
+			sumSuper = sum;
+			sum %= 6;
+			document.writeln("<p>" + sumSuper + " % 6= " + sum + "</p>");
+
+			sumSuper = sum;
+			sum **= 9;
+			document.writeln("<p>" + sumSuper + " ** 9 = " + sum + "</p>");
+		}
+
+
+	</script>
+
+	<p>kita bsia juga mendpaatkan hasil yang sama tanpa perlu simpan hasilnya ke dlama varibale baru</p>
+	<script>
+
+		{
+			let sum = 5 + 6;
+			document.writeln("<p>5 + 6 = " + sum + "</p>");
+			sum -= 1;
+			document.writeln("<p>" + (sum + 1) + " - 1 = " + sum + "</p>");
+			sum *= 5;
+			document.writeln("<p>" + (sum / 5) + " * 5 = " + sum + "</p>");
+			sum /= 4;
+			document.writeln("<p>" + (sum * 4 ) + " / 4 = " + sum + "</p>");
+			sum %= 6;
+			document.writeln("<p>" + (sum + 12 ) + " % 6 = " + sum + "</p>");
+			sum **= 9;
+			document.writeln("<p>" + (sum ** (1 / 9)) + " ** 9 = " + sum + "</p>");
+			
+
+		}
+	</script>
+
+	<h2>10. Unary</h2>
+
+	<p>Unary merupakan op untuk menaambakan atau mengurangi 1 nilai.</p>
+	<p>unary di bagi menjadi incremenet (menambahkan) dan decrement (mengurangi 1 poin)</p>
+	<p>Penulisannya dibagi 2, prefix (di operasikan dulu, baru ditambahkan / didepan), dan postfix (dibelakang)</p>
+
+	<p><b>Contoh increment</b></p>
+	<script>
+		{
+			// increment
+			// prefix
+			let i = 1;
+			let u = 8;
+			document.writeln(`<p>${++i} ${++u}</p>`);
+
+			// postfix
+			let y = 2;
+			document.writeln(`<p>${y++}</p>`); // tidak terjadi apa apa, namun saat dipanggil lagi
+			document.writeln(`<p>${y}</p>`); // bertambah
+			document.writeln(`<p>${y++}</p>`); // tidak bertambah
+			document.writeln(`<p>${y}</p>`);
+		}
+	</script>
+
+	<p><b>Contoh decremenet</b></p>
+	<script>
+		{
+			// decrement
+			// prefix
+			let i = 5;
+			document.writeln(`<p>Nilai awal ${i}</p>`);
+			document.writeln(`<p>${--i}</p>`);
+
+			// postfix
+			let y = 3;
+			document.writeln(`<p>postfix ${y--}</p>`);
+			document.writeln(`<p>postfix ${y--}</p>`);
+			document.writeln(`<p>postfix ${y--}</p>`);
+			document.writeln(`<p>postfix ${y--}</p>`);
+			document.writeln(`<p>postfix ${y}</p>`);
+		}
+	</script>
+
+	<h2>11. Perbandingan</h2>
+
+	<p>DI js juga didukung dengan perbandingan</p>
+	<p>Nilai akhirnya adalah boolean</p>
+	<p><,>,<=,>=,==,===,!=, !==</p>
+
+	<!-- <h3>< dan <=</h3> -->
+
+	<!-- <p>< lebih kecil</p> -->
+	<!-- <pre> <= lebih kecil sama dengan </p> -->
+
+	<script>
+		{
+			// <
+			let i = 5 < 4; // false
+			let u = 5 < 6; // true
+
+			document.writeln(`<p>${i}</p>`);
+			document.writeln(`<p>${u}</p>`);
+
+			//<=
+			let p = 5 <= 4; // false
+			let k = 9 <= 99; // true
+			let g = 6 <= 6; //true
+			document.writeln(`<p>${p}</p>`);
+			document.writeln(`<p>${k}</p>`);
+			document.writeln(`<p>${g}</p>`);
+		}
+	</script>
+
+	<h3>> dan >=</h3>
+	<p>> lebih besar</p>
+	<p>>= lebih besar sama dengan</p>
+
+	<script>
+		{
+			let i = 6 > 5;
+			let t = 5 > 7;
+			document.writeln(`<p>${i}</p>`);
+			document.writeln(`<p>${t}</p>`);
+
+			let u = 5 >= 6;
+			let y = 5 >= 5;
+			document.writeln(`<p>${u}</p>`);
+			document.writeln(`<p>${y}</p>`);
+		}
+	</script>
+
+	<h3>== dan ===</h3>
+	<p>== sama dengan</p>
+	<p>=== sama dengan dan sama tipe</p>
+
+	<script>
+		{
+			let i = 9 == 0;
+			let p = 0 == 0;
+			let e = 7 == "7";
+			document.writeln(`<p>${i}</p>`);
+			document.writeln(`<p>${p}</p>`);
+			document.writeln(`<p>${e}</p>`);
+
+			let y = 8 === 9;
+			let r = 8 === "delapan";
+			let w = 6 === 6;
+			let q = 8 === "8";
+			document.writeln(`<p>${y}</p>`);
+			document.writeln(`<p>${r}</p>`);
+			document.writeln(`<p>${w}</p>`);
+			document.writeln(`<p>${q}</p>`);
+
+		}
+	</script>
+
+	<h3>!= dan !==</h3>
+	<p>!= tidak sama dengan</p>
+
+	<script>
+		{
+			let i = 5 != 4;
+			let u = 3 != 3;
+			let k = 3 != "3";
+
+			document.writeln(`<p>${i}</p>`);
+			document.writeln(`<p>${u}</p>`);
+			document.writeln(`<p>${k}</p>`);
+
+			let o = 2 !== "2";
+			let d = 2 !== 3;
+			let w = 2 !== 2;
+			let m = 2 !== "2";
+			document.writeln(`<p>!== ${o}</p>`);
+			document.writeln(`<p>!== ${d}</p>`);
+			document.writeln(`<p>!== ${w}</p>`);
+			document.writeln(`<p>!== ${m}</p>`);
+		}
+	</script>
+
+	<h2>12. Operator logika</h2>
+	<p>Operator logika merupakan sebuah operator yang menggunakna &&, ||, dan ! yang di operasikan dari 2 boolean (kecuali !)</p>
+	<p>hasil akhir boolean</p>
+
+	<h3>&&</h3>
+	<p>disebut dan / and</p>
+	<p>perlu dua nilai boolean</p> 
+
+	<p>true && true = true</p>
+	<p>true && false = false</p>
+	<p>false && true = false</p>
+	<p>false && false = false</p>
+
+	<script>
+		{
+			let u = 5 < 6;
+			let i = 5 > 6;
+
+			document.writeln(`<p>${u && u}</p>`);
+			document.writeln(`<p>${u && i}</p>`);
+			document.writeln(`<p>${i && u}</p>`);
+			document.writeln(`<p>${i && i}</p>`);
+		}
+	</script>
+
+	<h3>||</h3>
+	<p>dibaca atau / or</p>
+	<p>perlu 2 nilai booelan</p>
+
+	<p>true && true = true</p>
+	<p>true && false = true</p>
+	<p>false && true = true</p>
+	<p>false && false = false</p>
+
+	<script>
+		{
+			let i = 5 > 4;
+			let u = 5 < 4;
+			document.writeln(`<p>${i || i}</p>`);
+			document.writeln(`<p>${i || u}</p>`);
+			document.writeln(`<p>${u || i}</p>`);
+			document.writeln(`<p>${u || u}</p>`);
+		}
+	</script>
+
+	<h3>!</h3>
+	<p>sediebut kebalikan</p>
+	<p>hanya perlu 1 nilai boolean</p>
+
+	<script>
+		{
+			let i = true;
+			let u = false;
+			document.writeln(`<p>tanpa ! ${i}</p>`);
+			document.writeln(`<p>${!i}</p>`);
+			document.writeln(`<p>tanpa ! ${u}</p>`);
+			document.writeln(`<p>${!u}</p>`);
+		}
+	</script>
+
+	<h2>13. Console</h2>
+	<p>Console merupkaan suatu cara seorang programmer untuk menuliskan info, erro, wrning dan sebagainya dyng muncul di dev tool console.</p>
+
+	<script>
+		{
+			console.info("hello");
+			console.log("hello");
+			console.warn("hello");
+			console.error("hello");
+			console.table("hello");
+		}
+	</script>
+
+	<h2>14. String template</h2>
+
+	<p>sebuah metode untuk lebih mudah memanggil variable di js</p>
+	<p>penggunaanya tidak lagi menggunkana petik 1 atau 2, namun pakai backtik ``</p>
+
+	<script>
+		{
+			let i = 9;
+			let k = 10;
+			document.writeln(`<p>${i + k}</p>`);
+			document.writeln(`<p>${i}</p>`);
+		}
+	</script>
+
+	<h2>15. Konversi</h2>
+
+	<p>kadang kita perlu konversi untuk dpaatkan nilai yang kita mau, misal saat user input teks pada input yang harusnya number, maka kita pelru konversi.</p>
+	
+	<h3>a. parseInt()</h3>
+	<p>konversi bilangan bulat</p>
+	<script>
+		{
+			let i = "8";
+			let u = 10;
+			document.writeln(`<p>${i + u}</p>`); // 810
+			document.writeln(`<p>${parseInt(i) + u}</p>`);
+		}
+	</script>
+
+	<h3>b. parseFloat()</h3>
+	<p>konversi bilangan pecahan</p>
+	<script>
+		{
+			let y = "8.1";
+			let o = 2;
+			document.writeln(`<p>${y + o}</p>`);
+			document.writeln(`<p>${parseFloat(y) + o}</p>`);
+		}
+	</script>
+
+	<h3>c. Number()</h3>
+	<p>bisa untuk bulat dan pecahan</p>
+
+	<script>
+		{
+			let i = 10;
+			let u = "2";
+			let r = "12.2";
+			document.writeln(`<p>${i + u + r} salah</p>`);
+			document.writeln(`<p>${i + u} salah</p>`);
+			document.writeln(`<p>${i +r} salah</p>`);
+			document.writeln(`<p>${i + Number(u)} benar</p>`);
+			document.writeln(`<p>${i + Number(r)} benar</p>`);
+
+		}
+	</script>
+
+	<h3>.toString()</h3>
+	<p>konversi dari number ke string</p>
+	<script>
+		{
+			let i = 5;
+			let u = 5;
+			document.writeln(`<p>${i.toString() + u}</p>`);
+			document.writeln(`<p>${i + u}</p>`);
+		}
+	</script>
+
+	<h3>e. fyi</h3>
+	<p>kenapa gak sellau pakai string Number(), gak pelru pakai parseInt dan float?</p>
+	<p><i>karena saat kondisi input gak valid, ketiganya menangai dengan cara berbeda, conoth bagiaman jika user masukkan input number dan teks?</i></p>
+	<p><b>parseInt</b></p>
+	<script>
+		{
+			let i = "12teks";
+			let e = "teks12";
+			let u = 2;
+			document.writeln(`<p>"12teks" + 2 = ${i + u}</p>`);
+			document.writeln(`<p>"12teks" + 2 = ${parseInt(i) + u}</p>`);
+			document.writeln(`<p>"teks12" + 2 = ${parseInt(e) + u}</p>`);
+		}
+	</script>
+
+	<p>yang di opersikan hanya angkanya yang di depan</p>
+	<p>jika teks di depannya maka akan NaN</p>
+
+	<p><b>parseFLoat</b></p>
+	<script>
+		{
+			let i = "12.2teks";
+			let u = "teks12.2";
+			let e = 2;
+			document.writeln(`<p>"12.2teks" + 2 = ${i + e}</p>`);
+			document.writeln(`<p>"12.2teks" + 2 = ${parseFloat(i) + e}</p>`);
+			document.writeln(`<p>"12.2teks" + 2 = ${parseFloat(u) + e}</p>`);
+		}
+	</script>
+
+	<p>sama</p>
+
+	<p><b>Number</b></p>
+	<script>
+		{
+			let i = "12teks";
+			let u = "12.2teks";
+			let o = "teks12";
+			let p = "teks12.2";
+			let y = 2;
+
+			document.writeln(`<p>"12teks" + 2 = ${Number(i) + y}</p>`);
+			document.writeln(`<p>"12.2teks" + 2 = ${Number(u) + y}</p>`);
+			document.writeln(`<p>"teks12" + 2 = ${Number(o) + y}</p>`);
+			document.writeln(`<p>"teks12.2" + 2 = ${Number(p) + y}</p>`);
+
+		}
+	</script>
+
+	<p>hasilnya NaN semua.</p>
+	<p>karena Number(), itu lebih ketat dans sensitif mengenani inputnya, jadi wajib yang diinput tanpa ada huruf selain number</p>
+
+	<h2>16. NaN</h2>
+	<p>merupakan sebuah number spesial di js</p>
+	<p>not a number merupakan hasil dari operasi yang tidak valid.</p>
+	<p>Seperti konversi teks. Hasilnya akan NaN.</p>
+	<p>NaN tidak bisa dioperasikan ya.</p>
+	<p>NaN memiliki sifat menular, jika kita mencoba opersaikan NaN, maka hasilnya akna tetap NaN</p>
+
+	<script>
+		{
+			document.writeln(`<p>${NaN + 8}</p>`);
+			document.writeln(`<p>${NaN - 8}</p>`);
+			document.writeln(`<p>${NaN / 8}</p>`);
+		}
+	</script>
+
+	<h2>17. isNaN()</h2>
+	<p>isNaN merupakan cara atasi NaN. Dengan isNaN kita bisa cek dulu, apakah NaN atau bukan.</p>
+	<p>hasil akhirnya boolean</p>
+
+	<script>
+		{
+			let i = NaN;
+			let u = 8;
+			document.writeln(`<p>${isNaN(i)}</p>`);
+			document.writeln(`<p>${isNaN(u)}</p>`);
+		}
+	</script>
+
+	<h2>18. Tipe data array</h2>
+	<p>Merupakan kumpulan data yang disimpan dalam 1 variable.</p>
+	<p>Menyimpan data di varibale array perlu menggunkana [].</p>
+	<p>array memiliki index, yang dimulai dari 0. Index 0 adalah array pertama.</p>
+
+	<p>let i = []; array kosong</p>
+	<p>bisa juga  menuliskan langsung, let i = ["nama", 1,2,3], namun sangat jarang menulisakan langsutuh</p>
+
+	<h3>array.push</h3>
+	<p>untuk menambahkan array baru</p>
+
+	<script>
+		{
+			let i = [];
+			i.push("kenny");
+			i.push("rui", "tachibana");
+			
+			console.table(i);
+		}
+	</script>
+	<h3>Panggil index tertentu</h3>
+	<script>
+		{
+			let i = [];
+			i.push("kenny");
+			i.push("rui", "tachibana");
+
+			console.log(i[1])
+		}
+	</script>
+
+	<h3>cek panjnag index</h3>
+
+	<script>
+		{
+			let i = [];
+			i.push("kenny");
+			i.push("rui", "tachibana");
+
+			console.log(i.length);
+		}
+	</script>
+
+	<h3>hapus index array</h3>
+
+	<script>
+		{
+			let i = [];
+			i.push("kenny");
+			i.push("rui", "tachibana");
+
+			console.table(i);
+			delete i[2];
+			console.table(i);
+
+		}
+	</script>
+
+	<h3>Ganti nilai index tertentu</h3>
+	<script>
+		{
+			let i = [];
+			i.push("kenny");
+			i.push("rui", "tachibana");
+			console.table(i);
+			
+			i[2] = "kenny";
+			console.table(i);
+
+		}
+	</script>
+
+	<h2>19. Array multidimesional</h2>
+	<p>array bis amemiliki beberap tipe data berbeda, slaah sataunya kita juga bisa memasukkan array didalam array didalma array. multi ddmensional.</p>
+
+	<script>
+		{
+			let data = [];
+			data.push("Rui tachibana");
+			// console.table(data);
+			data.push("Kenny ken", "Asora", "Andini");
+			console.table(data);
+			
+			data.push(["aura", "asuna"]);
+			console.table(data);
+			
+			// tambahkan ke 3d
+			data.push([["Kenny kun"]]);
+			console.table(data);
+
+
+		}
+	</script>
+
+	<p>panggilnya</p>
+
+	<script>
+		{
+		let data = [];
+		data.push("Rui tachibana", ["asuna", "kenny", "kiki", ["sora", "sayuri"]], "mikle");
+		console.log(data);
+		console.log(data[1][3][0])
+		}
+	</script>
+
+	<h2>20. Tipe data Object</h2>
+
+	<p>Mrip denganb array, namun di object kita bisa tentukan indeksnyadengan string.</p>
+	<p>di object  peeyebutanaybukann index, namun propserty</p>
+
+	<p>let a = {}; object kosong</p>
+
+	<h3>menambhakn property</h3>
+
+	<script>
+		{
+			let a = {};
+
+			a.nama = "kenny";
+			a["nama lengkap"] = "kenny ken ken";
+			a.lahir = 29;
+
+			console.table(a);
+		}
+	</script>
+
+	<h3>panggil property</h3>
+	<script>
+		{
+			let a = {};
+			a.nama = "kenny";
+			a["nama lengkap"] = "kenny ken ken";
+			a.lahir = 29;
+
+			console.table(a.nama);
+			console.table(a["nama lengkap"]);
+		}
+	</script>
+
+	<h3>Ganti nilai</h3>
+
+	<script>
+		{
+			let a = {};
+			a.nama = "kenny";
+			a["nama lengkap"] = "kenny ken ken";
+			a.lahir = 29;
+
+			console.table(a);
+
+			a.nama = "Rui";
+			a["nama lengkap"] = "Rui tachibana";
+			console.table(a)
+		}
+	</script>
+
+	<h3>Hapus</h3>
+
+	<script>
+		{
+			let a = {};
+			a.nama = "kenny";
+			a["nama lengkap"] = "kenny ken ken";
+			a.lahir = 29;
+
+			console.table(a);
+			delete a.nama;
+			delete a["lahir"];
+			console.table(a);
+		}
+	</script>
+
+	<h2>If else dan else if</h2>
+		<h3>if</h3>
+		<p>if merupakan salah stau percabangan yang ada di js.</p>
+		<p>if akan mengembalikan nilai boolean true, jika true maka block kode akan di eksekusi.</p>
+
+		<script>
+			{
+				let i = 5;
+
+				if (i > 4){
+					document.writeln(`<p>Jawabannya ${i}</p>`);
+				}
+			}
+		</script>
+
+		<h3>else</h3>
+		<p>if adalah kondisi jika true, dan else dalah kondisi jika false</p>
+
+		<script>
+			{
+				let i = 4;
+				if (i > 6){
+					document.writeln(`<p>benar</p>`);
+				} else {
+					document.writeln(`<p>salah</p>`);
+				}
+			}
+		</script>
+
+		<h3>else if</h3>
+		<p>kondisi di antar if dan else, kondisi else if ini menunjukkan true yang leih dekat.</p>
+
+		<script>
+			{
+				let i = 70;
+				if(i > 75) {
+					document.writeln(`<p>Lulus sempuran</p>`);
+				} else if (i > 65) {
+					document.writeln(`<p>Lulus</p>`);
+				} else{
+					document.writeln(`<p>Gagal</p>`);
+				}
+			}
+		</script>
+	
+	<h2>22. PopUp</h2>
+	<p>DI js juga didukung denagn popup</p>
+	<p>alert(), confirm(), prompt()</p>
+
+	<script>
+		{
+			// alert("Hello");
+			// confirm("Siap untuk login?");
+			// prompt("siapa namamu?");
+		}
+	</script>
+
+	<h2>23. Undefined</h2>
+	<p>undefined dalah ebuah kataa kunci yang mrepreentasikan  ebuaha variablie msialnya itu kosong tanpa nilai.</p>
+	<p>let i;</p>
+	<p>selain variabl kosong, undefined bisa terjadi saat aksea property atau index yang tidak ada.</p>
+
+	<script>
+		{
+			// let i;
+			// let i = {
+			// 	nama :"kenny"
+			// }
+
+			let i = [1,2,3]; //inddex ada 3, 0, 1, 2
+			if (i[99] === undefined){
+				document.writeln(`<p>benar i === undefined</p>`);
+			} else {
+				document.writeln(`<p>salah</p>`);
+			}
+		}
+	</script>
+
+	<h2>24. Null</h2>
+
+	<p>null merupakan sebuaha kata kunci untuk emnunjukkan bahwa nilanya ada, nmaun nilainya dlaha null.</p>
+	<p>null berbeda dengan undefined, null nilainya ada tapi nilainya null</p>
+	<p>null itu di berikan secara sadar oleh programmer, nmaun undefined tuh auto</p>
+
+	<script>
+		{
+			let i = null;
+			if (i === undefined) {
+				document.writeln(`<p>adalah undefined</p>`);
+			} else if (i === null) {
+				document.writeln(`<p>adalah null</p>`);
+			} else {
+				document.writeln(`<p>${i}</p>`);
+			}
+		}
+	</script>
+
+	<h2>25. Switch expression</h2>
+	<p>merupakan cara sederhana untuk melakukan if expression.</p>
+	<p>namun direkomendasikannya hanya untuk pebndingan == dan === yang sederhana saja.</p>
+
+	<script>
+		{
+			let nilai = "R";
+			switch (nilai) {
+				case "A" : document.writeln(`<p>Kamu lulus sempurna dengan nilai ${nilai}</p>`);
+				break;
+				case "B" : document.writeln(`<p>Kamu lulus dengan nilai ${nilai}</p>`);
+				break;
+				case "C":
+				case "D" : document.writeln(`<p>Kamu harus mengulang karena nilamu ${nilai}</p>`);
+				break;
+				default : document.writeln(`<p>Kamu gagal dengan nilai ${nilai}</p>`);
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>24. Null</title>
+</head>
+<body>
+	
+	<!-- 03:11:22 -->
+
+	<h1>Null</h1>
+
+	<p>null merupakan representasi data kosong / mewakili data kosong</p>
+	<p>null berbeda dengan undefined, null berrti variablenya sudha di definisikan / berikan nilai, nilainya itu null.</p>
+
+	<script>
+		{
+			let data = null;
+			if (data === undefined){
+				document.writeln("data kosong undefined")
+			} else if (data === null) {
+				document.writeln("data kosong null")
+			} else{
+				document.writeln(data);
+			};
+		}
+
+		{
+			let data = {
+				nama : null
+			}
+			if (data.nama === undefined){
+				document.writeln("<p>data kosong undefined</p>")
+			} else if (data.nama === null) {
+				document.writeln("<p>data kosong null</p>")
+			} else{
+				document.writeln(data);
+			};
+		}
+
+		{
+			let data = [null]
+			if (data[0] === undefined){
+				document.writeln("<p>data kosong undefined</p>")
+			} else if (data[0] === null) {
+				document.writeln("<p>data kosong null</p>")
+			} else{
+				document.writeln(data);
+			};
+		}
+	</script>
+
+	<p>intinyaa null ini adalah sebuah value yang dinyatakan dengan jelas adlaha kosong / tidak memiliki nilai.</p>
+
+</body>
+</html>

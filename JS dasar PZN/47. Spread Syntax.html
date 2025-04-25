@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>47. Spread Syntax</title>
+</head>
+<body>
+
+	<!-- 05:31:04 -->
+
+	<h1>Spread Syntax</h1>
+	<p>Spread syntax kaitannya dengan rest parameter sangat erat</p>
+	<p>Kadang ada kondisi kita sudah memiliki data arraynya</p>
+	<p>Nah dengan Spread syntax ini kita bisa kirim data array ke rest parameter</p>
+	<p>kita bisa gunakan ... diikuti dengfan arraynya</p>
+	<p>Intinya spread syntax itu menyebarkan data array</p>
+
+	<script>
+		{
+			let data = [1,2,3,4];
+			let dataSpread = [...data,5,6,7];
+			document.writeln(`<p>${dataSpread}</p>`);
+		}
+	</script>
+
+	<p><b>Dengan fungsi</b></p>
+	<script>
+		{
+			function sum(nama, ...data) {
+				let total = 0;
+				for (const item of data) {
+					total += item;
+				}
+				document.writeln(`<p>${nama} : ${total}</p>`);
+			}
+
+			let dataArray = [20,20,10,10];
+			sum("kenny", ...dataArray);
+
+			// atau bisa juga
+			sum ("rui", ...[20,20])
+
+		}
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Closure</title>
+</head>
+<body>
+
+	<!-- 06:40 -->
+
+	<h1>Closure</h1>
+	<p>adalah kombinasi fungsi dan bundel referensi ke data di sekitarnya</p>
+	<p>Kita sudah tau bahwa local scope tidak bisa di akses di luar scopenya</p>
+	<p>Dengan kemampuan closure, kita bisa membuat fungsi di local scope dan referensi ke data di sekitar local scope tersebut, keluar scopenya</p>
+	<p>Gapap kalo bingung, soalnya jarang juga di gunakan</p>
+
+	<script>
+
+		{
+			function createAdder(value) {
+				const owner = "Kenny";
+				function add(param) {
+					document.writeln(`<p>${owner}</p>`);
+					return value + param;
+				}
+				return add;
+			}
+
+			const addTwo = createAdder(2);
+			document.writeln(`<p>${addTwo(10)}</p>`);
+			document.writeln(`<p>${addTwo(11)}</p>`);
+		}
+
+	</script>
+
+	<script>
+		{
+			function halo(nama) {
+				return function() {
+					console.log("Halo, " + nama);
+				}
+			}
+
+			const sapa = halo("Andi");
+			sapa();
+			const sapa2 = halo("Andre");
+			sapa2()
+		}
+	</script>
+	
+</body>
+</html>

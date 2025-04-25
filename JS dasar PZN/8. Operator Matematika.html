@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>8. Operator Matematika</title>
+</head>
+<body>
+
+	<!-- 01:12:00 -->
+	<h1>Operator matematika</h1>
+	<p>Js itu mendukung banyak operator mtk, ada op artitmatika, augmanted assignments, unary dsb</p>
+
+	<h2>Operator aritmatika</h2>
+	<p>op aritmatika adalah op biasa kayak +, -, /, *, **, %</p>
+	<p>** exponensial / pangkat</p>
+	<p>% sisa bagi / modulo</p>
+
+	<script>
+		let result = 2 + 9;
+		document.writeln("<p>2 + 9 = " + result + "</p>");
+
+		// kita tangkap hasilnya di variable baru
+		let realResult = result;
+
+		// kita mainkan
+		result = realResult - 2;
+		document.writeln("<p>" + realResult + " - 2 = " + result + "</p>");
+
+		// simpan lagi hasilnya
+		realResult = result;
+		// kalo dicek
+		document.writeln(result);
+		document.writeln(realResult);
+		// sama ya, kita mainkan lagi
+
+		result = realResult * 5;
+		document.writeln("<p>" + realResult + " * 5 =" + result + "</p>");
+
+		realResult = result;
+		result = realResult / 3;
+		document.writeln("<p>" + realResult + " / 3 = " + result + "</p>");
+
+		realResult = result;
+		result = realResult ** 2;
+		document.writeln("<p>" + realResult + " ** 2 = " + result + "</p>");
+
+		realResult = result;
+		result = realResult % 2;
+		document.writeln("<p>" + realResult + " % 2 = " + result + "</p>");
+
+
+	</script>
+
+	
+
+	
+</body>
+</html>

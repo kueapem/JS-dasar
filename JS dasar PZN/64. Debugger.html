@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Debugger</title>
+</head>
+<body>
+
+	<!-- 07:46 -->
+
+	<h1>Debugger</h1>
+
+	<h2>Dari chatgpt</h2>
+	<p>merupakan statement (perintah) di js yang digunkana untuk hentikan ekseskuis kode di titik tertentu, agar kita bisa memeriksa nilai variable, alur logika, dll menggunakan dev tools browser</p>
+
+	<script>
+		{
+			let nama = "kenny";
+			let user = "kenny02";
+
+			// debugger;
+
+			console.log(`Halo nama asliku ${nama}, usernameku ${user}`);
+
+		}
+	</script>
+	p><b>🔍 Apa yang Terjadi?</b></p>
+	<p>Saat kamu membuka Developer Tools di browser (biasanya tekan F12)</p>
+
+	<p>Jalankan kode</p>
+
+	<p>Browser akan pause di baris debugger;</p>
+
+	<p>Kamu bisa cek isi variabel, step-in ke baris kode selanjutnya, dll</p>
+
+
+	<p><b>✅ Kapan Pakai debugger?</b></p>
+	<p>Gunakan saat kamu ingin:</p>
+	
+	<p>Melacak bug atau error</p>
+	
+	<p>Melihat bagaimana variabel berubah dari baris ke baris</p>
+	
+	<p>Mengecek hasil logika kondisional</p>
+	
+	<p>Membantu memahami alur program yang kompleks</p>
+
+	<script>
+		{
+			function hitungDiskon(harga, diskon) {
+				let hasil =- (harga * diskon / 100);
+				// debugger;
+				return hasil;
+				console.log(hasil);
+			};
+
+			console.log(hitungDiskon(100000 , 10))
+		}
+	</script>
+
+	<p><b>❌ Jangan Lupa: Hapus di Produksi!</b></p>
+	<p>debugger; harus dihapus saat kode akan dipublish/dirilis ke production. Karena:</p>
+
+	<p>Bisa mengganggu user</p>
+
+	<p>Bisa memperlambat performa</p>
+
+	<p>Bisa bocorin logika/kode sensitif</p>
+
+	<p><b>🧪 Tips Debugging di Browser</b></p>
+	<p>Gunakan tab Sources di Developer Tools (Chrome / Firefox)</p>
+
+	<p>Tambahkan breakpoints manual dengan klik di nomor baris</p>
+
+	<p>Lihat isi variabel di panel Scope</p>
+
+	<p>Lihat Call Stack dan Watch expressions</p>
+
+
+	<h1>PZN</h1>
+	<p>Debgugger digunnakan untuk proses debugging</p>
+	<p>debugging merupakan proses mencari bug (maslaah) yanga biasa terjadi dalam kode program</p>
+	<p>Dengan debugger kita bisa hentikan kode program di posisi yang kita inginkan (breakpoint), lalu melihat semua isi yang ada pada saat kode program sedang berhenti</p>
+
+	<script>
+		{
+			function createFullName(first, middle, last) {
+					// debugger;
+				const fullName = `${first} ${last} ${last}`;
+				return fullName;
+			}
+
+			const name = createFullName("kenny", "ken", "rui");
+			console.info(name)
+		}
+	</script>
+
+	<p><b>Contoh lain</b></p>
+
+	<script>
+		{
+			function sum(...number) {
+				debugger;
+				let total = 0;
+				for (const val of number) {
+					total += val;
+				}
+				return total;
+			};
+
+			console.info(sum(1,1,1,1,1));
+
+		}
+	</script>
+	
+</body>
+</html>

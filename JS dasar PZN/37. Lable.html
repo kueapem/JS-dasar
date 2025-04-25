@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>37. Label</title>
+</head>
+<body>
+	<!-- 04:26:27 -->
+
+	<h1>37. Label</h1>
+
+	<p>Merupakan penanda yang bisa digukana untuk kata kunci break dan continue</p>
+	<p>Secara deafult saat kita lakukan break dan continue, dia akan melakukan terhadap loop dima kode break dan continue digunakan</p>
+	<p>Dengan label kita bisa melakukan break dan continue terhadap loop yang kita inginkan, asalkan pada loopnya kiga gunakan label</p>
+	<p>Menggunakna label cukuup tuliskan nma abel : (titik 2)</p>
+
+	<p>Intinya dengan label, kita bisa memilih yang mana yang mau di break dan mana yang mau di continue</p>
+
+	<script>
+		{
+			loopi:
+			for (let i = 0; i <= 10; i++) {
+				loopj:
+				for (let j = 0; j <= 5;j++) {
+					document.writeln(`<p>${i} - ${j}</p>`);
+				}
+			}
+		}
+
+		{
+			oouterLoop:
+			for (let i = 0; i <= 5; i++){
+				for (let j = 0; j <= 5; j++) {
+					if (i == 3 && j == 2) {
+						continue oouterLoop;
+					}
+					document.writeln(`<p>i=${i}, j=${j}</p>`);
+				}
+			}
+		}
+	</script>
+	
+	<p><b>Latihan chatgpt</b></p>
+	<script>
+		{
+			// Latihan 1: Break dengan Label
+			// Gunakan label untuk keluar dari dua loop bersarang saat angka 5 ditemukan.
+
+			{
+				loop:
+				for (let i = 1; i <= 3; i++) {
+					for (let j = 1; j <= 5; j++) {
+						document.writeln(`<p>Loop label 1 : i:${i} - j:${j}</p>`);
+						if (j === 5) {
+							document.writeln(`<p>Loop berhenati : i:${i} - j:${j}</p>`);
+							break loop;
+						}
+					}
+					
+				}
+			}
+
+			// Latihan 2: Continue dengan Label
+			// Gunakan label untuk melewati iterasi tertentu dalam loop luar jika angka 2 ditemukan dalam loop dalam.
+
+			{
+				loop:
+				for (let p = 0; p <= 3; p++) {
+					for (let y = 0; y <= 5; y++) {
+						if (y === 2) {
+							document.writeln(`<p>Loop melewati ${p} - ${y}</p>`);
+							continue loop
+						}
+						document.writeln(`<p>Loop label 2: p:${p} - y:${y}</p>`);
+					}
+				}
+			}
+		}
+	</script>
+
+</body>
+</html>

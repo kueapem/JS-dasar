@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>50 Annymous Function</title>
+</head>
+<body>
+
+	<!-- 05:44:44 -->
+	
+	<h1>Annymous function</h1>
+
+	<p>Sebelumnya kita selalu membuat fungsi selalu disertakan nama fungsinya ya</p>
+	<p>Sebenarnya di js kita bisa membuat fungsi tanpa nama. atau Annymous function</p>
+	<p>Kita bisa buat Annymous function dalam sebuah variable atau kita bisa buat ketika mengisi paramter</p>
+	<p>argumen adalah nilai yang dikirim saat fungsi dipanggil. 🚀</p>
+
+	<p>Anonimus fungsi biasanay dibuat / disimpan di dalam varibale atau langsung di dalma parameternya fungsi</p>
+
+	<h2>1. Contoh anonymous fungsi dalams ebuah variable</h2>
+	<script>
+		{
+			// biasanay fungsi
+			function sapa(nama) {
+				return `<p>${nama}</p>`;
+			}
+			document.writeln(`${sapa("Kenny")}`)
+		}
+
+		// dengan anonymous
+
+		{
+			let sapa = function (nama) {
+				return `<p>${nama}</p>`;
+			}
+
+			document.writeln(`${sapa("rui")}`);
+		}
+	</script>
+
+	<h2>2. Contoh sebagai argumen</h2>
+	<p>Anonimus fungsi sering digunakan langsung didalam parameter fungsi lainnya</p>
+	<script>
+
+		{
+			function sapaUser(sapa, usia) {
+				document.writeln(`<p>${sapa("Budi")} Usianya ${usia} tahun</p>`);
+			}
+
+			sapaUser(function(nama) {return `Halo, ${nama}`;}, 25)
+		}
+
+		{
+			function giveName(name, usia) {
+				name("Kenny");
+				usia("26");
+				console.log(usia)
+			}
+
+			giveName(function (nama, age){
+				document.writeln(`<p>${nama} ${age}</p>`);
+			}, function(){
+				
+			});
+
+
+		}
+
+	</script>
+</body>
+</html>

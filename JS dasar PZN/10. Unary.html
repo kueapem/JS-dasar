@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>10. Unary</title>
+</head>
+<body>
+
+	<!-- 01:21:20 -->
+
+	<h1>Unary</h1>
+	<p>op yang digunakan untuk menambahkan atau mnegurangi 1 nilai.</p>
+	<p>Increment dan decremenet (menambah atau mengurangi)</p>
+	<p>increment dan decrement dibagi lagi jadi prefix dan postfix.</p>
+	<p>prefix -> nilai bertambah / berkurang dulu lalu digunakan</p>
+	<p>postfix -> nilai digunakan dulu, lalu ditambahkan atau di kurangi.</p>
+	<p>op ini dituliskan ++ / -- diawal (prefix) atau diakhir (postfix)</p>
+
+	<h2>Prefix</h2>
+	<script>
+		let data = 5;
+		let dataAwal = data;
+		{
+			// prefix increment
+			let jumlah = ++data + 2;
+			document.writeln(jumlah + "</br>"); // 8 
+			
+			// hasil 8 karena data di increment prefix ++ jadi nilainya 6
+			document.writeln(data + "</br>"); // 6
+		}
+
+		{
+			// prefix decrement
+			let jumlah = --data + 5;
+			document.writeln(jumlah + "</br>"); // 10
+			
+			// hasil 10 karena data yang awalnya 6 jadi 5, 5 + 5 = 10
+			// kenapa 6, bukan 5?
+			// karena ia ngambil hasil dari increment diatas, bukan nilai awal.
+			document.writeln(data);
+
+			// jika ingin ambil nilai awal / data = 5, kita bisa tuliskan ulang atau dekalarasi ulang di tiap scopenya tau menyimpan nilai awal data kedalam varibale baru sebelum di increment
+			let jumlahAwal = --dataAwal + 5;
+			document.writeln("<p>" + jumlahAwal + "</p>"); // 9
+			// karena kita simpan nilai data = 5 ke variable dataAwal. Jadi dataAwal ini belum di operasikan (5), so --5 + 5 => 4 + 5 = 9
+
+			// cara lainnya deklarasikan ulang di dlama tiap scope.
+
+		}
+	</script>
+
+	<h2>Postfix</h2>
+	<script>
+		let i = 5;
+		let iAwal = i;
+
+		{
+			// postfix increment
+			let u = i++;
+			document.writeln("<p>" + u + "</p>"); // 5
+			// karena tidak ada yang diubah, kecuali digunakan lagi
+			document.writeln("<p>" + i + "</p>"); // 6
+
+			// i = 6 karena nilai i telah ditambahakn 1 nilai.
+			// kan di u = i++ -> u i + 1;
+			// sedangkan kenapa u bernilai 5
+			// karena nilai i belum di operasikan / ditambahkan nilai nya
+			//  berbeda kalo ++i, maka u kana jadi 6 karena ditambahkan dulu i nanya.
+			// sedangkan saat ini nilai i digunakan dulu baru ditambhakan ke i
+
+		}
+
+		{
+			// postfix decremenet
+			let u = i--;
+			document.writeln("<p>postfix " + u + "</p>"); // kenapa hasilnya 6, karena nilai awal i = 6, bukan 5. Karena i sudah di operasikan ya diatas
+			document.writeln("<p>postfix " + i + "</p>"); // hasil 5 karena i - 1
+
+			// gar jelas
+
+			let y = 7;
+			let j = y--;
+			document.writeln("<p>" + j-- + "</p>"); // 7 karena nilai awal y = 7, belum di operasikan
+			document.writeln("<p>" + y-- + "</p>"); // 6 karena nilai y sudah di operasikan
+			document.writeln("<p>" + j + "</p>"); // 6 karena nilai awal j bukan lagi 7, sudah di perasikan di baris 84
+			document.writeln("<p>" + y + "</p>"); // 5 karena nilai awal y bukan lagi 6, sudah di operaskan di baris 85
+		}
+	</script>
+</body>
+</html>

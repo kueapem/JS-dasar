@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>38. For In</title>
+</head>
+<body>
+
+	<!-- 04:32:38 -->
+
+	<h1>For in</h1>
+
+	<p>loop yang digunakan untuk iterasi seluruh data property object atau index array</p>
+	<p>Walaupun bisa digunakan untuk array, namun kurang di rekomendasikan digunakan untuk index array, biasanya index array menggunakan for of</p>
+	<p>jadi for in rekomendasikan untuk object saja</p>
+
+	<script>
+		{
+			let person = {
+				firstName : "Kenny",
+				middleName : "ken",
+				lastName : "Tachibana"
+			}
+
+			for (const property in person) {
+				document.writeln(`<p>Property ${property} : ${person[property]}</p>`);
+			}
+		}
+
+		{
+			let person = {
+				firstName : "Kenny",
+				middleName : "ken",
+				lastName : "Tachibana"
+			}
+			for (const key in person) {
+				if (Object.prototype.hasOwnProperty.call(person, key)) {
+					const element = person[key];
+					document.writeln(`<p>Property ${element}</p>`);
+				}
+			}
+		}
+	</script>
+
+	<p><b>Kalo di array</b></p>
+
+	<script>
+		{
+			let names = ["Kenny", "Ken", "Tachibana"];
+			for (const i in names) {
+				document.writeln(`<p>${i} : ${names[i]}</p>`);
+			}
+		}
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>39. For Of</title>
+</head>
+<body>
+	<!-- 04:38:00 -->
+
+	<h2>For of</h2>
+
+	<p>Berbdea dengan for in, for of digunakan untuk melakukan iterasi terhadap isi value dari iterable object seperti array, string, dll</p>
+	<p>For of tidak bisa digunakan untuk melakukan iterasi data di object, karena object bukanlah iterable</p>
+
+	<script>
+		{
+			let names = "["kenny", "ken", "rui"]";
+			for (const nama of names) {
+				document.writeln(`<p>${nama}</p>`);
+			}
+		}
+	</script>
+
+</body>
+</html>

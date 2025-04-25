@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>36. Break dan Continue</title>
+</head>
+<body>
+
+	<!-- 04:20:11 -->
+	 
+	<h1>Break dan continue</h1>
+
+	<p>Di switch sattemenet, kita sudah menggunakan break, disana break digunkana untuk menghentikan operasi case di switch</p>
+	<p>Sama dengan loop, break juga bisa digunakna untuk hentikan seluruh loop</p>
+	<p>Namun berbeda denan continue, continue digunakna untuk hentikan loop saat ini, dan lanjutkan ke loop selanjutnya</p>
+
+	<p><b>a. conto for loop</b></p>
+	<script>
+		{
+			// contoh break
+			for (let i = 0; i < 5; i++) {
+				if (i == 3){
+					break;
+				}
+				document.writeln(`<p>Loop i ke ${i}</p>`);
+			}
+
+			// contoh continue
+			for (let y = 0; y <= 5; y++) {
+				if(y == 3){
+					continue;
+				}
+				document.writeln(`<p>Loop y ke ${y}</p>`);
+			}
+		}
+	</script>
+
+	<p><b>b. Contoh while loop</b></p>
+
+	<script>
+		{
+
+			// break
+			let i = 0;
+			while (i <= 10) {
+				document.writeln(`<p>Loop while i ke ${i}</p>`);
+				i++;
+				if (i == 3){
+					break;
+				}
+			}
+		}
+		{
+			// continue
+			let i = 0;
+			while (i <= 5) {
+				i++;
+				if (i == 3) {
+					continue;
+				}
+				document.writeln(`<p>Loop while continue i ke ${i}</p>`);
+			}
+		}
+	</script>
+
+	<p><b>c. contoh di do while</b></p>
+	
+	<script>
+		{
+			// break
+			let i = 0;
+			do {
+				i++;
+				if (i == 3) {
+					break;
+				}
+				document.writeln(`<p>loop do while i ke : ${i}</p>`);
+			} while (i <= 5);
+		}
+
+		{
+			// continue
+
+			let i = 0;
+			do {
+				i++;
+				if (i == 3){
+					continue;
+				}
+				document.writeln(`<p>loop do while continue i ke ${i}</p>`);
+			} while (i <= 10);
+		}
+	</script>
+
+	<h2>Contoh lainnya</h2>
+
+	<script>
+		{
+			let i = 0;
+			while (i < 20) {
+				i++;
+				if (i % 2 === 0) {
+					continue;
+				}
+				document.writeln(`<p>Loop ganjil while i ke ${i}</p>`);
+			}
+		}
+	</script>
+	
+</body>
+</html>

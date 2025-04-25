@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>5. Tipe data string</title>
+</head>
+<body>
+
+	<!-- 00:39:00 -->
+
+	<h1>Tipe data string</h1>
+	<p>Tipe data ini bisa disebut tipe data teks yang berisi data kosong atau karakter.</p>
+	<p>Untuk membuat data string, kita perlu menggunakan petik 2 atau 1. (""/'') sebelum dan setelah teksnya.</p>
+	
+	<script>
+		document.writeln("Hello World");
+		document.writeln("</br>");
+		document.writeln("Name kenny");
+	</script>
+
+	<p>Ada juga kasus gini, number yang ternyata adalah string.</p>
+	<p>Jika kita masukkan tipe data number ke dalam tanda petik, maka jadinya adalah string.</p>
+
+	<script>
+		document.writeln("23");
+	</script>
+
+	<h2>Menambah string</h2>
+	<p>Kita bisa gabungkan beberap string / lebih dari 1 string menggunkana operator + (plus)</p>
+	<p>misal "nama" + "kenny"</p>
+
+	<script>
+
+		document.writeln("Nama : " + "kenny");
+		document.writeln("<br>");
+		document.writeln("Kenny")
+
+	</script>
+
+	<p>cara ini akan sangat menarik saat kalian belajar variable nanti.</p>
+
+	<h2>Escape sequence</h2>
+	<p>js mendukung escape sequence dio string. Escape sequensce adalah karakter khusus seperti TAB, enter, tanda petiik, dll.</p>
+
+	<table style="border: 1px solid black;width: 200px;text-align: center;">
+		<tr>
+			<td style="border: 1px solid black;">\n</td>
+			<td style="border: 1px solid black;">Enter</td>
+		</tr>
+		<tr>
+			<td style="border: 1px solid black;">\t</td>
+			<td style="border: 1px solid black;">Tab</td>
+		</tr>
+		<tr>
+			<td style="border: 1px solid black;">\'</td>
+			<td style="border: 1px solid black;">Petik 1</td>
+		</tr>
+		<tr>
+			<td style="border: 1px solid black;">\"</td>
+			<td style="border: 1px solid black;">Petik 2</td>
+		</tr>
+		<tr>
+			<td style="border: 1px solid black;">\\</td>
+			<td style="border: 1px solid black;">\</td>
+		</tr>
+	</table>
+
+	<p>penggunaan</p>
+
+	<script>
+		document.writeln("<textarea cols='100' rows='10'>");
+		document.write("Nama saya \n kenny");
+		document.write("Saya tinggal di \'serang\'");
+		document.write("Saya bermain \"mobil\"");
+		document.write("\t\t\tSaya suka coding");
+		document.write("Saya suka \\ tidak suka");
+		document.writeln("</textarea>");
+	</script>
+
+	<p>saya pakai write bukan writeln bedanya</p>
+	<p>write lebih ke membuat teks tanpa line baru</p>
+	<p>writeln membuat line baru</p>
+
+</body>
+</html>

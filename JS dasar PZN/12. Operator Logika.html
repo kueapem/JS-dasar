@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>12. Operator Logika</title>
+</head>
+<body>
+
+	<!-- 01:31:45 -->
+
+	<h1>Operator logika</h1>
+
+	<p>operator logika adalah operasi dari 2 nilai boolean</p>
+	<p>hasilnya adalah boolean lagi</p>
+	<p>Op logika di Js ada 3</p>
+	<p>&& -> dan</p>
+	<p>|| -> atau</p>
+	<p>! -> kebalikan</p>
+
+	<h2>&&</h2>
+	<p>true && true = true</p>
+	<p>true && false = false</p>
+	<p>false && true = false</p>
+	<p>false && false = false</p>
+
+	<h3>Contoh</h3>
+
+	<script>
+		{
+			let i = 5 > 4; // true
+			let u = 5 < 4 // false
+
+			let q = i && i;
+			let w = i && u;
+			let e = u && i;
+			let r = u && u;
+			document.writeln("<p>" + q + "</p>");
+			document.writeln("<p>" + w + "</p>");
+			document.writeln("<p>" + e + "</p>");
+			document.writeln("<p>" + r + "</p>");
+		}
+	</script>
+
+	<h2>||</h2>
+	<p>true || true = true</p>
+	<p>true || false = true</p>
+	<p>false || true = true</p>
+	<p>false || false = false</p>
+
+	<h3>contoh</h3>
+	<script>
+		{
+			let i = 6;
+			let u = 9;
+
+			let q = i < u; // true
+			let w = i > u; // false
+
+			let z = q || q;
+			let x = q || w;
+			let c = w || q;
+			let v = w || w;
+
+			document.writeln("<p>" + z + "</p>");
+			document.writeln("<p>" + x + "</p>");
+			document.writeln("<p>" + c + "</p>");
+			document.writeln("<p>" + v + "</p>");
+		}
+	</script>
+
+	<h2>!</h2>
+	<p>Op ini juga bisa disebut unary karena hanya butuh 1 data</p>
+	<p>true ! false</p>
+	<p>false ! true</p>
+
+	<h3>contoh</h3>
+	<script>
+		{
+			let i = true;
+			let u = false;
+
+			document.writeln("<p> tanpa ! data i = " + i + "</p>");
+			document.writeln("<p> dengan ! data i = " + !i + "</p>");
+
+			document.writeln("<p> tanpa ! data u = " + u + "</p>");
+			document.writeln("<p> dengan ! data u = " + !u + "</p>");
+		}
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Destructuring</title>
+</head>
+<body>
+
+	<!-- 07:19 -->
+
+	<h2>Destructuring</h2>
+
+	<p>Merupakan fitur yang bisa digunakan untuk membongkar nilai nilai di array atau object kedalam variable variable</p>
+	<p>Fitur ini sangat mempermudah kita ketika ingin mengambil data dari array atau object tanpa perlu melakukan pengambilan data satu persatu.</p>
+
+	<h2>Mengambil data di array</h2>
+
+	<p><b>Mengambil data di array satu persatu tanpa Destructuring</b></p>
+	<script>
+		{
+			const names = ["Kenny", "Rui", "Ken"];
+			const firstName = names[0];
+			const middleName = names[1];
+			const lastName = names[2];
+
+			console.info(firstName);
+			console.info(middleName);
+			console.info(lastName);
+		}
+		
+	</script>
+
+	<p><b>Dengan Destructuring</b></p>
+
+	<script>
+		{
+			const names = ["Kenny", "Rui", "Ken", "joko", "anwar", "windi"];
+			const [firstName, middleName, lastName, ...others] = names;
+
+			// ...others = spread oeprator, jadi sisanya nanti masuk ke others
+
+			console.info(firstName);
+			console.info(middleName);
+			console.info(lastName);
+			console.info(others);
+		}
+	</script>
+
+	<h2>Mengambil data di obejct</h2>
+
+	<p><b>Tanpa Destructuring</b></p>
+	<script>
+		{
+			const person = {
+				firstName: "Kenny",
+				lastName: "ken",
+				address: {
+					street: "Jalan batu licin",
+					city: "Jakarta",
+					country: "Indonesia"
+				},
+				hobby: "game",
+				"band favorit": "Scandal"
+			}
+
+			console.info(person.firstName);
+			console.info(person.lastName);
+		}
+	</script>
+	
+	<p><b>Dengan  Destructuring</b></p>
+	<script>
+		{
+			const person = {
+				firstName: "Budi",
+				lastName: "Sejati",
+				address: {
+					street: "Jalan batu licin",
+					city: "Jakarta",
+					country: "Indonesia"
+				},
+				hobby: "game",
+				"band favorit": "Scandal"
+			}
+
+			const {firstName, lastName, address, ...others} = person;
+			console.info(firstName);
+			console.info(lastName);
+			console.info(address);
+			console.info(others);
+		}
+	</script>
+
+	<h2>Destructuring di nested obeject</h2>
+
+	<script>
+		{
+			const person = {
+				firstName: "Kenny",
+				lastName: "ken",
+				address: {
+					street: "Jalan batu licin",
+					city: "Jakarta",
+					country: "Indonesia"
+				},
+				hobby: "game",
+				"band favorit": "Scandal"
+			}
+
+			const {firstName, lastName, address: {street, city, ...lainnya}, ...others} = person;
+			console.info(firstName);
+			console.info(lastName);
+			console.info(street);
+			console.info(city);
+			console.info(lainnya);
+			console.info(others);
+		}
+	</script>
+
+	<h2>Campuran Destructuring nested object + array</h2>
+
+	<script>
+		{
+			const mahasiswa = {
+				nama: "Kenny",
+				umur: 20,
+				kontak: {
+					email: "kenny@mail.com",
+					hp: "08123456789"
+				},
+				nilai: [80, 85, 90],
+				hobi: ["game", "coding", "musik"]
+			};
+
+			let {
+				nama,
+				umur,
+				kontak: {
+					email
+				},
+				nilai: [nilai1, ,nilai2],
+				hobi: [, coding, ]
+			} = mahasiswa;
+
+			console.log(`Nama saya ${nama}, umruku ${umur}. Jika kalian ingin menghubungiku, bisa via email: ${email}. Ini adalah nilai pertama dan ketiga aku (${nilai1} dan ${nilai2}). Jika kalian memiliki hobi ${coding}, aku juga suka loh!!!`)
+
+		}
+	</script>
+
+	<h2>Destructuring di function parameter</h2>
+	<p>Destructuring juga bisa dilakaukan di function parameter</p>
+	<p>Hal ini mmebuat kita lebih mudah jika ingin mengambil nested data dalam array atau object property dalam function parameter</p>
+
+	<p><b>Analoginya</b></p>
+	<p><i>Bayangin kamu dapet paket besar, isinya banyak barang. Biasanya kamu buka bungkusnya dulu baru ambil barang satu-satu.</i></p>
+	<p><i>Nah, destructuring di function parameter itu kayak kamu langsung buka paketnya di depan pintu dan ambil cuma barang yang kamu butuh, langsung! 🎁</i></p>
+
+	<h3>🔹 1. Destructuring Object di Parameter</h3>
+	<script>
+		{
+			function sapa({nama, umur}) {
+				console.log(`Hallo ${nama}, umurku ${umur}`);
+			};
+
+			let orang = {
+				nama: "kenny",
+				umur: 21,
+				alamat: "jakarta"
+			}
+
+			sapa(orang);
+
+			// jadi dari obj orang hanya diambil yang diperlukan yaitu nama dan umur
+		}
+	</script>
+	<p><b>💡 Analogi:</b></p>
+	<p>Kamu dapet biodata seseorang (objek) — tapi kamu cuma butuh nama dan umur buat dipakai sapa-sapaan. Kamu langsung ambil dua itu aja dari biodatanya pas nerima paketnya.</p>
+
+	<h3>🔹 2. Destructuring Array di Parameter</h3>
+
+	<script>
+		{
+			function cetakHobi([hobi1, hobi2]){
+				console.log(`Hobiku adalah ${hobi1}, dan ${hobi2}`);
+			}
+
+			let hobiku = ["main", "game", "ngoding", "nonton anime"];
+			cetakHobi(hobiku);
+		}
+	</script>
+
+	<p><b>Analogi</b></p>
+	<p>Kamu dapet list hobi panjang (array), tapi kamu cuma pengen sebutin 2 yang paling kamu suka. Pas dapet daftar itu, kamu langsung ambil indeks ke-0 dan ke-1. Gak usah unpack semua.</p>
+
+	<h3>🔹 3. Destructuring Campuran (Object + Array di dalamnya)</h3>
+
+	<script>
+		{
+			function profilMahasiswa({nama, nilai: [uts, uas], kontak: {email}}) {
+				console.log(`Mahasiswa ${nama} dapat nilai UTS: ${uts}, UAS: ${uas}, Email: ${email} `)
+			}
+
+			let mahasiswa = {
+				nama: "kenny",
+				umur: 21,
+				nilai: [23, 32, 45],
+				kontak: {
+					nomor: 8976761414,
+					email: "kenny@mail.com"
+				}
+			};
+
+			profilMahasiswa(mahasiswa)
+		}
+	</script>
+
+	<h2>Contoh dari PZN</h2>
+
+	<script>
+		{
+			function displayPerson ({firstName, middleName, lastName}) {
+				console.info(firstName);
+				console.info(middleName);
+				console.info(lastName);
+			};
+
+			const person = {
+				firstName: "alpha",
+				middleName: "kenny",
+				lastName: "Ken"
+			};
+
+			displayPerson(person);
+		}
+
+		{
+			function sum([first, second]) {
+				return first + second;
+			}
+
+			console.info(sum([1,1]));
+			console.info(sum([1,10]));
+		}
+	</script>
+
+	<h2>Default value di desktructuring</h2>
+	<p>Misal kita melakukan destructuring pada array atau obejct, namun datanaya ternyata tidak ada. Nah disinilah default value yang akan di tampilkan jika datanya undefined / tidak ada</p>
+
+	<h3>🔹 1. Default Value pada Object</h3>
+
+	<script>
+		{
+			let user = {
+				nama: "kenny"
+			};
+
+			const {nama, umur = 21} = user;
+			console.log(`Halo namaku ${nama}, aku berumur ${umur}`);
+		}
+	</script>
+
+	<h3>🔹 2. Default Value pada Array</h3>
+	<script>
+		{
+			let nilaiUTS = [88];
+			const [a, b = 99] = nilaiUTS;
+			console.log(`Nilai a: ${a}, sedangkan nilai b: ${b}`);
+		}
+	</script>
+
+	<h3>🔹 3. Default Value di Function Parameter + Destructuring</h3>
+	<script>
+		{
+			function getData ({nama= "anonim", umur= 21} = {}) {
+				console.log(`Halo namamku ${nama}, umurku ${umur}`);
+			};
+
+			let data = {
+				// nama: "kenny",
+			};
+			getData(data);
+
+
+
+		}
+
+		
+	</script>
+
+	<p>🧠 Penjelasan:</p>
+	<p>Saat kamu tidak mengirim parameter sama sekali, maka JS mencoba destructuring dari undefined — dan destructuring dari undefined itu gak bisa, makanya error.</p>
+
+	<p>Dengan menambahkan = {}:</p>
+
+	<p><i>function tampilProfil({ nama = "Guest" } = {}) { ... }</i></p>
+	<p>Kamu kasih default fallback, jadi kalau argumennya undefined, JS pakai {} (objek kosong), yang aman untuk di-destructuring.</p>
+
+	<p><b>🎒 Analogi:</b></p>
+	<p>Bayangin kamu minta biodata dari teman kamu. Kalau dia tidak ngasih apapun, kamu tetap punya formulir kosong cadangan yang bisa kamu isi manual. Itulah fungsi dari = {}.</p>
+	
+	<h2>🔸 BONUS: Default + Rename</h2>
+
+	<script>
+		{
+			let user = {
+				nama: "kenny"
+			}
+
+			const {nama: namaDepan = "anonim"} = user;
+			console.log("halo " + nama);
+			console.log("hey " + namaDepan);
+		}
+	</script>
+
+	<h2>COntoh PZN</h2>
+
+	<p><b>Array</b></p>
+	<script>
+		{
+			let names = [];
+			let [first, second, three = "anonim"] = names;
+			console.log(first)
+			console.log(second)
+			console.log(three)
+		}
+	</script>
+
+	<p><b>Object</b></p>
+
+	<script>
+		{
+			let user = {};
+			let {a, b, c = "rui"} = user;
+			console.log(a);
+			console.log(b);
+			console.log(c);
+		}
+	</script>
+
+	<h2>Menggunakan nama varibale lain / rename</h2>
+
+	<p>Denagn Destructuring, kita bisa menambahkan nama varibale baru sesuka kita</p>
+	<p>Namun pasa saat melakukan Destructuring, kita harus membuat nama variable sama dengan nama propertyp>
+	<p>Kita juga bisa menggunakan nama variable lain saat melakukan Destructuring object jika kita mau</p>
+
+	<p>object</p>
+	<script>
+		{
+			let user = {};
+			let {a : z = "kenny", b : x = "ken", c : y = "rui"} = user;
+			console.log(z);
+			console.log(x);
+			console.log(y);
+		}
+	</script>
+
+	<p><b>Array</b></p>
+	<p><i>Array tuh secara default langsung rename ya, soalnya dia gak memiliki property name seperty object, array hanya punya index</i></p>
+	<script>
+		{
+			let user = [];
+			let [z = "kenny", x = "ken"] = user;
+			console.log(z);
+			console.log(x);
+		}
+	</script>
+
+	<h2>Skip dan rename</h2>
+
+	<script>
+		{
+			let buah = ["angguur", "apel", "jeruk", "semangka", "alpukat"];
+			let [, , jeruk, ...all] = buah;
+			console.log(jeruk);
+			console.log(all);
+		}
+	</script>
+
+</body>
+</html>

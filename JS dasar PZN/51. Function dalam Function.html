@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>51. Function dalam function</title>
+</head>
+<body>
+
+	<!-- 05:51:45 -->
+	<h1>Fungsi didalam fungsi / nested functiopn</h1>
+
+	<p>Kita bisa membuat fungsi didalam fungsi</p>
+	<p>fungsi yang ada didalam disebut innet function</p>
+	<p>inner function hanya bisa diakses ditempat kita membuat fungsi nya, tidak bisa diakses diluar fungsinya</p>
+
+	<h2>Analoginya</h2>
+	<p>Bayangkan ada dapur didalam rumah</p>
+	<p>rumah = fungsi utama</p>
+	<p>dapur = inner fungsi</p>
+	<p>dapur hanya bisa digunakan didalam rumah itu. Kita tidak bisa masuk dapur tanpa masuk ke rumahnya dulu.</p>
+
+	<script>
+		{
+			function rumah() {
+				let pesan = "Selamat datang di rumah";
+
+				function dapur() {
+					return "Masak mie di dapur";
+				}
+
+				document.writeln(`<p>${pesan}</p>`);
+				document.writeln(`<p>${dapur()}</p>`);
+
+			}
+
+			rumah();
+			// dapur(); -> error tidak bisa
+		}
+	</script>
+	<h3>Contoh hitung diskon</h3>
+
+	<script>
+		{
+			function hitungHarga(total) {
+				function diskon(persen) {
+					return total - (total * persen / 100);
+				}
+
+				return "Harga setelah diskon Rp." + diskon(99);
+			}
+
+			document.writeln(`<p>${hitungHarga(1000)}</p>`);
+		}
+	</script>
+
+	<h2>Contoh lain</h2>
+
+	<script>
+		{
+			function outert() {
+				function inner() {
+					document.writeln(`<p>Inner</p>`);
+				}
+
+				inner();
+				inner();
+			}
+
+			outert();
+		}
+	</script>
+	
+	<p>Latihan</p>
+
+	<script>
+
+		{
+			// 1. luas dan keliling persegi
+
+			function hitungPersegi(sisi) {
+				function luas() {
+					return sisi * sisi;
+				}
+				
+				function keliling() {
+					return 4 * sisi;
+				}
+
+				document.writeln(`<p>Luas: ${luas()}</p>`)
+				document.writeln(`<p>keliling: ${keliling()}</p>`)
+			}
+
+			hitungPersegi(6)
+		}
+
+		{
+			//  Kalkulator Mini
+
+			function kalkulator(angka1, angka2) {
+				function tambah() {
+					return angka1 + angka2
+				}
+
+				function kurang() {
+					return angka1 - angka2
+				}
+
+				function kali() {
+					return angka1 * angka2
+				}
+
+				function bagi() {
+					return angka1 / angka2
+				}
+
+				document.writeln(`<p>${tambah()}</p>`);
+				document.writeln(`<p>${kurang()}</p>`);
+				document.writeln(`<p>${kali()}</p>`);
+				document.writeln(`<p>${bagi()}</p>`);
+			}
+
+			kalkulator(10, 2);
+		}
+
+		{
+			// 3. Fungsi Sambutan
+
+			function buatSambutan(nama) {
+				function ucapan() {
+					return "Hello, " + nama + "!"
+				}
+
+				document.writeln(ucapan());
+			}
+
+			buatSambutan("Rina")
+		}
+
+		{
+			// 4. Cek Genap atau Ganjil
+
+			function cekAngka(angka) {
+				function isGenap() {
+					return angka % 2 === 0;
+				}
+
+				function isGanjil() {
+					return angka % 2 !== 0;
+				}
+
+				if (isGenap()) {
+					document.writeln(`<p>${angka} adalah angka genap</p>`)
+				} else {
+					document.writeln(`<p>${angka} adalah angka ganjil</p>`)
+				}
+			}
+
+			cekAngka(13)
+		}
+
+		{
+			// 5. Pengelompokan Nilai
+			
+			function kelompokNilai(nilai) {
+
+				function kategori() {
+					if (nilai >= 80) return "A";
+					if (nilai >= 70) return "B";
+					if (nilai >= 60) return "C";
+					return "D"
+				}
+
+				console.log(`<p>Nilai ${nilai} termasuk kategori: ${kategori()}</p>`)
+
+
+			}
+
+			kelompokNilai(76)
+		}
+
+	</script>
+	
+</body>
+</html>

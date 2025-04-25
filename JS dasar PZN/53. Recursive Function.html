@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Recursive Function</title>
+</head>
+<body>
+	<!-- 06:06 -->
+
+	<h1>Recursive Function</h1>
+
+	<p>Merupakan fitur dimana kemampuannya fungsi untuk memanggil fungsi dirinya sendiri</p>
+	<p>Kadang ada banyak kasus proble, yang lebih mudah di selesaikan dengan recursive fungsi contohnya factorial</p>
+
+	<p>Factorial itu kayak gini, misal input 10, artinya nantinya 10x9x8x7x6x5x4x3x2x1</p>
+
+
+	<p><b>Contoh factorial menggunakan loop</b></p>
+	<script>
+		{
+			function factorial(value) {
+				let result = 1;
+				for (let i = 1; i <= value; i++) {
+					result *= i;
+				}
+
+				return result;
+			}
+
+			document.writeln(`<p>${factorial(5)}</p>`);
+			document.writeln(`<p>${1*2*3*4*5}</p>`);
+
+		}
+	</script>
+
+	<p><b>Contoh pakai recursive</b></p>
+
+	<script>
+		{
+			function factorial(value) {
+				if (value === 1) {
+					return 1;
+				} else {
+					return value * factorial(value - 1);
+				}
+			}
+
+			document.writeln(`<p>${factorial(5)}</p>`);
+			document.writeln(`<p>${1*2*3*4*5}</p>`);
+		}
+	</script>
+
+</body>
+</html>

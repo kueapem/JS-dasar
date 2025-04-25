@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>46. Rest parameter</title>
+</head>
+<body>
+
+	<!-- 05:25:00 -->
+
+	<h1>Rest Parameter</h1>
+
+	<p>fitur yang bisa digunakan untuk mengirimkan banyak data ke dalam 1 parameter dan akan otomatis di konversi jadi array</p>
+	<p>Untuk membuat rest paarmter ada ketentuannya</p>
+	<p>- Hanya boleh ada 1 dalam 1 function</p>
+	<p>- Hanya boleh diletakkan di paling akhir gak boleh di awal atau tengah, kecuali hanya ada rest paramter saja</p>
+	<p>- Di bahasa programan lain ada juga disebut variable argument</p>
+
+	<script>
+		{
+			function sum(...angka) {
+				return angka;
+			}
+
+			let tambah = sum(2,3,4,5);
+			document.writeln(tambah)
+		}
+
+		{
+			function sum(nama, ...data) {
+				let total = 0;
+				for (const item of data) {
+					total += item;
+				}
+
+				document.writeln(`<p>Total ${nama} is ${total}</p>`);
+			}
+
+			sum("kenny", 2, 3,4,4,5,4,3);
+		}
+	</script>
+	
+</body>
+</html>

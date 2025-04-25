@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Masalah varibale var</title>
+</head>
+<body>
+
+	<!-- 07:12:41 -->
+
+	<h1>Masalah varibale var</h1>
+	<p>Karena salah satunya adalah var tidak memiliki block scope, artinya dia akan mengikat ke local scope yang sebelumnya sudah kita bahas</p>
+	<p>Karena masalah in, var bisa tidak terprediksi</p>
+
+	<h2>Menggunakan let</h2>
+	<script>
+		{
+			// global scope
+			let i = 20;
+			for (let i = 0; i < 10; i++) {
+				// loacal scope
+				console.log(`Local : ${i}`)
+			}
+
+			console.info(`Global: ${i}`)
+		}
+	</script>
+
+	<h2>Dengan var</h2>
+	<script>
+		{
+			// global scope
+			var i = 20;
+			for (var i = 0; i < 10; i++) {
+				// loacal scope
+				console.log(`Local : ${i}`)
+			}
+
+			console.info(`Global: ${i}`)
+		}
+	</script>
+</body>
+</html>

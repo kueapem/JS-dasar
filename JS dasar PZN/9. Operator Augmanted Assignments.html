@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>7. Augmantedd Assignments</title>
+</head>
+<body>
+
+	<!-- 01:18:00 -->
+
+	<h1>Augmanted Assignments</h1>
+	<p>merupaakan op yang menyingkat apa bila operasinya melakuakn operasi pada dirinya sendiri, maka bisa disingkat.</p>
+
+	<p>result = resutl + 10 -> result += 10</p>
+	<p>result = resutl - 10 -> result -= 10</p>
+	<p>result = resutl * 10 -> result *= 10</p>
+	<p>result = resutl / 10 -> result /= 10</p>
+	<p>result = resutl % 10 -> result %= 10</p>
+	<p>result = resutl ** 10 -> result **= 10</p>
+
+	<script>
+		let data = 2 + 5;
+		document.writeln("<p>2 + 5 = " + data + "</p>");
+		realData = data;
+		
+		// dengan autmanted
+
+		// data = data - 1; ini bisa di aug
+		data -= 1;
+		document.writeln("<p>" + realData + " - 1 = " + data + "</p>");
+		realData = data;
+		data *= 3;
+		document.writeln("<p>" + realData + " * 3 = " + data + "</p>");
+		realData = data;
+
+		data /= 6;
+		document.writeln("<p>" + realData + " / 6= " + data + "</p>");
+		realData = data;
+		
+		data **= 2;
+		document.writeln("<p>" + realData + " ** 2 = " + data + "</p>");
+		realData = data;
+
+		data %= 2;
+		document.writeln("<p>" + realData + " % 2 = " + data + "</p>");
+		realData = data;
+
+	</script>
+	
+</body>
+</html>

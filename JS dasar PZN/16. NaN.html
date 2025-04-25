@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>16. NaN</title>
+</head>
+<body>
+
+	<!-- 02:07:00 -->
+	 <h1>NaN</h1>
+	 <p>Itulah dia NaN, sebuah cara js menunjukkan bahwa ada sebuah number yang bukan number, artinya ini numer spesial gitu. NaN artinya not a number.</p>
+	 <p>Lebih singkatnya, jika kita operasikan sebuah data yang bukan number maka hasilnya akan NaN, yang mana ini direpresentasikan bukan angka yang valid</p>
+
+	 <p>NaN terjadi slaah satunya karena keslaahan konversi.</p>
+
+	 <script>
+		{
+			document.writeln(`<p>${parseInt("1rp")}</p>`);
+			document.writeln(`<p>${parseInt("rp1")}</p>`);
+			document.writeln(`<p>${parseFloat("1.9rp")}</p>`);
+			document.writeln(`<p>${parseFloat("rp1.9")}</p>`);
+		}
+	 </script>
+
+	 <p>Dari contoh diatas konversi akan menghasilkan NaN jika diawali dengan text bukan number</p>
+
+	 <script>
+		{
+			document.writeln(`<p>${Number("1rp")}</p>`);
+			document.writeln(`<p>${Number("rp1")}</p>`);
+		}
+	 </script>
+
+	 <p>berbeda dengan int dan float, Number akan menjadi NaN apablia terdeteksi adanya huruf dalam nilainya, akna kembalikan NaN.</p>
+	 
+	 <script>
+		{
+			let x;
+			document.writeln(`<p>${x * 2}</p>`);
+
+			// ini juga NaN, karena kita operasikan variable bernilai undefined
+
+			document.writeln(`<p>${"hello" * 2}</p>`);
+			document.writeln(`<p>${"hello" / 2}</p>`);
+			document.writeln(`<p>${"hello" - 2}</p>`);
+			document.writeln(`<p>${"hello" % 2}</p>`);
+
+			// operasi artitmatika selain +, apabola kita melakuaknnya denagn string, maka hasilnya akan NaN
+		}
+	 </script>
+	
+</body>
+</html>

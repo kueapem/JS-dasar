@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>33. For Loop</title>
+</head>
+<body>
+	<!-- 04:06:00 -->
+
+	<h1>For Loop</h1>
+
+	<p>For adlaah salah satu kata kunci yang bisa digunakan untuk melakukan loop / perulangan</p>
+	<p>Block kode yang ada didalam for akan di ulang selama kondisi for terpenuhi</p>
+
+	<h2>Sintak for loop</h2>
+
+	<p>for (init statement; kondisi; post statement){</p>
+	<p>// block perulangan</p>
+	<p>}</p>
+
+	<p>init statement -> akan di eksekusi sekali di awal loop</p>
+	<p>kondisi -> akan dilakukan pengecekan setiap kali loop dilakukan, jika true, loop akan di lakukan, jika false loop akan berhenti</p>
+	<p>post statement -> akan di eksekusi seiap kali di akhir loop</p>
+	<p>init, kondisi, post tidak wajib diisi, jika kondisi tidak diisi, berarti loop selalu bernilai true -> terjadilah infinity loop</p>
+
+	<script>
+		{
+			let index = 0;
+			for (; index <= 10;){
+				document.writeln(`<p>Loop ke: ${index}</p>`);
+				index++;
+			}
+		}
+
+		{
+			for (let index = 0; index <= 10; index++) {
+				document.writeln(`<p>${index}</p>`);
+			}
+		}
+
+		{
+			for (let index = 2; index <= 20; index+= 2) {
+				document.writeln(`<p>Loop genap 2 : ${index}</p>`);
+			}
+		}
+
+		{
+			let total = 0;
+			for (let i = 1; i <= 10; i++){
+				total += i
+				document.writeln(`<p>${i}</p>`);
+			}
+			document.writeln(`<p>Jumlah ${total}</p>`);
+		}
+	</script>
+
+	<script>
+		{
+			let i = ["Mangga", "Apel", "Nanas"];
+			for (let index = 0; index < i.length; index++) {
+				document.writeln(`<p>${i[index]}</p>`);
+			}
+		}
+	</script>
+
+	<script>
+		{
+			let kata = "Javascript";
+			let hasil = "";
+			for (let i = kata.length - 1; i >= 0; i--) {
+				hasil += kata[i]
+			}
+			document.writeln(`<p>${hasil}</p>`);
+		}
+
+		{
+			let n = 5;
+			for (let i = 1; i <= n; i++) {
+				let baris = "";
+				for (let j = 1; j <= i; j++) {
+					baris += "* ";
+				}
+				document.writeln(`<p>${baris}</p>`);
+			}
+
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>23. undefined</title>
+</head>
+<body>
+
+	<!-- 03:03:18 -->
+
+	<h1>undefined</h1>
+
+	<p>undefined meerupakan salah satau kata kunci di js</p>
+	<p>undefined merupakan tipe data</p>
+	<p>salah satunya sebuaha variable yang tidak diberikan nilai, itu aretinya undefined</p>
+	<p>atau aksese property yang tidak didefiniasikan pada sebuah object</p>
+	<p>undefined itu berbeda dengan null di bahsa programan lain</p>
+
+	<script>
+		{
+			//  var tanpa nilai = undefined
+			 let name;
+			 if (name === undefined) {
+				document.writeln("<p>UNDEFINED</p>");
+			 } else {
+				document.writeln("<p>DEFINED</p>");
+			 }
+		}
+
+		{
+			// obj tanpa property yang dicari
+			let nama = {
+				nama : "kenny"
+			}
+			if (nama.kelas === undefined) {
+			document.writeln("<p>UNDEFINED</p>");
+			} else {
+			document.writeln("<p>DEFINED</p>");
+			}
+
+			
+		}
+
+		{
+			// akses index array yang gak ada?
+			let nama = []
+			if (nama[999] === undefined) {
+			document.writeln("<p>UNDEFINED</p>");
+			} else {
+			document.writeln("<p>DEFINED</p>");
+			}
+		}
+	</script>
+
+	<p>Intinya undefined itu sebuah data yang belum dio defineisikan / berikan nilai.</p>
+	
+</body>
+</html>

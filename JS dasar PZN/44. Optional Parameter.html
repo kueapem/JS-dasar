@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>44. Optional Parameter</title>
+</head>
+<body>
+
+	<!-- 05:16:00 -->
+
+	<h1>Optional Parameter</h1>
+
+	<p>Berbeda di bahasa programana lainnya seperti JAVA, di js paramter itu opsional</p>
+	<p>Artinya kita tidak wajib mengisi nilai nya ketika memanggil fungsi</p>
+	<p>Jika tidak ada nilainya yang kita kirimkan ke Parameter ketika memanggil fungsi, maka secara otomatis paramter akan bernilai undefined</p>
+
+	<script>
+		{
+			function hello(first, last) {
+				document.writeln(`<p>hallo ${first}</p>`);
+				document.writeln(`<p>hallo ${last}</p>`);
+			}
+
+			hello("Kenny");
+		}
+	</script>
+
+	<p>Jika di bahasa programan lain ini akan error, namun karena js adalah parametrnya optional jadi secara default jika kita tidak menetapkan nilai paramternya akan output undefined</p>
+	
+</body>
+</html>

@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>50.1 Latihan 26 - 50</title>
+	<style>
+		body{background-color: #000;color: #fef;}
+		h1{background-color: #a81b1b;color: #fefefe;text-align: center;}
+		h2{background-color: #90b8cd;}
+		h3{background-color: purple;}
+	</style>
+</head>
+<body>
+
+	<h1>26. Operator typeof</h1>
+
+	<p>Operator yang bisa digunakan untuk mengecek jenis operatornya</p>
+
+	<script>
+		{
+			let i = 1;
+			document.writeln(`<p>${typeof i}</p>`);
+
+			let u = "data ini milikku";
+			document.writeln(`<p>${typeof u}</p>`);
+
+			let q = undefined;
+			document.writeln(`<p>${typeof q}</p>`);
+
+			let l = [];
+			document.writeln(`<p>${typeof l}</p>`);
+
+			let k = {};
+			document.writeln(`<p>${typeof k}</p>`);
+
+			let nu = null;
+			document.writeln(`<p>${typeof nu}</p>`);
+
+			let as = true;
+			document.writeln(`<p>${typeof as}</p>`);
+
+			let aw = -0;
+			document.writeln(`<p>${typeof aw}</p>`);
+
+			let aq = Symbol("q");
+			document.writeln(`<p>${typeof aq}</p>`);
+		}
+
+		{
+			function hitung(a, b) {
+				if (typeof a === "number" && typeof b === "number") {
+					return a + b;
+				} else {
+					return "Error";
+				}
+			}
+
+			document.writeln(`<p>${hitung(1, 2)}</p>`);
+		}
+	</script>
+
+	<h1>27. In operator</h1>
+
+	<p>Sebuah kata kunci untuk cek apakah proeprty obejct ada didalam object yang diceknya</p>
+
+	<script>
+		{
+			let person = {
+				nama : "kenny",
+				umur : 23
+			}
+
+			let cek = "alamat" in person;
+			document.writeln(`<p>${cek}</p>`);
+
+			let cekData = "nama";
+			if (cekData in person) {
+				document.writeln(`<p>Data ada</p>`);
+			} else {
+				document.writeln(`<p>Data tidak ada</p>`);
+			}
+
+
+		}
+
+		// ini hanya untuk cek datanya ada atau tidak di property object, jadi meskipun nilai propertynya null / undefined maka dianggap ada
+		// untuk atasi masalah ini bisa guinakan logika dan !=
+
+		{
+			let person = {
+				nama : null
+			}
+
+			let cek = "nama" in person;
+			document.writeln(`<p>data ada di : ${cek}</p>`);
+
+			// atasinya
+			let cekData = "nama" in person && person.nama != null;
+			document.writeln(`<p>Data cek2 : ${cekData}</p>`);
+		}
+
+
+	</script>
+
+	<h1>28. Operator ternary</h1>
+
+	<p>merupakan op sederhana dari if expression</p>
+	
+	<script>
+		{
+			let data = 65;
+			let cekData = data >= 55 ? "lulus" : "Gagal";
+			document.writeln(`<p>${cekData}</p>`);
+		}
+
+
+	</script>
+
+	<h2><b>Tantangan chatgpt</b></h2>
+	<hr/>
+	<script>
+		{
+
+			// tantangan 1
+			let umur = 77;
+			let status = umur >= 17 ? "Dewasa" : "Anak-anak";
+			document.writeln(`<p>${status}</p>`);
+
+			// Jika umur ≥ 60, tampilkan "Lansia".
+			document.writeln(`<p>${umur >= 60 ? "Lansia" : umur >= 17 ? "Dewasa" : "Anak-anak"}</p>`);
+
+			// Jika umur ≥ 17 & < 60, tampilkan "Dewasa".
+			document.writeln(`<p>Kamu itu ${umur >= 17 && umur >= 60 ? "Dewasa" : "Anak-anak"}</p>`);
+
+
+			// Jika umur < 17, tampilkan "Anak-anak".
+			document.writeln(`<p>${umur < 17 ? "Anak-anak" : "Dewasa"}</p>`);
+
+		}
+
+
+	</script>
+	
+	<hr/>
+
+	<script>
+		{
+			// tantangan 2
+
+			let angka = 9;
+			document.writeln(`<p>${angka % 2 == 0 ? "Genap" : "Ganjil"}</p>`);
+
+			// Jika angka habis dibagi 3, tampilkan "Kelipatan 3".
+			document.writeln(`<p>${angka % 2 == 0 ? "Genap" : "Ganjil"}</p>`);
+
+
+			// Jika bukan kelipatan 3, tampilkan "Bukan kelipatan 3".
+
+		}
+	</script>
+
+	<h1>Nullish coalescing oeprator</h1>
+
+	<p>Mirip ternary, tapi lebih simpel, tanpa pembanding.</p>
+	<p>Op ini menggunakan ??</p>
+	<p>Op hanya  untuk undefine dan null</p>
+	<p>Jika nilai kiri (sebelum ??) adalah null atau undefined, maka nilai kanan (setelah ??) yang dipakai.</p>
+	<p>Berbeda dengan || (OR), karena ?? tetap menganggap 0, "" (string kosong), dan false sebagai nilai yang valid.</p>
+
+	<script>
+		{
+			let data = null;
+			let cek = data ?? "nilai default";
+			document.writeln(`<p>${cek}</p>`);
+		}
+
+		{
+			// jika nilainya 0, "" dan false
+
+			let data = undefined;
+			let cek = data ?? "nilai deafult 2";
+			document.writeln(`<p>${cek}</p>`);
+
+			// kita bandingkan dengan or ||
+			let data2 = data || 23;
+			document.writeln(`<p>${data2}</p>`);
+
+		}
+
+	</script>
+
+	<h1>30. Optional chaining</h1>
+
+	<p>Op ini digunakna untuk mengamankan sebuah data property object dari data nullish (undefined /. null)</p>
+	<p>jika kita akses property sebuah obejcet, lalu ternyata nilainya adalah nullisj, maka akan erro</p>
+	<p>Jika kita mencoba mengakses properti dari objek yang nilainya null atau undefined tanpa optional chaining, maka JavaScript akan mengeluarkan error. Namun, dengan optional chaining, jika suatu properti tidak ada (nullish), maka hasilnya akan undefined alih-alih error.</p>
+
+	<script>
+		{
+			let namaMahasiswa = {
+				"Kelas 1" : {
+					"nama 1" : "Asuna",
+					"nama 2" : "Kenny"
+				},
+				"Kelas 2" : {
+					"nama 1" : "Kirito"
+				}
+			}
+
+			let cekNamaMahasiswa = namaMahasiswa?.["Kelas 1"]?.["nama 1"];
+			document.writeln(`<p>${cekNamaMahasiswa}</p>`);
+		}
+	</script>
+
+	<h2>Latihan chatgpt</h2>
+
+	<p><b>Latihan 1</b></p>
+	<script>
+		{
+			let mahasiswa = {
+				"Angkatan 2023": {
+					"Mahasiswa 1": "Eren",
+					"Mahasiswa 2": "Mikasa"
+				},
+				"Angkatan 2024": {
+					"Mahasiswa 1": "Levi"
+				}
+			};
+
+			/*
+			Ambil nama dari "Mahasiswa 1" di "Angkatan 2023" dan tampilkan di browser.
+			Coba ambil "Mahasiswa 3" di "Angkatan 2023" tanpa error.
+			Coba ambil "Mahasiswa 2" di "Angkatan 2025" tanpa error.
+			*/
+
+			let m1Angkatan2023 = mahasiswa?.["Angkatan 2023"]?.["Mahasiswa 1"];
+			let m3Angkatan2023 = mahasiswa?.["Angkatan 2023"]?.["Mahasiswa 3"];
+			let m2Angkatan2025 = mahasiswa?.["Angkatan 2025"]?.["Mahasiswa 2"];
+
+			document.writeln(`<p>${m1Angkatan2023}</p>`);
+			document.writeln(`<p>${m3Angkatan2023}</p>`);
+			document.writeln(`<p>${m2Angkatan2025}</p>`);
+		}
+	</script>
+
+	<p><b>Latihan 2</b></p>
+
+	<script>
+		{
+			let toko = {
+				"Elektronik": {
+					"TV": "Samsung",
+					"Laptop": "Asus"
+				},
+				"Pakaian": {
+					"Kaos": "Nike"
+				}
+			};
+
+			/*
+			Ambil nama laptop dari kategori "Elektronik" dengan optional chaining.
+			Coba ambil "HP" di kategori "Elektronik" tanpa error.
+			Coba ambil "Celana" di kategori "Pakaian" tanpa error.
+			*/
+
+			let laptop1 = toko?.['Elektronik']?.['Laptop'];
+			let hp1 = toko?.['Elektronik']?.['HP'];
+			let celana1 = toko?.['Pakaian']?.['Celana'];
+
+			document.writeln(`<p>${laptop1}</p>`);
+			document.writeln(`<p>${hp1}</p>`);
+			document.writeln(`<p>${celana1}</p>`);
+
+
+		}
+	</script>
+
+	<p><b>Latihan 3</b></p>
+	
+	<script>
+		{
+			let user = {
+				"profile": {
+					"username": "Arthas",
+					"email": "arthas@example.com"
+				}
+			};
+
+			/*
+			Tampilkan username di browser.
+			Coba ambil nomor telepon ("phone") tanpa error.
+			Coba ambil alamat ("profile.address") tanpa error.
+			*/
+
+			let username = user?.['profile']?.username;
+			let phone = user?.['profile']?.phone;
+			let address = user?.['profile']?.address;
+
+			document.writeln(`<p>${username}</p>`);
+			document.writeln(`<p>${phone}</p>`);
+			document.writeln(`<p>${address}</p>`);
+
+		}
+	</script>
+
+	<h1>31. Falsy dan truthy</h1>
+
+	<p>merupakan sebuah nilai yang konteksa false (falsy) dan true (truthy)</p>
+	<p>nilai falsy anatarnya, "" dan '', 0 dan -0, false, undefined, null, NaN.</p>
+	<p>nilai truthy adalah nilai selain dari nilai flasy adlaha truthy</p>
+
+	<p>Fungsinya mengingat nilai ini adalah kita bisa bermain boolean tanpa terikat dengan nilai true dan false doang, namun data diatas juga sebagai aturannya.</p>
+	<p><b>Fungsi utamanya = Mempermudah pengkondisian tanpa harus membandingkan nilai secara eksplisit dengan true atau false.</b></p>
+
+	<h1>32. Operator logika di non boolean</h1>
+
+	<p>Di js kita bisa menggunakan operator logika pada sebuah tipe data non booelan</p>
+	<p>non boolean disini yang dimaksud adalah nilai falsy dan truthy</p>
+	<p>Nilai falsy: 0, null, undefined, "", NaN, false</p>
+	<p>nilai truthy : selain dari nilai falsy adalah nilai truthy</p>
+	<p>Operator logika yang digunakan && dan ||</p>
+	<p>&& mengabil nilai falsy yang pertama atau nilai terakhir jika semuanya truthy</p>
+	<p>|| mengabil nilai truthy yang pertama atau nilai terakhir jika semuanya falsy</p>
+
+	<hr/>
+	<p><b>&&</b></p>
+
+	<script>
+		{
+			document.writeln(`<p>${null && 0}</p>`);
+			document.writeln(`<p>${null && "hello world"}</p>`);
+			document.writeln(`<p>${null && NaN}</p>`);
+			document.writeln(`<p>${12 && 13}</p>`);
+		}
+	</script>
+	<hr/>
+	<p><b>||</b></p>
+
+	<script>
+		{
+			document.writeln(`<p>${null || 0}</p>`);
+			document.writeln(`<p>${null || "hello world"}</p>`);
+			document.writeln(`<p>${null || NaN}</p>`);
+			document.writeln(`<p>${12 || 13}</p>`);
+		}
+	</script>
+	<hr/>
+
+	<p><b>Latihan chatgpt</b></p>
+
+	<script>
+		{
+			// &&
+			console.log("Hello" && 0); // 0
+			console.log(42 && "JavaScript");  // javascript
+			console.log(null && undefined);  // null
+			console.log("False" && false);  // false
+			console.log(true && "Done!");  // done
+
+			// ||
+			console.log(0 || "Fallback");  // fallback
+			console.log("" || "Default Text");  // ""
+			console.log(false || null || "Last Hope");   // last hope
+			console.log(undefined || 0 || false);  // false
+			console.log("Truthy" || "Ignored");  // truthy
+
+			// && dan ||
+			console.log(0 || (false && "Hidden") || "Visible");  // visible
+			console.log(("Start" && "Middle") || "End");  // middle
+			console.log(null && "Skip" || "Show");  // show
+
+
+
+		}
+	</script>
+
+	<hr/>
+	<p><b>Latihan chatgpt 2</b></p>
+	<script>
+		{
+			// 
+			console.log(42 && "Code" && null);   // nul
+			console.log(0 || false || "Pass" || undefined);  // pass
+			console.log("Hello" && "" || "World");  // world
+			console.log(false && "Ignored" || true && "Accepted");  // true
+			console.log(null || undefined && "Hidden" || "Revealed");  // null
+
+		}
+
+		{
+			console.log(10 && "Yes" || 0 && "No");  // yes || 0 = yes
+			console.log(false || "Maybe" && 42);  // false || 42 = 42
+			console.log("" && null || "Surprise!");  // "" || surprise= surprise
+			console.log(undefined || 0 && "Hidden" || "Visible"); // undefined || 0 || visible = visible 
+			console.log(100 && "" || "Default");  // "" || default = default
+			console.log("Start" || false && "Middle" || "End");  // start || false || end = start
+			console.log(null && "Skip" || false || "Last Resort");  // null || false || last resort = last resort
+
+			// 1. 
+			// 
+
+		}
+	</script>
+
+	<h1>33. For loop</h1>
+
+	<p>asalah satu kata kunci di js yang digunkana untuk melkaukan loop  perulangan</p>
+	<p>block kode yang ada di dalam for loop, akan di ulang sesuai kodnisi yang ditentukan</p>
+
+	<script>
+		{
+			for (let i = 0; i < 5; i++) {
+				document.writeln(`<p>Loop ke : ${i}</p>`);
+			}
+		}
+	</script>
+
+	<hr/>
+	<p><b>Latihan chatgpt 1</b></p>
+	<script>
+		{
+			for (let i = 1; i <= 10; i++) {
+				document.writeln(`<p>Lathan 1 Loop ke : ${i}</p>`);
+			}
+
+		}
+
+		{
+			for (let i = 1; i <= 20; i += 2) {
+				console.log(i);
+			}
+
+		}
+
+		{
+			for (let i = 10; i >= 1; i--) {
+				console.log(i);
+			}
+
+		}
+
+		{
+			let nama = ["Eren", "Mikasa", "Armin", "Levi", "Sasha"];
+			for (let i = 0; i < nama.length; i++) {
+				const element = nama[i];
+				document.writeln(`<p>${element}</p>`);
+			}
+		}
+	</script>
+	<hr/>
+
+	<p><b>Latihan 2 chatgpt</b></p>
+
+	<script>
+		{
+			// Buat for loop yang mencetak angka kelipatan 5 dari 5 sampai 50.
+
+			for (let i = 5; i <= 50; i += 5) {
+				document.writeln(`<p>Loop kelipatan lima : ${i}</p>`);
+			}
+		}
+
+		{
+			// Gunakan for loop untuk mencetak angka dari 10 ke 1 tapi hanya angka genap.
+			for (let i = 10; i >= 1; i -= 2) {
+				document.writeln(`<p>Loop genap : ${i}</p>`);
+			}
+		}
+
+		{
+
+			// Gunakan for loop untuk mencetak semua buah di dalam array dengan format:
+			let buah = ["Apel", "Jeruk", "Mangga", "Pisang", "Semangka"];
+
+			for (let i = 0; i < buah.length; i++) {
+				const item = buah[i];
+				document.writeln(`<p>Buah ke-${i + 1}: ${item}</p>`);
+			}
+
+		}
+	</script>
+	
+	<h1>34. While loop</h1>
+
+	<p>sama seperti for loop, namun lebih sederhana</p>
+	<p>di while loop kita hanya butuh kondisinya saja, tanpa init dan post</p>
+
+	<h2>Latihan chatgpt</h2>
+
+	<script>
+		{
+			// Latihan 1
+			// Buat while loop yang mencetak angka dari 1 sampai 10.
+
+			{
+				let i = 0;
+				while (i <=10){
+					document.writeln(`<p>Loop i ke : ${i}</p>`);
+					i++;
+				}
+			}
+
+			// Latihan 2
+			// Gunakan while loop untuk mencetak angka genap dari 2 sampai 20.
+
+			{
+				let y = 2;
+				while (y <= 20) {
+					document.writeln(`<p>loop genap y : ${y}</p>`);
+					y += 2;
+				}
+			}
+
+			// Latihan 3
+			// Gunakan while loop untuk mencetak angka kelipatan 3 dari 3 sampai 30.
+
+			{
+				let r = 3;
+				while (r <= 30) {
+					document.writeln(`<p>Loop r kelipatan 3 ke : ${r}</p>`);
+					r += 3;
+				}
+			}
+
+			// Latihan 4
+			// Gunakan while loop untuk mencetak angka dari 10 ke 1 (mundur).
+
+			{
+				let u = 10;
+				while (u > 0) {
+					document.writeln(`<p>Loop mundur dari 10 - 1 ke: ${u}</p>`);
+					u--;
+				}
+			}
+
+			// Latihan 5
+			// Diberikan array berikut:
+
+			{
+				let buah = ["Apel", "Jeruk", "Mangga", "Pisang", "Semangka"];
+				let t = 0;
+				while (t < buah.length) {
+					const item = buah[t];
+					document.writeln(`<p>Buah ke-${t + 1}: ${buah[t]}</p>`);
+					t++;
+				}
+			}
+		}
+	</script>
+
+	<h1>35. do while loop</h1>
+	<p>mirip dengan while loop, namun kondisinya dicek diakhir loop</p>
+
+	<script>
+		{
+			// Latihan 1
+			// Buat do while loop yang mencetak angka dari 1 sampai 10.
+			// Output yang diharapkan:
+
+			{
+				let i = 1;
+				do {
+					document.writeln(`<p>Loop i ke : ${i}</p>`);
+					i++;
+				} while (i <= 10)
+			}
+
+			// Latihan 2
+			// Gunakan do while loop untuk mencetak angka genap dari 2 sampai 20.
+			// Output yang diharapkan:
+
+			{
+				let o = 2;
+				do {
+					document.writeln(`<p>Loop do while genap 2 ke : ${o}</p>`);
+					o += 2;
+				} while (o <= 20);
+			}
+
+			// Latihan 3
+			// Gunakan do while loop untuk mencetak angka mundur dari 10 ke 1.
+			// Output yang diharapkan:
+
+			{
+				let p = 10;
+				do {
+					document.writeln(`<p>Loop do while mundur ke : ${p}</p>`);
+					p--;
+				} while (p >= 1)
+			}
+
+			// Latihan 4
+			// Diberikan array berikut:
+
+			{
+				let buah = ["Apel", "Jeruk", "Mangga", "Pisang", "Semangka"];
+				let h = 0;
+				do {
+					document.writeln(`<p>Buah ke-${h + 1}: ${buah[h]}</p>`);
+					h++;
+				} while (h < buah.length);
+			}
+		}
+	</script>
+
+	<h1>36. Break and Continue</h1>
+	<p>Di switch sattemenet kita sudah pernah menggunakan kata kunci break, disana break digunakan untuk menghentikan eksekusi jika case bernilai true.</p>
+	<p>Nah di loop satatement, break juga bisa digunakna untuk menghentikan seluruh loop</p>
+	<p>namun, continue sedikit berbeda, continue digunakna untuk hentikan loop SAAT INI, dan LANJUTKAN ke loop selanjutnya</p>
+
+	<p><b>Latihan chatgpt</b></p>
+
+	<script>
+		{
+			// Latihan 1: Menggunakan break dalam loop
+			// Buat loop yang mencetak angka dari 1 sampai 10, tetapi berhenti jika mencapai angka 5.
+			// Output yang diharapkan:
+
+			{
+				for (let i = 1; i <= 10; i++) {
+					if(i === 5) {
+						document.writeln(`<p>Loop di hentikan di angkat 5</p>`);
+						break;
+					}
+					document.writeln(`<p>Loop break ke : ${i}</p>`);
+				}
+			}
+
+			// Latihan 2: Menggunakan continue dalam loop
+			// Buat loop yang mencetak angka dari 1 sampai 10, tetapi lewati angka 5.
+			// Output yang diharapkan:
+
+			{
+				for (let i = 1; i <= 10; i++) {
+					if (i === 5) {
+						document.writeln(`<p>Loop melewati angka 5</p>`);
+						continue;
+					};
+					document.writeln(`<p>Loop break ke : ${i}</p>`);
+				}
+			}
+
+			// Latihan 3: break dalam while loop
+			// Buat while loop yang mencetak angka dari 1 sampai 10 tetapi berhenti saat angka 7.
+			// Output yang diharapkan:
+
+			{
+				let i = 1;
+				while (i <= 10) {
+					if (i === 7) {
+						document.writeln(`<p>Loop while di break di angka 7</p>`);
+						break;
+					}
+					document.writeln(`<p>Loop while break ke : ${i}</p>`);
+					i++;
+				}
+			}
+
+			// Latihan 4: continue dalam while loop
+			// Buat while loop yang mencetak angka 1 sampai 10, tetapi lewati angka 3 dan 6.
+			// Output yang diharapkan:
+
+			{
+				let i = 1;
+				while (i <= 10) {
+					if (i === 3) {
+						document.writeln(`<p>Loop while di continue di angka 3</p>`);
+						i++;
+						continue;
+					} else if (i === 6){
+						document.writeln(`<p>Loop while di continue di angka 6</p>`);
+						i++;
+						continue;
+					}
+					document.writeln(`<p>Loop while break ke : ${i}</p>`);
+					i++;
+				}
+			}
+
+			// Latihan 5: break dan continue dalam do while loop
+			// Buat do while loop yang mencetak angka dari 1 sampai 10, tetapi:
+
+			// Berhenti jika angka 8 tercapai (break)
+			// Lewati angka 4 (continue)
+			// Output yang diharapkan:
+
+
+			{
+				let i = 1;
+				do {
+					if(i === 4) {
+						document.writeln(`<p>Skip 4</p>`);
+						i++;
+						continue;
+					} else if (i === 8) {
+						document.writeln(`<p>Break 8</p>`);
+						break;
+					}
+					document.writeln(`<p>Loop break and continua ke : ${i}</p>`);
+					i++;
+				} while (i <= 10);
+			}
+
+			// Bonus Latihan: Mencari Nama dalam Array
+			// Diberikan array nama berikut:
+			// Tugas:
+
+			// Gunakan for loop untuk mencari "Levi" di dalam array.
+			// Jika ditemukan, cetak "Levi ditemukan di index ke-x" lalu hentikan loop (break).
+			// Output yang diharapkan:
+
+			{
+				let nama = ["Eren", "Mikasa", "Armin", "Levi", "Sasha"];
+				for (let i = 0; i < nama.length;i++) {
+					document.writeln(`<p>Cek indek ke-${i} : ${nama[i]}</p>`);
+					if (nama[i] === "Levi") {
+						document.writeln(`<p>Levi ditemukan di indek ke-${i}</p>`);
+						break;
+					}
+				}
+			}
+
+
+		}
+	</script>
+
+	<h1>38. For in</h1>
+
+	<p>For in merupakan sebuah loop yang digunakan untuk meng iterasi data property didalam object</p>
+	<p>For in lebih cocok untuk object property ketimbang index array, meskipun bisa juga digunakan di array</p>
+
+	<script>
+		{
+			// Latihan 1: Iterasi Properti Object
+			// Gunakan for...in untuk mencetak semua nama properti (key) dan nilai dari object tersebut.
+			// Tambahkan pengecekan agar hanya mencetak properti milik object itu sendiri (bukan dari prototype, jika ada).
+
+			{
+				const kendaraan = {
+					merk: "Toyota",
+					model: "Supra",
+					tahun: 2020
+				};
+
+				for (const key in kendaraan) {
+					document.writeln(`<p>${key}:${kendaraan[key]}</p>`);
+				}
+
+				for (const item in kendaraan) {
+					if (Object.prototype.hasOwnProperty.call(kendaraan, item)) {
+						const element = kendaraan[item];
+						document.writeln(`<p>${element}</p>`);
+					}
+				}
+
+			}
+
+			// Latihan 2: Iterasi Array dengan for...in
+			// Gunakan for...in untuk mencetak index dan nilai dari array tersebut.
+			// Jelaskan kenapa hasilnya berbeda dibandingkan for...of.
+
+			{
+				const warna = ["Merah", "Biru", "Hijau", "Kuning"];
+
+				for (const index in warna) {
+					document.writeln(`<p>Index ${index}: ${warna[index]}</p>`);
+				}
+
+			}
+
+
+			// Latihan 3: Memfilter Properti Object
+			// Gunakan for...in untuk mencetak hanya properti dengan nilai string (abaikan yang bertipe angka).
+
+			{
+				const siswa = {
+					nama: "Armin",
+					kelas: "10A",
+					nilai: 85,
+					status: "Lulus"
+				};
+
+				for (const key in siswa) {
+					if (typeof siswa[key] === "string") {
+						document.writeln(`<p>${key}: ${siswa[key]}</p>`);
+					}
+				}
+
+
+			}
+
+			{
+				// Latihan 4: Menyalin Properti Object ke Object Baru
+
+				const buku = {
+					judul: "Belajar JavaScript",
+					penulis: "John Doe",
+					tahun: 2022
+				};
+
+				const newBuku = {};
+
+				for (const data in buku) {
+					newBuku[data] = buku[data];
+				}
+				console.table(newBuku);
+
+
+			}
+		}
+	</script>
+
+	<h2>Latihan chatgpt 2</h2>
+
+	<script>
+		{
+			// Menghapus Properti Tertentu
+
+			// Diberikan objek mahasiswa dengan beberapa properti (nama, umur, jurusan, nilai).
+			// Gunakan for...in untuk menghapus properti tertentu, misalnya nilai.
+			// Tampilkan objek sebelum dan setelah penghapusan.
+
+			{
+				let mahasiswa = {
+					nama: "kenny",
+					umur: 23,
+					jurusan: "Seni",
+					nilai: 76
+				};
+
+				// sebelum
+
+				for (const data in mahasiswa) {
+					document.writeln(`<p>${data}: ${mahasiswa[data]}</p>`);
+				}
+
+				// sesudah
+
+				delete mahasiswa.nilai;
+				for (const data in mahasiswa) {
+					document.writeln(`<p>${data}: ${mahasiswa[data]}</p>`);
+				}
+
+
+			}
+
+			// 2️⃣ Menghitung Jumlah Properti
+
+			// Diberikan objek mobil yang memiliki beberapa properti (merk, model, tahun, warna).
+			// Gunakan for...in untuk menghitung jumlah properti dalam objek ini dan tampilkan hasilnya.
+
+			{
+				let mobil = {
+					merk: "Toyota",
+					model: "Sedan",
+					tahun: 2024,
+					warna: "hitam"
+				};
+
+				let jumlahProperty = 0;
+				for (const key in mobil) {
+					if(mobil.hasOwnProperty(key)) {
+						jumlahProperty++;
+					}
+				}
+
+				document.writeln("<p>Jumlah propertynya adalah: " + jumlahProperty + "</p>");
+
+
+
+			}
+
+
+			// 3️⃣ Menyalin Objek dengan Modifikasi
+
+			// Buat objek game dengan properti nama, genre, dan tahun rilis.
+			// Gunakan for...in untuk membuat objek baru newGame yang sama, tetapi tambahkan properti tambahan seperti rating.
+
+			{
+				let game = {
+					nama: "Adventure of kenny",
+					genre: "Action, Magic, FPS",
+					"tahun rilis": 2021
+				}
+
+				let newGame = {};
+				
+				for (const key in game) {
+					newGame[key] = game[key];
+				}
+				
+				newGame["Rating"] = 8.89;
+				console.table(newGame);
+			}
+			// 4️⃣ Mengubah Nilai Properti
+
+			// Diberikan objek produk dengan properti nama, harga, dan stok.
+			// Gunakan for...in untuk menggandakan harga setiap produk.
+			// Tampilkan hasil sebelum dan sesudah perubahan.
+
+			{
+				let produk = {
+					nama: "sabun",
+					harga: 20000,
+					stok: 20
+				};
+
+				// sebelum
+				console.table(produk);
+				
+				for (const key in produk) {
+					if (key === "harga") {
+						produk[key] *= 2;
+					}
+				}
+
+				console.table(produk);
+			}
+
+
+
+
+			// 5️⃣ Filter Properti dengan Tipe Data Tertentu
+			// Diberikan objek user dengan properti seperti nama, usia, email, dan status aktif.
+			// Gunakan for...in untuk hanya mencetak properti yang bertipe string.
+
+			{
+				let user = {
+					nama: "Rui tachibana",
+					umur: 23,
+					email: "rui@tachibana.com",
+					"status aktif": 2023
+				}
+
+				for (const key in user) {
+					if (typeof user[key] === "string") {
+						document.writeln(user[key]);
+					}
+				}
+			}
+		}
+	</script>
+
+	<h1>For of</h1>
+	<p>for of digunakna untuk iterasi terhadap isi nilai dari iterable objecet seperti array, string dll</p>
+	<p>For of tidak bisa bisa digunakan untuk object, karena bukan data iterable</p>
+
+	<script>
+		{
+			// 🔹 Latihan 1: Iterasi Array
+			// Buat program yang mencetak setiap nilai dalam array berikut menggunakan for...of:
+			{
+				const buah = ["Apel", "Mangga", "Pisang", "Jeruk"];
+				for (const item of buah) {
+					document.writeln(`<p>${item}</p>`);
+				}
+			}
+			// 🔹 Latihan 2: Iterasi String
+			// Buat program yang mencetak setiap huruf dalam string berikut menggunakan for...of:
+			{
+				const kata = "JavaScript";
+				for(const item of kata) {
+					document.writeln(`<p>${item}</p>`);
+				}
+			}
+
+			// 🔹 Latihan 3: Iterasi Set
+			// Buat program yang mencetak setiap angka dalam Set berikut menggunakan for...of:
+			{
+				const angkaSet = new Set([1, 2, 3, 4, 5]);
+
+				for (const item of angkaSet) {
+					document.writeln(`<p>${item}</p>`);
+				}
+			}
+
+			// 🔹 Latihan 4: Iterasi Map
+			// Buat program yang mencetak setiap key dan value dari Map berikut menggunakan for...of:
+			{
+				const userMap = new Map([
+					["nama", "Alice"],
+					["usia", 25],
+					["kota", "Jakarta"]
+				]);
+
+				for (const [key, map] of userMap) {
+					document.writeln(`<p>${key}: ${map}</p>`);
+				}
+				
+
+			}
+		}
+	</script>
+
+	<h2>Latihan chatgpt</h2>
+	<script>
+		{
+			// 🔹 Latihan 1: Hitung Total Angka dalam Array
+			// Buat program yang menjumlahkan semua angka dalam array berikut menggunakan for...of:
+			{
+
+				const angka = [10, 20, 30, 40, 50];
+				let sum = 0;
+
+				for (const item of angka) {;
+					sum += item;
+				}
+				console.log(sum)
+
+			}
+
+
+			// 🔹 Latihan 2: Ubah Set ke Array
+			// Gunakan for...of untuk menyalin isi dari angkaSet ke dalam array baru: 
+			
+			{
+				const angkaSet = new Set([3, 6, 9, 12, 15]);
+				let newAngka = []
+
+				for (let item of angkaSet) {
+					newAngka.push(item);
+				}
+				console.log("Data " + newAngka);
+				
+			}
+			
+			// 🔹 Latihan 3: Tampilkan Huruf Kapital dalam String
+			// Buat program yang hanya mencetak huruf kapital dari string berikut menggunakan for...of:
+
+			{
+				const teks = "Belajar JavaScript di OpenAI";
+				let capital = "";
+				for (const item of teks) {
+					if (/[A-Z]/.test(item)) {
+						capital += item
+					}
+				}
+
+				console.log(capital)
+
+			}
+		
+			// 🔹 Latihan 4: Gabungkan String dari Array
+			// Buat program yang menggabungkan setiap kata dalam array menjadi satu kalimat dengan spasi di antaranya:
+
+			{
+				const kataArray = ["Saya", "sedang", "belajar", "JavaScript"];
+				let kata = "";
+				for (const item of kataArray) {
+					kata += item + " ";
+				}
+				console.log(kata)
+			}
+			
+			// 🔹 Latihan 5: Hitung Jumlah Huruf Vokal dalam String
+			// Gunakan for...of untuk menghitung berapa banyak huruf vokal (a, e, i, o, u) dalam string berikut:
+
+			{
+				const kalimat = "Pemrograman JavaScript sangat menyenangkan!";
+				let hurufVocal = "aiueo";
+				let sumVoc = 0;
+				let voc = "";
+				for (const item of kalimat) {
+					for (let i of hurufVocal) {
+						if(item === i){
+							sumVoc++;
+							voc += item;
+						}
+					}
+					
+				}
+				console.log(sumVoc);
+				console.log(voc);
+			}
+
+		}
+	</script>
+
+	<h1>40. With statement</h1> 
+	<p>Cara mengakses propserty data objecet tanpa perlu selalu menuliskan nama datanya ulang</p>
+
+	<script>
+		{
+			let nama = {
+				nama1: "kenny",
+				nama2: "tachi"
+			}
+
+			with (nama) {
+				console.log(nama1);
+				console.log(nama2);
+			}
+		}
+	</script>
+	<p>Tidak di rekomendasikan digunakan lagi</p>
+
+	<h1>41. Function</h1>
+
+	<p>Sebuah block kode yang akan berjalan jika kita panggil nama fungsinya</p>
+	<p>Fungsi bisa dipanggil berkali kali</p>
+
+	<script>
+		{
+			// 1️⃣ Buat fungsi bernama haloDunia yang menampilkan teks "Halo, dunia!"
+
+			{
+				function haloDunia() {
+					console.log("Halo, dunia.");
+				}
+				haloDunia();
+
+				// bisa juga
+				let sapa = "Halo, dunia!";
+				function halo() {
+					console.log(sapa);
+				}
+
+				halo();
+			}
+
+			// 2️⃣ Buat fungsi bernama belajarJS yang menampilkan teks "Selamat belajar JavaScript!"
+
+			{
+				function belajarJS() {
+					console.log("Selamat belajar JavaScript!");
+				}
+
+				belajarJS();
+			}
+
+			// 3️⃣ Buat fungsi bernama tampilkanAngka yang menampilkan angka dari 1 sampai 5
+
+			{
+				function tampilkanAngka() {
+					console.log(1,2,3,4,5);
+				}
+				tampilkanAngka();
+
+				// bisa juga
+
+				function loopAngka() {
+					for (let i = 1; i <= 5; i++) {
+						console.log(i);
+					}
+				}
+
+				loopAngka();
+
+			}
+		}
+	</script>
+
+	<h2>42. Function parameter</h2>
+	<p>kita bisa mengirimkan data (nilai) ke dalam fungsi saat kita memanggilnya. Data ini bisa berasal dari mana saja (bukan cuma fungsi lain), misalnya variabel, angka langsung, atau hasil dari fungsi lain. Jadi, lebih tepatnya: "Kita bisa mengirimkan data ke fungsi melalui parameter saat fungsi dipanggil."</p>
+	<p>Kita bisa gunkan parameter</p>
+	<p>Parameter dituliskan di dalam tanda kurung</p>
+	<p>Jika ingin lebih dari 1 parameter, maka cukup tulis dan pisahkan dengan koma</p>
+
+	<script>
+		{
+			function sum(a, b) {
+				document.writeln(a + b);
+			}
+
+			sum(1,1);
+		}
+	</script>
+
+	<p><b>Latihan Fungsi dan Parameter</b></p>
+
+	<script>
+
+		// Sebelum jawab, aku kasih tau kamu
+		// - aku pakai {} diawal script karena untuk mempermudah memberikan nama fungsi yang sering bentrok dengan nama yang sudah ada. Ini hanya dilingkunagn laithan aku, dlama 1 file aku bisa buat 100 lebih variabel, ketimbang susah-susah memikirkan nama varibel baru, gunakan yang ada aja lah
+		// Aku lebih suka document.writeln ketimbang console, soalnya untukc ek bisa langsung muncul tanpa perlu klik kanan inspect element, cukup lama.
+		// So mohon di menegerti
+
+
+		// Soal 1: Fungsi Sederhana dengan Satu Parameter
+		// Buat fungsi bernama sayName yang menerima satu parameter name. Fungsi ini akan mencetak teks "Nama saya [name]" ke console.
+		// Contoh pemanggilan:
+		// sayName("Andi"); → Output: "Nama saya Andi"
+		{
+			function sayName(name) {
+				document.writeln(`<p>Nama saya ${name}</p>`);
+			}
+			sayName("Andi");
+		}
+		// Soal 2: Fungsi dengan Dua Parameter
+		// Buat fungsi bernama multiply yang menerima dua parameter x dan y. Fungsi ini akan mengembalikan hasil perkalian x dan y.
+		// Contoh pemanggilan:
+		// console.log(multiply(4, 5)); → Output: 20
+		{
+			function multiply(x, y) {
+				return x * y;
+			}
+
+			document.writeln(multiply(4, 5));
+		}
+		// Soal 3: Fungsi dengan Lebih dari Dua Parameter
+		// Buat fungsi bernama introduce yang menerima tiga parameter: nama, umur, dan hobi. Fungsi ini akan mencetak kalimat ke console seperti ini: "Halo, nama saya [nama], umur saya [umur], dan hobi saya [hobi]".
+		// Contoh pemanggilan:
+		// introduce("Budi", 25, "gaming"); → Output: "Halo, nama saya Budi, umur saya 25, dan hobi saya gaming"
+		{
+			function introduce(nama, umur, hobi) {
+				return `<p>Halo, nama saya ${nama}, umur saya ${umur}, dan hobi saya ${hobi}</p>`
+			};
+			document.writeln(introduce("Budi", 25, "gaming"))
+		}
+		// Soal 4: Fungsi dengan Parameter untuk Operasi
+		// Buat fungsi bernama calculate yang menerima tiga parameter: a, b, dan operation. Parameter operation bisa bernilai "tambah" atau "kali". Jika "tambah", fungsi mengembalikan a + b. Jika "kali", fungsi mengembalikan a * b.
+		// Contoh pemanggilan:
+		// console.log(calculate(3, 4, "tambah")); → Output: 7
+		// console.log(calculate(3, 4, "kali")); → Output: 12
+		{
+			function calculate(a, b, operation) {
+				if (operation === "tambah") {
+					return `<p>${a + b}</p>`;
+				} 
+				if (operation === "kali") {
+					return `<p>${a * b}</p>`;
+				}
+			};
+
+			document.writeln(calculate(3, 4, "tambah"));
+			document.writeln(calculate(3, 4, "kali"));
+
+
+		}
+		// Soal 5: Tantangan - Fungsi dengan Parameter Default
+		// Buat fungsi bernama greet yang menerima dua parameter: nama dan waktu. Parameter waktu harus punya nilai default "pagi" jika tidak diisi. Fungsi ini mencetak "Selamat [waktu], [nama]!" ke console.
+		// Contoh pemanggilan:
+		// greet("Ani"); → Output: "Selamat pagi, Ani!"
+		// greet("Ani", "malam"); → Output: "Selamat malam, Ani!"
+
+		{
+			// harusnya ini gak termasuk, soalnya ini akan di bahasa nanti, but oke untuk perkenalan
+
+			function greet(nama, waktu="pagi") {
+				return `<p>Selamat ${waktu}, ${nama}</p>`;
+			}
+
+			document.writeln(greet("Ani"));
+			document.writeln(greet("Ani", "malam"));
+		}
+	</script>
+
+	<h2>43. return value</h2>
+	<p>Secara default fungsi tidak mengembalikan nilai apapun. Nah, agar fungsi bisa mengembalikan nilai, kita pakai kata kunci return</p>
+	<p>return hanya bisa mengembalikan 1 data, jika ingin lebih dari 1, maka bisa gunakan array sebagai return valuenya</p>
+	
+	<p><b>Latihan Return Value</b></p>
+
+	<script>
+		// Soal 1: Return Sederhana
+		// Buat fungsi bernama getGreeting yang menerima parameter nama dan mengembalikan string "Halo, [nama]!". Cetak hasilnya ke halaman pake document.writeln.
+		// Contoh:
+		// document.writeln(getGreeting("Rina")); → Output: "Halo, Rina!"
+
+		{
+			function getGreeting(nama) {
+				return `<p>Halo, ${nama}</p>`
+			}
+			document.writeln(getGreeting("Rina"));
+		}
+		// Soal 2: Return dengan Operasi
+		// Buat fungsi bernama addFive yang menerima parameter angka dan mengembalikan hasil angka + 5. Cetak hasilnya ke halaman.
+		// Contoh:
+		// document.writeln(addFive(10)); → Output: 15
+		{
+			function addFive(angka) {
+				return angka + 5
+			}
+
+			document.writeln(`<p>${addFive(10)}</p>`);
+		}
+		// Soal 3: Return dengan Kondisi
+		// Buat fungsi bernama checkNumber yang menerima parameter num. Kalau num lebih besar dari 10, kembalikan "Besar". Kalau nggak, kembalikan "Kecil". Cetak hasilnya ke halaman.
+		// Contoh:
+		// document.writeln(checkNumber(15)); → Output: "Besar"
+		// document.writeln(checkNumber(7)); → Output: "Kecil"
+		{
+			function checkNumber(num) {
+				if(num > 10) {
+					return "Besar"
+				} else {
+					return "Kecil"
+				}
+			};
+
+			document.writeln(checkNumber(15));
+			document.writeln(checkNumber(7));
+
+		}
+		// Soal 4: Return Array
+		// Buat fungsi bernama getProfile yang menerima tiga parameter: nama, umur, dan pekerjaan. Fungsi ini mengembalikan array berisi ketiga nilai tersebut. Cetak array-nya ke halaman.
+		// Contoh:
+		// document.writeln(getProfile("Andi", 30, "Programmer")); → Output: "Andi,30,Programmer" (tergantung cara nampilin array)
+		{
+			function getProfile(nama, umur, pekerjaan) {
+				return `<p>${[nama, umur, pekerjaan]}</p>`
+			}
+
+			document.writeln(getProfile("Andi", 30, "Programmer"));
+		}
+		// Soal 5: Tantangan - Return Berdasarkan Input
+		// Buat fungsi bernama processInput yang menerima dua parameter: value dan type. Kalau type adalah "number", kembalikan value * 2. Kalau type adalah "string", kembalikan value ditambah " OK". Cetak hasilnya ke halaman.
+		// Contoh:
+		// document.writeln(processInput(5, "number")); → Output: 10
+		// document.writeln(processInput("Test", "string")); → Output: "Test OK"
+
+		{
+			function processInput(value, type) {
+				if (type === "number") {
+					return `<p>${value * 2}</p>`
+				} else if (type === "string") {
+					return `<p>${value + " Ok"}</p>`
+				}
+			}
+
+			document.writeln(processInput(5, "number"));
+			document.writeln(processInput("Test", "string"));
+		}
+
+
+	</script>
+
+	<h2>44. Optional parameter</h2>
+	<p>di js parameter itu adalah optional.</p>
+	<p>Beda dengan java, di js kita bisa kosongkan parameternya namun auto akan jadi undefinef outputnya.</p>
+
+	<script>
+		{
+			function input(param1, param2) {
+				document.writeln("<p>" + param1 + "</p>");
+				document.writeln("<p>" + param2 + "</p>");
+			}
+
+			input("saya kenny")
+			input("saya rui")
+		}
+	</script>
+
+	<p>Kita gak bisa mengisi param2 dan koosongkan param1, soalnya di js itu pengisian nilai parameter itu dilakukan secara berurutan.</p>
+	<p>Solusinya kita pakai object</p>
+
+	<script>
+
+		{
+			function input({param1, param2}) {
+				document.writeln("<p>" + param1 + "</p>");
+				document.writeln("<p>" + param2 + "</p>");
+			}
+
+			input({
+				param1: "hello data kennt"
+			})
+
+			input({
+				param2: "hello data ryiu"
+			})
+		}
+
+	</script>
+
+
+	<h2>46. Default parameter</h2>
+	<p>Merupakan fitur js yang bisa digunakan untuk membuat default parameter.</p>
+	<p>Default parameter ini digunakna saat kode mengembalikan dta yang tidak sesai mislanay undefined atau null</p>
+
+	<script>
+		{
+			function input(param1, param2= "deafutl data") {
+				document.writeln("<p>" + param1 + "</p>");
+				document.writeln("<p>" + param2 + "</p>");
+			}
+
+			input("saya kenny")
+			input("saya kenny", 123)
+		}
+	</script>
+
+	<h2>47. Rest parameter</h2>
+
+	<p>Sebuah fitur dimana kita bisa kirim banyak data ke dalam 1 parameter</p>
+
+	<script>
+
+		{
+
+			function sum(...plus) {
+				return plus;
+			}
+
+			let nambah = sum(1,2);
+			document.writeln(`${nambah}`);
+
+		}
+
+		{
+			function sum(...data) {
+				let total = 0;
+				for (const item of data) {
+					total += item;
+				}
+
+				document.writeln(`<p>Totoal a : ${total}</p>`)
+			}
+
+			sum(1,1,1);
+		}
+
+	</script>
+
+	<h2>48. Argument object</h2>
+
+	<p>merupakan fitur yang ada sebelum rest paarmeter</p>
+	<p>DI js terbaru kita menggunkaan rest poarameter, tapis ebelum adanya rest param kita gunkana argum,nts</p>
+
+	<script>
+		{
+			function oldSum() {
+				let total = 0;
+				for (let item of arguments) {
+					total += item;
+				}
+
+				document.writeln(`<p>Total is: ${total}</p>`)
+			}
+			oldSum(1,2,2)
+		}
+	</script>
+
+	<h2>49. Function sebagai value</h2>
+	<p>Function bisa kita simpan sebagai value artinya bisa kita simpan ke dalam sebuah variable. Juga bisa dikirimkan ke sebuah parameter</p>
+
+	<script>
+		{
+			function sayHello(nama) {
+				document.writeln( `<p>Hello ${nama}?</p>`)
+			}
+
+			let say = sayHello;
+			sayHello("kenny");
+
+			say("rui")
+		}
+	</script>
+
+	<p>Kembalikan fungsid ari fungsi lainnya</p>
+
+	<script>
+		{
+			function alat(tipe) {
+				if (tipe === "memasak") {
+					return function () {
+						return "Kamu akan memasak"
+					}
+				} else if (tipe === "pembunuh") {
+					return function () {
+						return "Kamu akan membunuh hewan"
+					}
+				}
+			}
+
+			let alatMemasak = alat("memasak");
+			document.writeln(`<p>${alatMemasak()}</p>`)
+
+			let alatPembunuh = alat("pembunuh");
+			document.writeln(`<p>${alatPembunuh()}</p>`)
+		}
+	</script>
+
+	<h2>50. anonymous fungsi</h2>
+
+	<p>Merupakan fungsi yang dibuat tanpa perlu menuliskan nama fungsinya</p>
+
+	<script>
+
+		{
+			let fungsi = function (){
+				document.writeln("<p>Hello world anonimous</p>");
+			} 
+
+			fungsi();
+
+			//
+
+			let i = function () {
+				return "hello wordl data";
+			}
+
+			document.writeln(`<p>${i()}</p>`)
+
+			// dengan paramerter
+
+			let y = function (nama) {
+				return "Hello " + nama
+			}
+
+			document.writeln(`<p>${y("kenny")}</p>`);
+		}
+
+	</script>
+
+	<p>Contoh fungsi yang digunakan langsung didalam parameter fungsi lainnya</p>
+
+	<script>
+		{
+			function hello(nama, usia) {
+				document.writeln(`<p>hallo namaku ${nama}, dan usiaku 34</p>`);
+			}
+
+			hello("kenny", function (){return usia});
+		}
+	</script>
+</body>
+</html>

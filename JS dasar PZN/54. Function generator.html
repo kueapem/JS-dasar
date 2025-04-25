@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Function generator</title>
+</head>
+<body>
+
+	<!-- 06:15 -->
+
+	<h1>Function generator</h1>
+	<p>merupakan fungsi yang digukana untuk mmebuat data generator</p>
+	<p>generator merupakan sebuah data yang bisa di iterasi seperti array</p>
+	<p>untuk membuat generator kita perlu tanda * setelah kata function</p>
+	<p>dan untuk mengembalikan data ditiap iterasi, kita bisa gunakan kata kunci yield diikuti datanya</p>
+	<script>
+		{
+
+			function* name() {
+				yield "kenny";
+				yield "tachibana";
+			}
+
+			let names = name();
+			for (const item of names) {
+				document.writeln(`<p>${item}</p>`)
+			}
+
+		}
+	</script>
+
+	<p>Ingat</p>
+	<p>Data generator hanay bisa diiterasi, tidak bisa di akses ebrupa index bahkan diubah datanya gak bisa</p>
+
+	<h2>Kasus kompleks</h2>
+
+	<script>
+		{
+			function* buatGanjil(value) {
+				for(let i = 1; i <= value; i++) {
+					if(i % 2 === 1) {
+						yield i;
+					}
+				}
+			}
+
+			const angkaGanjil = buatGanjil(100);
+			for (const angka of angkaGanjil) {
+				document.writeln(`<p>${angka}</p>`)
+			}
+		}
+	</script>
+	
+</body>
+</html>

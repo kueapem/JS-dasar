@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>42. Function Parameter</title>
+</head>
+<body>
+
+	<!-- 04:56:08 -->
+
+	<h1>Function parameter</h1>
+
+	<p>Kita bisa kirimkan data ke function yang kita panggil</p>
+	<p>Untuk melakukannya, kita perlu menambahkan parameter atau argument di function yang sudah di buat</p>
+	<p>Parameter ditempatkan di dalam kurung () dideklarasi function</p>
+	<p>Parameter bisa lebih dari satu,jik lebih dari satu dipisahkan dengan koma</p>
+
+	<p><b>Analoginya gini</b></p>
+	<p><i>function buatNasiGoreng(nasi, telur, pedas) {</i></p>
+	<p><i>	document.writeln("Membuat nasi goreng dengan " + nasi + ", " + telur + ", dan tingkat kepedasan " + pedas);</i></p>
+	<p><i>}</i></p>
+
+	<p><i>buatNasiGoreng("Nasi putih", "Telur ayam", "pedas sedang");</i></p>
+
+	<p><b>outputnya</b></p>
+	<p><i>Membuat nasi goreng dengan Nasi putih, Telur ayam, dan tingkat kepedasan pedas sedang</i></p>
+
+	<p><b>Penjelasan</b></p>
+	<p>🔹 nasi, telur, pedas → Parameter yang dibutuhkan untuk membuat nasi goreng.</p>
+	<p>🔹 "Nasi putih", "Telur ayam", "pedas sedang" → Argumen yang dikirim saat memesan.</p>
+
+	<p>Jadi, parameter seperti bahan masakan, sedangkan argumen seperti pilihan pelanggan yang diberikan saat memesan makanan. 🍳🔥</p>
+
+
+	<p><b>Contoh</b></p>
+	<script>
+		{
+			function sum(a, b, c) {
+				document.writeln(`<p>${a + b + c}</p>`);
+			}
+			sum(2, 2, 2);
+
+			// contoh ngambil argumen dari varibale lain
+			let i = 50;
+			let y = 50
+			let t = 50
+			sum(i, y, t);
+		}
+	</script>
+
+	
+</body>
+</html>

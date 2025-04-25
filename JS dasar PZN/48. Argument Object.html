@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>48.. Argument Object</title>
+</head>
+<body>
+
+	<!-- 05:34:09 -->
+
+	<h1>Argument Object</h1>
+	<p>Merupakan fitur lama yang mirip dengan rest paarmter</p>
+	<p>Sebeluma danya fitur rest paramter, di js sudah ada fitur Argument object</p>
+	<p>Fitur ini bisa mengambil semua paramter dalam berntuk array dengan menggunakan object bernama argument</p>
+	<p>Argument secara otomatis bisa digunakan di functtion</p>
+	
+	<script>
+		{
+			function oldSum() {
+				let total = 0;
+				for (const item of arguments) {
+					total += item;
+				}
+				document.writeln(`<p>${total}</p>`);
+			}
+			oldSum(12,3,4,5);
+		}
+	</script>
+
+	
+</body>
+</html>

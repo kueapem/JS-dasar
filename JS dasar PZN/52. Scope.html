@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scope</title>
+</head>
+<body>
+
+	<!-- 05:53:00 -->
+
+	<h1>Scope</h1>
+
+	<p>Merupakan area akses sebuah data</p>
+	<p>ada 2 jenis, scope global dan local</p>
+	<p>contoh scope global -> varibale yang didideklarasikan di luar</p>
+	<p>contoh scope local -> kode yang ada didalam fungsi</p>
+	<p>Data global bisa diakses di mana saja baik di global atau local, namun data local hanya bisa diakses di local scope tersebut atau di scope local dibawahnya (dalam kasus function nested)</p>
+
+	<h2>Analoginya</h2>
+
+	<p><b>Global scope</b></p>
+	<p>bayangkan kita mempunyai sepeda yang ada di halaman rumah.</p>
+	<p>sepeda ini adalah scope global, jadi orang yang ada didalam rumah bisa pakai dengan bebas.</p>
+
+	<script>
+
+		{
+			let sepeda = "Sepeda di halaman rumah";
+			function kamarA () {
+				document.writeln(`<p>KamarA pakai ${sepeda}</p>`);
+			}
+
+			function kamarB () {
+				document.writeln(`<p>KamarB pakai ${sepeda}</p>`);
+			}
+
+			kamarA();
+			kamarB();
+		}
+	</script>
+
+	<p><b>Local scope</b></p>
+	<p>Bayangkan kamu memiliki komputer pribadi di kamar kamu, selain kamu orang yang gak boleh pakai.</p>
+
+	<script>
+		{
+			function kamar () {
+				let komputer = "Aku punya komputer pribadi";
+				document.writeln(`<p>${komputer}</p>`);
+			}
+
+			// document.writeln(`<p>${komputer}</p>`); error
+			// error karena kita mengakses komputer dari luar pemilik kamar
+			kamar()
+		}
+	</script>
+	
+	<h2>Nested scope</h2>
+
+	<script>
+		{
+			function first() {
+				let firstV = "first";
+
+				function second() {
+					document.writeln(firstV) // bisa akses dari local scope firstV
+
+					let i = 33;
+				}
+
+				// document.writeln(i); error gak bisa akses local scope darti fungsi second
+				second(); // bisa 
+
+			}
+
+			first()
+		}
+	</script>
+
+
+</body>
+</html>

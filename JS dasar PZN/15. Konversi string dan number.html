@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>15 Konversi string dan number</title>
+</head>
+<body>
+
+	<!-- 01:58:39 -->
+	<h1>Konversi string dan number</h1>
+
+	<p>Aplikasi kadang enerima input dari user berupo string bukan number ("4").</p>
+	<p>Sedangkan kita ingin data yang masuk itu berupa number</p>
+	<p>Maka disarankan untuk melakukan konversi tipe data</p>
+
+	<p>contoh kasus jika kita tidak melakukan konversi tipe data</p>
+	<script>
+	{
+		let nilai1 = 2;
+		let nilai2 = "3";
+		let sum = nilai1 + nilai2; // hasil yang diharapkan 5
+
+		document.writeln(`<p>2 + "3" = ${sum}</p>`); // hasil 23
+
+		// karena "3" dibaca string 3, bukan number 3 
+	}
+	</script>
+
+	<h2>Cara yang dilakukan untuk konversi</h2>
+	<p>Ada beberapa cara untuk atasi masalah diatas dengan konversi string dan number</p>
+	<p>parseInt(string) -> konversi dari string ke number (bilangan bulat)</p>
+	<p>parseFloat(string) -> konversi dari string ke number (bilangan pecahan)</p>
+	<p>Number(string) -> konversi dari string ke number (bilangan bulat dan pecahan)</p>
+	<p>number.toString() -> konversi number ke string</p>
+
+	<h3>a. ParseInt()</h3>
+	<script>
+		{
+			let i = 6;
+			let u = "3";
+			let p = i + u; // diharapkan 9 (tanpa konversi)
+			let k = i + parseInt(u); // dengan konversi
+
+			document.writeln(`<p>6 + "3" = ${p}</p>`);
+			document.writeln(`<p>6 + "3" = ${k}</p>`);
+
+		}
+	</script>
+
+	<h3>b. parseFloat()</h3>
+	<script>
+		{
+			let i = 6;
+			let u = "3.8";
+			let p = i + u; // diharapkan 9.8 (tanpa konversi)
+			let k = i + parseFloat(u); // dengan konversi
+
+			document.writeln(`<p>6 + "3.8" = ${p}</p>`);
+			document.writeln(`<p>6 + "3.8" = ${k}</p>`);
+		}
+	</script>
+
+	<h3>c. Number()</h3>
+	<script>
+		{
+			let i = 6;
+			let u = "3.8";
+			let r = "3";
+			let p = i + u; // diharapkan 9.8 (tanpa konversi)
+			let k = i + Number(u); // dengan konversi
+			let l = i + Number(r);
+
+			document.writeln(`<p>6 + "3.8" = ${p}</p>`);
+			document.writeln(`<p>6 + "3.8" = ${k}</p>`);
+			document.writeln(`<p>6 + "3" = ${l}</p>`);
+		}
+	</script>
+
+	<h3>d. toString</h3>
+	<script>
+		{
+			let i = 6;
+			let u = 3.8;
+			let r = 3;
+			let p = i + u; 
+			let k = i + (u).toString(); // dengan konversi
+			let l = i + (r).toString();
+
+			document.writeln(`<p>6 + 3.8 = ${p}</p>`);
+			document.writeln(`<p>6 + 3.8 = ${k}</p>`);
+			document.writeln(`<p>6 + 3 = ${l}</p>`);
+		}
+	</script>
+
+
+	<h2>Kenapa gak pakai Number saja?</h2>
+	<p>Pada bagian parseint dan float mungkin bisa diselsaiakan dengan hanay dengan number() saja ya, nmaun sejatinya gak gitu.</p>
+	<p>Mungkin yang sederhana bisa, namun jika sudah komplek gak bisa.</p>
+
+	<p>Misal ada user gak sengaja masukkan data input number dan teks, maka di number() itu akan dikembalikan jadi NaN, sedangkan di int dan float akan di ambil numbernya saja jika number yang diinput ada didepan teks (123teks, 1.222teks)</p>
+
+	<p>contoh</p>
+	<script>
+		{
+			// parseINt
+			let i = "1string";
+			let u = parseInt(i) + 2;
+			document.writeln(`<p>"1string" + 2 = ${u}</p>`);
+		}
+
+		{
+			//parseFloat
+			let i = "1.1string";
+			let u = parseFloat(i) + 1;
+			document.writeln(`<p>"1.1string" + 1 = ${u}</p>`);
+		}
+
+		{
+			//Number
+			let i = "1string";
+			let u = Number(i) + 1;
+			document.writeln(`<p>"1.1string" + 1 = ${u}</p>`);
+
+			let p = "1string";
+			let y = Number(i) + 1;
+			document.writeln(`<p>"1.1string" + 1 = ${y}</p>`);
+		}
+	</script>
+
+
+</body>
+</html>

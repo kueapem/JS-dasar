@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>14. String template</title>
+</head>
+<body>
+
+	<!-- 01:47:00 -->
+
+	<h1>String template</h1>
+	<p>Di oembahasans ebelumnya, kita tau dan bisa menambhakan string dengan metode op aritmatika +</p>
+	<p>Namun hal ini tidak efekti jika kita menambahkan string dengan bnayak banyak data</p>
+	<p>Muncullah string template.</p>
+	<p>String template adalah caramepermudah pemanggilan varibale.</p>
+	<p>cara penggunaannya bukan dengan tand apetik satu atau 2, namun dengan backtik serta kata kunci ${namavaribalenya}</p>
+
+	<h2>contoh</h2>
+	<script>
+
+		{
+			// tanpa string template
+			let text= "nama saya" + " " + "Budi";
+			let i = "saya biasa main di" + " menteng, " + "Dan " + text;
+
+			document.writeln("<p>" + text + "</p>");
+			document.writeln("<p>" + i + "</p>");
+
+			
+		}
+
+		{
+			// dengan string template
+			let text= `Nama saya budi`;
+			let i = `Saya biasa main di menteng, dan ${text}`;
+
+			document.writeln(`<p>${text}</p>`);
+			document.writeln(`<p>${i}</p>`);
+		}
+
+	</script>
+
+	<h2>Expresion di string template</h2>
+	<p>selain melakukan subsitusi di varibale, kita juga bisa melakuakn expeesion</p>
+	<h2>contoh dengan perbandingan</h2>
+
+	<script>
+
+		{
+			let name = "kenny";
+			let nilai = 79;
+
+			document.writeln(`<p>Mahasiswa bernama ${name}, lulus: ${nilai > 75} </p>`);
+		}
+
+	</script>
+
+	<h2>Bisa untuk multiline string</h2>
+	<p>string template juga bisa digunkana untuk mmebuat multi line string</p>
+	<p>kita cukup tambhakan enter di teksnya</p>
+
+	<script>
+		{
+			let text = `Nama
+			saya
+			budi,
+			saya,
+			ingin makan 
+			seblak`
+
+			document.writeln(`<pre>${text}</pre>`);
+		}
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>17. isNaN()</title>
+</head>
+<body>
+	<!-- 02:12:00 -->
+	 <h1>isNaN()</h1>
+
+	 <p>Sebuah fungsi yang digunakan untuk cek apakah number itu NaN atau bukan</p>
+	 <p>hasilnya akan mengembalikan boolean, true jika NaN, false jika bukan</p>
+
+	 <script>
+		{
+			let i = parseInt("salah");
+			let u = 7;
+			document.writeln(`<p>${isNaN(i)}</p>`); // true
+			document.writeln(`<p>${isNaN(u)}</p>`); // false
+		}
+	 </script>
+</body>
+</html>

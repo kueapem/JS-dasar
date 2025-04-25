@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Object method</title>
+</head>
+<body>
+
+	<!-- 06:47 -->
+
+	<h1>Object method</h1>
+	<p>Pada tipe data object, kita sudah bahas yang namanya property</p>
+	<p>Karena sebenarnya function juga merupakan salah satu tipe data, jadi fungsi pun sebenarnya bisa ditambahkan sebagai propserty di object</p>
+	<p>Cara pembuatannya pun sama dengan fungsi sebagai value</p>
+	<p>FUngsi di object kadang di sebut object method</p>
+
+	<script>
+		{
+			const person = {
+				name : "kenny",
+				sayHello : function (name) {
+					document.writeln(`<p>Hello ${name}</p>`);
+				}
+			};
+
+			person.sayHello("Rui");
+		}
+	</script>
+
+	<script>
+		{
+			let orang = {
+				nama: "rui",
+				umur: 12,
+				sapa: function() {
+					document.writeln(`<p>Halo saya ${orang.nama}, umur saya ${orang.umur}</p>`);
+				}
+			};
+
+			orang.sapa();
+		}
+
+		{
+			// dengan parameter lebih fleksible
+			let orang = {
+				nama: "kenny",
+				sapa: function (value) {
+					document.writeln(`<p>Halo ${value} nama saya ${orang.nama}</p>`);
+				}
+			}
+			orang.sapa("rui");
+			orang.sapa("dewi");
+			orang.nama = "Sipa";
+			orang.sapa("lulu");
+		}
+
+		{
+			// letakkan nama sebagai parameter juga agar lebih fleksible
+			let orang = {
+				sapa: function (nama, nama2) {
+					document.writeln(`<p>Halo ${nama} nama saya ${nama2}</p>`);
+				}
+			}
+
+			orang.sapa("doni", "kenny")
+		}
+	</script>
+
+	<script>
+		{
+			let mobil = {
+				merk: "Toyota",
+				call: function (nama) {
+					document.writeln(`<p>${nama} menyalakan mobil ${mobil.merk}</p>`);
+				}
+			}
+
+			mobil.call("budi");
+		}
+	</script>
+
+	<h2>Menambhakn method ke object yang sudah ada</h2>
+
+	<script>
+		{
+			let orang = {
+				nama: "kenny"
+			}
+
+			// kita tambahkan method ke object orang
+
+			orang.call = function () {
+				document.writeln(`<p>Hello ${orang.nama}</p>`);
+			}
+
+			orang.call()
+		}
+	</script>
+	
+</body>
+</html>

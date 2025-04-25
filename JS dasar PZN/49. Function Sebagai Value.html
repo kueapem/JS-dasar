@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>44. Function sebagai value</title>
+</head>
+<body>
+
+	<!-- 05:38:13 -->
+	 <h1>Function sebagai value</h1>
+
+	 <p>Function bisa juga disimpan sebagai value</p>
+	 <p>artinya fungsi bisa kita simpan di variable</p>
+	 <p>Bisa juga dikirimkan melalui parameter ke fungsi lainnya</p>
+
+	 <h2>Function di variable</h2>
+	 <script>
+		{
+			function sayHello(nama) {
+				document.writeln(`<p>Hello ${nama}</p>`);
+			}
+
+			const hello = sayHello;
+			hello("kenny");
+			sayHello("rui")
+		}
+	 </script>
+
+	 <h2>Function di parameter</h2>
+
+	 <script>
+		{
+			function sayHello(nama) {
+				document.writeln(`<p>Hello ${nama}</p>`);
+			}
+			let say = sayHello;
+
+			function giveName(callBack) {
+				callBack("Kenny");
+			}
+
+			giveName(sayHello);
+			giveName(say);
+		}
+	 </script>
+	 
+	 <h2>Menyimpan fungsi dalam variable</h2>
+
+	 <p>Bayangkan kamu punya pisau lipat, dan kamu menaruhnya di kotak alat, tinggal ambil dan pakai</p>
+
+	 <script>
+		{
+			const pisau = function() {
+				return "Pisau digunakan";
+			};
+
+			// document.writeln(pisau); // tanpa () akna mencetak fungsinya
+			document.writeln(`<p>${pisau()}</p>`); // dengan () akan mencetak return, ini yang benar
+
+
+			// kupakai lagi var pisau
+			let daging = `${pisau()} untuk memotong daging`
+			document.writeln(`<p>${daging}</p>`)
+		}
+	 </script>
+
+	 <p>Pisau disimpan didalam variable pisau, dan bisa dipakai kapan saja</p>
+
+	 <h2>Mengirimkan fungsi sebagai argumen</h2>
+	 <p>Misalnya kamu ingin buka tutup botol, dan temanmu punya pembuka botol, kamu meminta temanmu membukakannya</p>
+
+	 <script>
+		{
+			
+			// alat pembuka botol
+			const pembukaBotol = function (benda) {
+				return `Membuka ${benda} dengan penutup botol`;
+			};
+			function gunakanAlat(alat, benda) {
+				return alat(benda);
+			}
+
+			document.writeln(`<p>${gunakanAlat(pembukaBotol, "botol minuman")}</p>`);
+		}
+	 </script>
+
+	 <p>Kamu memberikan alta (pembukaBotol) ke temanmu (gunakanAlat), lalu dia menggunakanna</p>
+
+	 <h2>Mengembalikan fungsi dari fungsi lain</h2>
+	 <p>Bayangkan kamu pergi ke toko alat, dan penjual bertanya</p>
+	 <p><i>"Mau alat untuk memasak, atau untuk bertahan hidup?"</i></p>
+	 <p>Lalu dia memberikanmu alat yang sesuai pilihanmu</p>
+
+	 <script>
+		{
+			function pilihanAlat(tipe) {
+				if (tipe === "memasak") {
+					return function () {
+						return "Kamu mendapatkan pisau untuk dapur";
+					};
+				} else if (tipe === "survival") {
+					return function () {
+						return "Kamu mendapat pisau untuk survival";
+					}
+				}
+			}
+
+			// memilih alat untuk memasak
+			let alatMemasak = pilihanAlat("memasak");
+			document.writeln(`<p>${alatMemasak()}</p>`);
+
+			// memilih untuk survival
+			let alatSurvival = pilihanAlat("survival");
+			document.writeln(`<p>${alatSurvival()}</p>`);
+		}
+	 </script>
+
+	 <p><i>Kamu datang ke toko alat (pilihanAlat), dan penjual memebrikanmu alat yang sesuai ekbutuhan (return function)</i></p>
+	
+</body>
+</html>
