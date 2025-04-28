@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>07. Menambahkan Property ke Prototype</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+	<!-- 00:42 -->
+
+	<h1>Menambahkan Property ke Prototype</h1>
+
+
+	<h2>versi chatgpt</h2>
+	<h3>📖 Penjelasan Dasarnya</h3>
+
+	<p>Di JavaScript, setiap fungsi (yang bisa dibuat jadi objek) itu punya prototype.</p>
+	<p>prototype ini semacam tempat titipan di mana kamu bisa menambahkan properti atau method, supaya semua objek yang dibuat dari fungsi itu bisa otomatis mewarisinya.</p>
+
+	<h3>🔥 Analogi Sederhana</h3>
+	<p>Bayangin kamu bikin pabrik mobil.</p>
+	<p>Kalau kamu nambahin fitur "warna" ke prototype pabrik itu, maka semua mobil baru yang keluar dari pabrik itu punya warna default tanpa perlu kamu setting satu-satu.</p>
+	
+	<blockquote>
+	Pabrik = Function Constructor
+	Mobil-mobil = Object yang dibuat dari constructor itu
+	Blueprint umum (warna, roda 4, dsb) = Prototype
+	</blockquote>
+
+	<p><b>Contoh</b></p>
+
+	<script>
+		{
+			function Person(name) {
+				this.name = name;
+			}
+
+			// Sekarang kita tambah properti ke prototype:
+			Person.prototype.country = "Indonesia";
+
+
+			// Jadi, semua orang otomatis punya properti country:
+			let orang1 = new Person("Andi");
+			let orang2 = new Person("Budi");
+
+			console.log(orang1.country); // Output: Indonesia
+			console.log(orang2.country); // Output: Indonesia
+
+			console.log(orang1); // ada indonesia di prototypenya
+			console.log(orang2); // ada indonesia di prototypenya
+
+		}
+	</script>
+
+	<p>Padahal kita nggak tulis sayHello di dalam constructor!</p>
+	<p>Karena sayHello dititipkan ke prototype, semua instance (orang1, orang2) bisa pakai.</p>
+
+
+	<h3>✨ Kenapa pakai prototype?</h3>
+	<p>Hemat memori: Method tidak digandakan di setiap objek, cukup satu di prototype.</p>
+	<p>Pewarisan: Semua objek otomatis "punya" method itu tanpa di-copy satu-satu.</p>
+
+	<h3>Tambahan</h3>
+	<p>Jika kita hanya lakukan ini</p>
+<pre><code>
+orang1.Person = function () {
+	console.log("Ini konstruktor atau method baru untuk orang1");
+};
+</code></pre>
+
+	<p>Hanya orang1 yang akan memiliki method Person tersebut.</p>
+	<p>Ini tidak akan memengaruhi orang2 atau objek lainnya yang dibuat dari konstruktor Person, karena:</p>
+	<p><i>Kamu menambahkan method langsung ke objek orang1, bukan ke prototype-nya.</i></p>
+	<p><i>orang2 tidak akan memiliki method itu, karena method tersebut hanya ada di orang1.</i></p>
+
+	<h3>🔑 Intinya:</h3>
+	<p>Jika menambahkan ke prototype: Semua objek yang dibuat dari constructor tersebut akan mewarisi method atau property tersebut.</p>	
+	<p>Jika menambahkan langsung ke objek (misalnya orang1.Person = ...): Hanya objek itu yang mendapat method atau property tersebut, objek lain tidak terpengaruh.</p>
+	
+	<h2>Menamahkan method ke prototype</h2>
+	<p>Biasanya yang di tambhkan ke prototype itu adlaah method yang paling sering</p>
+
+	<script>
+		{
+			function Person(name) {
+				this.name = name;
+			};
+			// Sekarang kalau kamu bikin objek:
+			let orang1 = new Person("Andi");
+			let orang2 = new Person	("Budi");
+
+			// Kalau kamu tambahin ke prototype:
+			Person.prototype.sayHello = function() {
+				console.log("Halo, saya " + this.name);
+			};
+
+			// Semua orang sekarang bisa sayHello():
+			orang1.sayHello(); // Output: Halo, saya Andi
+			orang2.sayHello(); // Output: Halo, saya Budi
+
+			console.info(orang1);
+			console.info(orang2);
+
+
+		}
+	</script>
+
+	<p>Keduana memiliki method di prototype nya</p>
+	
+	
+
+	<h2>Versi PZN</h2>
+
+	<p>Property di dalam JavaScript mirip dengan properti pada objek, yaitu berisi nilai (value) atau fungsi (method).</p>
+	<p>Saat kita menambahkan sebuah property ke prototype, secara otomatis, semua object instanse yang turunan dari prototype tersebut akan memiliki property tersebut.</p>
+
+	<p><b>Udah lengkap diatas</b></p>
+	
+</body>
+</html>

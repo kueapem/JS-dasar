@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Paramater di constructor function</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+	<!-- 00:27 -->
+
+	<h1>Parameter di constructor function</h1>
+	<p>Karena dalam Js, class adalah berbentuk function, jadi secara default, fungsi tersebut bisa memiliki paramter</p>
+	<p>constructor fungsi sama seperti function biasanya, bisa memiliki parameter, hal ini membuat ketika kita membuat object, kita bisa mengirim langsung sata lewat parameter di constructor function tersebut.</p>
+
+	<p><b>Intinya kita bisa tambahkan paramter</b></p>
+
+	<script>
+		{
+			function Person(firstName, lastName) {
+				this.firstName = firstName;
+				this.lastName = lastName;
+				this.sayHello = function (name) {
+					console.info(`Hello ${name},my name is ${this.firstName}`);
+				}
+			};
+
+			const name1 = new Person("Kenny", "Ken");
+			name1.sayHello("Rui");
+
+		}
+	</script>
+	
+</body>
+</html>

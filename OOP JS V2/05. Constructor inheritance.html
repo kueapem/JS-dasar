@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>constructor inheritance</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+	<!-- 00:30 -->
+
+	<h1>Constructor inheritance</h1>
+	<h2>Versi chatgpt</h2>
+	<h3>🧠 Konsep Inheritance (Pewarisan)</h3>
+	<p>Inheritance artinya mewariskan property dan method dari constructor function lain.</p>
+	<p>Misalnya kamu punya Person, dan ingin buat Student yang punya data dari Person, ditambah data khusus seperti jurusan</p>
+
+	<h3>✅ Langkah-langkah Inheritance Versi Lama (tanpa class)</h3>
+	<p><b>1. Buat constructor utama:</b></p>
+
+<pre><code>
+function Person(nama, umur) {
+	this.nama = nama;
+	this.umur = umur;
+}
+</code></pre>
+
+	<p><b>2. Buat constructor turunan:</b></p>
+
+<pre><code>
+function Student (nama, umur, jurusan) {
+	Person.call(this, nama, umur); // warisan dari Person
+	this.jurusan = jurusan;
+}
+</code></pre>
+
+	<p><b>3. Tes</b></p>
+<pre><code>
+const kenny = new Student("Kenny", 23, "Informatika");
+console.log(kenny);
+</code></pre>
+
+	<p><b>Contoh</b></p>
+	<script>
+		{
+			function Person(nama, umur) {
+				this.nama = nama;
+				this.umur = umur;
+			}
+
+			function Student(nama, umur, jurusan) {
+				Person.call(this, nama, umur);
+				this.jurusan = jurusan;
+				this.sayHello = function (val) {
+					console.log(`hello ${val}, namaku ${this.nama} umruku ${this.umur}, jurusanku ${this.jurusan}`);
+				}
+			}
+
+			const kenny = new Student("kenny", 23, "informatika");
+			kenny.sayHello("budi");
+		}
+	</script>
+
+	<h3>🧠 Penjelasan Person.call(this, ...)</h3>
+	<p>call() dipakai untuk menjalankan fungsi Person didalam konteks this miliki Student</p>
+	<p>Jadi, property nama dan umur akan "diisi" didalam this milik Student</p>
+
+	<p>call() Waktu kamu bikin constructor inheritance versi lama, kamu butuh call() supaya constructor induk (Person) bisa mengisi this milik anak (Student).</p>
+
+	<h2>Versi PZN</h2>
+	<p>Dalam constructor kita biasanya membuat property baik itu berisi nilai ataupun function</p>
+	<p>Didalam Constructor, kita bisa memanggil constructor lain, dengan begitu kita bisa mewarisi semua property yang di buat constructor lain tersebut</p>
+	<p>Untuk memanggil constructor lain, kita bisa menggunkan NamaConstructor.call(this, parameter)</p>
+
+	<script>
+		{
+			function Employee(firstName) {
+				this.firstName = firstName;
+				this. sayHello = function (name) {
+					console.info(`Hi ${name}, my name is ${this.firstName}`);
+				}
+			};
+
+			function Manager(firstName, lastName) {
+				Employee.call(this, firstName);
+				this.lastName = lastName;
+			};
+
+			const kenny = new Manager("Kenny", "Ken Ken");
+			console.info(kenny);
+		}
+	</script>
+
+	
+</body>
+</html>

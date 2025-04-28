@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>08. Prototype inheritance</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+	<!-- 00:50 -->
+
+	<h1>Prototype inheritance</h1>
+
+	<h2>Versi Chatgpt</h2>
+
+	<h3>Apa itu Prototype Inheritance di JavaScript</h3>
+	<p>Prototype inheritance artinya object di js bisa mewariskan propertyt dan method dari object lain lewat property chain.</p>
+	<p>Di js, semua object secara default punya Prototype (semacam cetakan atau blueprint). Kalu kita cari properti / method di suatu object dan tidak ketemu, js akan naik ke Prototype-nya untuk mencari.</p>
+	<p>➡️ Jadi Objek bisa "meminjam" properti atau method dari objek lain.</p>
+
+	<h3>Analogi</h3>
+	<p>Bayangkan kamu punya:</p>
+
+	<p><i>Kelas Induk = "Manusia"	</i></p>
+	<p><i>Kelas Anak = "Pelajar"	</i></p>
+
+	<p>Semua "Manusia" bisa:</p>
+	
+	<p><i>Bernafas	</i></p>
+	<p><i>Makan	</i></p>
+
+	<p>Tapi "Pelajar" me-warisi kemampuan manusia (bernafas, makan) + punya tambahan sendiri (misal: belajar).</p>
+	
+	<p>Pelajar tidak perlu buat ulang fungsi "bernafas", karena dia tinggal warisi dari "Manusia".</p>
+
+	<h3>Contoh</h3>
+
+	<script>
+		{
+			function Manusia(nama) {
+				this.nama = nama;
+			};
+			
+			Manusia.prototype.bernafas = function () {
+				console.log(`${this.nama} sedang bernafas`);
+			};
+
+			// buat object anak
+			function Pelajar(nama, sekaloh) {
+				Manusia.call(this, nama); // panggil constructor manusia
+				this.sekaloh = sekaloh;
+			};
+
+			// ini bagian prototype inheritance
+			Pelajar.prototype = Object.create(Manusia.prototype);
+
+			// Tambahkan method baru khusus pelajar
+			Pelajar.prototype.belajar = function () {
+				console.log(`${this.nama} belajar di ${this.sekaloh}`);
+			};
+
+			// tes
+			let murid1 = new Pelajar("Budi", "SMP 1");
+
+			murid1.bernafas();
+			murid1.belajar();
+
+		}
+	</script>
+
+	<p><b>Intinya:</b></p>
+	<p><i>Manusia punya method bernafas()</i></p>
+	<p><i>Pelajar mewarisi method itu lewat Pelajar.prototype = Object.create(Manusia.prototype)</i></p>
+	<p><i>Pelajar juga bisa punya method sendiri belajar()</i></p>
+
+	<p>Kalau JavaScript tidak menemukan belajar di Manusia, dia cari ke prototype chain sampai ketemu.</p>
+
+	<h2>Versi PZN</h2>
+
+	<p>Sekarang kita tahu bahwa prototype selalu memiliki parent, artinya dia adalah turunan parent tertinggi adalah object prototype.</p>
+	<p>Pertanyaan nya, bagiaman jika kita ingin melakukan inheritance prototype lain?</p>
+	<p>Hal ini bisa dilakukan, namun agak sedikit tricky, akrena hal ini, sebenarnya untuk JS modern, tidak di rekomedasikan lagi praktek OOP menggunakan prototype, karea ES6 suidah dikelankan kata kunci Class yang nanti di bahas.</p>
+
+	<p><b>Contoh salah</b></p>
+<pre><code>
+function Employee(name) {
+	this.name = name;
+}
+
+
+function Manager(name) {
+	this.name = name;
+
+}
+
+Manager.prototype = Employee.prototype;
+
+Manager.prototype.sayHello = function (name) {
+	console.info(`Hello ${name}, my name is Manager ${this.name}`);
+}
+
+Employee.prototype.sayHello = function (name) {
+	console.info(`Hello ${name}, my name is EEmployee ${this.name}`);
+}
+
+let e = new Employee("Budi");
+let m = new Manager("Susi");
+
+e.sayHello("Andi"); 
+m.sayHello("Andi");
+
+</code></pre>
+
+	<script>
+		{
+			function Employee(name) {
+				this.name = name;
+			}
+
+
+			function Manager(name) {
+				this.name = name;
+
+			}
+
+			Manager.prototype = Employee.prototype;
+
+			Manager.prototype.sayHello = function (name) {
+				console.info(`Hello ${name}, my name is Manager ${this.name}`);
+			}
+
+			Employee.prototype.sayHello = function (name) {
+				console.info(`Hello ${name}, my name is Employee ${this.name}`);
+			}
+
+			let e = new Employee("Budi");
+			let m = new Manager("Susi");
+
+			e.sayHello("Andi"); 
+			m.sayHello("Andi");
+		}
+	</script>
+
+	<p><b>Cara yang benar</b></p>
+
+<pre><code>
+function Employee(name) {
+	this.name = name;
+}
+
+
+function Manager(name) {
+	this.name = name;
+
+}
+
+Manager.prototype = Object.create(Employee.prototype);
+
+Manager.prototype.sayHello = function (name) {
+	console.info(`Hello ${name}, my name is Manager ${this.name}`);
+}
+
+Employee.prototype.sayHello = function (name) {
+	console.info(`Hello ${name}, my name is Employee ${this.name}`);
+}
+
+let e = new Employee("Budi");
+let m = new Manager("Susi");
+
+e.sayHello("Andi"); 
+m.sayHello("Andi");
+
+</code></pre>
+	
+	<script>
+		{
+			function Employee(name) {
+				this.name = name;
+			}
+
+
+			function Manager(name) {
+				this.name = name;
+
+			}
+
+			Manager.prototype = Object.create(Employee.prototype);
+
+			Manager.prototype.sayHello = function (name) {
+				console.info(`Hello ${name}, my name is Manager ${this.name}`);
+			}
+
+			Employee.prototype.sayHello = function (name) {
+				console.info(`Hello ${name}, my name is Employee ${this.name}`);
+			}
+
+			let e = new Employee("Budi");
+			let m = new Manager("Susi");
+
+			e.sayHello("Andi"); 
+			m.sayHello("Andi");
+		}
+	</script>
+
+	<p><b>Object.create() digunakan untuk menyalin prototype dari objek lain! 🚀</b></p>
+	<p>Penjelasn lebih dalam:</p>
+	<p>Object.create() akan membuat objek baru yang me-warisi prototype dari objek yang kita berikan sebagai argumen.</p>
+	
+	<p>Artinya, kita tidak mengganti prototype objek yang ada, tapi membuat objek baru dengan prototype dari objek yang diinginkan.</p>
+	
+	<p>Contohnya, kalau kamu punya objek induk, dan kamu ingin objek anak mewarisi properti/method-nya, kamu pakai Object.create().</p>
+	
+	
+	
+</body>
+</html>

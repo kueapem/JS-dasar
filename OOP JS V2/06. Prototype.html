@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Prototype</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+	<!-- 00:36 -->
+
+	<h1>Prototype</h1>
+	<h2>Versi Chatgpt</h2>
+
+	<h3>🧩 Apa itu prototype?</h3>
+	<p>Di js, setiap fungsi (termasuk constructor function) secara otomatis punya properti prototype. Propertu ini digunakan untuk menyimpan method atau properti yang ingin diwariskan ke semua object yang dibuat dengan constructor itu.</p>
+
+<pre><code>
+function Person(nama, umur) {
+	this.nama = nama;
+	this.umur = umur;
+}
+
+// Menambahkan method ke prototype
+Person.prototype.sayHello = function () {
+	console.log(`Halo, aku ${this.nama}, umurku ${this.umur}`);
+}
+
+const kenny = new Person("Kenny", 23);
+kenny.sayHello(); // Halo, aku kenny, umurku 23.
+</code></pre>
+
+	<h3>🧠 Kenapa pakai prototype, bukan langsung di constructor?</h3>
+	<p>Kalou bikin langsung method langsung di constructor kaayk gini:</p>
+
+<pre><code>
+function Person(nama, umur) {
+	this.nama = nama;
+	this.umur = umur;
+
+	// ! method ini dibuat ulang di setiap instance
+}
+</code></pre>
+
+	<p>Setiap kali kamu membuat object baru, fungsi sayHello akan dibuat ulang, boros memori.</p>
+	<p>Sementara kalau paaki prototype, semua object berbagi method yang sama.</p>
+
+<pre><code>
+Person.prototype.sayHello = function () {
+	console.log(`Helo, aku ${this.nama}`);
+};
+</code></pre>
+
+	<p><b>Contoh kode</b></p>
+
+	<script>
+		{
+			function Student(nama, umur, jurusan) {
+				this.nama = nama;
+				this.umur = umur;
+				this.jurusan = jurusan;
+			};
+
+			Student.prototype.sayHello = function () {
+				console.log(`Halo, aku ${this.nama}, umurku saat ini ${this.umur}, jurusanku ${this.jurusan}`);
+			};
+
+			Student.prototype.gantiJurusan = function (baru) {
+				this.jurusan = baru;
+			};
+
+			const mhs1 = new Student("Kenny", 22, "Informatika");
+			const mhs2 = new Student("Rui", 23, "Biologi");
+
+			mhs1.sayHello();
+			mhs2.sayHello();
+
+			mhs1.gantiJurusan("Fisika");
+			mhs1.sayHello()
+
+		}
+	</script>
+
+	<h3>🔍 Cek pewarisan prototypenya</h3>
+<pre><code>
+console.log(mhs1.__proto__ === Student.prototype); // true
+console.log(Student.prototype.constructor === Student); // true	
+</code></pre>
+
+	<h3>🔧 Kesimpulan</h3>
+	<p>Gunakan prototype untuk menambahkan method agar tidak boros memori.</p>
+	<p>Semua object yang dibuat dari constructor function akan me-warisi method yang ditambahkan ke .prototype.</p>
+	<p>Ini adalah dasar dari konsep pewarisan (inheritance) di JavaScript sebelum ada class.</p>
+
+
+	<h2>Versi PZN</h2>
+
+	<h3>Prototype</h3>
+	<p>Js itu sebelumnya di kenal dengan bahasa pemrograman berbasis prototype</p>
+	<p>Memang sangat membingungkan, dan tidak dipungkiri banyak sekali yang bingung dengan konsep prototype di JS</p>
+	<p>Kali ini kita bahas konsep prototype</p>
+
+	<h3>Prototype inheritance</h3>
+	<p>Saat kita membuat object dari constructor function, object tersebut di sebut instance, semua properti (baik itu value atau method), akan berada didalam instance objectnya</p>
+	<p>Setiap kita membuat sebuah constructor function, maka akan secara otomatis dibuatkan prototype nya, misal kita buat constructor Person, maka akan ada Person.prototype</p>
+	<p>Saat kita membuat sebuah object instance, secara otomatis object tersebut adalah inheritance / turunan dari constructor.protorype nya</p>
+
+	<p>Instance (dalam konteks OOP dan JavaScript) adalah objek nyata yang dibuat dari sebuah blueprint (cetakan), yaitu constructor function atau class.</p>
+
+<pre><code>
+function Robot(nama) {
+	this.nama = nama;
+}
+const robot1 = new Robot("Robo-Kenny");
+
+</code></pre>
+
+	<p>Nah, robot1 inilah yang disebut instance dari Robot.</p>
+
+	<p>Untuk askes prototype milik sebuah instance, kita bisa menggunakan __proto__</p>
+
+	<script>
+		{
+			function Person(firstName, lastName) {
+				this.firstName = firstName;
+				this.lastName = lastName;
+				this.sayHello = function (name) {
+					console.log(`Hello ${name}, my name is ${this.firstName}`);
+				}
+			}
+
+			const kenny = new Person("Joko", "Anwar");
+			const budi = new Person("Kenny", "Ken");
+
+			console.log(kenny)
+			console.log(budi)
+		}
+	</script>
+
+</body>
+</html>
