@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>11. Property di Class</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+	<!-- 01:08 -->
+
+	<h1>Property di Class</h1>
+
+	<h3>Versi chatgpt</h3>
+	<h2>Apa itu Property di Class?</h2>
+	<p>Property adlaah data atau sifat yang dimiliki object yang dibuat dari class</p>
+	<p>Kalau tadi kita sudah kenalan dengan constructor untuk mengisi property, sekarang kita fokus ke apa itu proprety itu sendiri</p>
+
+	<h2>Cara Mendefinisikan Property</h2>
+	<p>Biasanya,. kita Mendefinisikan property didalam constructor dengan menggunakan this, misalnya</p>
+
+<pre><code>
+class Mobil {
+	constructor(warna, model) {
+		this.warna = warna; // warna adalah property
+		this.model = model; // model juga property
+	}
+}
+</code></pre>
+
+	<p><i>this.warna dan this.model adalah property</i></p>
+	<p><i>this artinya "object ini sendiri" disini artinya adalah Mobil</i></p>
+	<p>Saat kita membuat objek baru, property ini akan otomatis tersedia di objek itu.</p>
+
+	<h2>Contoh Penggunaan</h2>
+
+	<script>
+		{
+			class Mobil {
+				constructor(warna, model) {
+					this.warna = warna; // warna adalah property
+					this.model = model; // model juga property
+				}
+			}
+
+			let mobilBaru = new Mobil("Merah", "Sedan");
+
+			console.log(mobilBaru.warna); // Output: Merah
+			console.log(mobilBaru.model); // Output: Sedan
+
+		}
+	</script>
+
+	<p><b>Artinya:</b></p>
+	<p>Objek mobilBaru sekarang punya property:</p>
+	<p><i>warna: "Merah"</i></p>
+	<p><i>model: "Sedan"</i></p>
+
+	<h2>Analogi Property</h2>
+	<p>Kalau tadi di pabrik mobil:</p>
+	<p><i>Mobil itu (objek) punya sifat-sifat (property), misalnya warna dan model.</i></p>
+	<p><i>Jadi property itu kayak spesifikasi dari barang yang dibuat.</i></p>
+
+	<p><b>Contoh nyata lainnya:</b></p>
+
+	<table>
+		<tr>
+			<td>Barang</td>
+			<td>Properti</td>
+		</tr>
+		<tr>
+			<td>Mobil</td>
+			<td>warna, model, kecepatan</td>
+		</tr>
+		<tr>
+			<td>Manusia</td>
+			<td>nama, umur, tinggi badan</td>
+		</tr>
+		<tr>
+			<td>Laptop</td>
+			<td>merk, RAM, kapasitas SSD</td>
+		</tr>
+	</table>
+
+	<h2>Ringkasan</h2>
+
+	<p><i>Property = Data atau atribut yang dimiliki objek.</i></p>
+
+	<p><i>Biasanya dibuat di constructor pakai this.propertyName = value.</i></p>
+	
+	<p><i>Property itu kayak identitas atau spesifikasi dari objek.</i></p>
+
+	<h3>Versi PZN</h3>
+
+	<p>Sama seperti di constructor fungsi, dalam class pun kita bisa menambahkan peroerti</p>
+	<p>Karena hasil akhirnya adalah sebuah object, jadi menambahkan property di class bisa juga di lakukan di instance objectnya</p>
+
+	<h2>Kode:property di class</h2>
+
+<pre><code>
+class Person {
+	constructor(name) {
+		this.name = name;
+	}
+}
+
+const kenny = new Person("Kenny");
+console.info(kenny.name)
+</code></pre>
+
+	<script>
+		{
+			class Person {
+				constructor(name) {
+					this.name = name;
+				}
+			}
+
+			const kenny = new Person("Kenny");
+			console.info(kenny.name);
+			console.info(kenny);
+		}
+	</script>
+	
+	
+
+</body>
+</html>

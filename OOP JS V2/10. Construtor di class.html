@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>10. Construtor di class</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+	<!-- 01:05:00 -->
+
+	<h1>Construtor di class</h1>
+	
+	<h3>Versi Chatgpt</h3>
+	<h2>Apa itu Constructor?</h2>
+	<p>Constructor merupakan metode khusus di dalam class yang dipanggil otomatis saat kita membuat object baru.</p>
+	<p>Fungsinya adalah untuk menginisialiasasi atau memberikan nilai awal pada properti-properti object.</p>
+
+	<h2>Analogi</h2>
+	<p>Bayangkan kamu adalah pabrik mobil</p>
+	<p>Setiap mobil yang keluar dari pabrik harus punya warna dan model kan?</p>
+	<p>Nah didunia nyata:</p>
+	<p><i>Class itu seperti cetakan atau template mobil</i></p>
+	<p><i>Constructor itu seperti bagian pabrik yang mengisi mobil baru dengan warna dan model saat mobil dibuat</i></p>
+	<p>Kalau tidak ada Constructor, mobil-mobil itu keluar kosong, tidak punya warna, tidak punya model.</p>
+	<p>Constructor-lah yang mengisi mobil baru dengan atribut-atribut pentingnya.</p>
+
+	<h2>Sintaks Constructor</h2>
+	<p>Didalam class, kita mendefinisikan Constructor dengan menggunakan kata kunci Constructor diikuti tanda kurung () untuk parameter, dan didalamnya kita bisa menggunakna this untuk mengatur  nilai properti object.</p>
+
+<pre><code>
+class Kendaraan {
+	constructor(warna, model) {
+		this.warna = warna;
+		this.model = model;
+	}
+}
+</code></pre>
+
+	<p><b>Penjelasan:</b></p>
+	<p><i>Constructor(warna, model):</i> adalah constructor yang menerima dua parameter (warna dan model)</p>
+	<p><i>this.warna dan this.model:</i> this meruuk pada object yang sedang dibuat. Dengan this.warna dan this.model, kita menetapkan nilai yang diberikan pada paramter warna dan model ke properti object tersebut.</p>
+
+	<h2>Kenapa Menggunakan Constructor?</h2>
+	<p>Constructor membantu kita untuk memastikan bahwa setiap object yang dibuat memiliki properti yang sudah terisi dengan nilai yang sesuai. Tanpa constructor, kita perlu mengatur nilai properti secara manual setelah object dibuat.</p>
+	
+	<p><b>Contoh Penggunaan Constructor</b></p>
+
+<pre><code>
+class Kendaraan {
+	constructor(warna, model) {
+		this.warna = warna;
+		this.model = model;
+	}
+}
+
+let mobil1 = new Kendaraan("Merah", "Sport");
+let mobil2 = new Kendaraan("Hijau", "SUV");
+
+console.log(mobil1.warna); 
+console.log(mobil2.model); 
+</code></pre>
+
+	<script>
+		{
+			class Kendaraan {
+				constructor(warna, model) {
+					this.warna = warna;
+					this.model = model;
+				}
+			}
+
+			let mobil1 = new Kendaraan("Merah", "Sport");
+			let mobil2 = new Kendaraan("Hijau", "SUV");
+
+			console.log(mobil1.warna); 
+			console.log(mobil1); 
+			console.log(mobil2.model); 
+			console.log(mobil2); 
+		}
+	</script>
+
+	<p><b>Kesimpulan</b></p>
+	<p><i>Constructor</i> adalah metode yang dipanggil otomatis saat membuat object</p>
+	<p><i>Fungsi utamanta</i> adalah untuk menginisialiasasi nilai object yang baru dibuat</p>
+	<p><i>Kita bisa memebrikan parameter pada constructor untuk memberikan nilai properti saat object dibuat.</i></p>
+
+	<h3>Versi PZN</h3>
+
+	<p>Karena bentuk constructor fungsi mirip dengan fungsi, jadi kita bisa tambahkan parameter pada constructor fungsi, lantas bagaimana dengan class?</p>
+	<p>Di class juga kita bisa menambahkan constructor, dimana dengan menggunakan constructor, kita juga bisa menambahkan parameter saat pertama kali membuat objectnya</p>
+	<p>Untuk membuat constructor diclass, kita bisa menggunakan kata kunci constructor</p>
+
+<pre><code>
+class Person {
+	constructor (name) {
+
+	}
+}
+
+const kenny = new Person("Kenny");
+console.info(kenny);
+</code></pre>
+
+	<script>
+		{
+			class Person {
+				constructor (name) {
+					console.info(`Hello ${name}`)
+				}
+			}
+
+			const kenny = new Person("Kenny");
+			console.info(kenny);
+		}
+	</script>
+	
+</body>
+</html>

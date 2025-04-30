@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>12. Method di class</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+	<!-- 01:11 -->
+
+	<h1>Method di class</h1>
+
+	<h3>versi chatgpt</h3>
+	<p>Method adalah fungsi (function) yang menempel di dalam class, dan biasanya dipakai oleh object untuk melakukan sesuatu</p>
+	Kalau property itu sebagai data (misalnya warna, model), maka method adalah aksi atau prilaku (misalnya jalan, berhenti)
+
+	<p><b>Contoh</b></p>
+
+<pre><code>
+class Mobil {
+	constructor (warna, model) {
+		this.warna = warna;
+		this.model = model;
+	}
+
+	nyalakan() {
+		console.log("Mobil dinyalakan!");
+	}
+
+	info() {
+		console.log(`Mobil ${this.model} berwarna ${this.warna}`);
+	}
+}
+
+let mobilBaru = new Mobil("Merah", "Sedan");
+mobilBaru.nyalakan(); // Output: Mobil dinyalakan!
+mobilBaru.info();     // Output: Mobil Sedan berwarna Merah
+
+</code></pre>
+
+	<script>
+		{
+			class Mobil {
+				constructor (warna, model) {
+					this.warna = warna;
+					this.model = model;
+				}
+
+				nyalakan() {
+					console.log("Mobil dinyalakan!");
+				}
+
+				info() {
+					console.log(`Mobil ${this.model} berwarna ${this.warna}`);
+				}
+			}
+
+			let mobilBaru = new Mobil("Merah", "Sedan");
+			mobilBaru.nyalakan(); // Output: Mobil dinyalakan!
+			mobilBaru.info();     // Output: Mobil Sedan berwarna Merah
+			console.log(mobilBaru)
+		}
+	</script>
+
+	<p><b>Penjelasan:</b></p>
+	<p><i>nyalakan() dan info() adalah method</i></p>
+	<p><i>Kita memanggil lewat object mobilBaru.nyalakan()</i></p>
+
+	<h2>Analogi method:</h2>
+	<p>Bayangkan class Mobil itu seperti template mobil di pabrik:</p>
+	<p><i>property = bagian dari mobil itu (warna dan model)</i></p>
+	<p><i>Method = apa yang bisa dilakukan oleh mobil itu (nyalakan, membunyikan klakson dll)</i></p>
+
+	<h3>Versi PZN</h3>
+
+	<p>Membuat method di class sebenarnya bisa dilakukan dengan cara seperti menambahkan method di constructor fungsi</p>
+	<p>Namun, hal tersebut sebenarnya menambahkan method ke dalam instance object</p>
+	<p>Khusus untuk method sebaiknya kita menambahkannya ke dalam prototype, bukan ke instance object</p>
+	<p>Untuungnya di class, ada cara mudah menambahkan method secara otomatuis ditambahkan ke prototype</p>
+
+<pre><code>
+class Person {
+	constructor(name) {
+		this.name = name;
+	}
+
+	sayHello(name) {
+		console.info(`Hi ${name}, my name is ${this.name}`);
+	}
+}
+</code></pre>
+
+	<script>
+		{
+			class Person {
+				constructor(name) {
+					this.name = name;
+				}
+
+				sayHello(name) {
+					console.info(`hi ${name}, my name ${this.name}`)
+				}
+			}
+
+			const kenny = new Person("Kenny");
+			console.info(kenny.name);
+			console.info(kenny);
+			kenny.sayHello("Budi");
+
+
+		}
+	</script>
+
+	<p><b>Catatang</b></p>
+	<p>Jangan menambahkan method dialam block constructor, karena hasilnay tidak di rekomendasikan itu akan menempel ke instacne object. Cara yang benara dlaah di eltakkan di didalam block class</p>
+	
+</body>
+</html>

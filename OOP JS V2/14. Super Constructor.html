@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>14. Super Constructor</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+	
+	<!-- 01:21 -->
+
+	<h1>14. Super Constructor</h1>
+
+	<h3>Versi chatgpt</h3>
+
+	<h2>🧠 Apa Itu super()?</h2>
+	<p>Dalam class inheritance / pewarisan (child class), keyword super() digunakan untuk memanggil Constructor dari class induk (parent class).</p>
+	<p>.📌 Wajib memanggil super() dulu sebelum menggunakan this di Constructor class anak - Kalau tidak, js akan error</p>
+
+	<p><b>Kode dasar:</b></p>
+
+<pre><code>
+class Induk{
+	constructor(nama) {
+		this.nama = nama;
+	}
+}
+
+class Anak extends Induk {
+	constructor(nama, usia) {
+		super(nama); // ⬅️ memanggil constructor class Induk
+		this.usia = usia; // ⬅️ properti baru untuk class Anak
+	}
+}
+</code></pre>
+
+	<h2>🎯 Kenapa Harus super()?</h2>
+	<p>Karena this tidak bida digunakan sebelum super() dipanggil dalam class turunan</p>
+	<p>Agar properti / method dari parent bisa di initaialize dengan benar</p>
+
+	<p><b>Contoh lengkap, jalankan di browser -> console untuk lihat hasil</b></p>
+<pre><code>
+class Hewan {
+	constructor(nama) {
+		this.nama = nama;
+	}
+
+	info() {
+		console.log(`Hewan bernama ${this.nama}`);
+	}
+}
+
+class Kucing extends Hewan {
+	constructor(nama, warna) {
+		super(nama);         // memanggil constructor Hewan
+		this.warna = warna;  // properti baru untuk class Kucing
+	}
+
+	suara() {
+		console.log(`${this.nama} mengeong`);
+		}
+}
+
+const tom = new Kucing("Tom", "Abu-abu");
+tom.info();   // Hewan bernama Tom
+tom.suara();  // Tom mengeong
+
+</code></pre>
+	<script>
+		{
+
+			class Hewan {
+				constructor(nama) {
+					this.nama = nama;
+				}
+
+				info() {
+					console.log(`Hewan bernama ${this.nama}`);
+				}
+			}
+
+			class Kucing extends Hewan{
+				constructor(nama, warna) {
+					super(nama);
+					this.warna = warna;
+				}
+
+				suara() {
+					console.log(`${this.nama} berwarna ${this.warna} mengeong`);
+				}
+			}
+
+			let tom = new Kucing("Tom", "Orange");
+			tom.info();
+			tom.suara();
+			console.info(tom)
+
+		}
+	</script>
+
+	<h3>🔍 Penjelasan:</h3>
+	<p>super() memanggil constructor Hewan dan mengisi nilai this.nama</p>
+	<p>Setelah super() dipanggil, kita bebas menambahkan proeprty / method tamabhakn di constructor Kucing</p>
+
+	<h2>Tambahan</h2>
+	<p>➡️ Kalau constructor di parent class punya lebih dari satu parameter, maka saat memanggil super(...) di child class, kamu wajib menyuplai semua nilai yang dibutuhkan oleh constructor parent tersebut.</p>
+
+	<p><b>✅ Contoh Parent dengan Banyak Parameter:</b></p>
+
+<pre><code>
+class Hewan {
+	constructor(nama, usia, jenis) {
+		this.nama = nama;
+		this.usia = usia;
+		this.jenis = jenis;
+	}
+}
+</code></pre>
+
+	<p><b>✅ Maka di Class Anak, super() Harus Diberi Semua Argumen:</b></p>
+
+<pre><code>
+class Kucing extends Hewan {
+	constructor(nama, usia, jenis, warna) {
+		super(nama, usia, jenis); // ⬅️ Wajib sesuai jumlah & urutan parameter parent
+		this.warna = warna;       // ⬅️ Properti tambahan class Kucing
+	}
+}
+
+</code></pre>
+
+	<p><i>Kalau kamu hanya memanggil sebagian, misalnya:</i></p>
+
+<pre><code>
+super(nama); // ❌ Ini akan error atau membuat properti `usia` dan `jenis` jadi `undefined`
+</code></pre>
+
+	<h3>🧠 Intinya:</h3>
+
+	<p>super(...) adalah pemanggilan constructor milik parent.</p>
+	<p>Jadi kamu harus memberikan semua argumen yang dibutuhkan oleh constructor parent (kecuali parent-nya pakai nilai default).</p>
+	<p>Urutannya harus sesuai juga, karena parameter di JS constructor berdasarkan urutan, bukan nama.</p>
+
+	<h3>Versi PZN</h3>
+	<p>Class inheritance sifatnya seperti prototype inheritance</p>
+	<p>Bagiamana dengan constructor inheritance? sebenarnya constructor inheritance hanyalah melakukan eksekusi constructor lain dengan tujuan agar property di constructor lain bisa di tambahkan ke instance object ini</p>
+	<p>Dalam kasus ini, jika kita ingin mencapai hasil yang sama, kita bisa menggunakan kata kunci super di dalam constructor</p>
+	<p>Kata kunci super digunakan untuk memanggil constructor super class</p>
+	<p>Jika di child class kita membuat constructor, maka kita wajib memanggil parent constructor walaupun di parentnya tidak ada constructor. Intinya <b>Jika kamu menulis constructor() di class anak yang extends class lain, maka kamu wajib memanggil super(), meskipun class induknya tidak punya constructor tertulis.</b></p>
+
+<pre><code>
+class Employee {
+
+	constructor(firstName) {
+		this.firstName = firstName;
+	}
+
+	sayHello(name) {
+		console.info(`Hi ${name}, my name is employee ${this.firstName}`);
+	}
+}
+
+class Manager extends Employee{
+	constructor(firstName, lastName) {
+		super(firstName);
+		this.lastName = lastName;
+	}
+
+	sayHello(name) {
+		console.info(`Hi ${name}, my name is manager ${this.firstName}`);
+	}
+}
+</code></pre>
+
+	<script>
+		{
+			class Employee {
+
+				constructor(firstName) {
+					this.firstName = firstName;
+				}
+
+				sayHello(name) {
+					console.info(`Hi ${name}, my name is employee ${this.firstName}`);
+				}
+				}
+
+				class Manager extends Employee{
+					constructor(firstName, lastName) {
+						super(firstName);
+						this.lastName = lastName;
+					}
+
+					sayHello(name) {
+						console.info(`Hi ${name}, my name is manager ${this.firstName} ${this.lastName}`);
+					}
+				}
+
+				const budi = new Employee("Budi");
+				budi.sayHello("Joko");
+
+				const kenny = new Manager("Kenny", "Ken");
+				kenny.sayHello("Joko");
+
+				console.info(budi)
+				console.info(kenny)
+		}
+	</script>
+
+
+</body>
+</html>

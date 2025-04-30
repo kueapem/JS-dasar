@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>15. Super Method</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+	
+	<!-- 01:28 -->
+
+	<h1>15. Super Method</h1>
+
+	<h3>Versi chatgpt</h3>
+
+	<h2>🔹 Apa itu super (method)?</h2>
+	<p>super digunakan untuk memanggil method dari class induk (parent) dari dalam class anak (child)</p>
+	<p>Kalau sebelumnya super(...) memanggil constructor, sekarang super.namaMethod(..) dipakai untuk memanggil method biasa di parent</p>
+
+	<h2>📦 Analogi sederhana:</h2>
+	<p>Bayangkan kamu (anak) mewarisi toko dari orang tuamu.</p>
+	<p>Kadang kamu ingin menambahkan fitur baru di kasir (method di anak), tapi tetap ingin memakai fungsi lama dari orang tuamu juga (method di parent).</p>
+	<p>Nah, kamu tinggal bilang:</p>
+	
+	<blockquote>"Pakai cara lama dulu deh (super.methodLama()), lalu aku tambahkan cara baru."</blockquote>
+
+	<h2>✅ Kode Super Method</h2>
+
+<pre><code>
+class Hewan {
+	suara() {
+		console.log("Hewan mengeluarkan suara umum.");
+	}
+}
+	
+class Kucing extends Hewan {
+	suara() {
+		super.suara(); // panggil method 'suara' dari parent
+		console.log("Kucing mengeong: Meong!");
+	}
+}
+	
+const kucing1 = new Kucing();
+kucing1.suara();
+</code></pre>
+
+	<script>
+		{
+			class Hewan {
+				suara() {
+					console.log("Hewan itu mengeluarkan suaranya");
+				}
+			}
+
+			class Kucing extends Hewan {
+				suara() {
+					super.suara();
+					console.log("Kucing mengeong");
+				}
+			}
+
+			const kucing1 = new Kucing();
+			kucing1.suara();
+			console.log(kucing1);
+		}
+	</script>
+
+	<h3>🧠 Penjelasan langkah demi langkah:</h3>
+	<p>Kucing mewarisi method suara() dari hewan</p>
+	<p>Tapi Kucing menimpa (override) method itu dengan versinya sendiri</p>
+	<p>Didalam method suara() milik Kucing, kita memanggil super.suara() agar suara dari Hewan tetap ikut dijalankan</p>
+	<p>Lalu, ditambahkan suara khas Kucing</p>
+
+	<h2>🟢 Kapan super.method() digunakan?</h2>
+	<p>Ketika kamu override method, tapi masih butuh sebagian logika dari parent.</p>
+	<p>Atau ketika kamu ingin menambah fungsi tambahan, bukan sepenuhnya mengganti.</p>
+
+	<h2>Tambahan</h2>
+	<p><i>Method di child class perlu memakai nama yang sama dengan method di parent class jika ingin mengganti (override) perilakunya. Kecuali kalau mau menambahkan method baru (gak perlu super.method() juga sih ya).</i></p>
+
+<pre><code>
+
+// dari parent
+suara() {
+	console.log("Hewan itu mengeluarkan suaranya");
+}
+
+// dari child
+suara() {
+	super.suara(); // panggil method 'suara' dari parent
+	console.log("Kucing mengeong: Meong!");
+}
+</code></pre>
+
+	<p><i>Jika "Parent punya banyak method, tapi child cuma butuh satu": Kamu bisa pilih dan panggil hanya method yang dibutuhkan saja lewat super.namaMethod().</i></p>
+	<p><i>Jika "Child ingin pakai semua method dari parent": Tidak perlu override apapun kalau kamu tidak mau mengubah fungsinya. Semua method dari parent otomatis bisa dipakai langsung oleh child!</i></p>
+
+<pre><code>
+class Kucing extends Hewan {
+	// Tidak override apapun
+}
+</code></pre>
+
+	<h3>Versi PZN</h3>
+	<p>Selain digunakan untuk memanggil constructor milik parent class, kata kunci super juga bisa digunkaan untuk mengakses method parent class</p>
+	<p>Caranya bisa menggunakan super.namaFungsinya()</p>
+	<p>Dengan kata lain, super sebenarnya adalah reference ke parent prototype, mirip seperti __proto__</p>
+
+<pre><code>
+class Shape {
+	paint() {
+		console.log("Paint shape");
+	}
+}
+
+class Circle extends Shape {
+	paint() {
+		super.paint() // memanggil paint() method parent class
+		console.log("Paint circle")
+	}
+}
+</code></pre>
+
+	<script>
+		{
+			class Shape {
+				paint() {
+					console.info("Paint shape");
+				}
+			}
+
+			class Circle extends Shape {
+				paint() {
+					super.paint() // memanggil paint() method parent class
+					console.info("Paint circle")
+				}
+			}
+
+			const circle = new Circle();
+			circle.paint();
+		}
+	</script>
+	
+</body>
+</html>

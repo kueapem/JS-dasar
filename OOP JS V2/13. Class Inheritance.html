@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>13. Class Inheritance</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+	<!-- 01:15 -->
+
+	<h1>Class Inheritance</h1>
+	<h3>Versi chatgpt</h3>
+
+	<h2>📘 Apa Itu Inheritance?</h2>
+	<p>Inheritance (pewarisan) artinya kita bisa membuat class baru (anak) yang mewarisi semua properti dan method dari class lain (induk)</p>.
+
+	<p><b>Class induk = </b>parent class (atau superclass)</p>
+	<p><b>Class anak = </b>child class (atau subclass)</p>
+
+	<p>Dengan Inheritance</p>
+	<p><i>Kita bisa menggunakan ulang kode dari class induk</i></p>
+	<p><i>Kita bisa menambhakan atau memodifikasi method di class anak</i></p>
+
+	<h2>🧠 Analogi Sederhana</h2>
+	<p>Bayangkan kita punya class Kendaraan:</p>
+	<p><i>Semua kendaraan punya roda dan bisa jalan</i></p>
+	<p>Lalu kita buat class Mobil:</p>
+	<p><i>Mobil adalah kendaraan, jad dia juga punya roda dan bisa jalan, tapi dia juga punya fitur khusus seperti AC, klakson, dll</i></p>
+
+	<p><b>Contoh</b></p>
+<pre><code>
+// Class induk
+class Kendaraan {
+	constructor (jenis) {
+		this.jenis = jenis;
+	}
+
+	jalan() {
+		console.log(`${this.jenis} sedang berjalan`);
+	}
+}
+
+// Class anak mewarisi dari class Kendaraan
+class Mobil extends Kendaraan {
+	constructor(jenis, model) {
+		super(jenis); // panggil constructor parent-nya
+		this.model = model;
+	}
+
+	klakson() {
+		console.log(`${this.model} membunyikan klakson`);
+	}
+}
+
+// Membuat object dari class anak
+let avanza = new Mobil("Mobil", "Avanza");
+
+avanza.jalan();    // Output: Mobil sedang berjalan
+avanza.klakson();  // Output: Avanza membunyikan klakson!
+
+</code></pre>
+
+	<script>
+		{
+			// Class induk
+			class Kendaraan {
+				constructor (jenis) {
+					this.jenis = jenis;
+				}
+
+				jalan() {
+					console.log(`${this.jenis} sedang berjalan`);
+				}
+			}
+
+			// Class anak mewarisi dari class Kendaraan
+			class Mobil extends Kendaraan {
+				constructor(jenis, model) {
+					super(jenis); // panggil constructor parent-nya
+					this.model = model;
+				}
+
+				klakson() {
+					console.log(`${this.model} membunyikan klakson`);
+				}
+			}
+
+			// Membuat object dari class anak
+			let avanza = new Mobil("Mobil", "Avanza");
+
+			avanza.jalan();    // Output: Mobil sedang berjalan
+			avanza.klakson();  // Output: Avanza membunyikan klakson!
+
+		}
+	</script>
+	
+	<h3>🔍 Penjelasan:</h3>
+	<p><b>extends</b> digunakan agar Mobil mewarisi dari kendaraan</p>
+	<p><b>super(class)</b> didalam constructor Mobil digunakan untuk memanggil constructor class induk, agar properti jenis bisa di set</p>
+	<p><b>Mobil</b> bisa menggunkaan method jalan() dari kendaraan karena dia mewarisinya</p>
+
+	<h3>🧩 Kenapa Inheritance Berguna?</h3>
+
+	<p>Mengurangi pengulangan kode (DRY = Don’t Repeat Yourself).</p>
+	<p>Membuat struktur kode lebih rapi dan mudah dikembangkan.</p>
+	<p>Mempermudah ekspansi fitur, cukup dengan override atau extend method dari parent.</p>
+
+	<h3>Tambahan</h3>
+
+	<p><b>Urutan Penulisan parameter constructor(jenis, model)</b></p>
+	<p>penulsiannya tidak wajib berurutan, bisa gini juga (model, jenis)</p>
+	<p><b>Penulisan super(jenis); harus yang pertama</b></p>
+	<p>Pada kata kunci super(jenis); harus dituliskan paling awal, tidak boleh kedua tau terakhir. </p>
+<pre><code>
+// contoh benar
+super(jenis); 
+this.model = model;
+
+// contoh salah
+this.model = model;
+super(jenis); 
+
+</code></pre>
+
+	<h3>Versi PZN</h3>
+	<p>Sebelumnya kita tahu bahwa di prototype mendukung Inheritance pewarisan, meskipun agak tricky cara membuatnya</p>
+	<p>Untungnya di ES6 sudah di perbaiki dengan fitur class</p>
+	<p>Sebuah class bisa melakukan pewarisan dari class lain dengan kata kunci extends</p>
+	<p>Di js, class Inheritance sama seperti prototype Inheritance, hanya bisa memiliki satu parent class</p>
+
+	<h3>Kode: class Inheritance(1)</h3>
+<pre><code>
+class Employee {
+	constructor(name) {
+		this.name = name;
+	}
+
+	sayHello(name) {
+		console.info(`Hi ${name}, my name is employee ${this.name}`);
+	}
+}
+
+class Manager extends Employee{
+	constructor(name) {
+		this.name = name;
+	}
+
+	sayHello(name) {
+		console.info(`Hi ${name}, my name is manager ${this.name}`);
+	}
+}
+</code></pre>
+
+	<script>
+		{
+			class Employee {
+
+
+				sayHello(name) {
+					console.info(`Hi ${name}, my name is employee ${this.name}`);
+				}
+			}
+
+			class Manager extends Employee{
+
+				sayHello(name) {
+					console.info(`Hi ${name}, my name is manager ${this.name}`);
+				}
+			}
+
+			const budi = new Employee();
+			budi.name = "budi";
+			budi.sayHello("joko");
+
+
+			const kenny = new Manager();
+			kenny.name = "kenny";
+			kenny.sayHello("joko");
+
+			console.info(budi);
+			console.info(kenny);
+		}
+	</script>
+
+
+
+</body>
+</html>
