@@ -124,6 +124,7 @@ super(jenis);
 
 </code></pre>
 
+
 	<h3>Versi PZN</h3>
 	<p>Sebelumnya kita tahu bahwa di prototype mendukung Inheritance pewarisan, meskipun agak tricky cara membuatnya</p>
 	<p>Untungnya di ES6 sudah di perbaiki dengan fitur class</p>
@@ -156,15 +157,12 @@ class Manager extends Employee{
 	<script>
 		{
 			class Employee {
-
-
 				sayHello(name) {
 					console.info(`Hi ${name}, my name is employee ${this.name}`);
 				}
 			}
 
 			class Manager extends Employee{
-
 				sayHello(name) {
 					console.info(`Hi ${name}, my name is manager ${this.name}`);
 				}
@@ -177,12 +175,13 @@ class Manager extends Employee{
 
 			const kenny = new Manager();
 			kenny.name = "kenny";
-			kenny.sayHello("joko");
+			kenny.sayHello("Deri");
 
 			console.info(budi);
 			console.info(kenny);
 		}
 	</script>
+
 
 
 

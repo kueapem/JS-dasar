@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Public class Field</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+	<!-- 01:37 -->
+
+	<h1>Public class field</h1>
+
+	<h3>Versi Chatgpt</h3>
+	
+	<h2>📘 Apa itu Public Class Field?</h2>
+	<p>Ini adalah fitur baru di JS modern ES2022 yang mempermudah kit dekalarasikan properti langsung didalam class tanpa harus melalui constructor</p>
+
+	<p><b>Sebelumnnya, kita biasa menuliskan properti begini didalam constructor</b></p>
+
+<pre><code>
+class Orang {
+	constructor() {
+		this.nama = "Budi";
+	}
+}
+</code></pre>
+
+	<p>Dengan public class field, kamu bisa menulisnya langsung di luar constructor:</p>
+
+<pre><code>
+class Orang {
+	nama = "Budi";
+}
+</code></pre>
+
+	<p>Efeknya sama seperti Sebelumnnya: setiap instance Orang akan memiliki properti dengan nilai "Budi".</p>
+
+<pre><code>
+class Mobil {
+	warna = "merah"; // public class field
+
+	suara() {
+		console.log("Brummm!");
+	}
+}
+
+const m = new Mobil();
+console.log(m.warna); // merah
+m.suara();            // Brummm!
+	
+</code></pre>
+
+	<script>
+		{
+			class Mobil {
+				warna = "merah";
+
+				suara() {
+					console.log("Bruuummmmm");
+				}
+			}
+
+			const i = new Mobil();
+			console.log(i.warna);
+			i.suara();
+
+			console.log(i)
+		}
+	</script>
+
+	<h2>🎯 Analoginya untuk pemula:</h2>
+	<p>Bayangkan kamu membuat cetakan kue donat (class). Kalau kamu selalu ingin setiap donat punya taburan gula saat di cetak, kamu bisa tentukan langsung.</p>
+
+<pre><code>
+class Donat {
+	taburan = "gula";
+}
+</code></pre>
+
+	<p>Kalau pakai constructor, kamu seperti memberikan gula satu persatu ketiap donat. Tapi dengan public class field, kamu udah langsung sematkan gula dari cetakannya.</p>
+
+	<h2>⚠️ Catatan:</h2>
+	<p><i>Public class field</i> berlaku di setiap instance object, bukan di prototype</p>
+	<p><i>Tidak semua browser lama support ini</i></p>
+
+	<h3>Contoh public class + constructor</h3>
+
+	<script>
+		{
+			class Orang {
+				negara = "Indonesia"
+				constructor (nama, usia) {
+					this.nama = nama;
+					this.usia = usia;
+					console.log(`My name is ${this.nama} usia ${usia} dari negara ${this.negara}`)
+				}
+			}
+
+			const orang1 = new Orang("Ucil", 23);
+			console.log(orang1.nama);
+			console.log(orang1.usia);
+			console.log(orang1.negara);
+		}
+	</script>
+
+	<h3>Versi PZN</h3>
+
+	<p>Biasanya, saat kita ingin menambahkan field (properti yang berisi value), kita biasanya tambahkan di constructor</p>
+	<p>Namun ada proposal di ES yang mengajukan pembuatan public class field ditempatkan di luar constructor, selevel dengan penempatan method</p>
+	<p>Proposal ini masil belum final, namun beberapa browser sudah mendukungnya</p>
+
+	<h3>Public class field</h3>
+	<p>Dalam proposal tersebut juga disebutkan bahwa ecmascript akan mendukung access modifier public dan private</p>
+	<p>public artinya bisa di akses di luar class, dan private hanya bisa diakses dari dalam class saja</p>
+	<p>Private class field akan dibahasa di chap selanjutnya</p>
+	<p>Untuk membuat public class field, kita bisa langsung buat nama field dengan value nya selevel dengan method</p>
+	<p>Jika kita tidak memasukkan value ke filed tersebut, maka field tersebut memiliki nilai undefined.</p>
+
+<pre><code>
+class Person {
+	firstName;
+	lastName;
+	balance = 0;
+}
+
+const i = new Person();
+console.log(i);
+</code></pre>
+
+	<script>
+		{
+			class Person {
+				firstName;
+				lastName;
+				balance = 0;
+			}
+
+			const i = new Person();
+			console.log(i);
+		}
+	</script>
+
+	<h2>Kita bisa mengubah nilai public class field dari dalam constructor</h2>
+
+<pre><code>
+class Person {
+	firstName;
+	lastName;
+	balance = 0;
+
+	constructor(firstName, lastName) {
+		this.firstName = firstName; // this.firstName dari public class
+		this.lastName = lastName; 
+	}
+}
+
+const i = new Person("Kenny", "ken");
+console.log(i);
+</code></pre>
+
+	<script>
+		{
+			class Person {
+				firstName;
+				lastName;
+				balance = 0;
+
+				constructor(firstName, lastName) {
+					this.firstName = firstName; 
+					this.lastName = lastName; 
+				}
+			}
+
+			const i = new Person("Kenny", "ken");
+			console.log(i);
+		}
+	</script>
+	
+</body>
+</html>

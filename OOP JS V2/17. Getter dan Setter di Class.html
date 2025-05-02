@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>17. Getter dan Setter di Class</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+	
+	<!-- 01:33 -->
+
+	<h1>17. Getter dan Setter di Class</h1>
+
+	<h3>Versi chatgpt</h3>
+
+	<h2>📘 Apa itu Getter dan Setter?</h2>
+	<p>Getter dan setter adalah cara membuat akses lebih aman dan terkontrol terhadap properti di dalam object (terutama di class)</p>
+	<p><b>Getter:</b> untuk mengambil (read) data dari properti</p>
+	<p><b>Setter:</b> untuk mengatur (write) data ke properti</p>
+
+	<h2>🔧 Kenapa Butuh Getter/Setter?</h2>
+	<p>Karena kamu kadang ingin:</p>
+	<p><i>🔐 Membatasi bagaimana data bisa diubah.</i></p>
+	<p><i>✅ Validasi data sebelum menyimpannya.</i></p>
+	<p><i>🙈 Menyembunyikan properti sebenarnya, tapi tetap memberi akses.</i></p>
+
+	<h2>👶 Analogi Pemula:</h2>
+	<p>Bayangkan kamu punya lemari (class), dan ada laci khusus (properti) bernama "nama":</p>
+	<p><b>Getter:</b> kamu buka laci dan ambil isinya, tapi tetap rapi.</p>
+	<p><b>Setter:</b> Kamu masukkan sesuatu kedalam laci, tapi kamu bisa tentukan "harus bersih dulu" atau "tidak boleh kosong"</p>
+
+	<h3>✍️ Contoh Sederhana:</h3>
+<pre><code>
+class Orang {
+	constructor(nama) {
+		this._nama = nama; // pakai _ untuk simpan data "asli"
+	}
+	
+	// Getter
+	get nama() {
+		return this._nama.toUpperCase(); // tampilkan versi kapital
+	}
+	
+	// Setter
+	set nama(namaBaru) {
+		if (namaBaru.length < 3) {
+			console.log("Nama terlalu pendek!");
+		} else {
+			this._nama = namaBaru;
+		}
+	}
+}
+	
+const orang = new Orang("andi");
+
+console.log(orang.nama); // ANDI → lewat getter
+
+orang.nama = "al";       // Nama terlalu pendek! → lewat setter
+orang.nama = "budi";     // Setter valid, _nama diubah
+
+console.log(orang.nama); // BUDI
+
+</code></pre>
+
+	<script>
+		{
+			class Orang {
+				constructor (nama) {
+					this._nama = nama;
+				}
+
+				get nama() {
+					return this._nama.toUpperCase();
+				}
+
+				set nama(namaBaru) {
+					if (namaBaru.length < 3) {
+						console.log("Nama terlalu pendek");
+					} else {
+						this._nama = namaBaru;
+					}
+				}
+			}
+
+			let orang = new Orang("kenny");
+			console.log(orang.nama);
+			
+			orang.nama = "al";
+			console.log(orang.nama);
+			
+			orang.nama = "budi";
+			console.log(orang.nama);
+			console.log(orang)
+		}
+	</script>
+
+	<h2>💡 Catatan Penting:</h2>
+	<p><i>Getter / setter tidak dipanggil pakai tanda kurung, tapi tetap terlihat seperti properti:</i></p>
+<pre><code>
+orang.nama   // bukan orang.nama()
+</code></pre>
+	<p><i>Biasanya proeprti asli disimpan dengan awalan _ (seperti _nama) untuk dibedakan darei getter / setter -nya</i></p>
+
+	<h3>Versi PZN</h3>
+	<p>Class juga mendukung getter dan setter</p>
+	<p>Perlu diingat, getter dan setter ini akan berada di prototype, bukan di instacne object</p>
+
+<pre><code>
+class Person {
+	constructor(firstName, lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	get fullName () {
+		return `${this.firstName} ${this.lastName}`;
+	}
+
+	set fullName(value) {
+		const result = value.split(" ");
+		this.firstName = result[0];
+		this.lastName = result[1];
+	}
+}
+</code></pre>
+
+	<script>
+		{
+			class Person {
+				constructor (firstName, lastName) {
+					this.firstName = firstName;
+					this.lastName = lastName;
+				}
+
+				get fullName() {
+					return `${this.firstName} ${this.lastName}`;
+				}
+
+				set fullName(value) {
+					const result = value.split(" ");
+					this.firstName = result[0];
+					this.lastName = result[1];
+				}
+			}
+
+			const nama1 = new Person("Kenny", "Ken");
+			console.log(nama1);
+			console.log(nama1.fullName);
+			nama1.fullName = "Budi Nugraha"
+			console.log(nama1);
+			console.log(nama1.fullName);
+		}
+	</script>
+	
+	
+
+</body>
+</html>

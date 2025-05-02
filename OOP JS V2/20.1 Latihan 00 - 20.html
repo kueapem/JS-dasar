@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Latihan 00 - 20</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+	<h2>02. Properti di constructor fungsi</h2>
+	<script>
+
+		
+		{
+			logBg("Properti di constructor fungsi");
+
+			function Person() {
+				this.nama;
+				this.umur;
+			}
+
+			const i = new Person();
+			console.log(i.nama = "kenny");
+			console.log(i.umur = 90);
+
+		}
+	</script>
+
+
+	<h2>03. Method di constructor fungsi</h2>
+
+	<script>
+		{
+			logBg("Method di fungsi");
+
+			function Person() {
+				this.name;
+				this.age;
+				this.hi = function(nama) {
+					console.log("hello world " + nama);
+				}
+			}
+
+			const i = new Person();
+			i.hi("budi");
+			console.log(i);
+
+		}
+	</script>
+
+	<h2>04. Parameter di constructor fungsi</h2>
+	<script>
+		{
+			logBg("Parameter di constructor fungsi");
+
+			function Person(nama, umur) {
+				this.nama = nama;
+				this.umur = umur;
+				this.perkenalan = function () {
+					console.log(`Hello, namaku ${this.nama} dan umurku ${this.umur}`);
+				}
+			}
+
+			let person1 = new Person("Kenny", 23);
+			person1.perkenalan();
+			console.log(person1)
+		}
+
+		
+	</script>
+
+	<h2>05. Constructor inheritance</h2>
+	<script>
+		{
+			logBg("Constructor inheritance");
+
+			function Siswa(nama, umur, kelas) {
+				this.nama = nama;
+				this.umur = umur;
+				this.kelas = kelas;
+			}
+
+			function Osis(nama, umur, kelas, minat) {
+				Siswa.call(this, nama, umur, kelas);
+				this.minat = minat;
+				this.daftar = function (guru) {
+					console.log(`Halo pak ${guru}, saya ${this.nama} dari kelas ${this.kelas} dengan minat ${this.minat} ingin bergabung dengan Osis.`);
+				}
+			}
+
+			let osis1 = new Osis("Kenny", 13, "7A", "Main game");
+			osis1.daftar("Gembul");
+			console.log(osis1)
+
+		}
+	</script>
+
+	<h2>06. Prototype</h2>
+
+	<script>
+		{
+			logBg("Prototype");
+
+			function Person (name, age) {
+				this.name = name;
+				this.age = age;
+			}
+
+			Person.prototype.sayHi = function (user) {
+				console.log(`Hi ${user}, aku ${this.name}, umurku ${this.age}`);
+			}
+
+			let i = new Person("Budi", 23);
+			i.sayHi("Kenny");
+			console.log(i)
+
+
+		}
+	</script>
+
+	<h2>07. Menambahkan properti ke prototype</h2>
+	<script>
+		{
+			logBg("Menambahkan properti ke prototype");
+
+			function Person(nama, umur) {
+				this.nama = nama;
+				this.umur = umur;
+			}
+
+			// tambahkan properti ke prototype
+			Person.prototype.country = "Indonesia";
+			Person.prototype.hi = function (user) {
+				console.log(`hi ${user}, perkenalkan namaku ${this.nama} umurku ${this.umur} aku berasal dari ${this.country}`);
+			}
+
+			let i = new Person("Andi", 22);
+			i.hi("Budi");
+			
+		}
+	</script>
+
+	<h2>08. Prototype inheritance</h2>
+	<script>
+		{
+			logBg("Prototype inheritance");
+
+			function Ikan(jenis) {
+				this.jenis = jenis;
+			}
+
+			Ikan.prototype.bernafas = function () {
+				console.log(`Ikan ${this.jenis} itu bernafas`);
+			}
+
+			function Makhluk(jenis, tipe) {
+				Ikan.call(this, jenis);
+				this.tipe = tipe;
+			}
+
+			Makhluk.prototype = Object.create(Ikan.prototype);
+			Makhluk.prototype.constructor = Makhluk;
+
+			Makhluk.prototype.all = function () {
+				console.log(`Semua ikan termasuk ${this.jenis} dan jenis ${this.tipe} itu bernafas`);
+			}
+
+			let i = new Makhluk("Mujair", "Emas");
+			i.all()
+
+			console.log(i)
+		}
+	</script>
+
+	<h2>09. Kata kunci class</h2>
+
+	<script>
+		{
+			logBg("Kata kunci class");
+
+			// class Person {
+
+			// }
+		}
+	</script>
+
+	<h2>10.Constructor di class</h2>
+	<script>
+		{
+			logBg("Constructor di class");
+
+			class Person {
+				constructor (nama) {
+					this.nama = nama;
+				}
+			}
+
+			let i = new Person("Budi");
+			console.log(i);
+
+			console.log(`Hi ${i.nama}`)
+		}
+	</script>
+
+	<h2>11. Property di class</h2>
+	<script>
+		{
+			logBg("Property di class");
+			class Person {
+				constructor (nama) {
+					this.nama = nama;
+				}
+			}
+
+			let i = new Person("Budi");
+			console.log(i.nama);
+
+			i.umur = 34;
+			console.log(i);
+			console.log(i.umur);
+			console.log(`Hello, my name is ${i.nama} aku berumur ${i.umur}`);
+		}
+	</script>
+
+	<h2>12. Method di class</h2>
+	<script>
+		{
+
+			logBg("Method di class");
+
+			class Person {
+				constructor (nama, umur) {
+					this.nama = nama;
+					this.umur = umur;
+				}
+
+				hi(teman) {
+					this.teman = teman;
+					console.log(`Hi ${teman}, my name is ${this.nama} aku berumur ${this.umur}`);
+				}
+			}
+
+			let i = new Person("Budi", 22);
+			i.hi("Kenny");
+			console.log(i);
+
+			// add new method
+			Person.prototype.jawab = function (age) {
+				console.log(`hi ${this.nama}, salam kenal juga aku ${this.teman} dan umurku ${age}`);
+			}
+
+			i.hi("kenny");
+			i.jawab(44);
+			
+			console.log(i);
+		}
+	</script>
+
+	<h2>13. Class inheritance</h2>
+	<script>
+		{
+			logBg("Class inheritance");
+
+			class Manager {
+				hi(nama) {
+					console.log(`hi ${nama}, aku manager ${this.nama}`);
+				}
+			}
+
+			class Karyawan extends Manager {
+				hi(nama) {
+					console.log(`hi ${nama}, aku manager ${this.nama}`);
+				}
+			}
+
+			let i = new Karyawan();
+			i.nama = "Kenny"
+			i.hi("Budi");
+		}
+	</script>
+
+	<h2>14. Super inheritance</h2>
+
+	<script>
+		{
+			logBg("Super inheritance");
+
+			class Hewan {
+				constructor (makan, minum) {
+					this.makan = makan;
+					this.minum = minum;
+				}
+
+				kucing(value) {
+					console.log(`Hewan ${value} itu sedang makan ${this.makan} dan minum ${this.minum} bersama anaknya`);
+				}
+			}
+
+			class Manusia extends Hewan {
+				constructor (makan, minum, kerja) {
+					super(makan, minum);
+					this.kerja = kerja;
+				}
+
+				budi(name) {
+					console.log(`${name} sedang makan ${this.makan} dan minum ${this.minum} sambil ${this.kerja}`);
+				}
+
+				output() {
+					this.kucing("Kucing");
+					this.budi("Budi");
+				}
+			}
+
+			let i = new Manusia("Daging", "Susu", "Main game");
+			i.output();
+		}
+	</script>\
+
+	<h2>15. Super Method</h2>
+	<script>
+		{
+			logBg("Super Method");
+
+			class Siswa {
+				constructor(nama, kelas) {
+					this.nama = nama;
+					this.kelas = kelas;
+				}
+
+				hi(guru) {
+					console.log(`halo pak guru ${guru}, saya ${this.nama} dari kelas ${this.kelas}`);
+				}
+			}
+
+			class Guru extends Siswa{
+				constructor(nama, kelas, teman){
+					super(nama, kelas);
+					this.teman = teman;
+				};
+
+				halo() {
+					super.hi("Joko");
+					console.log(`Halo ${this.nama}, kamu dari kelas ${this.kelas} yang berteman dengan ${this.teman}`);
+				}
+			}
+
+			let i = new Guru("Kenny", "7A", "Budi");
+			i.halo()
+			console.log(i);
+		}
+	</script>
+
+	<h2>16. Getter dan setter di class</h2>
+
+	<script>
+		{
+			logBg("Getter dan setter di class");
+
+			class Siswa {
+				constructor(nama, nilai) {
+					this._nama = nama;
+					this._nilai = nilai;
+				}
+
+				get nama() {
+					return this._nama.toUpperCase();
+				}
+
+				set nama(value) {
+					if (value.length < 3) {
+						console.log("Nama terlalu pendek");
+					} else {
+						this._nama = value;
+					}
+				}
+
+				get nilai() {
+					return this._nilai;
+				}
+				
+				set nilai(value) {
+					if(value < 0 || value > 100) {
+						console.log("Nilai harus antara 0 sampai 100");
+					} else {
+						this._nilai = value;
+					}
+				}
+				
+
+				get status() {
+					return this._nilai >= 75 ? "Lulus" : "Gagal";
+				}
+				hasil() {
+					console.log(`Siswa ${this.nama} dengan nilai ${this.nilai} dinyatakan ${this.status}`);
+				}
+			}
+
+
+			let i = new Siswa("kenny", 87);
+			let a = new Siswa("andi", 53);
+			let b = new Siswa("budi", 34);
+			let j = new Siswa("joko", 1);
+			let e = new Siswa("ela", 77);
+			i.hasil();
+			a.hasil();
+			b.hasil();
+			j.hasil();
+			e.hasil();
+			console.log(i)
+		}
+	</script>
+
+	<h2>17. Public class field</h2>
+	<script>
+		{
+			logBg("Public class field");
+
+			class Person {
+				country = "Indonesia";
+
+				constructor(nama, hobi) {
+					this.nama = nama;
+					this.hobi = hobi;
+				}
+
+				sayHi() {
+					console.log(`Hi, namaku ${this.nama}, aku dari ${this.country} dan hobi ku bermain game ${this.hobi}`);
+				}
+
+				jawab(value) {
+					console.log(`Halo ${this.nama}, namaku ${value} aku juga dari ${this.country} dan hobi kita juga sama, aku juga senang bermain game ${this.hobi}`);
+				}
+
+				result() {
+					this.sayHi();
+					this.jawab("Budi");
+				}
+			}
+
+			let i = new Person("Kenny", "Apex Legend");
+			i.result()
+			console.log(i);
+
+
+		}
+	</script>
+
+
+	<h2>18. Private class field</h2>
+	<script>
+		{
+			logBg("Private class field");
+
+			class Person {
+				#city = "Jakarta";
+				constructor (nama, umur, kotaTeman) {
+					this.nama = nama;
+					this.umur = umur;
+					this.kotaTeman = kotaTeman;
+				}
+
+				sayHi() {
+					console.log(`Hi, namaku ${this.nama}, umurku ${this.umur} dan aku dari ${this.#city}. Salam kenal.`);
+				}
+
+				jawab(value, age) {
+					console.log(`Halo juga ${this.nama}, namaku ${value}, aku berumur ${age} dan aku dari ${this.kotaTeman}. Salam kenal ya.`);
+				}
+
+				result () {
+					this.sayHi();
+					this.jawab("Budi", 18);
+				}
+			}
+
+			let i = new Person("Kenny", 15, "Serang");
+			i.result();
+			console.log(i);
+
+		}
+	</script>
+
+	<h2>20. Private Method</h2>
+	<script>
+		{
+			logBg("Private Method");
+
+			class Login {
+				#password = "123"
+				#cek(password) {
+					return password === this.#password;
+				}
+
+				login(input) {
+					if (this.#cek(input)) {
+						console.log(`Berhasil login`);
+					} else {
+						console.log("Login gagal")
+					}
+				}
+			}
+
+			let i = new Login();
+			i.login();
+			i.login("123");
+			console.log(i)
+
+
+		}
+	</script>
+
+
+</body>
+</html>

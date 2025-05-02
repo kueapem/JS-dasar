@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>21. Operator Instanceof</title>
+	<link rel="stylesheet" href="_style.css">
+<script src="_script.js"/>
+
+</head>
+<body>
+
+	<!-- 01:53 -->
+
+	<h1>Operator Instanceof</h1>
+
+	<h3>Versi chatgpt</h3>
+	<h2>🔍 Apa itu instanceof?</h2>
+	<p>Instanceof merupakan oeprator yang digunakan untuk mengecek apakah sebuah object merupakan instance (turunan) dari sebuah class (fungsi konstruktor) tertentu.</p>
+	<p>Hasilnya adalah boolean</p>
+
+	<h3>📦 Analogi Sederhana</h3>
+	<p><b>Bayangkan kamu punya:</b></p>
+	<p>Sebuah cetak biru mobil (ini seperti sebuah class)</p>
+	<p>Dan kamu punya mobil yang dibuat dari cetak biru tersebut (ini seperti object)</p>
+	<p><b>Sekarang kamu tanya:</b></p>
+	<blockquote>"Apakah benda ini (mobilku) dibuat dari cetak biru Mobil?"</blockquote>
+	<p>Itulah yang dilakukan oleh Instanceof.</p>
+
+	<h2>📦 Analogi Sederhana</h2>
+<pre><code>
+object instanceof Constructor
+</code></pre>
+
+	<p><b>📘 Contoh Pakai ES6 Class:</b></p>
+
+<pre><code>
+class Hewan {
+	constructor(nama) {
+		this.nama = nama;
+	}
+	
+	suara() {
+		console.log(`${this.nama} bersuara`);
+	}
+}
+	
+class Kucing extends Hewan {
+	constructor(nama) {
+		super(nama);
+	}
+	
+	suara() {
+		console.log(`${this.nama} mengeong`);
+	}
+}
+	
+const hewan1 = new Hewan("Hewan Umum");
+const kucing1 = new Kucing("Mpus");
+
+// Mengecek instance
+console.log(hewan1 instanceof Hewan);   // true
+console.log(kucing1 instanceof Kucing); // true
+console.log(kucing1 instanceof Hewan);  // true (karena Kucing adalah turunan Hewan)
+console.log(hewan1 instanceof Kucing);  // false
+</code></pre>
+
+	<script>
+		{
+			class Hewan {
+				constructor(nama) {
+					this.nama = nama;
+				}
+				suara() {
+					console.log(`${this.nama} bersuara`);
+				}
+			}
+
+			class Kucing extends Hewan{
+				constructor(nama) {
+					super(nama);
+				}
+
+				suara() {
+					console.log(`${this.nama} mengeong`);
+				}
+			}
+
+			let hewan1 = new Hewan("Kerbau");
+			let kucing1 = new Kucing("Meong");
+
+			console.log(hewan1 instanceof Kucing);
+			console.log(hewan1 instanceof Hewan);
+			console.log(kucing1 instanceof Hewan); // true karena kucing merupakan turuann dari hewan class
+			console.log(kucing1 instanceof Kucing);
+		}
+	</script>
+
+	<h3>🧠 Penjelasan</h3>
+	<p>hewan1 instanceof Hewan → true, karena hewan1 dibuat dari class Hewan.</p>
+	<p>kucing1 instanceof Kucing → true, karena kucing1 dibuat dari class Kucing.</p>
+	<p>kucing1 instanceof Hewan → juga true karena Kucing adalah subclass dari Hewan.</p>
+	<p>hewan1 instanceof Kucing → false karena hewan1 bukan Kucing, meskipun sama-sama hewan.</p>
+
+	<p><b>Tidak harus instcane / turuan yang dicek.</b></p>
+
+	<script>
+		{
+			class Buku {
+				constructor(judul) {
+						this.judul = judul;
+					}
+				}
+
+			const buku1 = new Buku("Belajar JavaScript");
+
+			console.log(buku1 instanceof Buku); // ✅ true
+			console.log(buku1 instanceof Object); // ✅ true
+
+		}
+	</script>
+
+	<h3>Versi PZN</h3>
+
+	<p>Kadang ada kasus kita ingin mengecek apakah sebuah object merupakan instance dari class tertentu atau bukan</p>
+	<p>Kita tidak bisa menggunakan operator typeof, karena object dari class, jika kita menggunkana typeof maka hasilnya adalah object</p>
+	<p>Operator instanceof akan menghasilkan boolean, true jika benar object tersebut adalah instance obejcet nya, flase jika salah.</p>
+
+<pre><code>
+class Employee {
+
+}
+
+class Manager {
+
+}
+let man1 = new Manager();
+let em1 = new Employee();
+console.log(man1 instanceof Manager);
+</code></pre>
+
+	<script>
+		{
+			class Employee {
+
+			}
+
+			class Manager {
+
+			}
+			let man1 = new Manager();
+			let em1 = new Employee();
+			console.log(man1 instanceof Manager);
+		}
+	</script>
+
+	<h2>Operator Instanceof di class inheritance</h2>
+
+	<p>Operator instanceof mendukung class inheritance, artinya instanceof juga bisa digunakan untuk mengcek, apakah sebuah obeject adalah insatance dari class tertentu, atau turunan dari class tertentu</p>
+
+<pre><code>
+class Employee {
+
+}
+
+class Manager extends Employee {
+
+}
+let man1 = new Manager();
+let em1 = new Employee();
+console.log(man1 instanceof Manager);
+</code></pre>
+
+	<script>
+		{
+			logBg("Batas")
+			class Employee {
+
+			}
+
+			class Manager extends Employee {
+
+			}
+			let man1 = new Manager();
+			let em1 = new Employee();
+			console.log(man1 instanceof Manager);
+			console.log(em1 instanceof Manager);
+			console.log(man1 instanceof Employee);
+			console.log(em1 instanceof Employee);
+		}
+	</script>
+
+</body>
+</html>

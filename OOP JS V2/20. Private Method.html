@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Private Method</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+	<!-- 01:50 -->
+
+	<h1>Private Method</h1>
+
+	<h3>Versi chatgpt</h3>
+
+	<h2>🔐 Apa Itu Private Method?</h2>
+	<p>Private method adalah fungsi (method) didalam class yang tidak bisa diakses dari luar class. Sama seperti private field, private method juga ditandai dengan # di depan nama method -nya</p>
+	<p><b>Tujuan</b></p>
+	<p>Menyembunyikan logika internal dari class agar tidak bisa dipanggil sembarangan.</p>
+	<p>Menjaga enkapsulasi (encapsulation) — prinsip OOP agar data dan proses di dalam class tetap aman.</p>
+
+	<p><b>Contoh</b></p>
+
+<pre><code>
+class User {
+	#cekPassword(password) {
+		// Ini adalah private method
+		return password === "rahasia";
+	}
+	
+	login(inputPassword) {
+		if (this.#cekPassword(inputPassword)) {
+		console.log("Login berhasil!");
+		} else {
+		console.log("Password salah.");
+		}
+	}
+	}
+	
+	const user1 = new User();
+	
+	user1.login("rahasia");     // ✅ Output: Login berhasil!
+	user1.login("salah");       // ✅ Output: Password salah.
+	
+	// user1.#cekPassword("rahasia"); // ❌ ERROR! Tidak bisa akses private method
+
+</code></pre>
+
+	<script>
+		{
+			class User {
+				#cekPassword (password) {
+					return password === "Rahasia";
+				}
+
+				login (inputPassword) {
+					if (this.#cekPassword(inputPassword)) {
+						console.log("Login berhasil");
+					} else{
+						console.log("Password salah");
+					}
+				}
+			}
+
+			let user1 = new User();
+
+			user1.login("rahasia");
+			user1.login("Rahasia");
+			user1.login("salah");
+		}
+	</script>
+
+	<h2>📌 Analogi untuk Pemula:</h2>
+
+	<p>Bayangkan kamu punya mesin kopi otomatis. Di dalam mesin itu, ada tombol “buat kopi”, dan kamu cukup pencet satu tombol.</p>
+
+	<p>Tapi, di dalam mesin, ada banyak proses kecil: memanaskan air, menggiling biji kopi, mencampur air dan bubuk, dll. Nah, semua proses kecil ini adalah private method — kamu tidak bisa dan tidak perlu tahu detailnya, cukup pencet 1 tombol saja (public method login()).	</p>
+
+	<h2>🧠 Kapan Harus Menggunakan Private Method?</h2>
+	<p><i>Kamu punya kode logika internal yang tidak seharusnya diakses langsung oleh pemakai class.</i></p>
+	<p><i>Kamu ingin memisahkan tugas-tugas internal dalam class agar lebih rapi dan modular.</i></p>
+	<p><i>Kamu ingin menyembunyikan detail implementasi dan hanya menyediakan interface yang jelas.</i></p>
+
+	<h3>Versi PZN</h3>
+	<p>hampir sama dengan versi chatgpt</p>
+
+<pre><code>
+class Person {
+	say(nama) {
+		if (nama) {
+			this.#sayWithName(nama);
+		} else {
+			this.#sayWithoutName();
+		}
+	}
+
+	#sayWithName(nama) {
+		console.info(`Helo ${nama}`)
+	}
+
+	#sayWithoutName() {
+		console.log("hello");
+	}
+}
+
+const kenny = new Person();
+kenny.say("Kenny");
+</code></pre>
+
+	<script>
+		{
+			class Person {
+				say(nama) {
+					if (nama) {
+						this.#sayWithName(nama);
+					} else {
+						this.#sayWithoutName();
+					}
+				}
+
+				#sayWithName(nama) {
+					console.info(`Helo ${nama}`)
+				}
+
+				#sayWithoutName() {
+					console.log("hello");
+				}
+			}
+
+			const kenny = new Person();
+			kenny.say("Kenny");
+		}
+	</script>
+	
+</body>
+</html>

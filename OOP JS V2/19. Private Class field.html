@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Private class field</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+	<!-- 01:44 -->
+
+	<h1>Private class field</h1>
+
+	<h3>Versi chatgpt</h3>
+
+	<h2>Apa itu Private Class Field?</h2>
+	<p>Field privat di JavaScript adalah properti yang hanya dapat diakses di dalam kelas tempat properti tersebut dideklarasikan. Tidak seperti public class field yang bisa diakses dari luar kelas menggunakan this, private class field hanya bisa diakses melalui metode atau konstruktor di dalam kelas.</p>
+	<p>Untuk mendeklarasikan private field, kita menggunakan simbol # di depan nama field-nya. Ini adalah cara untuk memberi tahu JavaScript bahwa properti tersebut bersifat privat.</p>
+
+	<h2>Kenapa Private Class Field Penting?</h2>
+	<p>Private class field sangat berguna untuk menyembunyikan data di dalam kelas yang tidak seharusnya diubah atau diakses langsung dari luar kelas. Ini adalah prinsip encapsulation (pengkapsulan), yang merupakan konsep penting dalam pemrograman berorientasi objek. Dengan cara ini, kita bisa melindungi data internal kelas agar tidak mudah diubah secara sembarangan oleh kode luar.</p>
+
+	<p><b>Contoh</b></p>
+<pre><code>
+class Mobil {
+	#warna;  // Private field
+
+	constructor(merek, warna) {
+		this.merek = merek;  // Public field
+		this.#warna = warna; // Menyimpan warna mobil di private field
+	}
+
+	tampilkanWarna() {
+		console.log(`Warna mobil adalah: ${this.#warna}`);  // Akses field privat dengan metode dalam kelas
+	}
+
+	// Method untuk mengubah warna mobil
+	setWarnaBaru(warna) {
+		this.#warna = warna;  // Mengubah warna mobil menggunakan metode
+	}
+}
+
+const mobil1 = new Mobil("Toyota", "Merah");
+
+mobil1.tampilkanWarna(); // Output: Warna mobil adalah: Merah
+
+// mencoba mengakses #warna langsung dari luar kelas
+// mobil1.#warna = "Biru"; // Error: Cannot access private field #warna
+
+mobil1.setWarnaBaru("Biru"); // Mengubah warna mobil melalui metode kelas
+mobil1.tampilkanWarna(); // Output: Warna mobil adalah: Biru
+
+</code></pre>
+
+	<script>
+		{
+			class Mobil {
+				#warna;
+
+				constructor (merek, warna) {
+					this.merek = merek;
+					this.#warna = warna;
+				}
+
+				tampilkanWarna() {
+					console.log(`Warna mobil adalah ${this.#warna}`);
+				}
+
+				setWarnaBaru(warna) {
+					this.#warna = warna;
+				}
+
+				desc(merek, warna) {
+					console.log(`Mobil itu bermerek ${this.merek} dengan warna ${this.#warna}`)
+				}
+			}
+
+			let mobil1 = new Mobil("Toyota", "Merah");
+			mobil1.tampilkanWarna()
+			console.log(mobil1);
+			mobil1.setWarnaBaru("Biru");
+			mobil1.desc();
+			mobil1.setWarnaBaru("Hijau");
+			mobil1.desc();
+		}
+	</script>
+
+	<p><b>Penjelasan:</b></p>
+	<p>#warna adalah private field. Field ini hanya dapat diakses di dalam kelas Mobil.</p>
+	<p>Di constructor, kita menginisialisasi #warna dengan nilai yang diteruskan sebagai parameter.</p>
+	<p>Metode tampilkanWarna() bisa mengakses #warna untuk menampilkan warna mobil.</p>
+	<p>Kita tidak bisa mengakses #warna langsung dari luar kelas menggunakan mobil1.#warna (akan menghasilkan error).</p>
+	<p>Untuk mengubah nilai #warna, kita bisa menggunakan metode setWarnaBaru() yang disediakan di dalam kelas.</p>
+
+	<h2>Analogi untuk Pemula:</h2>
+	<p>Bayangkan kamu memiliki sebuah kotak (kelas), dan di dalam kotak tersebut ada beberapa barang (field). Ada beberapa barang yang kamu ingin agar hanya kamu yang bisa mengakses dan merubahnya. Barang-barang ini adalah barang-barang pribadi, dan hanya bisa kamu pegang, bukan orang lain di luar kotak.</p>
+	<p>Di dalam kotak, kamu punya metode (cara) untuk mengubah barang tersebut (misalnya, jika kamu ingin mengganti warna mobil). Itu berarti kamu bisa mengontrol siapa yang boleh melihat atau mengubah barang tersebut dengan memberikan akses hanya melalui metode yang kamu buat di dalam kotak.</p>
+	<p>Namun, barang pribadi ini tidak bisa dilihat atau diubah langsung oleh orang lain dari luar kotak. Ini adalah private field dalam istilah programming.</p>
+
+	<h2>Kapan Menggunakan Private Fields?</h2>
+	<p>Saat kamu ingin melindungi data internal kelas agar tidak bisa diubah atau diakses sembarangan dari luar kelas.</p>
+	<p>Saat kamu ingin menjaga integritas data dengan memastikan bahwa perubahan hanya dilakukan melalui metode yang kamu kontrol.</p>
+
+	<h2>Kesimpulan:</h2>
+	<p>Private fields adalah fitur untuk membatasi akses data di dalam kelas.</p>
+	<p>Menggunakan # untuk mendeklarasikan field privat.</p>
+	<p>Field privat hanya bisa diakses atau diubah melalui metode di dalam kelas, bukan dari luar kelas.</p>
+
+	<h3>Versi PZN</h3>
+	<p>Secara default saat kita menambahkan field, maka field tersebut bisa di akses dari mana saja</p>
+	<p>Jika kita ingin membuat field bersifat private (hanya bisa diakses dari class block), kita bisa menggunakan tanda # sebelum nama field nya</p>
+	<p>Ini dinamakan prvate class field, dan hanya bisa diakses di class nya saja</p>
+
+<pre><code>
+class Counter {
+	#counter = 0;
+
+	increment () {
+		this.#counter++;
+	}
+
+	decrement() {
+		this.#counter--;
+	}
+
+	get() {
+		return this.#counter;
+	}
+}
+</code></pre>
+
+	<script>
+		{
+			class Counter {
+				#counter = 0;
+
+				increment () {
+					this.#counter++;
+				}
+
+				decrement() {
+					this.#counter--;
+				}
+
+				get() {
+					return this.#counter;
+				}
+			}
+
+			const counter = new Counter();
+			counter.increment();
+			counter.increment();
+			counter.increment();
+			counter.increment();
+			counter.increment();
+			counter.decrement();
+			console.log(counter.get())
+		}
+	</script>
+	
+	
+	
+
+</body>
+</html>
