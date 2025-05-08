@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>27.1 Latihan 21 - 27</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<h1>21. Operator Instanceof</h1>
+	<script>
+		{
+			logBg("Operator Inheriance");
+			class Person {
+				constructor(nama, umur) {
+					this.nama = nama;
+					this.umur = umur;
+				}
+				hi() {
+					return "Hello world" + this.nama;
+				}
+			}
+			
+			class Karyawan extends Person {
+				constructor(nama) {
+					super(nama);
+				}
+			}
+
+			let j = new Person();
+			let i = new Karyawan();
+			console.log(i instanceof Person);
+			console.log(i instanceof Karyawan);
+			console.log(j instanceof Person);
+			console.log(j instanceof Karyawan);
+
+		}
+	</script>
+
+	<h1>22. Static class field</h1>
+	<script>
+		{
+			logBg("Static class field");
+			class Person {
+				static country = "Indonesia";
+
+				constructor(nama, umur) {
+					this.nama = nama;
+					this.umur = umur;
+				}
+
+				hi(nama) {
+					return "Hi " + nama + ", namaku " + this.nama + " aku berumur " + this.umur + " dan aku dari " + Person.country;
+				}
+			}
+
+			let i = new Person("Budi", 23);
+			console.log(i.hi("Kenny"));
+			console.log(Person.country);
+		}
+	</script>
+
+	<h1>23. Static method</h1>
+	<script>
+		{
+			logBg("Static method");
+
+			class Person {
+				static hi(nama) {
+					return "Hello " + nama ;
+				}
+			}
+
+			console.log(Person.hi("Kenny"))
+		}
+
+		{
+			class Person {
+				constructor(country) {
+					this.country = country;
+				}
+				static hi(nama, country) {
+					return "Hello " + nama + " aku dari " + country;
+				}
+
+			}
+
+			let i = new Person("Indonesia");
+			
+			console.log(i.country);
+			console.log(Person.hi("Budi", i.country));
+		}
+	</script>
+
+	<h1>24. Error</h1>
+
+	<script>
+		{
+			logBg("Error throw");
+
+			// function bagi(a, b) {
+			// 	if(b === 0) {
+			// 		throw new Error ("Ini error");
+			// 	}
+			// 	return a / b;
+			// }
+
+			// console.log(bagi(1,0))
+
+		}
+
+
+		{
+			// class Kalkuator {
+			// 	constructor(a, b) {
+			// 		this.a = a;
+			// 		this.b = b;
+			// 	}
+
+			// 	bagi() {
+			// 		if(this.b === 0 || this.a === 0)  {
+			// 			throw new Error ("Tidak bisa dibagi dengan 0");
+			// 		}
+
+			// 		return this.a / this.b;
+			// 	}
+			// }
+
+			// let i = new Kalkuator(1,0);
+			// console.log(i.bagi())
+			
+		}
+	</script>
+
+	<h1>25. error Handling</h1>
+	<script>
+		{
+			logBg("Error handling");
+
+			function bagi(a, b) {
+				if(a === 0 || b === 0) {
+					throw new Error ("Tidak bisa dibagi 0");
+				}
+				return a / b;
+			}
+
+			try {
+				console.log(bagi(10,0));
+			} catch (error) {
+				console.log("Error terjadi: ", error.message)
+			}
+		}
+
+		{
+			function login(username, password) {
+				if (!username || !password) {
+					throw new Error ("username atau password salah");
+				}
+				return "Login sukses";
+			}
+
+			try {
+				console.log(login("admin"));
+			} catch (err) {
+				console.log(err.message)
+			}
+		}
+
+		{
+			logBg("----")
+			class Login{
+				constructor(username = "admin", password = 123) {
+					this.username = username;
+					this.password = password;
+				}
+
+				login() {
+					if (this.username !== "admin" || this.password !== 123) {
+						throw new Error ("Username atau passowrd salah, silahkan ulangi");
+					}
+					return "Login sukses!!!";
+				}
+			}
+
+			let i = new Login("admin", 121212);
+			try {
+				console.log(i.login());
+			} catch (err) {
+				console.log(err.message);
+			} finally {
+				console.log("Program berjalan");
+			}
+		}
+	</script>
+
+	<h1>26. Membuat class error</h1>
+	<script>
+		{
+			logBg("Membuat class error");
+
+			class x extends Error {
+				constructor (message) {
+					super(message);
+				}
+			}
+
+			function bagi(a, b) {
+				if(a == 0 || b == 0) {
+					throw new Error("Tidak bisa dibagi 0");
+				}
+				return a / b;
+			}
+
+			try {
+				console.log(bagi(1,0));
+			} catch (err) {
+				console.log(err.message);
+			}
+		}
+	</script>
+
+	<h1>27. Iterable dan iterator</h1>
+	<script>
+		{
+			logBg("Iterable dan iterator");
+
+			const i = {
+				from: 1,
+				[Symbol.iterator]() {
+					let current = this.from;
+					return {
+						next() {
+							return {value: current++, done: false};
+						}
+					}
+				}
+			}
+
+			for (const num of i) {
+				if (num > 10) break;
+				console.log(num);
+			}
+		}
+	</script>
+	
+</body>
+</html>

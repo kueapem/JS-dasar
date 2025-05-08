@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Latihan 00 - 27</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<h1>Latihan 00 - 27</h1>
+
+	<h2>1. Membuat constructor Function</h2>
+	<script>
+		{
+			logBg("Membuat constructor Function")
+			function Person() {
+				
+			}
+		}
+	</script>
+
+	<h2>2. Property di constructor function</h2>
+	<script>
+		{
+			logBg("Property di constructor fungsi");
+
+			function Person() {
+				this.nama = "";
+				this.umur = "";
+			}
+
+			let i = new Person();
+			console.log(i);
+			i.nama = "Kenny";
+			console.log(i);
+		}
+	</script>
+
+	<h2>3. Method di constructor function</h2>
+	<script>
+		{
+			logBg("Method di constructor fungsi");
+
+			function Person() {
+				this.nama = "";
+				this.umur = "";
+				this.hi = function () {
+					return `Hello ${this.nama} aku Budi aku berumur ${this.umur}`
+				}
+			}
+
+			let i = new Person();
+			console.log(i);
+			console.log(i.hi());
+			i.nama = "Kenny";
+			i.umur = 23;
+			console.log(i);
+			console.log(i.hi());
+		}
+		{
+			function Person() {
+				this.nama = "Rui";
+				this.umur = 22;
+				this.hi = function (val) {
+					return `Hello ${this.nama} aku ${val} aku berumur ${this.umur}`
+				}
+			}
+
+			let i = new Person();
+			console.log(i);
+			console.log(i.hi("Kenny"));
+
+		}
+	</script>
+
+	<h2>4. Parameter di constructor fungsi</h2>
+	<script>
+		{
+			logBg("Parameter di constructor fungsi")
+			function Person (nama) {
+				this.nama = nama;
+				this.hi = function () {
+					return `Hello ${this.nama}`;
+				}
+			}
+
+			let i = new Person("Budi");
+			console.log(i.hi());
+		}
+	</script>
+
+	<h2>5. constructor inheritance</h2>
+	<script>
+		{
+			logBg("constructor inheritance")
+			function Parent(f) {
+				this.f = f;
+				this.hi = function (v) {
+					return `Hello ${v}, aku ${this.f} ${this.l}`;
+				}
+			}
+
+			function Inner(f, l){
+				Parent.call(this, f);
+				this.l = l;
+			}
+
+			let i = new Inner('Budi', 'joko');
+			console.log(i.hi("Kenny"));
+		}
+	</script>
+
+	<h2>6. Prototype</h2>
+	<script>
+		{
+			logBg("Prototype");
+
+			function Person(nama, umur) {
+				this.nama = nama;
+				this.umur = umur;
+			}
+
+			Person.prototype.hi = function () {
+				return `Aku ${this.nama} aku berumur ${this.umur}`;
+			}
+
+			let i = new Person("Kenny", 22);
+			console.log(i.hi())
+		}
+	</script>
+
+	<h2>7. Menambahkan property ke prototype</h2>
+	<script>
+		{
+			logBg("Menambahkan property ke prototype");
+
+			function Person(nama) {
+				this.nama = nama;
+			}
+
+			Person.prototype.umur = 23;
+
+			let i = new Person("kenny");
+			console.log(i)
+		}
+	</script>
+
+	<h2>8. Prototype Inheritance</h2>
+
+	<script>
+		{
+			logBg("Prototype Inheritance");
+			
+			
+			function Person (nama) {
+				this.nama = nama;
+			}
+
+			Person.prototype.nafas = function () {
+				return `${this.nama} sedang bernafas`;
+			}
+
+			function Anak (nama, ikan) {
+				Person.call(this, nama);
+				this.ikan = ikan;
+			}
+
+			Anak.prototype = Object.create(Person.prototype);
+
+			Anak.prototype.makan = function () {
+				return `${this.nama} sedang makan ikan ${this.ikan}`;
+			}
+
+			let i = new Anak("Kenny", "Mas");
+			console.log(i.nafas());
+			console.log(i.makan());
+
+			
+		}
+	</script>
+
+	<h2>9. Kata kunci class</h2> 
+	<script>
+		{
+			logBg("Kata kunci class");
+
+			class Person {
+
+			}
+		}
+	</script>
+
+	<h2>10.constructor di class</h2> 
+	<script>
+		{
+			logBg("constructor di class");
+
+			class Person {
+				constructor(name) {
+					console.log("Hello world " + this.name)
+				}
+			}
+
+			let i = new Person("andi");
+			console.log(i);
+			
+			i.umur = 23;
+			console.log(i);
+
+
+		}
+	</script>
+
+	<h2>11. Property di class</h2>
+
+	<script>
+		{
+			logBg("Property di class");
+
+			class Person {
+				constructor () {
+					this.nama = "Kenny";
+				}
+			}
+
+			let i = new Person();
+			console.log(i.nama);
+		}
+
+		{
+			class Person{
+				constructor (nama, umur) {
+					this.nama = nama;
+					this.umur = umur;
+				}
+			}
+
+			let i = new Person("Rui", 21);
+			console.log(i.nama);
+			console.log(i.umur);
+			console.log(i.nama + " " + i.umur);
+
+			i.sekolah = "Gakuen tokyo 1";
+			console.log(i);
+		}
+	</script>
+
+	<h2>12. Method di class</h2>
+
+	<script>
+		{
+			logBg("Method di class");
+
+			class Person {
+				constructor (nama) {
+					this.nama = nama;
+				}
+
+				hi (umur) {
+					this.umur = umur;
+					return `Hello namakuy ${this.nama} aku umur ${umur}`;
+				}
+			}
+
+			let i = new Person("kenny");
+			console.log(`${i.hi(23)}`);
+
+			// tidak disarankan kayak gini
+			i.nafas = function () {
+				return "Hello nafas";
+			} 
+
+			console.log(i);
+
+			// bagusnya tambahkan ke prototype
+			Person.prototype.makan = function () {
+				return "Aku sedang makan";
+			}
+
+			console.log(i);
+
+			Person.prototype.panggil = function (nama, sekolah) {
+				return `Hello ${this.nama}, aku ${nama} aku sekolah di ${sekolah}, aku berumur ${this.umur}`;
+			}
+			console.log(i.panggil("Andi", "Smpn catang 2"));
+			console.log(i)
+		}
+	</script>
+
+
+	
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Membuat class error</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 02:26 -->
+
+	<h1>Membuat class error sendiri / manual / custom</h1>
+
+	<h2>Versi chatgpt</h2>
+
+	<h3>🔧 Kenapa Perlu Custom Error?</h3>
+	<p>Agar error lebih deskripsi dan bermakna</p>
+	<p>Bisa membedakan antar jenis error: misalnya ValidationError, LoginError, DataBaseError</p>
+	<p>Supaya kamu bisa menangani error berbeda secara spesifik di catch</p>
+
+	<h3>✅ Cara Membuat Custom Error Class</h3>
+	<p>Kita bisa menggunakan kata kunci class dan mewarisi dari Error</p>
+
+<pre><code>
+class ValidationError extends Error {
+	constructor(message) {
+		super(message); // panggil constructor dari Error
+		this.name = "validasi error"; // ubah nama error-nya
+	}
+}
+</code></pre>
+
+	<p><b>Penggunaannya:</b></p>
+<pre><code>
+function prosesInput(input) {
+	if (!input.includes("@")) {
+		throw new ValidationError("Email tidak valid");
+	}
+		return "Email valid!";
+}
+	
+try {
+	prosesInput("usernametanpaat.com");
+} catch (err) {
+	if (err instanceof ValidationError) {
+		console.log("Terjadi error validasi:", err.message);
+	} else {
+		console.log("Error lainnya:", err.message);
+	}
+}
+</code></pre>
+
+	<script>
+		{
+			logBg("Versi Chatgpt");
+
+			class e extends Error {
+				constructor (pesan) {
+					super(pesan);
+					this.name = "Terjadi Error!!!";
+				}
+			};
+
+			function prosesInput(input){
+				if(!input.includes('@')) {
+					throw new e("Email tidak valid");
+				}
+				return "Email valid";
+			}
+
+			try {
+				prosesInput("emailTanpaAt.com")
+			} catch (err) {
+				if (err instanceof e) {
+					console.log("Terjadi error validasi:", err.message);
+				} else {
+					console.log("Error lainnya: ", err.message);
+				}
+			}
+
+		}
+	</script>
+
+	<h2>Versi PZN</h2>
+
+	<p>Walaupun JS sudah memiliki standar class error</p>
+	<p>Namun alangkah baiknya, kita membedakan jenis errornya</p>
+	<p>Untuk membuat error sendiri secara manual sangatlah mudah, cukup membuat class turunan dari error Class</p>
+	<p>Dan jangan lupa tambahkan parameter message, agar bisa dikirimkan ke parameter constructor class Error</p>
+
+<pre><code>
+class ValidationError extends Error {
+	constructor(message, field) {
+		super(message);
+		this.field = field;
+	}
+}
+</code></pre>
+
+	<script>
+		{
+			logBg("Versi PZN");
+
+			class ValidationError extends Error {
+				constructor(message, field) {
+					super(message);
+					this.field = field;
+				}
+			}
+
+			class MathUtil {
+				static sum(...numbers) {
+					if (numbers.length === 0) {
+						throw new ValidationError("Total parameter harus lebih dari 0: ", "numbers");
+					}
+
+					let result = 0;
+					for (const number of numbers) {
+						result += result;
+					}
+					return result;
+				}
+			}
+			try {
+				console.info(MathUtil.sum());
+			} catch (error) {
+				if(error instanceof ValidationError) {
+					console.info("Terjadi error di field: " + error.field + " dengan error: " + error.message);
+				} else {
+					console.info(error.message)
+				}
+			} finally {
+				console.log("Proses selesai")
+			}
+		}
+	</script>
+	
+</body>
+</html>

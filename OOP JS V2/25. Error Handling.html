@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>25. Error Handling</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+
+</head>
+<>
+
+	<!-- 02:15 -->
+
+	<h1>25. Error Handling</h1>
+
+	<h3>Versi chatgpt</h3>
+
+	<h2>🛠 Apa Itu try...catch?</h2>
+	<p>digunakan untuk menangkap dan menangani erro, agar program tidak berhenti secara mendadak saat erro terjadi.</p>
+
+	<h2>🔍 Struktur Dasar:</h2>
+<pre><code>
+try {
+// Blok kode yang mungkin error
+} catch (err) {
+// Menangani error di sini
+}
+</code></pre>
+
+	<h2>🧪 Contoh Dasar:</h2>
+
+<pre><code>
+try {
+	let hasil = 10 / 0;
+	console.log(hasil);
+	console.log(a); // a belum dideklarasi → ReferenceError
+} catch (err) {
+	console.log("Terjadi error:", err.message);
+}
+</code></pre>
+
+	<script>
+
+		logBg("Versi Chatgpt")
+		{
+			try {
+				let hasil = 10 / 0;
+				console.log(hasil);
+				console.log(a); // a belum dideklarasi → ReferenceError
+			} catch (err) {
+				console.log("Terjadi error:", err.message);
+				console.log("Terjadi error:", err.name);
+				console.log("Terjadi error:", err.stack);
+			}
+		}
+	</script>
+
+	<blockquote>
+		❗ Catatan: kode di dalam try yang setelah error tidak akan dijalankan, langsung lompat ke catch.
+	</blockquote>
+
+	<h2>⚙ Kenapa Butuh try...catch?</h2>
+	<p><i>Menangani error tanpa hentikan program</i></p>
+	<p><i>Menyediakan pesan error yang jelas untuk debugging</i></p>
+	<p>Berguna difitur penting: form, login, komunikasi API, dll</p>
+
+	<h2>📘 Akses Informasi Error</h2>
+	<p>Di dalam catch(err) kamu bisa akses:</p>
+	<p><b>err.massage:</b> Pesan error</p>
+	<p><b>err.name:</b> Jenis error (typeerror, referenceerror)</p>
+	<p><b>err.stack:</b> trace lokasi error (stack trace)</p>
+
+	<h2>🧱 Contoh Real-Life:</h2>
+
+	<script>
+		{
+			function parseJSON(str) {
+				try {
+					let obj = JSON.parse(str);
+					console.log("Sukses:", obj);
+				} catch (e) {
+					console.log(e.message);
+				}
+			}
+
+			parseJSON('{"nama":"Ayu"}');
+			parseJSON('{"nama":Ayu}');
+		}
+	</script>
+
+	<h2>🪜 Blok finally (Opsional)</h2>
+	<p>finally adalah bagian yang selalu dijalankan, entah ada error atau tidak.</p>
+<pre><code>
+try {
+	console.log("Jalankan");
+	throw new Error("Ups");
+} catch (e) {
+	console.log("Error tertangkap");
+} finally {
+	console.log("Akan selalu dijalankan");
+}
+</code></pre>
+
+	<script>
+		{
+			try {
+				console.log("Jalankan");
+				throw new Error("Ups");
+			} catch (e) {
+				console.log("Error tertangkap");
+			} finally {
+				console.log("Akan selalu dijalankan");
+			}
+		}
+	</script>
+
+	<h2>👨‍🏫 Ringkasan</h2>
+	<p>Gunakan try...catch untuk menghindari crash program.</p>
+	<p>try berisi kode yang bisa error.	</p>
+	<p>catch(err) menangkap error dan beri kita kendali.	</p>
+	<p>Tambahkan finally jika ada tugas yang harus dijalankan di akhir (misalnya, menutup koneksi).	</p>
+
+	<h2>Try finally</h2>
+	<h2>🔍 Apa Itu try...finally?</h2>
+	<p>Struktur try...finally digunakan ketika kamu tidak ingin menangkap error, tapi tetap ingin menjalankan kode tertentu di akhir — misalnya untuk cleanup, seperti menutup file, menyembunyikan loading, atau menyelesaikan proses.</p>
+
+<pre><code>
+try {
+	// Kode utama yang mungkin error
+} finally {
+	// Kode yang akan selalu dijalankan
+}
+</code></pre>
+
+	<script>
+		{
+			try {
+				console.log("Memulai proses...");
+				throw new Error("Terjadi error!");
+			} finally {
+				console.log("Membersihkan resource...");
+				}
+		}
+	</script>
+	<h2>🧠 Analogi</h2>
+	<p>Bayangkan kamu sedang masak:</p>
+	<p>try: kamu memasak air</p>
+	<p>terjadi kebocoran gas (error)</p>
+	<p>finally: kamu tetap mematikan kompor dan membersihkan dapur, meskipun error tadi tidak kamu tangani</p>
+
+	<h2>🛠 Kapan Pakai try...finally?</h2>
+	<p>Gunakan saat kamu:</p>
+	<p>Selalu ingin menjalankan kode di akhir, terlepas dari error	</p>
+	<p>Tidak ingin atau tidak perlu menangkap error secara eksplisit	</p>
+	
+
+	<h3>Versi PZN</h3>
+
+	<p>Saat terjadi error di kode program js, kadang kita tidak ingin program kita berhenti</p>
+	<p>Di js, kita bisa menangkap jika terjadi error</p>
+	<p>Kita bisa menggunakan try catch satetement untuk menangkap error</p>
+	<p>PAda block try, kita akan mencoba akses kode program yang bisa menyebabkan error, dan jika terjadi error, block try akan berhenti dan otomatis masuk ke block catch</p>
+	<p>Jika tidak terjadi error, block catch tidak akan di eksekusi</p>
+
+	<script>
+		{
+			logBg("versi PZN");
+
+			class MathUtil {
+				static sum(...numbers) {
+
+					if (numbers.length === 0) {
+						throw new Error("total parameter harus lebih dari 0")
+					}
+					let total = 0;
+					for (const number of numbers) {
+						total += number;
+					}
+					return total;
+				}
+			}
+
+			try {
+				const sum = MathUtil.sum();
+				console.info(sum);
+			} catch (e) {
+				console.info("Terjadi error: " + e.message)
+			}
+		}
+	</script>
+
+	<h2>Finally</h2>
+	<p>Kadang kita ingin melakukan sesuatu entah itu terjadi error ataupun tidak</p>
+	<p>Dalam try catch, kita bisa menambahkan block finally</p>
+	<p>Block ini akan selalu di eksekusi setelah try catch selesai, entah terjadi error atau pun tidak</p>
+
+<pre><code>
+class MathUtil {
+	static sum(...numbers) {
+
+		if (numbers.length === 0) {
+			throw new Error("total parameter harus lebih dari 0")
+		}
+		let total = 0;
+		for (const number of numbers) {
+			total += number;
+		}
+		return total;
+	}
+}
+
+try {
+	const sum = MathUtil.sum();
+	console.info(sum);
+} catch (e) {
+	console.info("Terjadi error: " + e.message)
+} finally {
+	console.info("Kode program selesai");
+}
+</code></pre>
+
+	<script>
+		{
+			class MathUtil {
+				static sum(...numbers) {
+
+					if (numbers.length === 0) {
+						throw new Error("total parameter harus lebih dari 0")
+					}
+					let total = 0;
+					for (const number of numbers) {
+						total += number;
+					}
+					return total;
+				}
+			}
+
+			try {
+				const sum = MathUtil.sum();
+				console.info(sum);
+			} catch (e) {
+				console.info("Terjadi error: " + e.message)
+			} finally {
+				console.info("Kode program selesai");
+			}
+		}
+	</script>
+
+	<h2>Try finally</h2>
+	<p>Menggunakan kata kunci finnaly tanpa perlu mengggunakan catch</p>
+	<p>Biasanay digunkana dalam kasus tertentu</p>
+
+<pre><code>
+class Counter {
+	constructor() {
+		this.value = 1;
+	}
+
+	next() {
+		try {
+			return this.value;
+		} finally {
+			this.value++;
+		}
+	}
+}
+</code></pre>
+
+	<script>
+		{
+			class Counter {
+				constructor () {
+					this.value = 1;
+				}
+
+				next() {
+					try {
+						return this.value;
+					} finally {
+						this.value++;
+					}
+				}
+
+			}
+			let i = new Counter();
+			console.log(i.next());
+			console.log(i.next());
+			console.log(i.next());
+			console.log(i.next());
+			console.log(i.next());
+		}
+	</script>
+
+
+</body>
+</html>

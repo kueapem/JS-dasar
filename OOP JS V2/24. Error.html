@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Error</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+	<!-- 02:09 -->
+
+	<h1>Error</h1>
+	<h3>Versi chatgpt</h3>
+	<h2>🧨 Apa itu Error?</h2>
+	<p>Error adalah kondisi tak terduga yang muncul saat program dijalankan dan menyebabkan program berhenti atau berjalan tidak seperti yang diinginkan</p>
+
+	<h2>🧱 Jenis-Jenis Error Umum di JavaScript</h2>
+	<table>
+		<th>
+			<tr>Jenis Error</tr>
+			<tr>Kapan Terjadi</tr>
+		</th>
+		<tr>
+			<td>SyntaxError</td>
+			<td>Saat ada kesalahan penulisan (sintaks)</td>
+		</tr>
+		<tr>
+			<td>ReferneceError</td>
+			<td>Saat akses variable yang tidak di deklarasikan</td>
+		</tr>
+		<tr>
+			<td>TypeError</td>
+			<td>Saat tipe data tidak sesuai (contoh .toUpperCase() dipanggil di angka)</td>
+		</tr>
+		<tr>
+			<td>RangeError</td>
+			<td>Saat angka atau panjang array melebihi batas</td>
+		</tr>
+		<tr>
+			<td>EvalError</td>
+			<td>(Jarang muncul) kesalahan saat jalankan eval()</td>
+		</tr>
+		<tr>
+			<td>URIError</td>
+			<td>Kesalahan di encodeURI atau decodeURI</td>
+		</tr>
+	</table>
+
+	<p><b>Contoh</b></p>
+
+<pre><code>
+console.log(a); // ReferenceError: a is not defined
+
+"hello".push("!"); // TypeError: push is not a function
+
+if (true {         // SyntaxError: Unexpected token '{'
+	console.log("ok");
+}
+</code></pre>
+
+	<script>
+		{
+			// console.log(a);
+			// "hello".push(!"");
+			// if(true {
+			// 	console.log("Ok");
+			// }
+		}
+	</script>
+
+
+	<h2>Throw Error</h2>
+
+	<h2>🚨 Apa itu throw?</h2>
+	<p>throw adalah perintah untuk melempar error secara manual</p>
+	<p>Artinya: kamu bisa menghentikan eksekusi program sengaja, saat terjadi kondisi yang tidak sesuai</p>
+
+	<h2>🧠 Analogi:</h2>
+	<p>Bayangkan kamu buat sistem kasir</p>
+	<p>Kalau jumlah bayar kurang dari total belanjaan, kamu mau munculkan peringatan dan hentikan proses</p>
+	<p>Disinilah kamu bisa pakai throw untuk melempar error, misalnya:</p>
+	<p><i>"Uang kurang, tolong bayar lebih!!!"</i></p>
+<pre><code>
+function bagi(a, b) {
+	if (b === 0) {
+		throw new Error("Tidak bisa dibagi dengan nol")
+	}
+	return a / b;
+}
+
+console.log(bagi(10, 0)); // Program berhenti di sini
+console.log("Baris ini tidak akan dijalankan"); // Tidak pernah muncul
+
+</code></pre>
+
+	<script>
+		{
+			// function bagi(a, b) {
+			// 	if (b === 0) {
+			// 		throw new Error ("Tidak bisa dibagi!!!");
+			// 	}
+			// 	return a / b;
+			// }
+
+			// console.log(bagi(10,0));
+		}
+	</script>
+
+	<h3>Versi Pzn</h3>
+
+	<p>Saat membuat aplikasi, sudah tentu kita tidak akan terhindar dari yang namanya error</p>
+	<p>Di js, error merupakan suatu yang sudah standar</p>
+	<p>Banyak sekali class error di JS, namun semua class error di js selalu berujung  di class Error, artinya class Error adalah superclass untuk semua jenis error di JS</p>
+	<p>Contoh class error yang terdapat di JS contohnya SyntaxError, TypeError, EvalError, dll</p>
+
+	<h2>Throw Error</h2>
+	<p>Saat kita membuat instance object dari class error, tidak lantas otomatis terjadi error</p>
+	<p>Kita perlu memberitahukan program kita, bahwa kita akan mentrigger sebuah error terjadi, atyau istilahnya adalah melempar error (throw)</p>
+	<p>Untuk melempar error, kita bisa menggunakan kata kunci Throw, diikuti dengan instance object error nya</p>
+	<p>Jika terjadi error, maka otomats kode program kita akan terhenti, dan kita bisa lihat detail errornya diconsole di aplikasi browser</p>
+
+<pre><code>
+class MathUtil {
+	static sum(...numbers) {
+
+		if (numbers.length === 0) { 
+			throw new Error("total parameter harus lebih dari 0")
+		}
+		let total = 0;
+		for (const number of numbers) {
+			total += number;
+		}
+		return total;
+	}
+}
+
+const sum = MathUtil.sum();
+console.info(sum);
+</code></pre>
+
+	<script>
+		{
+			class MathUtil {
+				static sum(...numbers) {
+
+					if (numbers.length === 0) {
+						throw new Error("total parameter harus lebih dari 0")
+					}
+					let total = 0;
+					for (const number of numbers) {
+						total += number;
+					}
+					return total;
+				}
+			}
+
+			const sum = MathUtil.sum();
+			console.info(sum);
+		}
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>27. Iterable dan Iterator</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 02:32 -->
+
+	<h1>Iterable dan Iterator</h1>
+
+	<h2>Versi Chatgtp</h2>
+
+	<h3>🧩 Apa itu Iterable?</h3>
+	<p>Iterable adalah object yang bisa di loop menggunakan for of, seperti: array, string, Map, Set dan object lain yang memiliki method khusus bernama Symbol.iterator</p>
+
+	<h3>🔄 Apa itu Iterator?</h3>
+	<p>Iterator adalah object yang mengatur proses iterasi (perulangan)</p>
+	<p>Iterator harus memiliki obejct method .next(), yang akan:</p>
+	<p><i>Mengambalikan object {value, done}</i></p>
+	<p><i>Value -> nilai saat ini</i></p>
+	<p><i>Done -> true jika iterasi selesai</i></p>
+
+	<h3>📦 Contoh bawaan: Array</h3>
+<pre><code>
+const angka = [10,20,30];
+const iterator = angka[Symbol.iterator]();
+console.log(iterator.next()); // { value: 10, done: false }
+console.log(iterator.next()); // { value: 20, done: false }
+console.log(iterator.next()); // { value: 30, done: false }
+console.log(iterator.next()); // { value: undefined, done: true }
+</code></pre>
+
+	<script>
+		{
+			logBg("Versi Chatgpt")
+			const angka = [10,20,30];
+			const iterator = angka[Symbol.iterator]();
+			console.log(iterator.next());
+			console.log(iterator.next());
+			console.log(iterator.next());
+			console.log(iterator.next());
+		}
+	</script>
+
+	<blockquote>Karena array adalah iterable, dia punya Symbol.iterator secara default.	</blockquote>
+
+	<h3>✍️ Membuat Iterable & Iterator Manual</h3>
+<pre><code>
+const myIterable = {
+	data: ["A", "B", "C"],
+	[Symbol.iterator]() {
+		let index = 0;
+		return {
+			next: () => {
+				if (index < this.data.length) {
+					return {value: this.data[index++], done: false};
+				} else {
+					return {value: undefined, done: true};
+				}
+			}
+		}
+	}
+}
+
+for (const item of myIterable) {
+	console.log(item);
+}
+</code></pre>
+
+	<script>
+		{
+			const myIterable = {
+				data: ["A", "B", "C"],
+				[Symbol.iterator]() {
+					let index = 0;
+					return {
+						next: () => {
+							if (index < this.data.length) {
+								return {value: this.data[index++], done: false};
+							} else {
+								return {value: undefined, done: true};
+							}
+						}
+					}
+				}
+			}
+
+			const i = myIterable[Symbol.iterator]();
+			console.log(i.next());
+			console.log(i.next());
+			console.log(i.next());
+			console.log(i.next());
+
+			// atau gunaka  forof
+			for (const item of myIterable) {
+				console.log(item);
+			}
+		}
+	</script>
+
+	<h3>🎯 Analogi Sederhana</h3>
+	<p>Bayangkan iterator seperti:</p>
+	<p><i>Kasir toko, yang menyerahkan barang satu perstau (value) ke pelanggan</i></p>
+	<p><i>Setelah barang habis, dia bilang "sudah selelsai" (done: true)</i></p>
+	<p>Sedangkan iterable adalah gudang barang, dan Symbol.iterator() adalah cara mengakses gudangnya satu perastu</p>
+
+	<table>
+		<tr>
+			<th>Istilah</th>
+			<th>Fungsi</th>
+		</tr>
+		<tr>
+			<td>Iterable</td>
+			<td>Objek yang bisa di-loop (punya Symbol.iterator)</td>
+		</tr>
+		<tr>
+			<td>Iterator</td>
+			<td>Objek yang mengatur langkah demi langkah dalam iterasi</td>
+		</tr>
+		<tr>
+			<td>.next()</td>
+			<td>Method yang mengembalikan { value, done } untuk setiap langkah</td>
+		</tr>
+	</table>
+
+	<h3>Contoh lain tanpa arrow fungsi</h3>
+
+	<p><b>✅ Langkah 1: Buat objek yang bisa di-loop</b></p>
+<pre><code>
+const huruf = {
+	data: ["X", "Y", "Z"],
+	// Method Symbol.iterator agar bisa di-loop
+	[Symbol.iterator]: function () {
+		let index = 0;
+		let dataIni = this.data;
+	
+		// Mengembalikan objek iterator
+		return {
+			next: function () {
+				if (index < dataIni.length) {
+					return { value: dataIni[index++], done: false };
+				} else {
+					return { value: undefined, done: true };
+				}
+			}
+		};
+	}
+};
+</code></pre>
+
+	<p><b>✅ Langkah 2: Gunakan for...of</b></p>
+
+<pre><code>
+for (const item of huruf) {
+	console.log(item);  // Output: X, Y, Z
+}
+</code></pre>
+
+	<script>
+		{
+			const huruf = {
+				data: ["X", "Y", "Z"],
+				// Method Symbol.iterator agar bisa di-loop
+				[Symbol.iterator]: function () {
+					let index = 0;
+					let dataIni = this.data;
+				
+					// Mengembalikan objek iterator
+					return {
+						next: function () {
+							if (index < dataIni.length) {
+								return { value: dataIni[index++], done: false };
+							} else {
+								return { value: undefined, done: true };
+							}
+						}
+					};
+				}
+			};
+
+			for (const item of huruf) {
+				console.log(item);  // Output: X, Y, Z
+			}
+		}
+	</script>
+
+	<h3>🧠 Penjelasan Sederhana</h3>
+	<p>huruf adalah objek biasa.</p>
+	<p>Kita tambahkan method khusus [Symbol.iterator] agar bisa dipakai di for...of.	</p>
+	<p>Di dalam [Symbol.iterator], kita kembalikan iterator, yaitu objek yang punya method .next().	</p>
+
+	<h3>Bagaimana .next() bekerja?</h3>
+	<p>Setiap kali dipanggil:</p>
+	<p>.next() akan mengembalikan 1 nilai (value)</p>
+	<p>dan apakah sudah selesai (done)</p>
+
+<pre><code>
+const it = huruf[Symbol.iterator]();
+
+console.log(it.next()); // { value: 'X', done: false }
+console.log(it.next()); // { value: 'Y', done: false }
+console.log(it.next()); // { value: 'Z', done: false }
+console.log(it.next()); // { value: undefined, done: true }
+</code></pre>
+
+	<script>
+		{
+			const huruf = {
+				data: ["X", "Y", "Z"],
+				// Method Symbol.iterator agar bisa di-loop
+				[Symbol.iterator]: function () {
+					let index = 0;
+					let dataIni = this.data;
+				
+					// Mengembalikan objek iterator
+					return {
+						next: function () {
+							if (index < dataIni.length) {
+								return { value: dataIni[index++], done: false };
+							} else {
+								return { value: undefined, done: true };
+							}
+						}
+					};
+				}
+			};
+
+			for (const item of huruf) {
+				console.log(item);  // Output: X, Y, Z
+			}
+
+			const it = huruf[Symbol.iterator]();
+
+			console.log(it.next()); // { value: 'X', done: false }
+			console.log(it.next()); // { value: 'Y', done: false }
+			console.log(it.next()); // { value: 'Z', done: false }
+			console.log(it.next()); // { value: undefined, done: true }
+		}
+	</script>
+	
+	<h3>Analogi Kasar</h3>
+	<p>Bayangkan data = ["X", "Y", "Z"] seperti tumpukan kertas.</p>
+	<p>Iterator = orang yang menyerahkan satu kertas setiap kali kamu minta.</p>
+	<p>.next() = kamu minta kertas berikutnya.</p>
+	<p>for...of = otomatis minta semua kertas satu per satu sampai habis.</p>
+
+	<h2>Versi PZN</h2>
+	<p>Salah satu fitur terbaru ES6 adalah iterable</p>
+	<p>Iterable adalah sepsial object yang memiliki standarisasi</p>
+	<p>Dengan mengikuti standarisasi iterable, seacar otomatis kita bisa melakukan iterasi terhadap data tersebut dengan menggunakan for of</p>
+	<p>Contohnya yang sudah mengikuti standarisasi iterable : array, string, object dll</p>
+
+	<h3>Cara kerja iterable dan iterator</h3>
+	<p>Jika kita mengikuti kontak iterable, maka object yang kita buat akan bisa dilakukan iterasi menggunakan for of</p>
+	<p>Setiap kita melakukan perulangan, object iterbale akan dibuat</p>
+	<p>Hal ini menjadi aman jika kita melakukan iterasi berulang-ulang karena iterabtor baru akan dibuat terus menerus.</p>
+
+	<p><b>Kode: membuat counter iterator result</b></p>
+<pre><code>
+class CounterIteratorResult {
+	constructor(value, done) {
+		this.value = value;
+		this.done = done;
+	}
+}
+</code></pre>
+
+	<p><b>Kode: membuat counter iterator</b></p>
+
+<pre><code>
+class CounterIterator {
+	constructor(value, max) {
+		this.value = value;
+		this.max = max;
+	}
+
+	next() {
+		try {
+			if (this.value > this.max) {
+				return new CounterIteratorResult(this.value, true);
+			} else {
+				return new CounterIteratorResult(this.value, false);
+			}
+		} finally {
+			this.value++;
+		}
+	}
+}
+</code></pre>
+
+	<p><b>Kode: Membuat counter iterbale</b></p>
+<pre><code>
+class Counter {
+	constructor(value, max) {
+		this.value = value;
+		this.max = max;
+	}
+
+	[Symbol.iterator]() {
+		return new CounterIterator(this.value, this.max)
+	};
+}
+</code></pre>
+
+
+	<p><b>Kode: Menggunakan counter iterable</b></p>
+<pre><code>
+const counter = new Counter(1, 10);
+for (const element of counter) {
+	console.info(element);
+}
+</code></pre>
+
+	<script>
+		{
+			logBg("Versi PZN");
+			class CounterIteratorResult {
+				constructor(value, done) {
+					this.value = value;
+					this.done = done;
+				}
+			}
+
+			class CounterIterator {
+				constructor(value, max) {
+					this.value = value;
+					this.max = max;
+				}
+
+				next() {
+					try {
+						if (this.value > this.max) {
+							return new CounterIteratorResult(this.value, true);
+						} else {
+							return new CounterIteratorResult(this.value, false);
+						}
+					} finally {
+						this.value++;
+					}
+				}
+			}
+
+			class Counter {
+				constructor(value, max) {
+					this.value = value;
+					this.max = max;
+				}
+
+				[Symbol.iterator]() {
+					return new CounterIterator(this.value, this.max)
+				};
+			}
+
+			const counter = new Counter(1, 10);
+			for (const element of counter) {
+				console.info(element);
+			}
+		}
+	</script>
+	
+</body>
+</html>

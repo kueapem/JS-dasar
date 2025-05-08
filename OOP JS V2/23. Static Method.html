@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>23. Static Method</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+	<!-- 02:06 -->
+
+	<h1>Static Method</h1>
+
+	<h3>Versi chatgpt</h3>
+	<h1>📘 Apa itu Static Method?</h1>
+	<p><b>Static method</b> adalah method yang:</p>
+	<p><i><b>Hanya bisa diakses lewat class, dan bukan lewat instance-nya (object)</b></i></p>
+	<p><i>Umumnya digunakan untuk fungsionalitas umum / global yang tidak perlu data dari instance</i></p>
+
+	<h2>Sintak:</h2>
+
+<pre><code>
+class Kalkulator {
+	static tambah (a, b) {
+		return a + b;
+	}
+}
+
+console.log(Kalkulator.tambah(1, 1)); // 2
+</code></pre>
+
+	<script>
+		{
+			class Kalkulator {
+				static tambah (a, b) {
+					return a + b;
+				}
+			}
+
+			console.log(Kalkulator.tambah(1, 1)); // 2
+
+			let i = new Kalkulator();
+			i.user = "kenny"
+			console.log(i);
+		}
+	</script>
+
+	<blockquote>
+		Kita tidak perlu new Kalkulator().
+		Karena tambah() adalah method statis
+	</blockquote>
+
+	<h2>❌ Tidak Bisa Dipanggil dari Instance:</h2>
+<pre><code>
+const calc = new Kalkulator();
+calc.tambah(1, 1) // ERROOR: calc.tambah is not function
+</code></pre>
+
+	<h2>🧠 Kapan Gunakan Static Method?</h2>
+	<p>Gunakan static method untuk hal-hal berikut:</p>
+	<p><i>Utility function (konversi, format, hitung)</i></p>
+	<p><i>Fungsi-fungsi umum yang tidak tergantung pada data instance</i></p>
+
+	<h3>Versi PZN</h3>
+
+	<p>Kata kunci static juga bisa kita gunakan di method</p>
+	<p>Jika kita tambahkan di method, artinya method tersebut jadi miliki class nya, bukan prototype</p>
+	<p>Dan untuk akses method tersebut, kita juga bisa menggunakan cara static class field</p>
+
+<pre><code>
+class MathUtil {
+	static sum(...numbers) {
+		let total = 0;
+		for (const number of numbers) {
+			total += number;
+		}
+		return total;
+	}
+}
+
+const sum = MathUtil.sum(1,1,1,1,1);
+console.info(sum);
+</code></pre>
+
+	<script>
+		{
+			class MathUtil {
+				static sum(...numbers) {
+					let total = 0;
+					for (const number of numbers) {
+						total += number;
+					}
+					return total;
+				}
+			}
+
+			const sum = MathUtil.sum(1,1,1,1,1);
+			console.info(sum);
+		}
+	</script>
+
+
+	<script src="_script.js"></script>
+	
+</body>
+</html>

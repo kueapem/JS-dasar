@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Statis class field</title>
+	<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+	<!-- 02:00 -->
+
+	<h1>Static class field</h1>
+
+	<h3>Versi Chatgpt</h3>
+	<h2>🔍 Apa itu Static Class Field?</h2>
+	<p>adlaha kata kunci yang digunakan untuk membuat properti atau method yang dimiliki oleh class itu sendiri, bukan oleh instance-nya.</p>
+
+	<blockquote>Jadi, kalau objek biasa menyimpan data di this, maka static menyimpan data langsung di class-nya.</blockquote>
+
+	<h2>🎓 Analogi Sederhana</h2>
+	<p>Bayangkan:</p>
+	<p><b>Class = Pabrik</b></p>
+	<p><b>Instance = Barang hasil pabrik</b></p>
+	<p><b>Static = Data yang hanya dimiliki pabrik, bukan oleh barangnya</b></p>
+
+	<p><i>Contoh</i></p>
+	<p>Pabrik Mobil (class) punya jumlah total produksi (static field: totalMobil)</p>
+	<p>Tapi tiap mobil yang dibuat (instance) tidak tahu-menahu tentang berapa banyak mobil yang sudah dibuat.	</p>
+
+	<h2>✅ Contoh Kode: Static Field dan Static Method</h2>
+<pre><code>
+class Mobil {
+	static totalMobil = 0; // static field
+	
+	constructor(nama) {
+		this.nama = nama;
+		Mobil.totalMobil++; // akses static field lewat class, bukan this
+	}
+	
+	static infoProduksi() {
+		console.log(`Total mobil yang diproduksi: ${Mobil.totalMobil}`);
+	}
+	
+	// method biasa
+	info() {
+		console.log(`Ini mobil ${this.nama}`);
+	}
+}
+	
+const m1 = new Mobil("Avanza");
+const m2 = new Mobil("Innova");
+
+m1.info(); // Ini mobil Avanza
+m2.info(); // Ini mobil Innova
+
+Mobil.infoProduksi(); // Total mobil yang diproduksi: 2
+
+console.log(m1.totalMobil); // undefined! (karena ini milik class, bukan instance)
+</code></pre>
+
+	<table>
+		<tr>
+			<td>Element</td>
+			<td>Penjelasan</td>
+		</tr>
+		<tr>
+			<td>static totalMobil = 0</td>
+			<td>Field milik class, bukan objek</td>
+		</tr>
+		<tr>
+			<td>Mobil.totalMobil++</td>
+			<td>Akses dan ubah static field</td>
+		</tr>
+		<tr>
+			<td>Mobil.infoProduksi()</td>
+			<td>Static method hanya bisa dipanggil lewat nama class</td>
+		</tr>
+		<tr>
+			<td>m1.totalMobil</td>
+			<td>❌ undefined, karena objek m1 tidak punya properti totalMobil</td>
+		</tr>
+	</table>
+
+	<h2>🧪 Catatan Penting</h2>
+	<p>Static field/method tidak bisa diakses lewat this di dalam instance method</p>
+	<p>Static method juga tidak bisa mengakses this.nama (property dari instance) — karena tidak tahu instance mana yang dimaksud.</p>
+
+	<h2>🧠 Kapan Gunakan Static Field?</h2>
+	<p>Untuk menyimpan data global milik class, seperti jumlah instance, pengaturan default, atau cache.</p>
+	<p>Untuk membuat utilitas atau fungsi bantu dalam class (tanpa harus membuat objeknya).</p>
+
+	<h3>Versi PZN</h3>
+	<p>Static merupakan kata kunci yang bisa ditambahkan dalam fiedl atau method, biasanay ketyika kita membuat field atau method, maka akan otomatis fiedl akan menjadi properti instance obejct ny, dan methodn ada menjadi fungsi di prototype</p>
+	<p>Jika kita tamabhakn akata static, maka hal itu akna terjadi</p>
+
+	<h2>Static class field</h2>
+	<p>Jika kita tambahkan static dala class field, secara otomatis field tersebut bukan lagi miliki instance object, melainkan milik class nya itu sendiri.</p>
+	<p>Biasanya static digunakan jika kita ingin membuat utility field atau function</p>
+	<p>Cara mengakses static class field pun tidak lagi lewat obeject, melainkan lewat class nya</p>
+	<p>Static class field bisa diartikan sifaftnya global, tidak peduli di akses dimana atau siapa yang mengakses, hasilnya akan sama</p>
+
+	<p><b>Contoh</b></p>
+<pre><code>
+class Configuration {
+	static name = "Belajar Js Dasar";
+	static version = 1.0;
+	static author = "Kenny";
+}
+
+// cara aksesnya
+console.info(Configuration.name);
+console.info(Configuration.version);
+console.info(Configuration.author);
+
+// merubah nilainya
+Configuration.name = "Rui";
+</code></pre>
+
+	<script>
+		{
+
+			class Configuration {
+				static name = "Belajar Js Dasar";
+				static version = 1.0;
+				static author = "Kenny";
+
+				constructor (nama) {
+					this.nama = nama;
+				}
+			}
+
+			let config = new Configuration("Budi");
+			console.log(config)
+
+			// cara aksesnya
+			console.info(Configuration.name);
+			console.info(Configuration.version);
+			console.info(Configuration.author);
+			
+			// ubah
+			Configuration.name = "Rui";
+			console.info(Configuration.name);
+
+			let i = new Configuration();
+			i.user = 23;
+			console.log(i);
+		}
+	</script>
+
+</body>
+</html>
