@@ -1,0 +1,89 @@
+table, td, th {border: 1px solid;}
+table {width: 100%;border-collapse: collapse;}
+
+h1 {
+	background-color:rgb(104, 35, 35);
+	color: #ecf0f1;
+	padding: 15px;
+	font-family: Arial, sans-serif;
+	font-size: 2.5em;
+	margin: 10px 0;
+}
+
+h2 {
+	background-color:rgb(196, 16, 16);
+	color: #dfe6e9;
+	padding: 12px;
+	font-family: Arial, sans-serif;
+	font-size: 2em;
+	margin: 10px 0;
+}
+
+h3 {
+	background-color:rgb(8, 60, 116);
+	color: #b2bec3;
+	padding: 5px;
+	font-family: Arial, sans-serif;
+	font-size: 1.25em;
+	margin: 5px 0;
+}
+
+h4 {
+	background-color:rgb(24, 151, 241);
+	color: #a3bffa;
+	padding: 8px;
+	font-family: Arial, sans-serif;
+	font-size: 1.5em;
+	margin: 10px 0;
+}
+
+h5 {
+	background-color: #567797;
+	color: #81ecec;
+	padding: 6px;
+	font-family: Arial, sans-serif;
+	font-size: 1.25em;
+	margin: 10px 0;
+}
+
+h6 {
+	background-color: #6281a3;
+	color: #55efc4;
+	padding: 5px;
+	font-family: Arial, sans-serif;
+	font-size: 1em;
+	margin: 10px 0;
+}
+
+blockquote {
+	font-style: italic;
+	color: #333;
+	border-left: 4px solid #007BFF;
+	padding: 10px 15px;
+	margin: 20px 0;
+	background-color: #f9f9f9;
+	border-radius: 4px;
+	white-space: pre-wrap;
+}
+
+/* Gaya untuk elemen <pre> */
+pre {
+	background-color: #282c34; /* Warna latar belakang */
+	color: #abb2bf; /* Warna teks */
+	padding: 1em; /* Ruang di dalam elemen */
+	border-radius: 5px; /* Sudut membulat */
+	overflow: auto; /* Mengizinkan scroll jika konten terlalu panjang */
+	font-family: 'Courier New', Courier, monospace; /* Font monospace */
+	white-space: pre-wrap; /* Membungkus teks */
+	margin: 0; /* Menghilangkan margin */
+	line-height: 1.5; /* Jarak antar baris */
+  }
+  
+  /* Gaya untuk elemen <code> */
+  code {
+	background-color: #3e4451; /* Warna latar belakang */
+	color: #61afef; /* Warna teks */
+	padding: 0.2em 0.4em; /* Ruang di dalam elemen */
+	border-radius: 3px; /* Sudut membulat */
+	font-family: 'Courier New', Courier, monospace; /* Font monospace */
+  }
