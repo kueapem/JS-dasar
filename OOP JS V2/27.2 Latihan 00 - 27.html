@@ -289,7 +289,417 @@
 		}
 	</script>
 
+	<h2>13. Class inheritance</h2>
+	<script>
+		{
+			logBg("Class inheritance");
 
+			class Person {
+				hi(nama) {
+					return `Hello ${nama}`;
+				}
+			}
+
+			class Manusia extends Person {
+				say(umur){
+					return `Hello ${umur}`;
+				}
+			}
+
+			let i = new Manusia();
+			console.log(i.hi("Budi"));
+			console.log(i.say(23));
+		}
+	</script>
+
+	<h2>14. Super constructor</h2>
+	<script>
+		{
+			logBg("Super constructor");
+
+			class Person {
+				constructor (nama) {
+					this.nama = nama;
+				}
+
+				hi(usia) {
+					return `Halo namaku ${this.nama}, usiaku ${usia}`;
+				}
+			}
+
+			class Manusia extends Person {
+				constructor(nama, gender) {
+					super(nama);
+					this.gender = gender;
+				}
+
+				say(usia) {
+					return `Hello aku ${this.nama}, usiaku ${usia} dan aku ${this.gender}`;
+				}
+			}
+
+			let i = new Manusia("Neni", "Perempuan");
+			console.log(i);
+			console.log(i.hi(23));
+			console.log(i.say(23));
+			
+		}
+	</script>
+
+	<h2>15. Super Method</h2>
+	<script>
+		{
+			logBg("Super Method");
+
+			class Person {
+				constructor (nama) {
+					this.nama = nama;
+				}
+
+				hi(usia) {
+					return `Hello aku ${this.nama} usiaku ${usia}`;
+				}
+			}
+
+			class Anak extends Person {
+				constructor (nama, hobi) {
+					super(nama);
+					this.hobi = hobi;
+				}
+
+				say() {
+					let sapa = super.hi(5);
+					return `${sapa} dan Kamu ${this.nama} dengan hobi ${this.hobi} itu ya!!!`;
+				}
+			}
+
+			let i = new Anak("Ani", "Membaca");
+			console.log(i);
+			console.log(i.hi(5));
+			console.log(i.say());
+		}
+	</script>
+
+	<h2>16. Gak ada</h2>
+	<h2>17. Getter dan seeter</h2>
+	<script>
+		{
+			logBg("getter dan setter");
+
+			class Person {
+				constructor (nama) {
+					this._nama = nama;
+				}
+
+				get nama() {
+					return this._nama;
+				}
+
+				set nama(namaBaru) {
+					this._nama = namaBaru;
+				}
+			}
+
+
+			let i = new Person("Kenny");
+			console.log(i);
+			console.log(i.nama);
+			i.nama = "andi";
+			console.log(i.nama);
+
+		}
+	</script>
+
+	<h2>18. Public class</h2>
+	<script>
+		{
+			logBg("Pulic class");
+
+			class Person {
+				city = "Jakarta";
+				constructor (nama, usia) {
+					this.nama = nama;
+					this.usio = usia;
+				}
+
+				hi(n) {
+					return `Hi ${n}, namaku ${this.nama} usiaku ${this.usio} dan aku tinggal di ${this.city}`;
+				}
+			}
+
+			let i = new Person("Budi", 21);
+			console.log(i);
+			console.log(i.hi("kenny"));
+			console.log(i.city);
+		}
+	</script>
+
+	<h2>19. Private class</h2>
+	<script>
+		{
+			logBg("Private class");
+
+			class Person {
+				#city = "Jakarta";
+				constructor (nama) {
+					this.nama = nama;
+				}
+
+				hi(nama) {
+					return `Hi ${nama}, namaku ${this.nama}, aku dari ${this.#city}`;
+				}
+			}
+
+			let i = new Person("Kenny");
+			console.log(i.hi("Andi"));
+			// console.log(i.#city); error
+		}
+	</script>
+
+	<h2>20. Private Method</h2>
+
+	<script>
+		{
+			logBg("Private method");
+
+			class Person {
+				#hi(nama) {
+					return `hi ${nama}, my name is ${this.nama}`;
+				}
+
+				constructor(nama) {
+					this.nama = nama;
+				}
+
+				sapa(usia) {
+					let u = this.#hi("Kenny");
+					return `${u} dan aku berusia ${usia}`;
+				}
+			}
+
+			let i = new Person("Andi");
+			console.log(i.sapa(23));
+			// console.log(i.#hi("jili")); error
+		}
+	</script>
+
+	<h2>21. Operator instanceof</h2>
+	<script>
+		{
+			logBg('Operator instanceof');
+
+			class Person {
+				constructor(nama) {
+					this.nama = nama;
+				}
+
+				hi() {
+					return `Hello ${this.nama}`;
+				}
+			}
+
+			class Human extends Person {
+				constructor(nama, usia) {
+					super(nama);
+					this.usia = usia;
+				}
+
+				sapa() {
+					return `Hello ${this.nama}, usiaku ${this.usia}`;
+				}
+			}
+
+			let y = new Person("Andi");
+			// console.log(y.sapa()); error
+			console.log(y.hi());
+			console.log(y instanceof Human);
+			console.log(y instanceof Person);
+			
+			let i = new Human("Kenny", 23);
+			console.log(i.sapa());
+			console.log(i.hi());
+			console.log(i instanceof Human);
+			console.log(i instanceof Person);
+		}
+	</script>
+
+	<h2>22. Static class field</h2>
+	<script>
+		{
+			logBg("Static class Field");
+
+			class Person {
+				static city = "Jakarta";
+				constructor (nama) {
+					this.nama = nama;
+				}
+
+				hi() {
+					return `Hi, namaku ${this.nama} dan aku dari ${Person.city}`;
+				}
+			}
+
+			let i = new Person("kenny");
+			console.log(i.hi());
+		}
+	</script>
+
+	<h2>23. Static method</h2>
+	<script>
+		{
+			logBg("Static method");
+
+			class Person {
+				static hi(nama) {
+					return `Hi ${nama}`;
+				}
+
+				constructor(nama) {
+					this.nama = nama;
+				}
+
+				sapa() {
+					let i = Person.hi("Kenny");
+					return `${i}. Apa kabar?`;
+				}
+			}
+
+			let y = new Person("Kenny");
+			console.log(y.sapa());
+		}
+	</script>
+
+	<h2>24. Error</h2>
+	<script>
+		{
+			logBg("Error");
+
+			
+			// function bagi(a, b) {
+			// 	if (b === 0) {
+			// 		throw new Error("Gak boleh di bagi nol (0)");
+			// 	}
+			// 	return a / b;
+			// }
+
+			// console.log(bagi(10,0));
+		}
+	</script>
+
+	<h2>25. Error handling</h2>
+	<script>
+		{
+			logBg("Error handling");
+			
+			// function bagi(a, b) {
+			// 	if (b === 0) {
+			// 		throw new Error("Gak boleh di bagi nol (0)");
+			// 	}
+			// 	return a / b;
+			// }
+
+			// try {
+			// 	console.log(bagi(10,0));
+			// } catch (error) {
+			// 	console.info("Error terjadi di: ", error.message);
+			// }
+		}
+
+		{
+			// finally
+			// function bagi(a, b) {
+			// 	if (b === 0) {
+			// 		throw new Error("Gak boleh di bagi nol (0)");
+			// 	}
+			// 	return a / b;
+			// }
+
+			// try {
+			// 	console.log(bagi(10,0));
+			// } catch (error) {
+			// 	console.info("Error terjadi di: ", error.message);
+			// } finally {
+			// 	console.log("Terabas aja lah");
+			// }
+		}
+	</script>
+
+	<h2>26. Membuat class error</h2>
+	<script>
+		{
+			logBg("Membuat class error");
+
+
+			class ErrorLogin extends Error {
+				constructor(message, username, pass) {
+					super(message);
+					this.username = "Admin";
+					this.pass = 123;
+				}
+
+				login(inputUsername, inputPass){
+					if (inputUsername === this.username && inputPass === this.pass) {
+						console.log("Berhasil login");
+					} else {
+						throw new ErrorLogin(`username ${inputUsername} atau password ${inputPass} salah`)
+						
+					}
+				}
+			}
+
+			let i = new ErrorLogin();
+			
+			try {
+				i.login("Admin", "afg");
+			} catch (error) {
+				console.log("Terjadi error di : ", error.message);
+			}
+		}
+	</script>
+
+	<h2>27. Iterable dan iterator</h2>
+
+	<script>
+		{
+			logBg("Iterabel dan iterator");
+
+			class Range {
+				constructor (start, end, step = 1) {
+					this.start = start;
+					this.end = end;
+					this.step = step;
+				}
+
+				[Symbol.iterator]() {
+					let current = this.start;
+					let end = this.end;
+					let step = this.step;
+
+					return {
+						next() {
+							if (current < end) {
+								let value = current;
+								current += step;
+								return {value, done: false};
+							} else {
+								return {done: true};
+							}
+						}
+					}
+				}
+			}
+
+			let range5 = new Range(0, 5);
+			for (let i of range5) {
+				console.log(i);
+			}
+
+			let o = new Range(4, 10, 2);
+			for (const k of o) {
+				console.log(k);
+			}
+		}
+	</script>
 	
 </body>
 </html>
