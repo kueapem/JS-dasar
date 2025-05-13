@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Number</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 00:02:13 -->
+
+	<h1>Number</h1>
+	<p>Merupakan fungsi yang digunakan untuk konversi ke tipe data number</p>
+	<p>JIka data tidak bisa di konversi ke number, secara otomatis hasilnya adalah NaN</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></p>
+
+	<p><b>Kode:</b></p>
+<pre><code>
+const input = "123454";
+const number = Number(input);
+
+console.log(typeof input);
+console.log(typeof number);
+</code></pre>
+
+	<script>
+		{
+			logBg("Number");
+
+			const input = "123454";
+			const number = Number(input);
+
+			console.log(typeof input);
+			console.log(typeof number);
+			console.log(Number("Salah"));
+		}
+	</script>
+
+	<h1>Number static properties</h1>
+	<p>Number memiliki banyak static properties, seperti:</p>
+	<p>Number.MIN_VALUE untuk mendapatkan number minimal</p>
+	<p>Number.MAX_VALUE untuk mendapatkan number maksimal</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#static_properties">static_properties</a></p>
+<blockquote>
+Number.EPSILON
+Interval terkecil antara dua angka yang dapat direpresentasikan.
+
+Number.MAX_SAFE_INTEGER
+Bilangan bulat maksimum yang aman dalam JavaScript (2 53 - 1).
+
+Number.MAX_VALUE
+Angka positif terbesar yang dapat direpresentasikan.
+
+Number.MIN_SAFE_INTEGER
+Bilangan bulat minimum yang aman dalam JavaScript (-(2 53 - 1)).
+
+Number.MIN_VALUE
+Angka positif terkecil yang dapat direpresentasikan—yaitu, angka positif yang paling dekat dengan nol (tanpa benar-benar menjadi nol).
+
+Number.NaN
+Nilai khusus " Bukan Angka " .
+
+Number.NEGATIVE_INFINITY
+Nilai khusus yang mewakili nilai negatif tak terhingga. Dikembalikan saat terjadi luapan.
+
+Number.POSITIVE_INFINITY
+Nilai khusus yang mewakili ketidakterbatasan. Dikembalikan saat terjadi luapan.
+</blockquote>
+
+	<script>
+		{
+
+			logBg("Number static properties");
+
+
+			console.log(Number.MIN_VALUE);
+			console.log(Number.MAX_VALUE);
+			console.log(Number.MIN_SAFE_INTEGER);
+			console.log(Number.MAX_SAFE_INTEGER);
+			
+			console.log(Number.EPSILON);
+			console.log(Number.NaN);
+			console.log(Number.NEGATIVE_INFINITY);
+			console.log(Number.POSITIVE_INFINITY);
+
+		}
+	</script>
+
+	<h1>Number static method</h1>
+	<p>Number memiliki banyak static method, seperti:</p>
+	<p>Number.isNaN(value) untuk cek apakah value adalah NaN atau bukan</p>
+	<p>Number.isInteger(value) cek apakah value berupa integer atau bukan</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#static_methods">static_methods</a></p>
+
+<blockquote>
+Number.isFinite()
+Tentukan apakah nilai yang dilewatkan merupakan bilangan terbatas.
+
+Number.isInteger()
+Tentukan apakah nilai yang dilewatkan merupakan bilangan bulat.
+
+Number.isNaN()
+Tentukan apakah nilai yang dilewatkan adalah NaN.
+
+Number.isSafeInteger()
+Tentukan apakah nilai yang dilewatkan merupakan bilangan bulat aman (angka antara -(2,53 - 1) dan 2,53 - 1).
+
+Number.parseFloat()
+Ini sama dengan parseFloat()fungsi global.
+
+Number.parseInt()
+Ini sama dengan parseInt()fungsi global.
+</blockquote>
+	<script>
+		{
+			logBg("Number static method");
+			
+			let data = Number("1234");
+			console.log(Number.isFinite(data));
+			console.log(Number.isInteger(data));
+			console.log(Number.isNaN(data));
+			console.log(Number.isSafeInteger(data));
+			console.log(Number.parseFloat(data));
+			console.log(Number.parseInt(data));
+		}
+		{
+			logBg("-");
+			let data = Number("Kenny");
+			console.log(Number.isFinite(data));
+			console.log(Number.isInteger(data));
+			console.log(Number.isNaN(data));
+			console.log(Number.isSafeInteger(data));
+			console.log(Number.parseFloat(data));
+			console.log(Number.parseInt(data));
+		}
+	</script>
+
+	<h1>Number instance properties</h1>
+<blockquote>
+Number.prototype.constructor
+Fungsi konstruktor yang membuat objek instan. Untuk Numberinstans, nilai awal adalah Numberkonstruktor.
+</blockquote>
+
+	<script>
+		{
+			logBg("Number instance properties");
+			
+			let obj = Number(22);
+			console.log(obj.constructor);
+			console.log(obj.constructor == Number);
+		}
+	</script>
+	<h1>Number instance method</h1>
+	<p>Number memiliki banyak instance, seperti:</p>
+<blockquote>
+Number.prototype.toExponential()
+Mengembalikan string yang mewakili angka dalam notasi eksponensial.
+
+Number.prototype.toFixed()
+Mengembalikan string yang mewakili angka dalam notasi titik tetap.
+
+Number.prototype.toLocaleString()
+Mengembalikan string dengan representasi sensitif bahasa dari angka ini. Mengganti Object.prototype.toLocaleString()metode.
+https://www.lansweeper.com/knowledgebase/list-of-currency-culture-codes/
+https://community.lansweeper.com/t5/customizing-the-web-console/list-of-currency-culture-codes/ta-p/64431
+
+Number.prototype.toPrecision()
+Mengembalikan string yang mewakili angka dengan presisi tertentu dalam notasi titik tetap atau eksponensial.
+
+Number.prototype.toString()
+Mengembalikan string yang mewakili objek tertentu dalam radix ("basis") yang ditentukan. Menggantikan Object.prototype.toString()metode.
+
+Number.prototype.valueOf()
+Mengembalikan nilai primitif dari objek yang ditentukan. Mengganti Object.prototype.valueOf()metode.
+</blockquote>
+
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#instance_methods">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#instance_methods</a></p>
+
+	<script>
+		{
+			logBg("Number instance method");
+
+			let value = 12345;
+			console.log(value.toExponential(2));
+			console.log(value.toFixed(2));
+			console.log(value.toLocaleString("id-ID"));
+			console.log(value.toPrecision(2));
+			console.log(value.toString(2));
+			console.log(value.valueOf(value));
+		}
+	</script>
+
+	
+	
+</body>
+</html>

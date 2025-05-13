@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RegExp</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 01:54 -->
+
+	<h1>RegExp</h1>
+
+	<p>RegExp merupakan implementasi dari reguler expression di JS</p>
+	<p>RegExp merupakan fitur untuk mencari text dengan pola</p>
+	<p>Membuat reguler expression di js bisa dilakukan dengan dua cara, yaitu menggunakan literal notation atau membuat object RegExp</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp</a></p>
+
+<blockquote>
+Konstruktor
+RegExp()
+Membuat RegExpobjek baru.
+
+Properti statis
+RegExp.$1…, ...RegExp.$9 Tidak berlaku lagi
+Properti statis hanya-baca yang berisi kecocokan sub-string dalam tanda kurung.
+
+RegExp.input( $_) Tidak berlaku lagi
+Properti statis yang berisi string terakhir yang berhasil dicocokkan dengan ekspresi reguler.
+
+RegExp.lastMatch( $&) Tidak berlaku lagi
+Properti statis hanya-baca yang berisi sub-string terakhir yang cocok.
+
+RegExp.lastParen( $+) Tidak berlaku lagi
+Properti statis hanya-baca yang memuat kecocokan sub-string dalam tanda kurung terakhir.
+
+RegExp.leftContext( $`) Tidak berlaku lagi
+Properti statis hanya-baca yang berisi sub-string sebelum kecocokan terkini.
+
+RegExp.rightContext( $') Tidak berlaku lagi
+Properti statis hanya-baca yang berisi sub-string setelah kecocokan terkini.
+
+RegExp[Symbol.species]
+Fungsi konstruktor yang digunakan untuk membuat objek turunan.
+
+Metode statis
+RegExp.escape()
+Melarikan diri dari karakter sintaksis regex potensial apa pun dalam suatu string, dan mengembalikan string baru yang dapat digunakan dengan aman sebagai pola literal untuk RegExp()konstruktor.
+
+Properti instans
+Properti ini didefinisikan RegExp.prototypedan dibagikan oleh semua RegExpinstansi.
+
+RegExp.prototype.constructor
+Fungsi konstruktor yang membuat objek instan. Untuk RegExpinstans, nilai awal adalah RegExpkonstruktor.
+
+RegExp.prototype.dotAll
+Apakah .cocok dengan baris baru atau tidak.
+
+RegExp.prototype.flags
+Suatu string yang berisi bendera suatu RegExpobjek.
+
+RegExp.prototype.global
+Apakah akan menguji ekspresi reguler terhadap semua kemungkinan kecocokan dalam suatu string, atau hanya terhadap yang pertama.
+
+RegExp.prototype.hasIndices
+Apakah hasil ekspresi reguler memperlihatkan indeks awal dan akhir dari sub-string yang ditangkap.
+
+RegExp.prototype.ignoreCase
+Apakah akan mengabaikan huruf besar/kecil saat mencoba mencocokkan dalam string.
+
+RegExp.prototype.multiline
+Apakah akan mencari dalam string lintas beberapa baris atau tidak.
+
+RegExp.prototype.source
+Teks pola.
+
+RegExp.prototype.sticky
+Apakah pencariannya lengket atau tidak.
+
+RegExp.prototype.unicode
+Apakah fitur Unicode diaktifkan atau tidak.
+
+RegExp.prototype.unicodeSets
+vApakah bendera, peningkatan ke umode, diaktifkan atau tidak .
+
+Properti-properti ini adalah properti milik masing-masing RegExpinstansi.
+
+lastIndex
+Indeks untuk memulai pertandingan berikutnya.
+
+Metode instan
+RegExp.prototype.compile() Tidak berlaku lagi
+(Mengkompilasi ulang) ekspresi reguler selama eksekusi skrip.
+
+RegExp.prototype.exec()
+Menjalankan pencarian kecocokan pada parameter string-nya.
+
+RegExp.prototype.test()
+Menguji kecocokan pada parameter stringnya.
+
+RegExp.prototype.toString()
+Mengembalikan string yang mewakili objek yang ditentukan. Mengganti Object.prototype.toString()metode.
+
+RegExp.prototype[Symbol.match]()
+Melakukan pencocokan terhadap string yang diberikan dan mengembalikan hasil pencocokan.
+
+RegExp.prototype[Symbol.matchAll]()
+Mengembalikan semua kecocokan ekspresi reguler terhadap suatu string.
+
+RegExp.prototype[Symbol.replace]()
+Mengganti kecocokan pada string yang diberikan dengan sub-string baru.
+
+RegExp.prototype[Symbol.search]()
+Mencari kecocokan pada string yang diberikan dan mengembalikan indeks pola yang ditemukan dalam string.
+
+RegExp.prototype[Symbol.split]()
+Membagi string yang diberikan ke dalam array dengan memisahkan string menjadi sub-string.
+</blockquote>
+
+
+	<script>
+		{
+
+			// ccreate regexp
+			let regex1 = /[a]/;
+			let regex2 = new RegExp("[a]");
+			let regex3 = new RegExp(/[a]/);
+			let regex4 = /kenny/;
+			let regex5 = new RegExp("Kenny");
+			let regex6 = new RegExp(/Kenny/);
+
+		}
+
+		{
+			//
+			let name = "Kenny ken ken rui tachibana";
+			let cari = /rui/;
+
+			let hasil = cari.exec(name);
+			console.log(hasil);
+
+			let test = cari.test(name);
+			console.log(test);
+		}
+	</script>
+
+	<h2>RegExp modifier</h2>
+	<p>RegExp memiliki modifier untuk mengubah sifat cara pencarian</p>
+
+<blockquote>
+i 							|| Regex menjadi incase sensitive
+g 							|| Pencarian dilakuakn secara global, secara default setelah menemukan data, pencarian akan berhenti
+m 							|| Multiline, pencarian dilakukan di tiap baris (enter)
+</blockquote>
+
+	<script>
+		{
+			let story = "Didalam mimpi itu aku bertemu kamu\ndisana kamu mengenakan gaun merah darah\nsenyum manis dan berani tersinggung di wajahmu yang polos";
+			let regex1 = /mimpi/g;
+			let regex2 = /kamu/m;
+
+			let hasil;
+			while ((hasil = regex1.exec(story)) !== null) {
+				console.log(hasil);
+			}
+
+			while ((hasil = regex2.exec(name)) !== null) {
+				console.log(hasil);
+			}
+		}
+	</script>
+
+
+	<script>
+		{
+			// advance regex
+
+			let regex = /kenn[aiuoe]/ig
+			let name = "kenny kenni kennu kenna kenno kennm kenne kennio";
+			let hasil;
+			while ((hasil = regex.exec(name)) !== null) {
+				console.log(hasil);
+			}
+		}
+	</script>
+
+	<h2>Regeuler expression di string</h2>
+	<p>Di js, tipe data string memiliki instance method yang dapat memanfaatkan RegExp untuk melakukan pencarian</p>
+
+<blockquote>
+match(regex) : array				|| Mencari semua data yang sesuai dengan regex
+search(regex) : lastIndex			|| Mencari index data yang sesuai dengan regex
+replace(regex, value)				|| Mengubah data dengan value yang sesuai regex
+replaceAll(regex, value)				|| Mengubah semua data dengan value yang sesuai regex
+split(regex) : array 				|| Memotong string dengan regex
+</blockquote>
+
+	<script>
+		{
+			let name = "kenny kenni kennu kenna kenno kennm kenne kennio";
+
+			console.log(name.match(/kenn[aiuoe]/ig));
+			console.log(name.search(/kenn[aiuoe]/ig));
+			console.log(name.replace(/kenn[aiuoe]/i, "Kakoi"));
+			console.log(name.replaceAll(/kenn[aiuoe]/ig, "Kakoi"));
+			console.log(name.split(/k/ig));
+		}
+	</script>
+	
+</body>
+</html>

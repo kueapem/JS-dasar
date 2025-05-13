@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bigint</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 01:07 -->
+
+	<h1>Bigint</h1>
+	<p>merupakan tipe data Number yang bisa mencakup data angka lebih dari Number.MAX_SAFE_INTEGER</p>
+	<p>Untuk kasus number yang lebih dari itu, sangat disarankan menggunakan tipe data BigInt</p>
+	<p>Cara menggunakan BigInt sama saja dengan penggunaan Number dan juga operator nya</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt</a></p>
+
+	<script>
+		{ 
+			let a = BigInt(Number.MAX_SAFE_INTEGER);
+			let b = BigInt(Number.MAX_SAFE_INTEGER);
+
+			let c = a + b;
+			console.log(c);
+			console.log(typeof c);
+		}
+	</script>
+	
+</body>
+</html>

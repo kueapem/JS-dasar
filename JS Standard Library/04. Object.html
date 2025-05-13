@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Object</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 00:48 -->
+
+	<h1>Object</h1>
+
+	<p>Pada bab ini kita akan bahas banyak static method yang ada di object</p>
+
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object</a></p>
+
+<blockquote>
+Metode statis
+Object.assign()
+Menyalin nilai semua properti milik sendiri yang dapat dihitung dari satu atau lebih objek sumber ke objek target.
+
+Object.create()
+Membuat objek baru dengan prototipe objek dan properti yang ditentukan.
+
+Object.defineProperties()
+Menambahkan properti bernama yang dijelaskan oleh deskriptor yang diberikan ke suatu objek.
+
+Object.defineProperty()
+Menambahkan properti bernama yang dijelaskan oleh deskriptor yang diberikan ke suatu objek.
+
+Object.entries()
+Mengembalikan array yang memuat semua pasangan properti string enumerabel milik[key, value] objek yang diberikan .
+
+Object.freeze()
+Membekukan objek. Kode lain tidak dapat menghapus atau mengubah propertinya.
+
+Object.fromEntries()
+Mengembalikan objek baru dari [key, value]pasangan yang dapat diulang. (Ini kebalikan dari Object.entries).
+
+Object.getOwnPropertyDescriptor()
+Mengembalikan deskriptor properti untuk properti bernama pada suatu objek.
+
+Object.getOwnPropertyDescriptors()
+Mengembalikan suatu objek yang berisi semua deskriptor properti milik suatu objek.
+
+Object.getOwnPropertyNames()
+Mengembalikan array yang berisi nama semua properti enumerabel dan non-enumerabel milik objek yang diberikan.
+
+Object.getOwnPropertySymbols()
+Mengembalikan array semua properti simbol yang ditemukan langsung pada objek tertentu.
+
+Object.getPrototypeOf()
+Mengembalikan prototipe ( [[Prototype]]properti internal) dari objek yang ditentukan.
+
+Object.groupBy()
+Mengelompokkan elemen-elemen dari suatu iterable tertentu menurut nilai-nilai string yang dikembalikan oleh fungsi panggilan balik yang disediakan. Objek yang dikembalikan memiliki properti terpisah untuk setiap kelompok, yang berisi array dengan elemen-elemen dalam kelompok tersebut.
+
+Object.hasOwn()
+Mengembalikan truejika objek yang ditentukan memiliki properti yang ditunjukkan sebagai propertinya sendiri , atau falsejika properti tersebut diwarisi atau tidak ada.
+
+Object.is()
+Membandingkan apakah dua nilai adalah nilai yang sama. Menyamakan semua NaNnilai (yang berbeda dari yang IsLooselyEqualdigunakan oleh ==dan IsStrictlyEqualyang digunakan oleh ===).
+
+Object.isExtensible()
+Menentukan apakah perluasan suatu objek dibolehkan.
+
+Object.isFrozen()
+Menentukan apakah suatu objek dibekukan.
+
+Object.isSealed()
+Menentukan apakah suatu objek disegel.
+
+Object.keys()
+Mengembalikan array yang berisi nama semua properti string enumerabel milik objek yang diberikan.
+
+Object.preventExtensions()
+Mencegah adanya perluasan suatu objek.
+
+Object.seal()
+Mencegah kode lain menghapus properti suatu objek.
+
+Object.setPrototypeOf()
+Mengatur prototipe objek ( [[Prototype]]properti internalnya).
+
+Object.values()
+Mengembalikan array yang berisi nilai-nilai yang berkaitan dengan semua properti string enumerabel milik objek yang diberikan .
+</blockquote>
+
+	<h2>Object Freeze dan Seal</h2>
+	<p>Secara default, object bisa diubah atau dihapus propertinya</p>
+	<p>JIka kita ingin mengubah sebuah object menjadi object yang tidak bisa diubah atau dihapus, kita bisa menggunakan beberapa static method</p>
+	<p>Object.freeze() digunakan untuk mengubah object menjdai object yang tidak bisa diubah atau di hapus attribute nya</p>
+	<p>Object.seal() digunakan untuk mengubah object menjadi object yang tidak bisa dihapus attribute nya</p>
+
+	<script>
+		{
+			logBg("Freeze");
+			let person = {
+				fName : "Rui",
+				lName : "Tachibana"
+			}
+
+			console.table(person); 
+			Object.freeze(person);
+			person.fName = "Kenny"; // diubah gak bisa
+			delete person.fName; // dihapus gak bisa
+			console.table(person);
+		}
+
+		{
+			logBg("Seal");
+			let person = {
+				fName : "Rui",
+				lName : "Tachibana"
+			}
+
+			console.table(person); 
+			Object.seal(person);
+			person.fName = "Kenny"; // diubah gak bisa
+			delete person.fName; // dihapus gak bisa
+			console.table(person);
+		}
+	</script>
+
+	<h2>Object Assign</h2>
+	<p>Kadang kita ada kasus menggabungkan semua attribute dari sebuah object ke object lain</p>
+	<p>Hal ini bisa kita lakukan dengan menggunakan Object.assign(target,source)</p>
+
+	<script>
+		{
+			logBg("Object assign");
+
+			let target = {
+				fName: "Rui"
+			}
+
+			let source = {
+				lName: "Tachibana"
+			}
+
+			console.table(target);
+			console.table(source);
+			Object.assign(target, source);
+			console.table(target);
+		}
+	</script>
+
+	<h2>Object property name dan value</h2>
+	<p>Object juga memiliki static method untuk digunakan mengambil semua properties names dan value</p>
+	<p>Object.values() digunakan untuk mengambil semua property value</p>
+	<p>Object.getPropertyNames() digunkan untuk mengambil semua properti name</p>
+
+	<script>
+		{
+			logBg("Object property name dan value");
+
+			let Person = {
+				fName : "Rui",
+				mName : "Ken",
+				lName : "Tachibana",
+			}
+
+			let values = Object.values(Person);
+			let get = Object.getOwnPropertyNames(Person);
+			console.log(values);
+			console.log(get);
+		}
+	</script>
+
+	<p>Untuk method lainnya, bisa akses dan coba di:</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object</a></p>
+	
+</body>
+</html>

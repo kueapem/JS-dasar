@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Date</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 01:11 -->
+
+	<h1>Date</h1>
+	<p>Js memiliki tipe data untuk representasi waktu dan tanggal, yaitu Date</p>
+	<p>Date merupakan representasi milisecond sejak tanggal 1 januari 1970, atau dikenal dengan Epoch & Unix Timestamp</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date</a></p>
+
+	<h2>Membuat object date</h2>
+	<p>Untuk membuat object date, kita bisa menggunakan new Date(), dimana terdapat constructor parameter</p>
+<blockquote>
+new Date()												|| Membuat date saat ini
+new Date(year, month, date)									|| membuat date dengan tanggal
+new Date(Yead, month, date?, hour?, minute?, second?, milis?)			|| Membuat date dengan parameter sampai milis?
+new Date(timestamp)										|| Membuat date dari epoch atau unix timestamp
+</blockquote>
+
+	<script>
+		{
+			logBg("Date");
+
+			console.log(new Date());
+			console.log(new Date(2025,4, 11));
+			console.log(new Date(2020,4, 11, 19, 15, 7, 122));
+			console.log(new Date(1746970409173));
+		}
+	</script>
+
+	<p>Untuk cek currentmillis:</p>
+	<p><a href="https://currentmillis.com/">https://currentmillis.com/</a></p>
+
+
+	<h2>Epoch & Unix Timestamp</h2>
+	<p>Dalam menggunakan tipe data waktu, biasanya disemua bahasa pemrograman akan mendukung yang namanya epoch & unix timestamp</p>
+	<p>Epoch & timestamp merupakan hitungan milisecond setelah tanggal 1 januari 1970</p>
+	<p>JS pun mendukung pembuatan waktu dalam bentuk epoch & unix timestamp</p>
+	<p>Untuk mendapatkan waktu saat ini dalam epoch & unix timestamp, kita bisa menggunakan Date.now()</p>
+	<p>Untuk mengubah dari object date ke epoch & unix timestamp, kita bisa menggunakan function getTime()</p>
+
+	<script>
+		{
+			logBg("epoch & unix timestamps")
+
+			let timestamp = Date.now();
+			console.log(timestamp);
+			
+			let dateUnix = new Date(timestamp)
+			console.log(dateUnix);
+			
+			console.log(dateUnix.getTime());
+			
+		}
+	</script>
+
+	<h2>Parsing Date</h2>
+	<p>Kita juga bisa melakukan parsing membuat date dari string menggunakan method Date.parse(value)</p>
+	<p>Format string harus YYYY-MM-DDTHH:mm:ss:sssZ</p>
+	<p>Dimana jika kita hanya membuat date berisi tanggal saja, kita cukup gunakan YYYY-MM-DD</p>
+	<p>Jika date dengan tanggal dan waktu : YYYY-MM-DDTHH:mm:ss:sss</p>
+	<p>Jika date dengan tanggal, watu dan timezone : YYYY-MM-DDTHH:mm:ss:sssZ</p>
+	<p>Hasil parsing adalah unix timestamp, bukan object date</p>
+<blockquote>
+YYYY			|| Tahun (4 digit)				|| 2025
+MM			|| Bulan (2 digit, 01 = Jan, 12 = Des)	|| 05
+DD			|| Hari dalam bulan (01–31)			|| 10
+T			|| Pemisah antara tanggal dan waktu		|| T
+HH			|| (00–23, format 24 jam)			|| 14
+mm			|| Menit (00–59)					|| 30
+ss			|| Detik (00–59)					|| 45
+.sss			|| Milidetik (000–999)				|| 123
+Z			|| Zona waktu UTC (Z = Zulu time/UTC)	|| Z = UTC
+</blockquote>
+
+	<script>
+		{
+			logBg("Parsing Date");
+
+			let parseTime = Date.parse("2025-05-10T14:30:45.123+07:00");
+			console.log(parseTime);
+
+			let parseDate = new Date(parseTime);
+			console.log(parseDate);
+		}
+	</script>
+
+	<h2>Date getter dan setter</h2>
+	<p>Date juga memiliki banyak method untuk mendapatkan informasi date dan juga mengubah informasi date, atau istilahnya getter dan setter</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#instance_methods">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#instance_methods</a></p>
+
+<blockquote>
+Date.prototype.getDate()
+Mengembalikan hari dalam sebulan ( 1– 31) untuk tanggal yang ditentukan menurut waktu setempat.
+
+Date.prototype.getDay()
+Mengembalikan hari dalam seminggu ( 0– 6) untuk tanggal yang ditentukan menurut waktu setempat.
+
+Date.prototype.getFullYear()
+Mengembalikan tahun (4 digit untuk tahun 4 digit) dari tanggal yang ditentukan menurut waktu setempat.
+
+Date.prototype.getHours()
+Mengembalikan jam ( 0– 23) pada tanggal yang ditentukan menurut waktu setempat.
+
+Date.prototype.getMilliseconds()
+Mengembalikan milidetik ( 0– 999) pada tanggal yang ditentukan menurut waktu setempat.
+
+Date.prototype.getMinutes()
+Mengembalikan menit ( 0– 59) pada tanggal yang ditentukan menurut waktu setempat.
+
+Date.prototype.getMonth()
+Mengembalikan bulan ( 0– 11) pada tanggal yang ditentukan menurut waktu setempat.
+
+Date.prototype.getSeconds()
+Mengembalikan detik ( 0– 59) pada tanggal yang ditentukan menurut waktu setempat.
+
+Date.prototype.getTime()
+Mengembalikan nilai numerik dari tanggal yang ditentukan sebagai jumlah milidetik sejak 1 Januari 1970 00:00:00 UTC. (Nilai negatif dikembalikan untuk waktu sebelumnya.)
+
+Date.prototype.getTimezoneOffset()
+Mengembalikan perbedaan zona waktu dalam menit untuk lokal saat ini.
+
+Date.prototype.getUTCDate()
+Mengembalikan hari (tanggal) bulan ( 1– 31) pada tanggal yang ditentukan menurut waktu universal.
+
+Date.prototype.getUTCDay()
+Mengembalikan hari dalam seminggu ( 0– 6) pada tanggal yang ditentukan menurut waktu universal.
+
+Date.prototype.getUTCFullYear()
+Mengembalikan tahun (4 digit untuk tahun 4 digit) pada tanggal yang ditentukan menurut waktu universal.
+
+Date.prototype.getUTCHours()
+Mengembalikan jam ( 0– 23) pada tanggal yang ditentukan menurut waktu universal.
+
+Date.prototype.getUTCMilliseconds()
+Mengembalikan milidetik ( 0– 999) pada tanggal yang ditentukan menurut waktu universal.
+
+Date.prototype.getUTCMinutes()
+Mengembalikan menit ( 0– 59) pada tanggal yang ditentukan menurut waktu universal.
+
+Date.prototype.getUTCMonth()
+Mengembalikan bulan ( 0– 11) pada tanggal yang ditentukan menurut waktu universal.
+
+Date.prototype.getUTCSeconds()
+Mengembalikan detik ( 0– 59) pada tanggal yang ditentukan menurut waktu universal.
+
+Date.prototype.getYear() Tidak berlaku lagi
+Mengembalikan tahun (biasanya 2–3 digit) pada tanggal yang ditentukan menurut waktu setempat. Gunakan getFullYear()sebagai gantinya.
+
+Date.prototype.setDate()
+Menetapkan hari dalam sebulan untuk tanggal tertentu menurut waktu setempat.
+
+Date.prototype.setFullYear()
+Menetapkan tahun lengkap (misalnya, 4 digit untuk tahun 4 digit) untuk tanggal tertentu menurut waktu setempat.
+
+Date.prototype.setHours()
+Menetapkan jam untuk tanggal tertentu menurut waktu setempat.
+
+Date.prototype.setMilliseconds()
+Mengatur milidetik untuk tanggal tertentu menurut waktu setempat.
+
+Date.prototype.setMinutes()
+Mengatur menit untuk tanggal tertentu berdasarkan waktu setempat.
+
+Date.prototype.setMonth()
+Menetapkan bulan untuk tanggal tertentu menurut waktu setempat.
+
+Date.prototype.setSeconds()
+Mengatur detik untuk tanggal tertentu menurut waktu setempat.
+
+Date.prototype.setTime()
+Mengatur Dateobjek ke waktu yang direpresentasikan oleh jumlah milidetik sejak 1 Januari 1970 00:00:00 UTC. Gunakan angka negatif untuk waktu sebelumnya.
+
+Date.prototype.setUTCDate()
+Menetapkan hari dalam sebulan untuk tanggal tertentu menurut waktu universal.
+
+Date.prototype.setUTCFullYear()
+Menetapkan tahun lengkap (misalnya, 4 digit untuk tahun 4 digit) untuk tanggal tertentu menurut waktu universal.
+
+Date.prototype.setUTCHours()
+Mengatur jam untuk tanggal tertentu menurut waktu universal.
+
+Date.prototype.setUTCMilliseconds()
+Mengatur milidetik untuk tanggal tertentu menurut waktu universal.
+
+Date.prototype.setUTCMinutes()
+Mengatur menit untuk tanggal tertentu menurut waktu universal.
+
+Date.prototype.setUTCMonth()
+Menetapkan bulan untuk tanggal tertentu menurut waktu universal.
+
+Date.prototype.setUTCSeconds()
+Mengatur detik untuk tanggal tertentu menurut waktu universal.
+
+Date.prototype.setYear() Tidak berlaku lagi
+Menetapkan tahun (biasanya 2–3 digit) untuk tanggal tertentu menurut waktu setempat. Gunakan setFullYear()sebagai gantinya.
+
+Date.prototype.toDateString()
+Mengembalikan bagian "tanggal" Datesebagai string yang dapat dibaca manusia seperti 'Thu Apr 12 2018'.
+
+Date.prototype.toISOString()
+Mengonversi tanggal menjadi string mengikuti Format Diperluas ISO 8601.
+
+Date.prototype.toJSON()
+Mengembalikan string yang mewakili Datepenggunaan toISOString(). Dimaksudkan untuk dipanggil secara implisit oleh JSON.stringify().
+
+Date.prototype.toLocaleDateString()
+Mengembalikan string dengan representasi sensitif lokalitas dari bagian tanggal dari tanggal ini berdasarkan pengaturan sistem.
+
+Date.prototype.toLocaleString()
+Mengembalikan string dengan representasi tanggal ini yang sensitif terhadap lokasi. Mengganti Object.prototype.toLocaleString()metode.
+
+Date.prototype.toLocaleTimeString()
+Mengembalikan string dengan representasi bagian waktu tanggal ini yang bersifat lokal, berdasarkan pengaturan sistem.
+
+Date.prototype.toString()
+Mengembalikan string yang mewakili Dateobjek yang ditentukan. Mengganti Object.prototype.toString()metode.
+
+Date.prototype.toTemporalInstant() Eksperimental
+Mengembalikan Temporal.Instantobjek baru dengan nilai yang sama dengan stempel waktuepochMilliseconds tanggal ini .
+
+Date.prototype.toTimeString()
+Mengembalikan bagian "waktu" Datesebagai string yang dapat dibaca manusia.
+
+Date.prototype.toUTCString()
+Mengonversi tanggal menjadi string menggunakan zona waktu UTC.
+
+Date.prototype.valueOf()
+Mengembalikan nilai primitif suatu Dateobjek. Mengganti Object.prototype.valueOf()metode.
+
+Date.prototype[Symbol.toPrimitive]()
+Mengubah objek ini Dateke nilai primitif.
+</blockquote>
+
+	<script>
+		{
+
+			logBg("Date getter dan setter");
+
+			let date =new Date();
+			date.setFullYear(2002);
+			console.log(date);
+
+			console.log(date.getFullYear());
+			console.log(date.getMonth());
+			console.log(date.getDay());
+			console.log(date.getHours());
+			console.log(date.getMinutes());
+			console.log(date.getSeconds());
+			console.log(date.getMilliseconds());
+			console.log(date.getTimezoneOffset());
+		}
+	</script>
+	
+	
+</body>
+</html>

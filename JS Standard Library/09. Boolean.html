@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Boolean</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 01:31 -->
+
+	<h1>Boolean</h1>
+	<p>Boolean merupakan wrapper class untuk tipe primitif boolean (beda Boolean dan boolean di huruf B/b)</p>
+	<p>Boolean memiliki method toString() untuk mengkonversi ke string</p>
+	<p>Dan memiliki method valueOf() untuk mengkonversi ke tipe boolean primitif</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean</a></p>
+
+<blockquote>
+Boolean.prototype.toString()
+Mengembalikan string yang berisi salah satu trueatau yang lain, falsetergantung pada nilai objek. Mengganti Object.prototype.toString()metode.
+
+Boolean.prototype.valueOf()
+Mengembalikan nilai primitif objek Boolean. Mengganti Object.prototype.valueOf()metode.
+</blockquote>
+
+	<script>
+		{
+			let boolean = Boolean(true);
+			console.log(boolean);
+			console.log(boolean.toString());
+			console.log(boolean.valueOf());
+		}
+	</script>
+	
+</body>
+</html>

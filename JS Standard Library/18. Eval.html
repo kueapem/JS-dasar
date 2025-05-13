@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Eval</title>
+		<link rel="stylesheet" href="_style.css" />
+		<script src="_script.js"></script>
+	</head>
+	<body>
+		<!-- 02:50 -->
+
+		<h1>Eval</h1>
+
+		<p>Merupakan fungsi yang digunakan untuk eksekusi kode js dari string</p>
+		<p>Fitur ini menarik, namun perlu berhati-hati ketika menggunakannya</p>
+		<p>
+			Jika sampai salah penggunaannya, maka bisa jadi kita malah mengeksekusi
+			kode program yang bisa menyebabkan masalah keamanan di web kita
+		</p>
+		<p>
+			<a
+				href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval"
+				>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval</a
+			>
+		</p>
+
+		<script>
+			{
+				let script = "alert('Ups, ada maling')";
+
+				eval(script);
+			}
+		</script>
+
+		<p><b>Tidak di rekomendasikan</b></p>
+	</body>
+</html>

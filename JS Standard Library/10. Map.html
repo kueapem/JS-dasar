@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Map</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 01:35 -->
+
+	<h1>Map</h1>
+	<p>Map merupakan representasi dari struktur data key-value</p>
+	<p>Map mirip dengan tipe data object, hanya saja pada Map, semua method untuk manipulasi data sudah di sediakan</p>
+	<p>Map mengikuti kontrak iterable, sehingga bisa di iterasi secara default</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map</a></p>
+
+<blockquote>
+Map.prototype.constructor
+Fungsi konstruktor yang membuat objek instan. Untuk Mapinstans, nilai awal adalah Mapkonstruktor.
+
+Map.prototype.size
+Mengembalikan jumlah pasangan kunci/nilai dalam Mapobjek.
+
+Map.prototype[Symbol.toStringTag]
+Nilai awal properti [Symbol.toStringTag]adalah string "Map". Properti ini digunakan dalam Object.prototype.toString().
+
+Map.prototype.clear()
+Menghapus semua pasangan kunci-nilai dari Mapobjek.
+
+Map.prototype.delete()
+Mengembalikan truejika suatu elemen dalam Mapobjek ada dan telah dihapus, atau falsejika elemen tersebut tidak ada. map.has(key) akan kembali falsesetelahnya.
+
+Map.prototype.entries()
+Mengembalikan objek Iterator baru yang berisi array beranggotakan dua [key, value]untuk setiap elemen dalam Mapobjek dalam urutan penyisipan.
+
+Map.prototype.forEach()
+Memanggil callbackFnsekali untuk setiap pasangan kunci-nilai yang ada dalam Mapobjek, dalam urutan penyisipan. Jika thisArgparameter diberikan ke forEach, parameter tersebut akan digunakan sebagai thisnilai untuk setiap panggilan balik.
+
+Map.prototype.get()
+Mengembalikan nilai yang dikaitkan dengan kunci yang diteruskan, atau undefinedjika tidak ada.
+
+Map.prototype.has()
+Mengembalikan boolean yang menunjukkan apakah suatu nilai telah dikaitkan dengan kunci yang diteruskan dalam Mapobjek atau tidak.
+
+Map.prototype.keys()
+Mengembalikan objek Iterator baru yang berisi kunci untuk setiap elemen dalam Mapobjek dalam urutan penyisipan.
+
+Map.prototype.set()
+Mengatur nilai untuk kunci yang diberikan dalam Mapobjek. Mengembalikan Mapobjek.
+
+Map.prototype.values()
+Mengembalikan objek Iterator baru yang berisi nilai untuk setiap elemen dalam Mapobjek dalam urutan penyisipan.
+
+Map.prototype[Symbol.iterator]()
+Mengembalikan objek Iterator baru yang berisi array beranggotakan dua [key, value]untuk setiap elemen dalam Mapobjek dalam urutan penyisipan.
+</blockquote>
+
+	<script>
+		{
+			let map = new Map();
+			map.set("Name", "Kenny ken ken");
+			map.set("Country", "Indonesia");
+
+			console.log(map);
+			console.log(map.get("Name"));
+			console.log(map.get("Country"));
+
+			for (const item of map) {
+				console.log(`${item[0]} : ${item[1]}`);
+			}
+
+			// lebih baik pakai
+			map.forEach((value, key) => console.log(`${value} : ${key}`));
+		}
+	</script>
+	
+</body>
+</html>

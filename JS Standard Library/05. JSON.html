@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JSON</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 01:00 -->
+
+	<h1>JSON</h1>
+	<p>Json -> javascript object notation</p>
+	<p>JSON merupakan data string yang bentuknya mirip dengan javascript object</p>
+	<p>Saat ini JSON banyak sekali digunakan untuk komunikasi antar server dan client</p>
+	<p><a href="https://www.json.org/json-en.html">https://www.json.org/json-en.html</a></p>
+
+	<h2>Json</h2>
+	<p>Js mendukung konversi data dari String json ke object ataupun sebaliknya</p>
+	<p>JSON.stringify() digunakan untuk melakukan konversi dari object ke string</p>
+	<p>JSON.parse() digunakan untuk melakukan konversi dari string ke Object</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON</a></p>
+
+	<script>
+		{
+			let person = {
+				fName : "Rui",
+				mName : "Ken",
+				lName : "Tachibana",
+				address : {
+					country: "Indonesia",
+					city: "Jakarta"
+				}
+			};
+
+			let json = JSON.stringify(person);
+			console.info(json);
+			let json2 = JSON.stringify(person, null, 2);
+			console.info(json2);
+			let personAgain = JSON.parse(json);
+			console.info(personAgain);
+
+		}
+	</script>
+	
+</body>
+</html>

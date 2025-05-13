@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Replect</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 02:32 -->
+
+	<h1>Reflect</h1>
+	<p>Reflect merupakan class di js yang digunakan untuk mengeksekusi ja fungsi</p>
+	<p>Reflect tidak memiliki constuctor, dan cra penggunaan reflect tidak dengan membuat object dengan new reflect</p>
+	<p>Penggunaan reflect adalah menggunakan banyak sekali static methodnya</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect</a></p>
+
+<blockquote>
+Properti statis
+Reflect[Symbol.toStringTag]
+Nilai awal properti [Symbol.toStringTag]adalah string "Reflect". Properti ini digunakan dalam Object.prototype.toString().
+
+Metode statis
+Reflect.apply()
+Memanggil targetfungsi dengan argumen yang ditentukan oleh argumentsListparameter. Lihat juga Function.prototype.apply().
+
+Reflect.construct()
+Operator sebagai fungsi. Setara dengan pemanggilan . Juga menyediakan opsi untuk menentukan prototipe yang berbeda new.new target(...argumentsList)
+
+Reflect.defineProperty()
+Mirip dengan Object.defineProperty(). Mengembalikan boolean jika trueproperti berhasil didefinisikan.
+
+Reflect.deleteProperty()
+Operator sebagai suatu fungsi delete. Setara dengan pemanggilan delete target[propertyKey].
+
+Reflect.get()
+Mengembalikan nilai properti. Berfungsi seperti mendapatkan properti dari sebuah objek ( target[propertyKey]) sebagai sebuah fungsi.
+
+Reflect.getOwnPropertyDescriptor()
+Mirip dengan Object.getOwnPropertyDescriptor(). Mengembalikan deskriptor properti dari properti yang diberikan jika ada pada objek, undefinedjika tidak.
+
+Reflect.getPrototypeOf()
+Sama seperti Object.getPrototypeOf().
+
+Reflect.has()
+Mengembalikan nilai boolean yang menunjukkan apakah target memiliki properti. Baik sebagai milik sendiri maupun warisan. Berfungsi seperti inoperator sebagai fungsi.
+
+Reflect.isExtensible()
+Sama seperti Object.isExtensible(). Mengembalikan nilai boolean truejika target dapat diperluas.
+
+Reflect.ownKeys()
+Mengembalikan array kunci properti milik objek target (bukan yang diwarisi).
+
+Reflect.preventExtensions()
+Mirip dengan Object.preventExtensions(). Mengembalikan boolean truejika pembaruan berhasil.
+
+Reflect.set()
+Fungsi yang menetapkan nilai ke properti. Mengembalikan nilai boolean truejika pembaruan berhasil.
+
+Reflect.setPrototypeOf()
+Fungsi yang menetapkan prototipe suatu objek. Mengembalikan nilai boolean truejika pembaruan berhasil.
+</blockquote>
+
+	<script>
+		{
+			let person = {};
+
+			Reflect.set(person, 'fName', 'Kenny');
+			Reflect.set(person, 'lName', 'Tachibana');
+
+			console.log(person);
+			console.log(person.fName); // cara biasa
+
+			console.log(Reflect.get(person, 'fName'));
+			console.log(Reflect.get(person, 'lName'));
+			console.log(Reflect.has(person, 'mName'));
+			console.log(Reflect.has(person, 'lName'));
+			console.log(Reflect.getOwnPropertyDescriptor(person, 'lName'));
+			console.log(Reflect.deleteProperty(person, 'lName'));
+			console.log(person);
+
+
+		}
+
+		{
+			class Person {
+				constructor (nama) {
+					this.nama = nama;
+				}
+			}
+
+			let i = new Person("kenny")
+			console.log(i);
+			console.log(i.nama);
+		}
+	</script>
+	
+</body>
+</html>

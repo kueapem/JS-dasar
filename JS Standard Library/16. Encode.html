@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Endoce</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 02:36 -->
+
+	<h1>Encode</h1>
+	<p>Saat kita menuliskan Url, kadang kita ingin menambahkan informasi tambahan seperti query parameter misalnya</p>
+	<p>Url sendiri sudah memiliki standar encoding penulisan URL</p>
+	<p>Standar encoding ini dilakukan agar penulisan URL aman ketika diterima oleh server</p>
+	<p>Aman disini dalam artian informasi URL tidak berubah</p>
+	<p>Contoh paling sederhana, misal walaupun kita bisa mengirim spasi dalam url, tapi disarankan untuk di encode agar nilai spasi tidak benar-benar terlihat seperti spasi pada URL nya</p>
+
+	<h2>Conoth masalah jika tidak menggunakan Encode</h2>
+	<p>Misal ada query parameter dengan nama data, lalu kita ingin mengirimkan nilai kesana</p>
+	<p>Misal nilainya adalah &eko=eko&, alhasil URL nya akan seperti berikut</p>
+	<p>https://contoh.com?data=&eko=eko&</p>
+	<p>URL diatas seperinya tidak ada masalah, tapi sebenarnya ketika diterima oleh server, parameter data bernilai kosong, kenapa? karena & dianggap pemisah antar parameter</p>
+	<p>Artinya tanda seperti & dan lain lainnyta perlu di encode, agar tidak terjadi kesalahan data saat kita kirim</p>
+
+<blockquote>
+encodeURI(value)							|| Untuk encode value, namun karakter yang dipesan di URI tidak akan diubah ;/?:@&=+$,#
+encodeURIComponent(value)					|| Melakukan encode value semua karakter
+decodeURI(encoded)						|| Melakukan decode value hasil encodeURI()
+decodeURIComponent(encoded)					|| Melakukan decode value hasil encodeURIComponent()
+</blockquote>
+
+	<script>
+		{
+
+			logBg("Encode")
+			const set1 = ";/?:@&=+$,#";
+			const set2 = "-.!~*'()";
+			const set3 = "ABC abc 123";
+
+			logBg("encodeURI");
+			console.log(encodeURI(set1));
+			console.log(encodeURI(set2));
+			console.log(encodeURI(set3));
+			
+			logBg("encodeURIComponent");
+			console.log(encodeURIComponent(set1));
+			console.log(encodeURIComponent(set2));
+			console.log(encodeURIComponent(set3));
+		}
+
+		{
+			logBg("Decode");
+			const set1 = ";/?:@&=+$,#";
+			const set2 = "-.!~*'()";
+			const set3 = "ABC%20abc%20123";
+
+			logBg("DecodeURI");
+			console.log(decodeURI(set1));
+			console.log(decodeURI(set2));
+			console.log(decodeURI(set3));
+
+		}
+
+		{
+			logBg("decodeURICOmopnent");
+			const set1 = "%3B%2F%3F%3A%40%26%3D%2B%24%2C%23";
+			const set2 = "-.!~*'()";
+			const set3 = "ABC%20abc%20123";
+
+			logBg("encodeURIComponent");
+			console.log(decodeURIComponent(set1));
+			console.log(decodeURIComponent(set2));
+			console.log(decodeURIComponent(set3));
+
+
+		}
+	</script>
+
+	
+</body>
+</html>

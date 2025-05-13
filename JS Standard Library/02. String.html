@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>String</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 00:13 -->
+
+	<h1>String</h1>
+	<p>Sudah pernah dibahas di materi js dasar</p>
+	<p>Untuk sekarang kita akana bahasa insatnce method atau juga insatnce propertie yang terdapat di String</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String</a></p>
+
+	<h2>Keterangan</h2>
+	<p>String berguna untuk menyimpan data yang dapat direpresentasikan dalam bentuk teks. Beberapa operasi yang paling sering digunakan pada string adalah memeriksa string length, membuat dan menggabungkan string menggunakan operator string +dan+= string , memeriksa keberadaan atau lokasi substring dengan indexOf()metode, atau mengekstrak substring dengan metode substring().</p>
+
+	<h2>String instance method dan properties</h2>
+	<p>String sendiri memiliki banyak sekali instance method dan properties</p>
+	<p>Hal ini menjadikan kita untuk memanifulasi data string jadi lebih mudah, misalnya: mengubah menjadi lowercase, UPPERCASE, memotong string arra dll.</p>
+
+	<h3>instance method</h3>
+<blockquote>
+String.prototype.at()
+Mengembalikan karakter (tepatnya satu unit kode UTF-16) pada index. Menerima bilangan bulat negatif, yang dihitung mundur dari karakter string terakhir.
+
+String.prototype.charAt()
+Mengembalikan karakter (tepat satu unit kode UTF-16) pada titik yang ditentukan index.
+
+String.prototype.charCodeAt()
+Mengembalikan angka yang merupakan nilai unit kode UTF-16 pada yang diberikan index.
+
+String.prototype.codePointAt()
+Mengembalikan bilangan bulat nonnegatif Angka yang merupakan nilai titik kode dari titik kode berkode UTF-16 yang dimulai pada titik yang ditentukan pos.
+
+String.prototype.concat()
+Menggabungkan teks dari dua (atau lebih) string dan mengembalikan string baru.
+
+String.prototype.endsWith()
+Menentukan apakah suatu string diakhiri dengan karakter string searchString.
+
+String.prototype.includes()
+Menentukan apakah string pemanggil berisi searchString.
+
+String.prototype.indexOf()
+Mengembalikan indeks dalam string ini dari kemunculan pertama searchValue, atau -1jika tidak ditemukan.
+
+String.prototype.isWellFormed()
+Mengembalikan boolean yang menunjukkan apakah string ini mengandung pengganti tunggal .
+
+String.prototype.lastIndexOf()
+Mengembalikan indeks dalam string ini dari kemunculan terakhir searchValue, atau -1jika tidak ditemukan.
+
+String.prototype.localeCompare()
+Mengembalikan angka yang menunjukkan apakah string referensi compareStringmuncul sebelum, sesudah, atau ekuivalen dengan string yang diberikan dalam urutan pengurutan.
+
+String.prototype.match()
+Digunakan untuk mencocokkan ekspresi reguler regexpdengan suatu string.
+
+String.prototype.matchAll()
+Mengembalikan iterator dari semua regexpkecocokan .
+
+String.prototype.normalize()
+Mengembalikan Bentuk Normalisasi Unicode dari nilai string pemanggil.
+
+String.prototype.padEnd()
+Mengisi string saat ini dari akhir dengan string yang diberikan dan mengembalikan string baru dengan panjang targetLength.
+
+String.prototype.padStart()
+Mengisi string saat ini dari awal dengan string yang diberikan dan mengembalikan string baru dengan panjang targetLength.
+
+String.prototype.repeat()
+Mengembalikan string yang terdiri dari elemen objek yang diulang countberkali-kali.
+
+String.prototype.replace()
+Digunakan untuk mengganti kemunculan searchForpenggunaan replaceWith. searchFordapat berupa string atau Ekspresi Reguler, dan replaceWithdapat berupa string atau fungsi.
+
+String.prototype.replaceAll()
+Digunakan untuk mengganti semua kemunculan searchForpenggunaan replaceWith. searchFordapat berupa string atau Ekspresi Reguler, dan replaceWithdapat berupa string atau fungsi.
+
+String.prototype.search()
+Mencari kecocokan antara ekspresi reguler regexpdan string pemanggil.
+
+String.prototype.slice()
+Mengekstrak bagian string dan mengembalikan string baru.
+
+String.prototype.split()
+Mengembalikan array string yang diisi dengan membagi string pemanggil pada kemunculan substring sep.
+
+String.prototype.startsWith()
+Menentukan apakah string pemanggil dimulai dengan karakter string searchString.
+
+String.prototype.substr() Tidak berlaku lagi
+Mengembalikan bagian string, dimulai pada indeks yang ditentukan dan diperluas untuk sejumlah karakter tertentu setelahnya.
+
+String.prototype.substring()
+Mengembalikan string baru yang berisi karakter dari string pemanggil dari (atau antara) indeks yang ditentukan (atau indeks-indeks).
+
+String.prototype.toLocaleLowerCase()
+Karakter dalam string diubah menjadi huruf kecil dengan tetap memperhatikan lokal saat ini.
+
+Untuk sebagian besar bahasa, ini akan menghasilkan hasil yang sama seperti toLowerCase().
+
+String.prototype.toLocaleUpperCase()
+Karakter dalam string diubah menjadi huruf besar dengan tetap memperhatikan lokal saat ini.
+
+Untuk sebagian besar bahasa, ini akan menghasilkan hasil yang sama seperti toUpperCase().
+
+String.prototype.toLowerCase()
+Mengembalikan nilai string pemanggil yang diubah ke huruf kecil.
+
+String.prototype.toString()
+Mengembalikan string yang mewakili objek yang ditentukan. Mengganti Object.prototype.toString()metode.
+
+String.prototype.toUpperCase()
+Mengembalikan nilai string pemanggil yang diubah ke huruf besar.
+
+String.prototype.toWellFormed()
+Mengembalikan string di mana semua pengganti tunggal dari string ini diganti dengan karakter pengganti Unicode U+FFFD.
+
+String.prototype.trim()
+Memotong spasi dari awal dan akhir string.
+
+String.prototype.trimEnd()
+Memotong spasi dari akhir string.
+
+String.prototype.trimStart()
+Memotong spasi dari awal string.
+
+String.prototype.valueOf()
+Mengembalikan nilai primitif dari objek yang ditentukan. Mengganti Object.prototype.valueOf()metode.
+
+String.prototype[Symbol.iterator]()
+Mengembalikan objek iterator baru yang mengulang titik kode dari nilai String, mengembalikan setiap titik kode sebagai nilai String.
+</blockquote>
+
+	<script>
+		let paragraf= "Naruto uzumaki adalah seorang pahlawan desa konoha, dia berhasil menjadi hokage ke 7."
+
+		{
+			logBg("String.prototype.includes()");
+			
+			let search = "hokage";
+			console.log(`${paragraf.includes(search)}`);
+			console.log(`Kata "${search}" ${paragraf.includes(search) ? "ada" : "tidak ada"} didalam kalimat`);
+		}
+
+		{
+			logBg("String.prtotype.indexOf()");
+
+			let search = "pahlawan";
+			let searchX = "salah";
+			console.log(paragraf.indexOf(search));
+			console.log(paragraf.indexOf(searchX));
+		}
+
+		{
+			logBg("String.prtotype.slice()");
+
+			console.log(paragraf.slice(44));
+			console.log(paragraf.slice(2, 22));
+		}
+
+		{
+			logBg(" String.prototype.split()");
+
+			console.log(paragraf.split());
+			console.log(paragraf.split(" "));
+
+			let y = paragraf.split(" ");
+			console.log(y[3]);
+
+			const chars = paragraf.split("");
+			console.log(chars[8]);
+		}
+
+		{
+			logBg("String.prototype.replace()");
+
+			console.log(paragraf.replace("pahlawan", "hero"));
+		}
+
+		{
+			logBg("String.prototype.toLowerCase()");
+
+			console.log(paragraf.toLocaleLowerCase());
+		}
+
+		{
+			logBg("String.prototype.toUpperCase()");
+
+			console.log(paragraf.toUpperCase());
+		}
+
+		{
+
+			logBg("String.prototype.trim()");
+
+			const greeting = "   Hello world!   ";
+
+			console.log(greeting);
+			// Expected output: "   Hello world!   ";
+
+			console.log(greeting.trim());
+			// Expected output: "Hello world!";
+
+		}
+
+		{
+			logBg("String.prototype.startsWith()");
+
+			console.log(paragraf.startsWith("Naruto"));
+			console.log(paragraf.startsWith("uzumaki", 7));
+			console.log(paragraf.startsWith("uzumaki"));
+		}
+
+		{
+			logBg("String.prototype.endsWith()");
+
+			let i = paragraf.length;
+			console.log(i);
+			console.log(paragraf.endsWith("7", 84));
+		}
+
+		{
+			logBg("String.prototype.repeat()");
+
+			console.log(paragraf.repeat(3));
+		}
+
+		{
+			logBg("String.prototype.replaceAll()");
+
+			console.log(paragraf.replaceAll());
+		}
+	</script>
+
+	<h2>✅ Paling sering digunakan (sangat umum):</h2>
+<blockquote>
+includes()
+
+indexOf()
+
+slice()
+
+split()
+
+replace()
+
+toLowerCase()
+
+toUpperCase()
+
+trim()
+
+startsWith()
+
+endsWith()
+</blockquote>
+
+	<h2>⚠️ Cukup sering digunakan (tergantung konteks):</h2>
+<blockquote>
+charAt()
+
+charCodeAt()
+
+substring()
+
+padStart()
+
+padEnd()
+
+repeat()
+
+replaceAll()
+
+match()
+
+search()
+</blockquote>
+	<h2>🧪 Jarang digunakan / sangat spesifik:</h2>
+
+<blockquote>
+at()
+
+codePointAt()
+
+concat()
+
+lastIndexOf()
+
+localeCompare()
+
+matchAll()
+
+normalize()
+
+toLocaleLowerCase()
+
+toLocaleUpperCase()
+
+trimStart(), trimEnd() (lebih baru, lebih eksplisit)
+
+toWellFormed()
+
+isWellFormed()
+
+valueOf()
+
+toString()
+
+[Symbol.iterator]()
+
+</blockquote>
+
+	<h2>❌ Tidak disarankan:</h2>
+<blockquote>
+substr() → deprecated, jangan digunakan lagi.
+</blockquote>
+
+</body>
+</html>

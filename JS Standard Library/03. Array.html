@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Array</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 00:21 -->
+
+	<h1>Array</h1>
+
+	<p>Tipe data ini udah dibahas di js dasar</p>
+	<p>Saat ini kita akan bahas instance method yang ada di array</p>
+	<p>Banayak instance method di array, kalian bisa cek:</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array</a></p>
+
+<blockquote>
+Array.prototype.at()
+Mengembalikan item array pada indeks yang diberikan. Menerima bilangan bulat negatif, yang dihitung mundur dari item terakhir.
+
+Array.prototype.concat()
+Mengembalikan array baru yaitu array pemanggil yang digabungkan dengan array dan/atau nilai yang lain.
+
+Array.prototype.copyWithin()
+Menyalin urutan elemen array di dalam suatu array.
+
+Array.prototype.entries()
+Mengembalikan objek iterator array baru yang berisi pasangan kunci/nilai untuk setiap indeks dalam suatu array.
+
+Array.prototype.every()
+Mengembalikan truejika setiap elemen dalam array pemanggil memenuhi fungsi pengujian.
+
+Array.prototype.fill()
+Mengisi semua elemen array dari indeks awal hingga indeks akhir dengan nilai statis.
+
+Array.prototype.filter()
+Mengembalikan array baru yang memuat semua elemen array pemanggil yang dikembalikan oleh fungsi penyaringan yang disediakan true.
+
+Array.prototype.find()
+Mengembalikan nilai elemen pertama dalam array yang memenuhi fungsi pengujian yang disediakan, atau undefinedjika tidak ada elemen yang sesuai ditemukan.
+
+Array.prototype.findIndex()
+Mengembalikan indeks elemen pertama dalam array yang memenuhi fungsi pengujian yang disediakan, atau -1jika tidak ada elemen yang sesuai ditemukan.
+
+Array.prototype.findLast()
+Mengembalikan nilai elemen terakhir dalam array yang memenuhi fungsi pengujian yang disediakan, atau undefinedjika tidak ada elemen yang sesuai ditemukan.
+
+Array.prototype.findLastIndex()
+Mengembalikan indeks elemen terakhir dalam array yang memenuhi fungsi pengujian yang disediakan, atau -1jika tidak ada elemen yang sesuai ditemukan.
+
+Array.prototype.flat()
+Mengembalikan array baru dengan semua elemen subarray yang digabungkan ke dalamnya secara rekursif hingga kedalaman yang ditentukan.
+
+Array.prototype.flatMap()
+Mengembalikan array baru yang dibentuk dengan menerapkan fungsi panggilan balik yang diberikan ke setiap elemen array pemanggil, lalu meratakan hasilnya satu tingkat.
+
+Array.prototype.forEach()
+Memanggil fungsi untuk setiap elemen dalam array pemanggil.
+
+Array.prototype.includes()
+Menentukan apakah array pemanggil berisi suatu nilai, mengembalikan trueatau falsesebagaimana mestinya.
+
+Array.prototype.indexOf()
+Mengembalikan indeks pertama (terendah) di mana elemen tertentu dapat ditemukan dalam array pemanggil.
+
+Array.prototype.join()
+Menggabungkan semua elemen array menjadi sebuah string.
+
+Array.prototype.keys()
+Mengembalikan iterator array baru yang berisi kunci untuk setiap indeks dalam array pemanggil.
+
+Array.prototype.lastIndexOf()
+Mengembalikan indeks terakhir (terbesar) tempat elemen tertentu dapat ditemukan dalam array pemanggil, atau -1jika tidak ada yang ditemukan.
+
+Array.prototype.map()
+Mengembalikan array baru yang berisi hasil pemanggilan fungsi pada setiap elemen dalam array pemanggil.
+
+Array.prototype.pop()
+Menghapus elemen terakhir dari suatu array dan mengembalikan elemen tersebut.
+
+Array.prototype.push()
+Menambahkan satu atau lebih elemen ke akhir array, dan mengembalikan nilai baru lengthdari array.
+
+Array.prototype.reduce()
+Menjalankan fungsi panggilan balik "reducer" yang disediakan pengguna pada setiap elemen array (dari kiri ke kanan), untuk mereduksinya menjadi satu nilai.
+
+Array.prototype.reduceRight()
+Menjalankan fungsi panggilan balik "reducer" yang disediakan pengguna pada setiap elemen array (dari kanan ke kiri), untuk mereduksinya menjadi satu nilai.
+
+Array.prototype.reverse()
+Membalikkan urutan elemen array di tempatnya . (Yang pertama menjadi yang terakhir, yang terakhir menjadi yang pertama.)
+
+Array.prototype.shift()
+Menghapus elemen pertama dari suatu array dan mengembalikan elemen tersebut.
+
+Array.prototype.slice()
+Mengekstrak bagian dari array pemanggil dan mengembalikan array baru.
+
+Array.prototype.some()
+Mengembalikan truejika setidaknya satu elemen dalam array pemanggil memenuhi fungsi pengujian yang disediakan.
+
+Array.prototype.sort()
+Mengurutkan elemen-elemen array pada tempatnya dan mengembalikan array.
+
+Array.prototype.splice()
+Menambahkan dan/atau menghapus elemen dari suatu array.
+
+Array.prototype.toLocaleString()
+Mengembalikan string lokal yang mewakili array pemanggil dan elemen-elemennya. Mengganti Object.prototype.toLocaleString()metode.
+
+Array.prototype.toReversed()
+Mengembalikan array baru dengan elemen dalam urutan terbalik, tanpa mengubah array asli.
+
+Array.prototype.toSorted()
+Mengembalikan array baru dengan elemen-elemen yang diurutkan dalam urutan menaik, tanpa memodifikasi array asli.
+
+Array.prototype.toSpliced()
+Mengembalikan array baru dengan beberapa elemen dihapus dan/atau diganti pada indeks tertentu, tanpa memodifikasi array asli.
+
+Array.prototype.toString()
+Mengembalikan string yang mewakili array pemanggil dan elemen-elemennya. Mengganti Object.prototype.toString()metode.
+
+Array.prototype.unshift()
+Menambahkan satu atau lebih elemen di depan array, dan mengembalikan nilai baru lengthdari array.
+
+Array.prototype.values()
+Mengembalikan objek iterator array baru yang berisi nilai untuk setiap indeks dalam array.
+
+Array.prototype.with()
+Mengembalikan array baru dengan elemen pada indeks yang diberikan diganti dengan nilai yang diberikan, tanpa memodifikasi array asli.
+
+Array.prototype[Symbol.iterator]()
+Alias ​​untuk values()metode default.
+</blockquote>
+	
+	<h2>✅ Paling sering digunakan (umum dan penting):</h2>
+<blockquote>
+push() → menambahkan elemen di akhir array
+
+pop() → menghapus elemen terakhir
+
+shift() / unshift() → hapus/tambah elemen di awal
+
+forEach() → looping array
+
+map() → ubah tiap elemen jadi array baru
+
+filter() → menyaring elemen berdasarkan kondisi
+
+find() → ambil elemen pertama yang cocok
+
+includes() → cek apakah ada nilai tertentu
+
+indexOf() → cari posisi elemen
+
+slice() → ambil sebagian array tanpa mengubah aslinya
+
+splice() → ubah isi array (hapus/tambah di tengah)
+
+sort() → urutkan isi array
+
+reduce() → akumulasi/total dari semua elemen
+
+join() → gabungkan array jadi string
+</blockquote>
+
+	<h2>⚠️ Cukup sering (berguna dalam konteks tertentu):</h2>
+
+<blockquote>
+some() / every() → cek kondisi sebagian/semua elemen
+
+flat() / flatMap() → untuk array bersarang
+
+findIndex() / findLast() / findLastIndex()
+
+concat() → gabungkan array
+
+reverse() → balik urutan elemen
+
+lastIndexOf() → mirip indexOf tapi dari belakang
+</blockquote>
+
+	<h2>🧪 Jarang digunakan / spesifik / baru:</h2>
+
+<blockquote>
+at()
+
+copyWithin()
+
+entries(), keys(), values()
+
+fill()
+
+toReversed(), toSorted(), toSpliced() → versi immutable baru dari reverse/sort/splice
+
+reduceRight()
+
+with()
+
+toLocaleString()
+
+[Symbol.iterator]()
+</blockquote>
+
+	<h2>Array loop</h2>
+	<p>Sebelumnya kita pernah bahasa for in dan for of untuk melakukan iterasi array, namun array juga memiliki method yang bernana forEach()</p>
+	<p>Method ini bisa digunakan juga untuk iterasi data array</p>
+
+	<script>
+		{
+			logBg("Foreach");
+
+			let i = ["Jeruk", "Anggur", "Apel", "Pisang"];
+			i.forEach(element => {
+				console.log(element)
+			});
+		}
+
+		{
+			let array = ["Kenny", "Ken", "Rui", "Tachibana"];
+
+			// anon fungsi
+			array.forEach(function (value, index) {
+				console.log(`${index} : ${value}`);
+			});
+
+			// arrow fungsi
+			array.forEach((value, index) => console.log(`${index} : ${value}`));
+
+			// kalo gak butuh data index
+			array.forEach(value => console.info(value));
+
+		}
+	</script>
+
+	<h2>Array queue</h2>
+	<p>Dalam struktur data, terdapat tipe struktur data bernama queue (antrian)</p>
+	<p>Dimana data masuk akan di posisikan di urutan paling belakang</p>
+	<p>Sedangkan data keluar akan di posisikan di urutan paling depan</p>
+	<p>Mirip sekali antrian, atau istilahnya FIFO (first in first out)</p>
+	<p>Kita bisa menggunakan Array dengan bantuan function push() untuk menambah data di belakang, dan shift() untuk mengambil dan menghapus data paling depan</p>
+
+	<script>
+		{
+			const queue = [];
+			queue.push("Satu");
+			queue.push("Dua");
+			queue.push("Tiga");
+			queue.push("Empat");
+
+			console.log(queue.shift()); // mengambil satu dan menghapusnya dari deppan
+			console.log(queue); // Dua, tiga, empat
+		}
+	</script>
+
+	<h2>Array stack</h2>
+	<p>Struktur data stack (tumpukan) kebalikan dari queue, dimana urutannya mirip dengan tumpukan kartu</p>
+	<p>Saat kita memasukkan data, kita akan memasukkan di urutan paling belakang</p>
+	<p>Sedangkan saat kita mengambil data, kita akan mengambil data dari paling belakang (atau atas) terlebih dahulu</p>
+	<p>Stack ini sifatnya LIFO(last in first out)</p>
+	<p>Untuk menambahkan di urutan belakang, kita bisa menggunakan function push()</p>
+	<p>Dan untuk mengambil dan menghapus paling belakang, kita bisa menggunakan fungsi pop()</p>
+
+	<script>
+		{
+			logBg("Stack");
+			let stack = [];
+			stack.push("Satu");
+			stack.push("Dua");
+			stack.push("Tiga");
+			stack.push("Empat");
+			stack.push("Lima");
+
+			console.log(stack);
+			console.log(stack.pop());
+			console.log(stack);
+		}
+	</script>
+
+	<h2>Array search</h2>
+	<p>array memiliki banyak fungsi untuk melakukan pencarian:</p>
+<blockquote>
+find(vaue => boolean) : value				|| Mencari data sesuai dengan kondisi
+findIndex(value => boolean) : number		|| Mencari data index sesuaidengan kondisi
+includes(value) : boolean 				|| Mengecek apakah terdapat data
+indexOf(value) : number 				|| Mengecek posisi index data
+lastIndexOf(value) : number				|| Mengecek posisi index data terakhir
+</blockquote>
+
+	<script>
+		{
+
+			logBg("Search");
+
+			let search = [1,2,3,4,5,1,2,3,4,5];
+
+			console.log(search);
+			console.log(search.length);
+			console.log(search.find(value => value > 3));
+			console.log(search.findIndex(value => value > 3));
+			console.log(search.includes(7));
+			console.log(search.indexOf(5));
+			console.log(search.lastIndexOf(5));
+
+		}
+	</script>
+
+	<h2>Array filter</h2>
+	<p>Array memiliki fungsi untuk memfilter data</p>
+<blockquote>
+filter(value => boolean) : array			|| Melakukan filter data yang kondisinya bernilai true
+</blockquote>
+
+	<script>
+		{
+			logBg("Array filter")
+			let numbers = [1,2,3,4,5,6,7,8,9,10];
+			console.log(numbers.filter(value => value % 2 === 1))
+			console.log(numbers.filter(value => value % 2 === 0))
+		}
+	</script>
+
+	<h2>Array Transform</h2>
+	<p>Array juga memiiki fungsi untuk melakukan Transform</p>
+<blockquote>
+map(value => result) : Array<result>			|| Melakukan Transform tiap value dan menghasilkan array result
+reduce(resultBefore, value => result) : result		|| Melakukan Transform dengan menggunakan value array dan value selanjutnya, lalu hasilnya dilanjutkan ke iterasi selanjutnya
+reduceRight(resultBefore, value => result)		|| Sama seperti reduce(), namun dilakukan dari belakang
+</blockquote>
+
+	<script>
+		{
+			logBg("Array Transform");
+			let names = "Kenny ken ken si best enginer".split(" ");
+			console.log(names.map(value => value.toUpperCase()));
+
+			let num = [1,2,3,4,5,6,7,8,9,10];
+			console.log(num.reduce((result, value) => result + value));
+			console.log(num.reduceRight((result, value) => result + value));
+
+		}
+		{
+			// contoh lain
+			
+			let data = "Saatnya makan makanan pedas saat dunia mulai kiamat dingin!!!". split(" ");
+			console.log(data);
+
+			let dataReduce = data.reduce((before, value) => before + " " + value);
+			console.log(dataReduce);
+			
+			let dataReduceRight = data.reduceRight((result, value) => result + " " + value);
+			console.log(dataReduceRight);
+		
+		}
+		</script>
+
+
+</body>
+</html>

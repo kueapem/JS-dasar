@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Base64</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 02:45 -->
+
+	<h1>Base64</h1>
+	<p>Merupakan binary to text encoding, representasi binary data dalam format string</p>
+	<p>Merupakan format teks data yang aman di kirimkan di web</p>
+	<p>Merupakan encoding yang biasanya digunakan ketika perlu mengirim data dari client ke server</p>
+	<p>Karena encoding Base64 merupakan text, oleh karena itu sangat aman digunakan pada query param URL atau text body dalam form</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Base64">https://developer.mozilla.org/en-US/docs/Glossary/Base64</a></p>
+
+<blockquote>
+Window.btoa()(juga tersedia di pekerja ): membuat string ASCII berkode Base64 dari string data biner ("btoa" harus dibaca sebagai "biner ke ASCII").
+Window.atob()(juga tersedia di pekerja ): mendekodekan string yang dikodekan Base64 ("atob" harus dibaca sebagai "ASCII ke biner").
+
+****
+
+btoa(value) 					|| Encode ke base64 dari value
+atob(encoded)					|| Decode dari base64 ke value
+</blockquote>
+
+	<script>
+		{
+			let original = "Saya adalah pengangguran";
+			let encoded = btoa(original);
+			console.log(encoded);
+
+			let decoded = atob(encoded);
+			console.log(decoded);
+		}
+	</script>
+
+
+	
+</body>
+</html>

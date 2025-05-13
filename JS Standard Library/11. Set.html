@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Set</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 01:42 -->
+
+	<h1>Set</h1>
+	<p>Set merupakan implementasi dari struktur data yang berisikan data-data unique</p>
+	<p>Set mirip seperti Array, hanya saja isi datanya selalu unique</p>
+	<p>Jika kita menambahkan data yang sama, maka data hanya akan diterima satu saja</p>
+	<p>Set mengimplementasikan kontrak iterable, sehingga bisa diiterasi secara default</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set</a></p>
+
+<blockquote>
+Konstruktor
+Set()
+Membuat Setobjek baru.
+
+Properti statis
+Set[Symbol.species]
+Fungsi konstruktor yang digunakan untuk membuat objek turunan.
+
+Properti instans
+Properti ini didefinisikan Set.prototypedan dibagikan oleh semua Setinstansi.
+
+Set.prototype.constructor
+Fungsi konstruktor yang membuat objek instan. Untuk Setinstans, nilai awal adalah Setkonstruktor.
+
+Set.prototype.size
+Mengembalikan jumlah nilai dalam Setobjek.
+
+Set.prototype[Symbol.toStringTag]
+Nilai awal properti [Symbol.toStringTag]adalah string "Set". Properti ini digunakan dalam Object.prototype.toString().
+
+Metode instan
+Set.prototype.add()
+Menyisipkan elemen baru dengan nilai yang ditentukan ke dalam suatu Setobjek, jika belum ada elemen dengan nilai yang sama di dalam Set.
+
+Set.prototype.clear()
+Menghapus semua elemen dari Setobjek.
+
+Set.prototype.delete()
+Menghapus elemen yang terkait dengan valuedan mengembalikan boolean yang menegaskan apakah elemen berhasil dihapus atau tidak. Set.prototype.has(value)akan kembali falsesetelahnya.
+
+Set.prototype.difference()
+Mengambil suatu himpunan dan mengembalikan himpunan baru yang memuat unsur-unsur dalam himpunan ini tetapi tidak terdapat dalam himpunan yang diberikan.
+
+Set.prototype.entries()
+Mengembalikan objek iterator baru yang berisi larik[value, value] untuk setiap elemen dalam Setobjek, dalam urutan penyisipan. Ini mirip dengan Mapobjek, sehingga kunci setiap entri sama dengan nilainya untuk Set.
+
+Set.prototype.forEach()
+Memanggil callbackFnsatu kali untuk setiap nilai yang ada dalam Setobjek, dalam urutan penyisipan. Jika thisArgparameter diberikan, parameter tersebut akan digunakan sebagai thisnilai untuk setiap pemanggilan callbackFn.
+
+Set.prototype.has()
+Mengembalikan boolean yang menegaskan apakah suatu elemen hadir dengan nilai yang diberikan dalam Setobjek atau tidak.
+
+Set.prototype.intersection()
+Mengambil suatu himpunan dan mengembalikan himpunan baru yang memuat unsur-unsur dari himpunan ini maupun himpunan yang diberikan.
+
+Set.prototype.isDisjointFrom()
+Mengambil suatu himpunan dan mengembalikan nilai boolean yang menunjukkan jika himpunan ini tidak memiliki elemen yang sama dengan himpunan yang diberikan.
+
+Set.prototype.isSubsetOf()
+Mengambil suatu himpunan dan mengembalikan nilai boolean yang menunjukkan apakah semua elemen himpunan ini ada di dalam himpunan yang diberikan.
+
+Set.prototype.isSupersetOf()
+Mengambil suatu himpunan dan mengembalikan nilai boolean yang menunjukkan apakah semua elemen dari himpunan yang diberikan ada di dalam himpunan ini.
+
+Set.prototype.keys()
+Alias ​​untuk Set.prototype.values().
+
+Set.prototype.symmetricDifference()
+Mengambil suatu himpunan dan mengembalikan himpunan baru berisi elemen-elemen yang ada di dalam himpunan ini atau himpunan yang diberikan, tetapi tidak di keduanya.
+
+Set.prototype.union()
+Mengambil suatu himpunan dan mengembalikan himpunan baru berisi elemen-elemen yang ada di dalam himpunan ini atau himpunan yang diberikan.
+
+Set.prototype.values()
+Mengembalikan objek iterator baru yang menghasilkan nilai untuk setiap elemen dalam Setobjek dalam urutan penyisipan.
+
+Set.prototype[Symbol.iterator]()
+Mengembalikan objek iterator baru yang menghasilkan nilai untuk setiap elemen dalam Setobjek dalam urutan penyisipan.
+</blockquote>
+
+	<script>
+		{
+			let set = new Set();
+
+			set.add("kenny");
+			set.add("Budi");
+			set.add("Rui");
+			set.add("Jamal");
+			set.add("Jamal");
+			console.log(set);
+
+			set.forEach((value) => console.log(value));
+		}
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Symbol</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 01:46 -->
+
+	<h1>Symbol</h1>
+
+	<p>Symbol merupakan tipe data yang di garansi akan selalu unique setiap kali kita membuat data symbol</p>
+	<p>Symbol kadang banyak digunakan untuk membuat key pada object</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol</a></p>
+
+<blockquote>
+Konstruktor
+Symbol()
+Mengembalikan nilai primitif bertipe Simbol. Melempar kesalahan saat dipanggil dengan new.
+
+Properti statis
+Semua properti statis adalah Simbol yang dikenal. Dalam deskripsi Simbol ini, kita akan menggunakan bahasa seperti " Symbol.hasInstanceadalah metode yang menentukan…", tetapi perlu diingat bahwa ini merujuk pada semantik metode objek yang memiliki Simbol ini sebagai nama metode (karena Simbol yang dikenal bertindak sebagai "protokol"), bukan mendeskripsikan nilai Simbol itu sendiri.
+
+Symbol.asyncIterator
+Metode yang mengembalikan AsyncIterator default untuk suatu objek. Digunakan oleh for await...of.
+
+Symbol.hasInstance
+Metode yang menentukan apakah objek konstruktor mengenali objek sebagai instansinya. Digunakan oleh instanceof.
+
+Symbol.isConcatSpreadable
+Nilai Boolean yang menunjukkan apakah suatu objek harus diratakan menjadi elemen array-nya. Digunakan oleh Array.prototype.concat().
+
+Symbol.iterator
+Suatu metode yang mengembalikan iterator default untuk suatu objek. Digunakan oleh for...of.
+
+Symbol.match
+Metode yang cocok dengan string, juga digunakan untuk menentukan apakah suatu objek dapat digunakan sebagai ekspresi reguler. Digunakan oleh String.prototype.match().
+
+Symbol.matchAll
+Metode yang mengembalikan iterator, yang menghasilkan kecocokan ekspresi reguler dengan string. Digunakan oleh String.prototype.matchAll().
+
+Symbol.replace
+Metode yang mengganti substring yang cocok dari sebuah string. Digunakan oleh String.prototype.replace().
+
+Symbol.search
+Metode yang mengembalikan indeks dalam string yang cocok dengan ekspresi reguler. Digunakan oleh String.prototype.search().
+
+Symbol.species
+Fungsi konstruktor yang digunakan untuk membuat objek turunan.
+
+Symbol.split
+Metode yang membagi string pada indeks yang cocok dengan ekspresi reguler. Digunakan oleh String.prototype.split().
+
+Symbol.toPrimitive
+Suatu metode yang mengubah suatu objek menjadi nilai primitif.
+
+Symbol.toStringTag
+Nilai string yang digunakan untuk deskripsi default suatu objek. Digunakan oleh Object.prototype.toString().
+
+Symbol.unscopables
+Nilai objek yang nama propertinya sendiri dan yang diwarisi dikecualikan dari withpengikatan lingkungan objek terkait.
+
+Metode statis
+Symbol.for()
+Mencari Simbol terdaftar yang ada di registri Simbol global dengan yang diberikan keydan mengembalikannya jika ditemukan. Jika tidak, Simbol baru akan dibuat dan didaftarkan dengan key.
+
+Symbol.keyFor()
+Mengambil kunci Simbol bersama dari registri Simbol global untuk Simbol yang diberikan.
+
+Properti instans
+Properti ini didefinisikan Symbol.prototypedan dibagikan oleh semua Symbolinstansi.
+
+Symbol.prototype.constructor
+Fungsi konstruktor yang membuat objek instan. Untuk Symbolinstans, nilai awal adalah Symbolkonstruktor.
+
+Symbol.prototype.description
+Suatu string hanya-baca yang berisi deskripsi Simbol.
+
+Symbol.prototype[Symbol.toStringTag]
+Nilai awal properti [Symbol.toStringTag]adalah string "Symbol". Properti ini digunakan dalam Object.prototype.toString(). Namun, karena Symboljuga memiliki metodenya sendiri toString(), properti ini tidak digunakan kecuali Anda memanggilnya Object.prototype.toString.call()dengan simbol seperti thisArg.
+
+Metode instan
+Symbol.prototype.toString()
+Mengembalikan string yang berisi deskripsi Simbol. Mengganti Object.prototype.toString()metode.
+
+Symbol.prototype.valueOf()
+Mengembalikan Simbol. Mengganti Object.prototype.valueOf()metode.
+
+Symbol.prototype[Symbol.toPrimitive]()
+Mengembalikan Simbol.
+</blockquote>
+
+	<script>
+		{
+			let fName = Symbol();
+			let lName = Symbol();
+
+			let person = {};
+			person[fName] = "kenny";
+			person[lName] = "ken";
+
+			console.log(person);
+			console.log(person[fName]);
+			console.log(person[lName]);
+			console.log(person.lName); // error undefined
+
+			//
+			let i = Symbol("Nama");
+			let j = Symbol("Nama");
+
+			console.log(i === j);
+			
+			let k = {};
+			k[i] = "satu";
+			k[j] = "dua";
+			console.log(k);
+		}
+	</script>
+
+	<h2>Symbol for</h2>
+	<p>Kadang agak sulit membuat symbol harus selalu menggunakan variable</p>
+	<p>Pembuatan symbol juga bisa menggunakan static method Symbol.for(key)</p>
+	<p>Jika kita menggunakan key yang sama, Symbol yang sama akan selalu di kembalikan</p>
+
+	<script>
+		{
+			let person = {};
+			person[Symbol.for("fName")] = "Rui";
+			person[Symbol.for("lName")] = "Tachibana";
+
+			console.log(person);
+			console.log(person[Symbol.for("fName")]);
+			console.log(person[Symbol.for("lName")]);
+		}
+	</script>
+	
+</body>
+</html>

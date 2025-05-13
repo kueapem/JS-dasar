@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Proxy</title>
+	<link rel="stylesheet" href="_style.css">
+	<script src="_script.js"></script>
+</head>
+<body>
+
+	<!-- 02:20 -->
+
+	<h1>Proxy</h1>
+	<p>Merupakan fitur yang bisa digunakan sebagai wakil sebuah data</p>
+	<p>Dengan menggunakan proxy, semua interaksi ke data akan melalui Proxy terlebih dahulu</p>
+	<p>Dengan ini, kita bisa melakukan apapun sebelum interaksi dilakukan ke data ang dituju</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy</a></p>
+
+	<h2>Proxy handler</h2>
+	<p>Pembuatan proxy perlu menggunkan handler, dimana dalam handler, kita bisa membuat function yang dinamakan interceptor yang digunkan ketika mengambil data atau mengubah data ke target</p>
+	<p>Untuk membuat proxy, kita bisa menggunakan ne Proxy(target, handler)</p>
+
+<blockquote>
+handler
+Objek yang diteruskan sebagai argumen kedua ke Proxykonstruktor. Objek ini berisi perangkap yang menentukan perilaku proksi.
+
+trap
+Fungsi yang menentukan perilaku metode internal objek terkait . (Ini serupa dengan konsep perangkap dalam sistem operasi.)
+
+target
+Objek yang divirtualisasikan oleh proxy. Objek ini sering digunakan sebagai backend penyimpanan untuk proxy. Invarian (semantik yang tidak berubah) mengenai objek yang tidak dapat diperluas atau properti yang tidak dapat dikonfigurasi diverifikasi terhadap target.
+
+invarian
+Semantik yang tetap tidak berubah saat mengimplementasikan operasi kustom. Jika implementasi trap Anda melanggar invarian dari sebuah handler, a TypeErrorakan dilempar.
+</blockquote>
+
+	<script>
+		{
+			let target = {
+				mName : "Hina"
+			};
+
+			let handler = {
+				get: function (target, properti) {
+					return target[properti];
+				},
+				set: function (target, properti, value) {
+					target[properti] = value;
+				}
+			}
+
+			let proxy = new Proxy(target, handler);
+
+			proxy.fName = "Rui";
+			proxy.lName = "Tachibana";
+
+			console.log(proxy.fName);
+			console.log(proxy.mName);
+			console.log(proxy.lName);
+			console.log(target);
+		}
+	</script>
+
+	<h2>Proxy dan handler</h2>
+	<p>Saat kita mengubah data proxy, secara otomatis data akan dikirim ke target melalui handler dengan memanggil function set (target, property, value)</p>
+	<p>Saat kita mengambil data proxy, secara otomatis data akan diambil dari target melalui handler dengan memanggil function get(target, property)</p>
+	<p>Artinya, jika kita ingin melakukan sesuatu sebelum dan setelahnya, bisa kita lakukan di handler</p>
+
+	<script>
+		{
+			let target = {
+				mName : "Hina"
+			};
+
+			let handler = {
+				get: function (target, properti) {
+					console.log(`Akses property : ${properti}` );
+					return target[properti];
+				},
+				set: function (target, properti, value) {
+					console.log(`Change property : ${properti} : ${value}` );
+					target[properti] = value;
+				}
+			}
+
+			let proxy = new Proxy(target, handler);
+
+			proxy.fName = "Rui";
+			proxy.lName = "Tachibana";
+
+			console.log(proxy.fName);
+			console.log(proxy.mName);
+			console.log(proxy.lName);
+			console.log(target);
+		}
+	</script>
+	
+</body>
+</html>
