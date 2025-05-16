@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>13. Dynamic Module Loading</title>
+	<link rel="stylesheet" href="../_style.css">
+	<script src="../_script.js"></script>
+</head>
+<body>
+	
+	<!-- 01:17:30 -->
+
+	<h1>13. Dynamic Module Loading</h1>
+	<p>Saat kita menggunakan module dengan cara import, maka semua module akan di load</p>
+	<p>Pada kenyataannya, kadang kita tidak ingin meload semua module di awal, kita inginmeload module ketika dibutuhkan saja, ini akan menghemat bandwidth jaringan juga, karena kita tidak perlu donwload semua module di awal</p>
+	<p>JS mendukung Dynamic module loading, caranta bisa menggunakan function import(), dimana hasilnya berupa Promise<ModuleObject>(Promise adlaah materi yang kompleks, ini akan di bahas di js Async)</p>
+
+	<script type="module">
+		import {hello} from "./script/app.js";
+		
+		{
+			// hello()
+		
+		}
+	</script>
+
+</body>
+</html>

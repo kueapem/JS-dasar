@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Export Default</title>
+		<link rel="stylesheet" href="../_style.css" />
+		<script src="../_script.js"></script>
+	</head>
+	<body>
+		<!-- 00:52:30 -->
+
+		<h1>Export Default</h1>
+		<p>
+			Samapi saat ini kita selalu memalkukan export dengan nama, baik nama
+			varible, fungsi atau class
+		</p>
+		<p>
+			Ada juga fitur yang bernama export Default, merupakan fitur yang digunakan
+			untuk mempermudah membuat defautl data di module, dan membantu js agar
+			kompatibel dengan commonJS dan AMD module system
+		</p>
+
+		<h2>Cara export default</h2>
+		<ul>
+			<li>export default namaFunction</li>
+			<li>export default function(){...}</li>
+			<li>export default namaVariable;</li>
+			<li>export default namaVariable = value;</li>
+			<li>export default NamaClass;</li>
+			<li>export default class{...}</li>
+		</ul>
+
+		<h2>Cara import default</h2>
+		<ul>
+			<li>import aliasFunction from "./app.js"</li>
+			<li>import {default as aliasFunction} from "./app.js"</li>
+			<li>import aliasVariable from "./app.js"</li>
+			<li>import {default as aliasVariable} from "./app.js"</li>
+			<li>import AliasClass from "./app.js"</li>
+			<li>import {default as AliasClass} from "./app.js"</li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Default dan Named Export</title>
+	<link rel="stylesheet" href="../_style.css">
+	<script src="../_script.js"></script>
+</head>
+<body>
+	
+	<!-- 00:52:30 -->
+
+	<h1>Default dan Named Export</h1>
+	<p>Dalam satu module, kita bisa menggabungkan export default dan export named</p>
+	<p>Yang tidak boleh adalah, dalam satu module, membuat lebih dari satu defautl</p>
+	<p>Cara import default dan named secara bersamaan bisa menggunakan perintah berikut:</p>
+<pre><code>
+import defaultAlias, {named1, named2} from "./app.js";
+import {default as defaultAlias}, {named1, named2} from "./app.js";
+</code></pre>
+
+	<script type="module">
+		import data, {title, content} from "./script/default-dan-named-export.js";
+
+		console.log(data);
+		console.log(data.author);
+		console.log(data.module);
+		console.log(data.year);
+
+		console.log(title);
+		console.log(content);
+	</script>
+
+	<h2>Rekomendasi</h2>
+	<p>Bedakan antara default dan named, karena jika digabungkan kadang akan membingungkan ketika melakukan import</p>
+	<p>Jika kita menggunakan default, kita tidak perlu menuliskan nama variabel yang sama dengan nama exportnya</p>
+	<p>Jika kita menggunakan named, kita harus menuliskan nama variabel yang sama dengan nama exportnya</p>
+	<p>Sebisa mungkin selalu gunakan export named dibandingkan export defautl</p>
+
+</body>
+</html>

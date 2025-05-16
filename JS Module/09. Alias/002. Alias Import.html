@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Alias</title>
+		<link rel="stylesheet" href="../_style.css" />
+		<script src="../_script.js"></script>
+	</head>
+	<body>
+		<!-- 00:45:30 -->
+
+		<h1>Alias</h1>
+		<h2>Alias di import (direkomendasikan)</h2>
+		<p>
+			Untuk melakukan alias ketika import, kita bisa gunakan kata kunci as,
+			diikuti dengan nama aliasnya:
+		</p>
+
+		<pre><code>
+import {function as namafunction}
+</code></pre>
+
+		<script type="module">
+
+			import{name as nama, sum as plus, Person as human} from "./import/script/app.js"
+			{
+				console.log(nama);
+				console.log(plus(1,1));
+			}
+		</script>
+	</body>
+</html>

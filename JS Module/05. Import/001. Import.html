@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Import</title>
+	<link rel="stylesheet" href="../_style.css">
+	<script src="../_script.js"></script>
+
+
+	<script type="module" src="script/library.js"></script>
+</head>
+<body>
+	
+	<!-- 00:25:30 -->
+
+	<h1>Import</h1>
+	<p>Export digunakan untuk mengekspos kode di module, jika kita ingin menggunakan kode yang sudah di ekspos di module, kita bisa menggunakan kata kunci import</p>
+	<p>Cara menggunakan kata kunci import adalah sebagai berikut</p>
+
+<pre><code>
+import{namaFunction, namaVariable, namaClass} from "lokasi-module.js"
+</code></pre>
+
+	<p>Module hanya bisa digunakan di module lain, jadi pastikan ketika membuat script , kita harus menggunakan type module</p>
+	<p>Saat menggunakan import, kita tidak perlu lagi menggunakan script module src satu persatu, karena sudah di handle oleh browser secara otomatis ketika kita menggunakan module</p>
+
+	<script type="module">
+		
+		
+		import {say,hi} from "./script/library.js"
+		
+		
+		{
+			say("Kenny");
+			hi("Rui");
+		}
+	</script>
+
+</body>
+</html>

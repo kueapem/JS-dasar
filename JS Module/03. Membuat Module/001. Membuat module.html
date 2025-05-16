@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Membuat module</title>
+	<link rel="stylesheet" href="../_style.css">
+	<script src="../_script.js"></script>
+
+
+	<script type="module" src="script/library.js"></script>
+</head>
+<body>
+	
+	<!-- 00:18:30 -->
+
+	<h1>Membuat module</h1>
+
+	<p>Membuat module itu sederhana, kita cukup membuat file js biasanya</p>
+	<p>Yang membedakan adalah, saat kita akan meload file JS dari HTML, kita tidak bisa menggunkaan type javascript lagi, melainkan menggunakan type module</p>
+
+	<h1>File .js dan .mjs</h1>
+	<p>Karena file js module sebenarnya sama dengan js biasa, kadang developer membedakan nama file untuk js module menggunakan .mjs</p>
+	<p>Hal ini sebenarnya tidak ada kewajibananya, hanya saja agar mempermudah ketika di tahap development, kita bisa dengan mudah memebrdakan mana file js biasa dengan file js module hanya dengan extensionnya saja</p>
+	
+	<script>
+		{
+			say("Kenny");
+			hi("Rui");
+		}
+	</script>
+
+	<h2>Kenapa error</h2>
+	<p>Secara default, saat kita menggunakan fitur js module, semua kode baik itu fungsi, loop, variable dll tidak akan di ekspos keluar module tersebut</p>
+	<p>JIka kita ingin mengekspos kode tersebut, kita harus memberitahunya secara eksplisit</p>
+
+</body>
+</html>

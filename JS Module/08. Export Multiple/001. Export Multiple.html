@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Export multiple</title>
+	<link rel="stylesheet" href="../_style.css">
+	<script src="../_script.js"></script>
+</head>
+<body>
+	
+	<!-- 00:41:30 -->
+
+	<h1>Export multiple</h1>
+	<p>Sebelumnya kita selalu menggunakan kata kunci export di awal variable, fungis atau class</p>
+	<p>Sebenarnya kita bisa menggunkana export sekaligus beberapa data sekaligus, caranya cukup gunakan perintah</p>
+
+<pre><code>
+export{variable, function, class dll}
+</code></pre>
+
+	<script type="module">
+		
+		
+		import {name, sum} from "./script/app.js"
+		
+		
+		{
+			console.log(name);
+
+			console.log(sum(1, 2));
+		}
+	</script> 
+
+</body>
+</html>

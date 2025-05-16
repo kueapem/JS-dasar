@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tanpa module dan Dengan module</title>
+	<link rel="stylesheet" href="../_style.css">
+	<script src="../_script.js"></script>
+
+
+	<script src="script/library.js"></script>
+</head>
+<body>
+	
+	<!-- 00:13:00 -->
+
+	<h1>Tanpa Module</h1>
+	<p>Sebelum kita bahasa js module, sekarang kita coba dulu tanpa menggunakan module</p>
+	<p>Saat kita membuat file js, lalu kita load file js tersebut di web, secara deafult semua kode js di file tersebut bisa diakses, baik itu varible, fungsi dll</p>
+
+
+	<script>
+		{
+			say("Kenny");
+			hi("Rui");
+		}
+	</script>
+
+
+	<h1>Dengan Module</h1>
+	<p>Kita bisa secara selektif memilih bagian kode mana yang ingin kita ekspos keluar</p>
+	<p>Secara default kode yang dibuta menggunakan js moduel tidak bisa digunakan dari luar file, kecuali kita memintanya untuk mengekspor keluat</p>
+	<p>Jika tanpa module, semua file / isi file js akan di ekspos keluar dan ini kuarng baik.</p>
+
+	
+</body>
+</html>

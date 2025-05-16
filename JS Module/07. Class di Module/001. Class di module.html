@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Class di module</title>
+	<link rel="stylesheet" href="../_style.css">
+	<script src="../_script.js"></script>
+</head>
+<body>
+	
+	<!-- 00:37:30 -->
+
+	<h1>Class di module</h1>
+	<p>Selain fungsi dan variabel, dimodule juga bisa menambhakan class</p>
+	<p>Secara default, class tersebut hanya bisa di akses dari dalam module nya saja, tidak bisa diluar module</p>
+	<p>Jika kita ingin mengekspos class yang kita buat, kita juga perlu menggunakan kata kunci export di awal deklarasi classnya</p>
+
+	<script type="module">
+		
+		
+		import {Person} from "./script/app.js"
+		
+		
+		{
+			const person = new Person("Kenny");
+			person.say("Budi");
+		}
+	</script>
+
+</body>
+</html>

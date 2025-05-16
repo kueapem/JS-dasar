@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alias</title>
+	<link rel="stylesheet" href="../_style.css">
+	<script src="../_script.js"></script>
+</head>
+<body>
+	
+	<!-- 00:45:30 -->
+
+	<h1>Alias</h1>
+	<p>Saat membuat aplikasi js, semakin lama kemungkinana module akan semakin banyak</p>
+	<p>Dan bisa saja akan ada nama variable atau nama fungsi atau nama class yang sama antar module</p>
+	<p>Hal ini akan menyulitkan ketika ada module yang menggunakan beberapa module, namun ternyata varibale, function, atau class nya memiliki nama yang sama</p>
+	<p>Untungnya, module memiliki fitur alias, dimana kita bisa mengubah nama variable, function atua class nya</p>
+
+	<h2>Alias di export (tidak direkomendasikan)</h2>
+	<p>Kita dapat menggunakan alias ketika melakukan export di module</p>
+	<p>Caranya menggunakan kata kunci as, lalu diikuti dengan nama alias:</p>
+<pre><code>
+export{variable ad variableLain, function as functionLain, Class as ClassLain}
+</code></pre>
+
+	<script type="module">
+		
+		
+		import {n, plus, p} from "./script/app.js"
+		
+		
+		{
+			console.log(n);
+
+			console.log(plus(1, 2));
+		}
+	</script> 
+
+
+
+</body>
+</html>

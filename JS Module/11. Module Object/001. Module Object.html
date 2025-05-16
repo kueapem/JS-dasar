@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Module object</title>
+	<link rel="stylesheet" href="../_style.css">
+	<script src="../_script.js"></script>
+</head>
+<body>
+	
+	<!-- 01:08:30 -->
+
+	<h1>Module object</h1>
+	<p>Ketika sebuah module berisikan banyak sekali export data, maka melakukan import satu persatu akan terlihat berantakan</p>
+	<p>Rekomendasinya ketika kita ingin mengimport module yang sangat banyak export datanya, gunakan module object</p>
+	<p>Module object sederhananya adalah obejct js yang berisi attribute hasil yang di export pada module</p>
+	<p>Cara membuat module object bisa kita lakukan misalnyta seperti berikut:</p>
+<pre><code>
+import * as moduleObject from "./script/module-object.js";
+</code></pre>
+	<p>Dengan menggunakan module object, kita bisa mengakses semua data yang di export pada module tersebut</p>
+	
+	<script type="module">
+
+		import * as data from "./script/app.js";
+	
+		{
+			console.log(data);
+			console.log(data.name);
+			console.log(data.age);
+			console.log(data.firstName);
+			console.log(data.lastName);
+			console.log(data.sum(1, 2));
+			
+			
+			let i = new data.Person();
+			console.log(i.name);
+		}
+
+
+	</script>
+
+</body>
+</html>
